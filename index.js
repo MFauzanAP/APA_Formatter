@@ -3,11 +3,13 @@
 /* ===================================================== Imports ==================================================== */
 const path = require('path');
 const dotenv = require('dotenv');
+const helmet = require('helmet');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const helmet = require('helmet');
 const hbs = require('express-handlebars');
+const rateLimit = require('express-rate-limit');
+const http = require('http');
 const api = require('./server/routes/api/main');
 const main = require('./server/routes/main/main');
 
@@ -20,6 +22,9 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 
 //	Setup express app
 const app = express();
+
+//	Setup server
+http.createServer(app);
 
 //	Setup safe headers
 app.use(helmet());
@@ -37,6 +42,22 @@ app.set('view engine', 'hbs');
 
 //	Setup port
 const port = 3000;
+
+
+
+/* ================================================== Rate Limiting ================================================= */
+
+//	Declare limit object
+var limit = new rateLimit({
+	windowMS	: 10 * 60 * 1000, 
+	max		: 100,
+	skip		: (req, res) => {
+		return req.url.substring(0, 8) == '/static/';
+	}
+});
+
+//	Apply rate limiting
+app.use(limit);
 
 
 
