@@ -71,7 +71,7 @@ app.use('/', main);
 app.get('*', (req, res) => {
 
 	//	Return error page
-	return res.render('error/404', { layout: 'error/404' })
+	return res.render('404', { layout: '404' })
 
 })
 
