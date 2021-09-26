@@ -41,7 +41,7 @@ app.engine('hbs', hbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
 //	Setup port
-const port = 3000;
+const port = 4000;
 
 
 
