@@ -56,6 +56,8 @@ body .shake {
   /* Details Stage */
   /* Vocabulary Stage */
   /* Essay Stage */
+  /* Formatting Stage */
+  /* Download Stage */
   /* Banner */
   /* Essay Input */
   /* Essay Form */
@@ -96,9 +98,11 @@ body .shake {
   /* Details */
   /* Vocabulary */
   /* Essay */
+  /* Formatting */
+  /* Download */
 }
 .form_page.details .essay_form .stepper {
-  background-position: 80%;
+  background-position: 90%;
   /* First Step */
 }
 .form_page.details .essay_form .stepper .step:nth-of-type(1) {
@@ -117,6 +121,16 @@ body .shake {
   opacity: 0;
 }
 .form_page.details .essay_form .essay {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.details .essay_form .formatting {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.details .essay_form .download {
   pointer-events: none;
   transform: translateX(50vw);
   opacity: 0;
@@ -157,9 +171,11 @@ body .shake {
   /* Details */
   /* Vocabulary */
   /* Essay */
+  /* Formatting */
+  /* Download */
 }
 .form_page.vocabulary .essay_form .stepper {
-  background-position: 35%;
+  background-position: 66%;
   /* First Step */
   /* Second Step */
 }
@@ -188,6 +204,16 @@ body .shake {
   opacity: 1;
 }
 .form_page.vocabulary .essay_form .essay {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.vocabulary .essay_form .formatting {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.vocabulary .essay_form .download {
   pointer-events: none;
   transform: translateX(50vw);
   opacity: 0;
@@ -228,9 +254,11 @@ body .shake {
   /* Details */
   /* Vocabulary */
   /* Essay */
+  /* Formatting */
+  /* Download */
 }
 .form_page.essay .essay_form .stepper {
-  background-position: 35%;
+  background-position: 42%;
   /* First Step */
   /* Second Step */
   /* Third Step */
@@ -268,6 +296,237 @@ body .shake {
   opacity: 0;
 }
 .form_page.essay .essay_form .essay {
+  pointer-events: all;
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+}
+.form_page.essay .essay_form .formatting {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.essay .essay_form .download {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.formatting {
+  /* Banner */
+  /* Essay Input */
+  /* Essay Form */
+}
+.form_page.formatting .banner {
+  transform: translateY(-35vh);
+  /* Title */
+  /* Description */
+}
+.form_page.formatting .banner .title {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.formatting .banner .description {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.formatting .essay_input {
+  opacity: 0;
+  transform: translateY(-60vh);
+  /* Submit Button */
+}
+.form_page.formatting .essay_input .button {
+  flex: 0 0 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+.form_page.formatting .essay_form {
+  pointer-events: all !important;
+  opacity: 1;
+  transition: 0.25s ease-in-out 0.5s;
+  /* Stepper */
+  /* Details */
+  /* Vocabulary */
+  /* Essay */
+  /* Formatting */
+  /* Download */
+}
+.form_page.formatting .essay_form .stepper {
+  background-position: 18%;
+  /* First Step */
+  /* Second Step */
+  /* Third Step */
+  /* Fourth Step */
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(1) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(1) .check {
+  transform: scale(1);
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(2) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(2) .check {
+  transform: scale(1);
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(3) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(3) .check {
+  transform: scale(1);
+}
+.form_page.formatting .essay_form .stepper .step:nth-of-type(4) {
+  color: #0099FF;
+  border: 3px solid #0099FF;
+}
+.form_page.formatting .essay_form .details {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.formatting .essay_form .vocabulary {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.formatting .essay_form .essay {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.formatting .essay_form .formatting {
+  pointer-events: all;
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+}
+.form_page.formatting .essay_form .download {
+  pointer-events: none;
+  transform: translateX(50vw);
+  opacity: 0;
+}
+.form_page.download {
+  /* Banner */
+  /* Essay Input */
+  /* Essay Form */
+}
+.form_page.download .banner {
+  transform: translateY(-35vh);
+  /* Title */
+  /* Description */
+}
+.form_page.download .banner .title {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.download .banner .description {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.download .essay_input {
+  opacity: 0;
+  transform: translateY(-60vh);
+  /* Submit Button */
+}
+.form_page.download .essay_input .button {
+  flex: 0 0 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+.form_page.download .essay_form {
+  pointer-events: all !important;
+  opacity: 1;
+  transition: 0.25s ease-in-out 0.5s;
+  /* Stepper */
+  /* Details */
+  /* Vocabulary */
+  /* Essay */
+  /* Formatting */
+  /* Download */
+}
+.form_page.download .essay_form .stepper {
+  background-position: 0%;
+  /* First Step */
+  /* Second Step */
+  /* Third Step */
+  /* Fourth Step */
+  /* Fifth Step */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(1) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(1) .check {
+  transform: scale(1);
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(2) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(2) .check {
+  transform: scale(1);
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(3) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(3) .check {
+  transform: scale(1);
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(4) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(4) .check {
+  transform: scale(1);
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(5) {
+  color: #0099FF !important;
+  background: #0099FF;
+  border: none;
+  /* Check */
+}
+.form_page.download .essay_form .stepper .step:nth-of-type(5) .check {
+  transform: scale(1);
+}
+.form_page.download .essay_form .details {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.download .essay_form .vocabulary {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.download .essay_form .essay {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.download .essay_form .formatting {
+  pointer-events: none;
+  transform: translateX(-50vw);
+  opacity: 0;
+}
+.form_page.download .essay_form .download {
   pointer-events: all;
   position: relative;
   transform: translateX(0);
@@ -426,12 +685,14 @@ body .shake {
   /* Details */
   /* Vocabulary */
   /* Essay */
+  /* Formatting */
+  /* Download */
   /* Controls */
 }
 .form_page .essay_form .stepper {
-  width: 400px;
+  width: 750px;
   height: 2px;
-  margin-top: -100px;
+  margin-top: -50px;
   margin-bottom: 100px;
   background-image: linear-gradient(to right, #0099FF, #0099FF 50%, #CCCCCC 50%, #CCCCCC);
   background-size: 200% 100%;
@@ -780,6 +1041,40 @@ body .shake {
   font-size: 0.9rem;
   letter-spacing: 0.05rem;
   transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+}
+.form_page .essay_form .formatting {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #646464;
+  font-size: 1.5em;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+  /* Animation */
+  /* Text */
+}
+.form_page .essay_form .formatting lottie-player {
+  width: 450px;
+  height: 450px;
+  margin-top: -50px;
+}
+.form_page .essay_form .formatting .text {
+  margin-top: -50px;
+}
+.form_page .essay_form .download {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
 }
 .form_page .essay_form .controls {
   width: 100%;

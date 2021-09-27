@@ -13,6 +13,8 @@ function on_click_forward () {
 		''			: 'details',
 		'details'		: 'vocabulary',
 		'vocabulary'		: 'essay',
+		'essay'			: 'formatting',
+		'formatting'		: 'download',
 	}
 
 	//	Get details from form
@@ -38,6 +40,8 @@ function on_click_backward () {
 		'details'		: '',
 		'vocabulary'		: 'details',
 		'essay'			: 'vocabulary',
+		'formatting'		: 'essay',
+		'download'		: 'formatting',
 	}
 
 	//	Go back to previous stage
