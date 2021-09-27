@@ -58,10 +58,11 @@ $quaternary_text_color		: #AAAAAA;
 
 /* Body */
 body {
+	position		: relative;
 	height			: 100%;
 	min-height		: 100vh;
 
-	overflow		: hidden;
+	overflow-x		: hidden;
 
 	padding			: 0;
 	margin			: 0;
@@ -154,6 +155,8 @@ body {
 			.details {
 				pointer-events		: all;
 
+				position		: relative;
+
 				transform		: translateX(0);
 
 				opacity			: 1;
@@ -161,6 +164,15 @@ body {
 
 			/* Vocabulary */
 			.vocabulary {
+				pointer-events		: none;
+
+				transform		: translateX(50vw);
+
+				opacity			: 0;
+			}
+
+			/* Essay */
+			.essay {
 				pointer-events		: none;
 
 				transform		: translateX(50vw);
@@ -251,6 +263,129 @@ body {
 			/* Vocabulary */
 			.vocabulary {
 				pointer-events		: all;
+
+				position		: relative;
+
+				transform		: translateX(0);
+
+				opacity			: 1;
+			}
+
+			/* Essay */
+			.essay {
+				pointer-events		: none;
+
+				transform		: translateX(50vw);
+
+				opacity			: 0;
+			}
+		}
+	}
+
+	/* Essay Stage */
+	&.essay {
+
+		/* Banner */
+		.banner {
+			transform		: translateY(-35vh);
+
+			/* Title */
+			.title {
+				opacity			: 0;
+
+				transform		: translateY(-25vh);
+			}
+
+			/* Description */
+			.description {
+				opacity			: 0;
+				
+				transform		: translateY(-25vh);
+			}
+		}
+
+		/* Essay Input */
+		.essay_input {
+			opacity			: 0;
+
+			transform		: translateY(-60vh);
+
+			/* Submit Button */
+			.button {
+				flex			: 0 0 0 !important;
+
+				padding			: 0 !important;
+
+				opacity			: 0 !important;
+			}
+		}
+
+		/* Essay Form */
+		.essay_form {
+			pointer-events		: all !important;
+
+			opacity			: 1;
+
+			transition		: 0.25s ease-in-out 0.5s;
+
+			/* Stepper */
+			.stepper {
+				background-position	: 35%;
+
+				/* First Step */
+				.step:nth-of-type(1) {
+					color			: $primary_color !important;
+					background		: $primary_color;
+					border			: none;
+
+					/* Check */
+					.check {
+						transform		: scale(1);
+					}
+				}
+
+				/* Second Step */
+				.step:nth-of-type(2) {
+					color			: $primary_color !important;
+					background		: $primary_color;
+					border			: none;
+
+					/* Check */
+					.check {
+						transform		: scale(1);
+					}
+				}
+
+				/* Third Step */
+				.step:nth-of-type(3) {
+					color			: $primary_color;
+					border			: 3px solid $primary_color;
+				}
+			}
+
+			/* Details */
+			.details {
+				pointer-events		: none;
+
+				transform		: translateX(-50vw);
+
+				opacity			: 0;
+			}
+
+			/* Vocabulary */
+			.vocabulary {
+				pointer-events		: none;
+
+				transform		: translateX(-50vw);
+
+				opacity			: 0;
+			}
+
+			/* Essay */
+			.essay {
+				pointer-events		: all;
+
+				position		: relative;
 
 				transform		: translateX(0);
 
@@ -578,9 +713,19 @@ body {
 			font-size		: 2em;
 		}
 
+		/* Meta */
+		.meta {
+			margin-bottom		: 65px;
+
+			color			: $quaternary_text_color;
+
+			text-align		: center;
+		}
+
 		/* Details */
 		.details {
 			position		: absolute;
+			width			: 100%;
 
 			display			: flex;
 			flex-direction		: column;
@@ -687,54 +832,6 @@ body {
 						}
 					}
 
-					/* Text Area Element */
-					textarea {
-						width			: 100%;
-						height			: 300px;
-
-						padding			: 1rem 1.5rem;
-
-						background		: transparent;
-						color			: $primary_text_color;
-						border			: none;
-						border-bottom		: 1px solid $secondary_input_border_color;
-
-						font-size		: 1rem;
-						font-family		: Lato;
-						letter-spacing		: 0.03em;
-						text-rendering		: optimizeLegibility;
-
-						outline			: none;
-
-						resize			: none;
-
-						transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
-
-						/* Hover */
-						&:hover {
-							border			: 2px solid $primary_color;
-						}
-
-						/* Focus */
-						&:focus, &:not(:focus):valid {
-							/* Label */
-							~ label {
-								color			: $primary_text_color;
-
-								top			: -2.5rem;
-
-								font-size		: 0.8rem;
-								font-weight		: 500;
-							}
-						}
-
-						/* Autofill */
-						&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
-							-webkit-box-shadow	: 0 0 0 30px white inset !important;
-							box-shadow		: 0 0 0 30px white inset !important;
-						}
-					}
-
 					/* Label */
 					label {
 						pointer-events		: none;
@@ -761,6 +858,7 @@ body {
 			pointer-events		: none;
 
 			position		: absolute;
+			width			: 100%;
 
 			display			: flex;
 			flex-direction		: column;
@@ -776,11 +874,222 @@ body {
 				margin-bottom		: 10px;
 			}
 
-			/* Meta */
-			.meta {
-				margin-bottom		: 65px;
+			/* Input */
+			.input {
+				position		: relative;
+				width			: 100%;
 
-				color			: $quaternary_text_color;
+				margin-bottom		: 20px;
+
+				background		: transparent;
+
+				/* Hover */
+				&:hover {
+
+					/* Input Element */
+					input {
+						border			: none;
+						border-bottom		: 1px solid $primary_color;
+
+						color			: $primary_text_color;
+					}
+
+					/* Label */
+					label {
+						color			: $primary_color;
+
+						top			: -2.5rem;
+
+						font-size		: 0.8rem;
+						font-weight		: 500;
+					}
+				}
+
+				/* Text Area Element */
+				textarea {
+					width			: 100%;
+					height			: 300px;
+
+					padding			: 1rem 1.5rem;
+
+					background		: transparent;
+					color			: $primary_text_color;
+					border			: 1px solid $secondary_input_border_color;
+					border-radius		: 10px;
+
+					font-size		: 1rem;
+					font-family		: Lato;
+					letter-spacing		: 0.03em;
+					text-rendering		: optimizeLegibility;
+
+					outline			: none;
+
+					resize			: none;
+
+					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+					/* Hover */
+					&:hover {
+						border			: 2px solid $primary_color;
+					}
+
+					/* Focus */
+					&:focus, &:not(:focus):valid {
+						/* Label */
+						~ label {
+							color			: $primary_text_color;
+
+							top			: -2.5rem;
+
+							font-size		: 0.8rem;
+							font-weight		: 500;
+						}
+					}
+
+					/* Autofill */
+					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+						-webkit-box-shadow	: 0 0 0 30px white inset !important;
+						box-shadow		: 0 0 0 30px white inset !important;
+					}
+				}
+
+				/* Label */
+				label {
+					pointer-events		: none;
+
+					position		: absolute;
+					left			: 0;
+					top			: 0;
+
+					margin			: 1rem 1.5rem;
+
+					color			: #AAAAAA;
+
+					font-size		: 0.9rem;
+					letter-spacing		: 0.05rem;
+
+					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+				}
+			}
+		}
+
+		/* Essay */
+		.essay {
+			pointer-events		: none;
+
+			position		: absolute;
+			width			: 100%;
+
+			display			: flex;
+			flex-direction		: column;
+			justify-content		: flex-start;
+			align-items		: center;
+
+			opacity			: 0;
+
+			transition		: 0.5s ease-in-out;
+
+			/* Title */
+			.title {
+				margin-bottom		: 10px;
+			}
+
+			/* Input */
+			.input {
+				position		: relative;
+				width			: 100%;
+
+				margin-bottom		: 20px;
+
+				background		: transparent;
+
+				/* Hover */
+				&:hover {
+
+					/* Input Element */
+					input {
+						border			: none;
+						border-bottom		: 1px solid $primary_color;
+
+						color			: $primary_text_color;
+					}
+
+					/* Label */
+					label {
+						color			: $primary_color;
+
+						top			: -2.5rem;
+
+						font-size		: 0.8rem;
+						font-weight		: 500;
+					}
+				}
+
+				/* Text Area Element */
+				textarea {
+					width			: 100%;
+					height			: 300px;
+
+					padding			: 1rem 1.5rem;
+
+					background		: transparent;
+					color			: $primary_text_color;
+					border			: 1px solid $secondary_input_border_color;
+					border-radius		: 10px;
+
+					font-size		: 1rem;
+					font-family		: Lato;
+					letter-spacing		: 0.03em;
+					text-rendering		: optimizeLegibility;
+
+					outline			: none;
+
+					resize			: none;
+
+					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+					/* Hover */
+					&:hover {
+						border			: 2px solid $primary_color;
+					}
+
+					/* Focus */
+					&:focus, &:not(:focus):valid {
+						/* Label */
+						~ label {
+							color			: $primary_text_color;
+
+							top			: -2.5rem;
+
+							font-size		: 0.8rem;
+							font-weight		: 500;
+						}
+					}
+
+					/* Autofill */
+					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+						-webkit-box-shadow	: 0 0 0 30px white inset !important;
+						box-shadow		: 0 0 0 30px white inset !important;
+					}
+				}
+
+				/* Label */
+				label {
+					pointer-events		: none;
+
+					position		: absolute;
+					left			: 0;
+					top			: 0;
+
+					margin			: 1rem 1.5rem;
+
+					color			: #AAAAAA;
+
+					font-size		: 0.9rem;
+					letter-spacing		: 0.05rem;
+
+					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+				}
 			}
 		}
 
