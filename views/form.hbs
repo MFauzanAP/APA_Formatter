@@ -47,16 +47,16 @@
 	<div class="essay_form">
 
 		{{!-- Stepper --}}
-		<div class="stepper" style="background-position-x: 80%;">
+		<div class="stepper">
 
 			{{!-- Details --}}
-			<div class="step in_progress">1<div class="label">Details</div></div>
+			<div class="step">1<i class="fa fa-check check"></i><div class="label">Details</div></div>
 
 			{{!-- Vocabulary --}}
-			<div class="step">2<div class="label">Vocabulary</div></div>
+			<div class="step">2<i class="fa fa-check check"></i><div class="label">Vocabulary</div></div>
 
 			{{!-- Essay --}}
-			<div class="step">3<div class="label">Essay</div></div>
+			<div class="step">3<i class="fa fa-check check"></i><div class="label">Essay</div></div>
 
 		</div>
 
@@ -106,6 +106,34 @@
 				</div>
 
 			</form>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+			</div>
+
+		</div>
+
+		{{!-- Vocabulary --}}
+		<div class="vocabulary">
+
+			{{!-- Title --}}
+			<div class="title">Add Vocabulary List</div>
+
+			{{!-- Meta --}}
+			<div class="meta">This step may be unnecessary for you, feel free to skip it.</div>
+
+			{{!-- Text Area --}}
+			<div class="input">
+				<textarea id="vocab_list" name="vocab_list"></textarea>
+				<label htmlFor="vocab_list">Vocabulary List*</label>
+			</div>
 
 			{{!-- Controls --}}
 			<div class="controls">

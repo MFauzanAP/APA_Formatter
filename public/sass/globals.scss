@@ -138,6 +138,124 @@ body {
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
+
+			/* Stepper */
+			.stepper {
+				background-position	: 80%;
+
+				/* First Step */
+				.step:nth-of-type(1) {
+					color			: $primary_color;
+					border			: 3px solid $primary_color;
+				}
+			}
+
+			/* Details */
+			.details {
+				pointer-events		: all;
+
+				transform		: translateX(0);
+
+				opacity			: 1;
+			}
+
+			/* Vocabulary */
+			.vocabulary {
+				pointer-events		: none;
+
+				transform		: translateX(50vw);
+
+				opacity			: 0;
+			}
+		}
+	}
+
+	/* Vocabulary Stage */
+	&.vocabulary {
+
+		/* Banner */
+		.banner {
+			transform		: translateY(-35vh);
+
+			/* Title */
+			.title {
+				opacity			: 0;
+
+				transform		: translateY(-25vh);
+			}
+
+			/* Description */
+			.description {
+				opacity			: 0;
+				
+				transform		: translateY(-25vh);
+			}
+		}
+
+		/* Essay Input */
+		.essay_input {
+			opacity			: 0;
+
+			transform		: translateY(-60vh);
+
+			/* Submit Button */
+			.button {
+				flex			: 0 0 0 !important;
+
+				padding			: 0 !important;
+
+				opacity			: 0 !important;
+			}
+		}
+
+		/* Essay Form */
+		.essay_form {
+			pointer-events		: all !important;
+
+			opacity			: 1;
+
+			transition		: 0.25s ease-in-out 0.5s;
+
+			/* Stepper */
+			.stepper {
+				background-position	: 35%;
+
+				/* First Step */
+				.step:nth-of-type(1) {
+					color			: $primary_color !important;
+					background		: $primary_color;
+					border			: none;
+
+					/* Check */
+					.check {
+						transform		: scale(1);
+					}
+				}
+
+				/* Second Step */
+				.step:nth-of-type(2) {
+					color			: $primary_color;
+					border			: 3px solid $primary_color;
+				}
+			}
+
+			/* Details */
+			.details {
+				pointer-events		: none;
+
+				transform		: translateX(-50vw);
+
+				opacity			: 0;
+			}
+
+			/* Vocabulary */
+			.vocabulary {
+				pointer-events		: all;
+
+				transform		: translateX(0);
+
+				opacity			: 1;
+			}
 		}
 	}
 
@@ -335,6 +453,7 @@ body {
 	.essay_form {
 		pointer-events		: none;
 
+		position		: relative;
 		max-width		: 50%;
 		width			: 100%;
 
@@ -359,12 +478,15 @@ body {
 
 			background-image	: linear-gradient(to right, $primary_color, $primary_color 50%, $tertiary_input_border_color 50%, $tertiary_input_border_color);
 			background-size		: 200% 100%;
+			background-position-x	: 100%;
 			border-radius		: 1px;
 
 			display			: flex;
 			flex-direction		: row;
 			justify-content		: space-between;
 			align-items		: center;
+
+			transition		: 1s ease-in-out;
 
 			/* Step */
 			.step {
@@ -411,9 +533,25 @@ body {
 
 				/* Done */
 				&.done {
-					color			: $secondary_text_color;
+					color			: $primary_color !important;
 					background		: $primary_color;
 					border			: none;
+
+					/* Check */
+					.check {
+						transform		: scale(1);
+					}
+				}
+
+				/* Check */
+				.check {
+					position		: absolute;
+
+					color			: $secondary_text_color;
+
+					transform		: scale(0);
+
+					transition		: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 				}
 
 				/* Label */
@@ -429,25 +567,27 @@ body {
 			}
 		}
 
+		/* Title */
+		.title {
+			margin-bottom		: 75px;
+
+			color			: $primary_text_color;
+
+			font-family		: Work Sans;
+			font-weight		: bold;
+			font-size		: 2em;
+		}
+
 		/* Details */
 		.details {
+			position		: absolute;
+
 			display			: flex;
 			flex-direction		: column;
 			justify-content		: flex-start;
 			align-items		: center;
 
 			transition		: 0.5s ease-in-out;
-
-			/* Title */
-			.title {
-				margin-bottom		: 75px;
-
-				color			: $primary_text_color;
-
-				font-family		: Work Sans;
-				font-weight		: bold;
-				font-size		: 2em;
-			}
 
 			/* Form */
 			form {
@@ -613,6 +753,34 @@ body {
 						transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 					}
 				}
+			}
+		}
+
+		/* Vocabulary */
+		.vocabulary {
+			pointer-events		: none;
+
+			position		: absolute;
+
+			display			: flex;
+			flex-direction		: column;
+			justify-content		: flex-start;
+			align-items		: center;
+
+			opacity			: 0;
+
+			transition		: 0.5s ease-in-out;
+
+			/* Title */
+			.title {
+				margin-bottom		: 10px;
+			}
+
+			/* Meta */
+			.meta {
+				margin-bottom		: 65px;
+
+				color			: $quaternary_text_color;
 			}
 		}
 

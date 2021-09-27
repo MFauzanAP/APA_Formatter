@@ -53,6 +53,7 @@ body {
   justify-content: flex-start;
   align-items: center;
   /* Details Stage */
+  /* Vocabulary Stage */
   /* Banner */
   /* Essay Input */
   /* Essay Form */ }
@@ -81,7 +82,75 @@ body {
     .form_page.details .essay_form {
       pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s; }
+      transition: 0.25s ease-in-out 0.5s;
+      /* Stepper */
+      /* Details */
+      /* Vocabulary */ }
+      .form_page.details .essay_form .stepper {
+        background-position: 80%;
+        /* First Step */ }
+        .form_page.details .essay_form .stepper .step:nth-of-type(1) {
+          color: #0099FF;
+          border: 3px solid #0099FF; }
+      .form_page.details .essay_form .details {
+        pointer-events: all;
+        transform: translateX(0);
+        opacity: 1; }
+      .form_page.details .essay_form .vocabulary {
+        pointer-events: none;
+        transform: translateX(50vw);
+        opacity: 0; }
+  .form_page.vocabulary {
+    /* Banner */
+    /* Essay Input */
+    /* Essay Form */ }
+    .form_page.vocabulary .banner {
+      transform: translateY(-35vh);
+      /* Title */
+      /* Description */ }
+      .form_page.vocabulary .banner .title {
+        opacity: 0;
+        transform: translateY(-25vh); }
+      .form_page.vocabulary .banner .description {
+        opacity: 0;
+        transform: translateY(-25vh); }
+    .form_page.vocabulary .essay_input {
+      opacity: 0;
+      transform: translateY(-60vh);
+      /* Submit Button */ }
+      .form_page.vocabulary .essay_input .button {
+        flex: 0 0 0 !important;
+        padding: 0 !important;
+        opacity: 0 !important; }
+    .form_page.vocabulary .essay_form {
+      pointer-events: all !important;
+      opacity: 1;
+      transition: 0.25s ease-in-out 0.5s;
+      /* Stepper */
+      /* Details */
+      /* Vocabulary */ }
+      .form_page.vocabulary .essay_form .stepper {
+        background-position: 35%;
+        /* First Step */
+        /* Second Step */ }
+        .form_page.vocabulary .essay_form .stepper .step:nth-of-type(1) {
+          color: #0099FF !important;
+          background: #0099FF;
+          border: none;
+          /* Check */ }
+          .form_page.vocabulary .essay_form .stepper .step:nth-of-type(1) .check {
+            transform: scale(1); }
+        .form_page.vocabulary .essay_form .stepper .step:nth-of-type(2) {
+          color: #0099FF;
+          border: 3px solid #0099FF; }
+      .form_page.vocabulary .essay_form .details {
+        pointer-events: none;
+        transform: translateX(-50vw);
+        opacity: 0; }
+      .form_page.vocabulary .essay_form .vocabulary {
+        pointer-events: all;
+        transform: translateX(0);
+        opacity: 1; }
   .form_page .banner {
     position: relative;
     width: 100%;
@@ -201,6 +270,7 @@ body {
       text-align: center; }
   .form_page .essay_form {
     pointer-events: none;
+    position: relative;
     max-width: 50%;
     width: 100%;
     display: flex;
@@ -211,7 +281,9 @@ body {
     transform: translateY(-20vh);
     transition: 0.25s ease-in-out;
     /* Stepper */
+    /* Title */
     /* Details */
+    /* Vocabulary */
     /* Controls */ }
     .form_page .essay_form .stepper {
       width: 400px;
@@ -220,11 +292,13 @@ body {
       margin-bottom: 100px;
       background-image: linear-gradient(to right, #0099FF, #0099FF 50%, #CCCCCC 50%, #CCCCCC);
       background-size: 200% 100%;
+      background-position-x: 100%;
       border-radius: 1px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      transition: 1s ease-in-out;
       /* Step */ }
       .form_page .essay_form .stepper .step {
         cursor: pointer;
@@ -248,6 +322,7 @@ body {
         /* Hover */
         /* In Progress */
         /* Done */
+        /* Check */
         /* Label */ }
         .form_page .essay_form .stepper .step:hover {
           color: #FFFFFF !important;
@@ -258,29 +333,37 @@ body {
           color: #0099FF;
           border: 3px solid #0099FF; }
         .form_page .essay_form .stepper .step.done {
-          color: #FFFFFF;
+          color: #0099FF !important;
           background: #0099FF;
-          border: none; }
+          border: none;
+          /* Check */ }
+          .form_page .essay_form .stepper .step.done .check {
+            transform: scale(1); }
+        .form_page .essay_form .stepper .step .check {
+          position: absolute;
+          color: #FFFFFF;
+          transform: scale(0);
+          transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); }
         .form_page .essay_form .stepper .step .label {
           position: absolute;
           top: calc(100% + 10px);
           color: #646464;
           font-family: Oxygen;
           font-weight: normal; }
+    .form_page .essay_form .title {
+      margin-bottom: 75px;
+      color: #3D3D3D;
+      font-family: Work Sans;
+      font-weight: bold;
+      font-size: 2em; }
     .form_page .essay_form .details {
+      position: absolute;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       transition: 0.5s ease-in-out;
-      /* Title */
       /* Form */ }
-      .form_page .essay_form .details .title {
-        margin-bottom: 75px;
-        color: #3D3D3D;
-        font-family: Work Sans;
-        font-weight: bold;
-        font-size: 2em; }
       .form_page .essay_form .details form {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -385,6 +468,22 @@ body {
             font-size: 0.9rem;
             letter-spacing: 0.05rem;
             transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
+    .form_page .essay_form .vocabulary {
+      pointer-events: none;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 0;
+      transition: 0.5s ease-in-out;
+      /* Title */
+      /* Meta */ }
+      .form_page .essay_form .vocabulary .title {
+        margin-bottom: 10px; }
+      .form_page .essay_form .vocabulary .meta {
+        margin-bottom: 65px;
+        color: #AAAAAA; }
     .form_page .essay_form .controls {
       width: 100%;
       margin-top: 50px;

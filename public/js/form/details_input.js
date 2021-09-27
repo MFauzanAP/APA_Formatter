@@ -5,17 +5,15 @@ $(`.details .controls .back`).on('click', on_exit_details);
 //	Function called when the continue button is clicked.
 function on_submit_details () {
 
-	//	Get title from input
-	var title = $(`.essay_input input#title`).val();
+	//	Get details from form
+	var data = $(`.essay_form .details .form`).serializeArray();
 
-	//	Hide previous page and show essay form
-	$(`.form_page`).addClass('details');
-
-	//	Add title to title input of form
-	$(`.essay_form input#title`).val(title)
+	//	Show next step
+	$(`.form_page`).removeClass('details');
+	$(`.form_page`).addClass('vocabulary');
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + '?stage=details');
+	history.pushState({}, '', window.location.pathname + '?stage=vocabulary');
 
 }
 
