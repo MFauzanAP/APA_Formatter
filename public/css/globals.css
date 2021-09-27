@@ -168,7 +168,15 @@ body {
     .footer .social_links li {
       display: inline-block;
       margin: 5px;
-      font-size: 1em; }
+      font-size: 1em;
+      transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+      /* Hover */
+      /* Link */ }
+      .footer .social_links li:hover {
+        transform: scale(1.15); }
+      .footer .social_links li a {
+        color: #0099FF;
+        text-decoration: none; }
   .footer .copyright {
     color: #AAAAAA;
     text-align: center;
