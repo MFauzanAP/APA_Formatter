@@ -117,9 +117,11 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			display			: block !important;
-			
-			opacity			: 1 !important;
+			pointer-events		: all !important;
+
+			opacity			: 1;
+
+			transition		: 0.25s ease-in-out 0.5s;
 		}
 	}
 
@@ -310,16 +312,21 @@ body {
 
 	/* Essay Form */
 	.essay_form {
+		pointer-events		: none;
+
 		max-width		: 50%;
 		width			: 100%;
 
-		display			: none;
+		display			: grid;
+		grid-template-columns	: repeat(6, 1fr);
+		grid-auto-flow		: row;
+		gap			: 30px;
 
 		opacity			: 0;
 
 		transform		: translateY(-20vh);
 
-		transition		: 0.5s ease-in-out 0.5s;
+		transition		: 0.25s ease-in-out;
 
 		/* Input */
 		.input {
@@ -327,13 +334,17 @@ body {
 
 			margin-bottom		: 20px;
 
+			background		: transparent;
+
 			/* Hover */
 			&:hover {
+
 				/* Input Element */
 				input {
-					border			: 2px solid $primary_color;
+					border			: none;
+					border-bottom		: 1px solid $primary_color;
 
-					color			: $primary_color;
+					color			: $primary_text_color;
 				}
 
 				/* Label */
@@ -347,15 +358,34 @@ body {
 				}
 			}
 
+			/* Date */
+			&.date {
+				cursor			: text;
+
+				/* Input Element */
+				input {
+					cursor			: text;
+				}
+
+				/* Label */
+				label {
+					top			: -2.5rem;
+
+					font-size		: 0.8rem;
+					font-weight		: 500;
+				}
+			}
+
 			/* Input Element */
 			input {
 				width			: 100%;
 
 				padding			: 1rem 1.5rem;
 
+				background		: transparent;
 				color			: $primary_text_color;
-				border			: 1px solid $secondary_input_border_color;
-				border-radius		: 1.5rem;
+				border			: none;
+				border-bottom		: 1px solid $secondary_input_border_color;
 
 				font-size		: 1rem;
 				font-family		: Lato;
@@ -368,9 +398,12 @@ body {
 
 				/* Focus */
 				&:focus, &:not(:focus):valid {
+					border			: none;
+					border-bottom		: 1px solid $primary_color;
+
 					/* Label */
 					~ label {
-						color			: $primary_text_color;
+						color			: $primary_color;
 
 						top			: -2.5rem;
 
@@ -393,9 +426,10 @@ body {
 
 				padding			: 1rem 1.5rem;
 
+				background		: transparent;
 				color			: $primary_text_color;
-				border			: 1px solid $secondary_input_border_color;
-				border-radius		: 1.5rem;
+				border			: none;
+				border-bottom		: 1px solid $secondary_input_border_color;
 
 				font-size		: 1rem;
 				font-family		: Lato;

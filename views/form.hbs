@@ -47,25 +47,39 @@
 	<form class="essay_form">
 
 		{{!-- Title Input --}}
-		<div class="input">
+		<div class="input" style="grid-column: span 4;">
 			<input type="text" id="title" name="title" required/>
 			<label htmlFor="title">Title*</label>
 		</div>
-		<div class="input">
-			<input type="text" id="title" name="title" required/>
-			<label htmlFor="title">Title*</label>
+
+		{{!-- Date --}}
+		<div class="input date" style="grid-column: span 2;">
+			<input type="date" id="date" name="date" required/>
+			<label htmlFor="date">Date*</label>
 		</div>
-		<div class="input">
-			<input type="text" id="title" name="title" required/>
-			<label htmlFor="title">Title*</label>
+
+		{{!-- Student Name --}}
+		<div class="input" style="grid-column: span 3;">
+			<input type="text" id="student_name" name="student_name" required/>
+			<label htmlFor="student_name">Student Name*</label>
 		</div>
-		<div class="input">
-			<input type="text" id="title" name="title" required/>
-			<label htmlFor="title">Title*</label>
+
+		{{!-- Lecturer Name --}}
+		<div class="input" style="grid-column: span 3;">
+			<input type="text" id="lecturer_name" name="lecturer_name" required/>
+			<label htmlFor="lecturer_name">Lecturer Name*</label>
 		</div>
-		<div class="input">
-			<input type="text" id="title" name="title" required/>
-			<label htmlFor="title">Title*</label>
+
+		{{!-- Student ID --}}
+		<div class="input" style="grid-column: span 3;">
+			<input type="text" id="student_id" name="student_id" required/>
+			<label htmlFor="student_id">Student ID*</label>
+		</div>
+
+		{{!-- Course Number --}}
+		<div class="input" style="grid-column: span 3;">
+			<input type="text" id="course_number" name="course_number" required/>
+			<label htmlFor="course_number">Course Number*</label>
 		</div>
 
 	</form>

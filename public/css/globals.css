@@ -72,8 +72,9 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.active .essay_form {
-      display: block !important;
-      opacity: 1 !important; }
+      pointer-events: all !important;
+      opacity: 1;
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page .banner {
     position: relative;
     width: 100%;
@@ -189,17 +190,23 @@ body {
       color: #646464;
       text-align: center; }
   .form_page .essay_form {
+    pointer-events: none;
     max-width: 50%;
     width: 100%;
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-flow: row;
+    gap: 30px;
     opacity: 0;
     transform: translateY(-20vh);
-    transition: 0.5s ease-in-out 0.5s;
+    transition: 0.25s ease-in-out;
     /* Input */ }
     .form_page .essay_form .input {
       position: relative;
       margin-bottom: 20px;
+      background: transparent;
       /* Hover */
+      /* Date */
       /* Input Element */
       /* Text Area Element */
       /* Label */ }
@@ -207,19 +214,31 @@ body {
         /* Input Element */
         /* Label */ }
         .form_page .essay_form .input:hover input {
-          border: 2px solid #0099FF;
-          color: #0099FF; }
+          border: none;
+          border-bottom: 1px solid #0099FF;
+          color: #3D3D3D; }
         .form_page .essay_form .input:hover label {
           color: #0099FF;
+          top: -2.5rem;
+          font-size: 0.8rem;
+          font-weight: 500; }
+      .form_page .essay_form .input.date {
+        cursor: text;
+        /* Input Element */
+        /* Label */ }
+        .form_page .essay_form .input.date input {
+          cursor: text; }
+        .form_page .essay_form .input.date label {
           top: -2.5rem;
           font-size: 0.8rem;
           font-weight: 500; }
       .form_page .essay_form .input input {
         width: 100%;
         padding: 1rem 1.5rem;
+        background: transparent;
         color: #3D3D3D;
-        border: 1px solid #AAAAAA;
-        border-radius: 1.5rem;
+        border: none;
+        border-bottom: 1px solid #AAAAAA;
         font-size: 1rem;
         font-family: Lato;
         letter-spacing: 0.03em;
@@ -229,9 +248,11 @@ body {
         /* Focus */
         /* Autofill */ }
         .form_page .essay_form .input input:focus, .form_page .essay_form .input input:not(:focus):valid {
+          border: none;
+          border-bottom: 1px solid #0099FF;
           /* Label */ }
           .form_page .essay_form .input input:focus ~ label, .form_page .essay_form .input input:not(:focus):valid ~ label {
-            color: #3D3D3D;
+            color: #0099FF;
             top: -2.5rem;
             font-size: 0.8rem;
             font-weight: 500; }
@@ -242,9 +263,10 @@ body {
         width: 100%;
         height: 300px;
         padding: 1rem 1.5rem;
+        background: transparent;
         color: #3D3D3D;
-        border: 1px solid #AAAAAA;
-        border-radius: 1.5rem;
+        border: none;
+        border-bottom: 1px solid #AAAAAA;
         font-size: 1rem;
         font-family: Lato;
         letter-spacing: 0.03em;

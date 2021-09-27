@@ -7,9 +7,6 @@ function on_submit_title () {
 	//	Get title from input
 	var title = $(`.essay_input input#title`).val();
 
-	//	Make input be read-only
-	$(`.essay_input input#title`).prop('readonly', true);
-
 	//	Hide previous page and show essay form
 	$(`.form_page`).addClass('active');
 
