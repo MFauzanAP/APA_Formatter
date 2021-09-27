@@ -44,44 +44,71 @@
 	</div>
 
 	{{!-- Essay Form --}}
-	<form class="essay_form">
+	<div class="essay_form">
 
-		{{!-- Title Input --}}
-		<div class="input" style="grid-column: span 4;">
-			<input type="text" id="title" name="title" required/>
-			<label htmlFor="title">Title*</label>
+		{{!-- Stepper --}}
+		<div class="stepper" style="background-position-x: 80%;">
+
+			{{!-- Details --}}
+			<div class="step in_progress">1<div class="label">Details</div></div>
+
+			{{!-- Vocabulary --}}
+			<div class="step">2<div class="label">Vocabulary</div></div>
+
+			{{!-- Essay --}}
+			<div class="step">3<div class="label">Essay</div></div>
+
 		</div>
 
-		{{!-- Date --}}
-		<div class="input date" style="grid-column: span 2;">
-			<input type="date" id="date" name="date" required/>
-			<label htmlFor="date">Date*</label>
+		{{!-- Details --}}
+		<div class="details">
+
+			{{!-- Title --}}
+			<div class="title">Fill In Your Essay Details</div>
+
+			{{!-- Form --}}
+			<form>
+
+				{{!-- Title Input --}}
+				<div class="input" style="grid-column: span 4;">
+					<input type="text" id="title" name="title" required/>
+					<label htmlFor="title">Title*</label>
+				</div>
+
+				{{!-- Date --}}
+				<div class="input date" style="grid-column: span 2;">
+					<input type="date" id="date" name="date" required/>
+					<label htmlFor="date">Date*</label>
+				</div>
+
+				{{!-- Student Name --}}
+				<div class="input" style="grid-column: span 3;">
+					<input type="text" id="student_name" name="student_name" required/>
+					<label htmlFor="student_name">Student Name*</label>
+				</div>
+
+				{{!-- Lecturer Name --}}
+				<div class="input" style="grid-column: span 3;">
+					<input type="text" id="lecturer_name" name="lecturer_name" required/>
+					<label htmlFor="lecturer_name">Lecturer Name*</label>
+				</div>
+
+				{{!-- Student ID --}}
+				<div class="input" style="grid-column: span 3;">
+					<input type="text" id="student_id" name="student_id" required/>
+					<label htmlFor="student_id">Student ID*</label>
+				</div>
+
+				{{!-- Course Number --}}
+				<div class="input" style="grid-column: span 3;">
+					<input type="text" id="course_number" name="course_number" required/>
+					<label htmlFor="course_number">Course Number*</label>
+				</div>
+
+			</form>
+
 		</div>
 
-		{{!-- Student Name --}}
-		<div class="input" style="grid-column: span 3;">
-			<input type="text" id="student_name" name="student_name" required/>
-			<label htmlFor="student_name">Student Name*</label>
-		</div>
-
-		{{!-- Lecturer Name --}}
-		<div class="input" style="grid-column: span 3;">
-			<input type="text" id="lecturer_name" name="lecturer_name" required/>
-			<label htmlFor="lecturer_name">Lecturer Name*</label>
-		</div>
-
-		{{!-- Student ID --}}
-		<div class="input" style="grid-column: span 3;">
-			<input type="text" id="student_id" name="student_id" required/>
-			<label htmlFor="student_id">Student ID*</label>
-		</div>
-
-		{{!-- Course Number --}}
-		<div class="input" style="grid-column: span 3;">
-			<input type="text" id="course_number" name="course_number" required/>
-			<label htmlFor="course_number">Course Number*</label>
-		</div>
-
-	</form>
+	</div>
 
 </div>

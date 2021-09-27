@@ -8,12 +8,12 @@ function on_submit_title () {
 	var title = $(`.essay_input input#title`).val();
 
 	//	Hide previous page and show essay form
-	$(`.form_page`).addClass('active');
+	$(`.form_page`).addClass('details');
 
 	//	Add title to title input of form
 	$(`.essay_form input#title`).val(title)
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + '#form');
+	history.pushState({}, '', window.location.pathname + '?stage=details');
 
 }
