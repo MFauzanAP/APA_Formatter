@@ -41,8 +41,9 @@ app.engine('hbs', hbs({ defaultLayout: 'layout', extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
 //	Setup static routes
-app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'bower_components')));
 
 //	Setup port
 const port = 4000;
