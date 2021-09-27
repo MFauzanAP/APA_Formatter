@@ -1,41 +1,73 @@
-{{!-- Banner --}}
-<div class="banner">
+{{!-- Form Page --}}
+<div class="form_page">
 
-	{{!-- Curved Footer --}}
-	<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-		<path fill="#0099FF" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
-	</svg>
+	{{!-- Banner --}}
+	<div class="banner">
 
-	{{!-- Title --}}
-	<div class="title">APA Formatter</div>
+		{{!-- Curved Footer --}}
+		<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+			<path fill="#0099FF" d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+		</svg>
 
-	{{!-- Description --}}
-	<div class="description">
-		This tool was developed for students of Qatar University. Use by other parties is permitted,
-		but not recommended.
-	</div>
+		{{!-- Title --}}
+		<div class="title">APA Formatter</div>
 
-</div>
-
-{{!-- Essay Input --}}
-<div class="essay_input">
-
-	{{!-- Title --}}
-	<div class="title_input">
-		
-		{{!-- Input --}}
-		<input type="text" placeholder="Enter essay title here..." name="title"required="true"/>
-
-		{{!-- Confirm Button --}}
-		<div class="button">
-			<i class="fa fa-check" style="font-size: 1.5em"></i>
-			<p>Continue</p>
-			<i class="fa fa-chevron-right" style="font-size: 1em; margin-left: 15px"></i>
+		{{!-- Description --}}
+		<div class="description">
+			This tool was developed for students of Qatar University. Use by other parties is permitted,
+			but not recommended.
 		</div>
 
 	</div>
 
-	{{!-- Meta --}}
-	<div class="meta">or click on one of the links above to switch modes</div>
+	{{!-- Essay Input --}}
+	<div class="essay_input">
+
+		{{!-- Title --}}
+		<div class="title_input">
+			
+			{{!-- Input --}}
+			<input type="text" placeholder="Enter essay title here..." id="title" name="title" required="true"/>
+
+			{{!-- Confirm Button --}}
+			<div class="button">
+				<i class="fa fa-check" style="font-size: 1.5em"></i>
+				<p>Continue</p>
+				<i class="fa fa-chevron-right" style="font-size: 1em; margin-left: 15px"></i>
+			</div>
+
+		</div>
+
+		{{!-- Meta --}}
+		<div class="meta">or click on one of the links above to switch modes</div>
+
+	</div>
+
+	{{!-- Essay Form --}}
+	<form class="essay_form">
+
+		{{!-- Title Input --}}
+		<div class="input">
+			<input type="text" id="title" name="title" required/>
+			<label htmlFor="title">Title*</label>
+		</div>
+		<div class="input">
+			<input type="text" id="title" name="title" required/>
+			<label htmlFor="title">Title*</label>
+		</div>
+		<div class="input">
+			<input type="text" id="title" name="title" required/>
+			<label htmlFor="title">Title*</label>
+		</div>
+		<div class="input">
+			<input type="text" id="title" name="title" required/>
+			<label htmlFor="title">Title*</label>
+		</div>
+		<div class="input">
+			<input type="text" id="title" name="title" required/>
+			<label htmlFor="title">Title*</label>
+		</div>
+
+	</form>
 
 </div>

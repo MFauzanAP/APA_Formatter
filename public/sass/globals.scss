@@ -30,7 +30,8 @@ $primary_background_color	: #FFFFFF;
 $primary_text_color		: #3D3D3D;
 $secondary_text_color		: #FFFFFF;
 $tertiary_text_color		: #646464;
-$input_border_color		: #EFEFEF;
+$primary_input_border_color	: #EFEFEF;
+$secondary_input_border_color	: #AAAAAA;
 
 
 
@@ -65,181 +66,392 @@ body {
     				  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-/* Banner */
-.banner {
-	position		: relative;
+/* Form Page */
+.form_page {
+	flex			: 1 0 100%;
 	width			: 100%;
-	height			: 40vh;
-
-	padding-top		: 50px;
-
-	background		: $primary_color;
+	height			: 100%;
 
 	display			: flex;
 	flex-direction		: column;
-	justify-content		: center;
+	justify-content		: flex-start;
 	align-items		: center;
 
-	/* Curved Footer */
-	svg {
-		position		: absolute;
-		top			: 100%;
+	/* Active */
+	&.active {
 
-		z-index			: -1;
+		/* Banner */
+		.banner {
+			transform		: translateY(-35vh);
+
+			/* Title */
+			.title {
+				opacity			: 0;
+
+				transform		: translateY(-25vh);
+			}
+
+			/* Description */
+			.description {
+				opacity			: 0;
+				
+				transform		: translateY(-25vh);
+			}
+		}
+
+		/* Essay Input */
+		.essay_input {
+			opacity			: 0;
+
+			transform		: translateY(-60vh);
+
+			/* Submit Button */
+			.button {
+				flex			: 0 0 0 !important;
+
+				padding			: 0 !important;
+
+				opacity			: 0 !important;
+			}
+		}
+
+		/* Essay Form */
+		.essay_form {
+			display			: block !important;
+			
+			opacity			: 1 !important;
+		}
 	}
 
-	/* Title */
-	.title {
-		margin			: 20px 0;
+	/* Banner */
+	.banner {
+		position		: relative;
+		width			: 100%;
+		height			: 40vh;
 
-		color			: $secondary_text_color;
+		padding-top		: 50px;
 
-		font-family		: Work Sans;
-		font-weight		: 800;
-		font-size		: 2.5em;
-		text-align		: center;
-	}
-
-	/* Description */
-	.description {
-		max-width		: 500px;
-
-		color			: $secondary_text_color;
-
-		text-align		: center;
-	}
-}
-
-/* Essay Input */
-.essay_input {
-	position		: relative;
-	width			: 100%;
-	height			: auto;
-
-	display			: flex;
-	flex-direction		: column;
-	justify-content		: center;
-	align-items		: center;
-
-	/* Title Input */
-	.title_input {
-		width			: 750px;
-		height			: 60px;
+		background		: $primary_color;
 
 		display			: flex;
-		flex-direction		: row;
+		flex-direction		: column;
 		justify-content		: center;
 		align-items		: center;
 
-		/* Input */
-		input {
-			flex			: 0 1 100%;
-			height			: 100%;
+		transition		: 0.75s ease-in-out;
 
-			margin-right		: 10px;
-			padding			: 20px;
+		/* Curved Footer */
+		svg {
+			position		: absolute;
+			top			: 100%;
 
-			background		: $primary_background_color;
-			border			: 1px solid $input_border_color;
-			border-radius		: 30px;
-
-			font-size		: 1em;
-
-			-webkit-box-shadow	: 0 0 25px rgba(0, 0, 0, 0.25);
-			box-shadow		: 0 0 25px rgba(0, 0, 0, 0.25);
-
-			transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-			/* Hover */
-			&:hover {
-				transform		: scale(1.01);
-			}
-
-			/* Focus */
-			&:focus, &:not(:focus):valid {
-				outline			: none;
-			}
-
-			/* Autofill */
-			&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
-				-webkit-box-shadow	: 0 0 0 30px white inset,
-							  0 0 25px rgba(0, 0, 0, 0.25) !important;
-				box-shadow		: 0 0 0 30px white inset,
-							  0 0 25px rgba(0, 0, 0, 0.25) !important;
-			}
-
+			z-index			: -1;
 		}
 
-		/* Button */
-		.button {
-			cursor			: pointer;
+		/* Title */
+		.title {
+			margin			: 20px 0;
 
-			flex			: 0 0 60px;
+			color			: $secondary_text_color;
+
+			font-family		: Work Sans;
+			font-weight		: 800;
+			font-size		: 2.5em;
+			text-align		: center;
+
+			transition		: 1s ease-in-out;
+		}
+
+		/* Description */
+		.description {
+			max-width		: 500px;
+
+			color			: $secondary_text_color;
+
+			text-align		: center;
+
+			transition		: 1s ease-in-out;
+		}
+	}
+
+	/* Essay Input */
+	.essay_input {
+		position		: relative;
+		width			: 100%;
+		height			: auto;
+
+		display			: flex;
+		flex-direction		: column;
+		justify-content		: center;
+		align-items		: center;
+
+		transition		: 1s ease-in-out;
+
+		/* Title Input */
+		.title_input {
+			width			: 750px;
 			height			: 60px;
-
-			padding			: 16px;
-
-			background		: #53BE00;
-			color			: #FFFFFF;
-			border			: none;
-			border-radius		: 30px;
-
-			overflow		: hidden;
 
 			display			: flex;
 			flex-direction		: row;
-			justify-content		: flex-start;
+			justify-content		: center;
 			align-items		: center;
 
-			font-size		: 1em;
+			/* Input */
+			input {
+				flex			: 0 1 100%;
+				height			: 100%;
 
-			-webkit-box-shadow	: 0 0 25px rgba(0, 0, 0, 0.25);
-			box-shadow		: 0 0 25px rgba(0, 0, 0, 0.25);
+				margin-right		: 10px;
+				padding			: 20px;
 
-			transition		: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+				background		: $primary_background_color;
+				border			: 1px solid $primary_input_border_color;
+				border-radius		: 30px;
 
-			/* Hover */
-			&:hover {
-				flex			: 0 0 135px;
+				font-size		: 1em;
 
-				/* Check Icon */
-				i:nth-of-type(1) {
-					margin-left		: -60px;
-					margin-right		: 35px;
+				-webkit-box-shadow	: 0 0 25px rgba(0, 0, 0, 0.25);
+				box-shadow		: 0 0 25px rgba(0, 0, 0, 0.25);
+
+				transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				/* Hover */
+				&:hover {
+					transform		: scale(1.01);
+				}
+
+				/* Focus */
+				&:focus, &:not(:focus):valid {
+					outline			: none;
+				}
+
+				/* Autofill */
+				&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+					-webkit-box-shadow	: 0 0 0 30px white inset,
+								0 0 25px rgba(0, 0, 0, 0.25) !important;
+					box-shadow		: 0 0 0 30px white inset,
+								0 0 25px rgba(0, 0, 0, 0.25) !important;
+				}
+
+			}
+
+			/* Button */
+			.button {
+				cursor			: pointer;
+
+				flex			: 0 0 60px;
+				height			: 60px;
+
+				padding			: 16px;
+
+				background		: #53BE00;
+				color			: #FFFFFF;
+				border			: none;
+				border-radius		: 30px;
+
+				overflow		: hidden;
+
+				display			: flex;
+				flex-direction		: row;
+				justify-content		: flex-start;
+				align-items		: center;
+
+				font-size		: 1em;
+
+				-webkit-box-shadow	: 0 0 25px rgba(0, 0, 0, 0.25);
+				box-shadow		: 0 0 25px rgba(0, 0, 0, 0.25);
+
+				transition		: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				/* Hover */
+				&:hover {
+					flex			: 0 0 135px;
+
+					/* Check Icon */
+					i:nth-of-type(1) {
+						margin-left		: -60px;
+						margin-right		: 35px;
+					}
+
+					/* Text */
+					p {
+						opacity			: 1;
+					}
+				}
+
+				/* Icons */
+				i {
+					transition		: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 				}
 
 				/* Text */
 				p {
-					opacity			: 1;
+					margin-left		: 5px;
+
+					opacity			: 0;
+
+					font-family		: Work Sans;
+					font-weight		: 600;
+				}
+			}
+		}
+
+		/* Meta */
+		.meta {
+			margin-top		: 25px;
+
+			color			: $tertiary_text_color;
+
+			text-align		: center;
+		}
+
+	}
+
+	/* Essay Form */
+	.essay_form {
+		max-width		: 50%;
+		width			: 100%;
+
+		display			: none;
+
+		opacity			: 0;
+
+		transform		: translateY(-20vh);
+
+		transition		: 0.5s ease-in-out 0.5s;
+
+		/* Input */
+		.input {
+			position		: relative;
+
+			margin-bottom		: 20px;
+
+			/* Hover */
+			&:hover {
+				/* Input Element */
+				input {
+					border			: 2px solid $primary_color;
+
+					color			: $primary_color;
+				}
+
+				/* Label */
+				label {
+					color			: $primary_color;
+
+					top			: -2.5rem;
+
+					font-size		: 0.8rem;
+					font-weight		: 500;
 				}
 			}
 
-			/* Icons */
-			i {
-				transition		: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+			/* Input Element */
+			input {
+				width			: 100%;
+
+				padding			: 1rem 1.5rem;
+
+				color			: $primary_text_color;
+				border			: 1px solid $secondary_input_border_color;
+				border-radius		: 1.5rem;
+
+				font-size		: 1rem;
+				font-family		: Lato;
+				letter-spacing		: 0.03em;
+				text-rendering		: optimizeLegibility;
+
+				outline			: none;
+
+				transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+				/* Focus */
+				&:focus, &:not(:focus):valid {
+					/* Label */
+					~ label {
+						color			: $primary_text_color;
+
+						top			: -2.5rem;
+
+						font-size		: 0.8rem;
+						font-weight		: 500;
+					}
+				}
+
+				/* Autofill */
+				&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+					-webkit-box-shadow	: 0 0 0 30px white inset !important;
+					box-shadow		: 0 0 0 30px white inset !important;
+				}
 			}
 
-			/* Text */
-			p {
-				margin-left		: 5px;
+			/* Text Area Element */
+			textarea {
+				width			: 100%;
+				height			: 300px;
 
-				opacity			: 0;
+				padding			: 1rem 1.5rem;
 
-				font-family		: Work Sans;
-				font-weight		: 600;
+				color			: $primary_text_color;
+				border			: 1px solid $secondary_input_border_color;
+				border-radius		: 1.5rem;
+
+				font-size		: 1rem;
+				font-family		: Lato;
+				letter-spacing		: 0.03em;
+				text-rendering		: optimizeLegibility;
+
+				outline			: none;
+
+				resize			: none;
+
+				transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+				/* Hover */
+				&:hover {
+					border			: 2px solid $primary_color;
+				}
+
+				/* Focus */
+				&:focus, &:not(:focus):valid {
+					/* Label */
+					~ label {
+						color			: $primary_text_color;
+
+						top			: -2.5rem;
+
+						font-size		: 0.8rem;
+						font-weight		: 500;
+					}
+				}
+
+				/* Autofill */
+				&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+					-webkit-box-shadow	: 0 0 0 30px white inset !important;
+					box-shadow		: 0 0 0 30px white inset !important;
+				}
+			}
+
+			/* Label */
+			label {
+				pointer-events		: none;
+
+				position		: absolute;
+				left			: 0;
+				top			: 0;
+
+				margin			: 1rem 1.5rem;
+
+				color			: #AAAAAA;
+
+				font-size		: 0.9rem;
+				letter-spacing		: 0.05rem;
+
+				transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 			}
 		}
 	}
-
-	/* Meta */
-	.meta {
-		margin-top		: 25px;
-
-		color			: $tertiary_text_color;
-
-		text-align		: center;
-	}
-
 }
 
 /* Footer */
