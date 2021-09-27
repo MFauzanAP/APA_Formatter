@@ -17,6 +17,7 @@
 /* Primary Colors */
 /* Secondary Colors */
 /* Tertiary Colors */
+/* Quaternary Colors*/
 /* ------------------------------------------------------------------------------------------------------------------ */
 /*                                                       Styles                                                       */
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -29,6 +30,7 @@
 body {
   height: 100%;
   min-height: 100vh;
+  overflow: hidden;
   padding: 0;
   margin: 0;
   display: flex;
@@ -93,7 +95,7 @@ body {
     /* Description */ }
     .form_page .banner svg {
       position: absolute;
-      top: 100%;
+      top: calc(100% - 1px);
       z-index: -1; }
     .form_page .banner .title {
       margin: 20px 0;
@@ -203,11 +205,12 @@ body {
     transform: translateY(-20vh);
     transition: 0.25s ease-in-out;
     /* Stepper */
-    /* Details */ }
+    /* Details */
+    /* Controls */ }
     .form_page .essay_form .stepper {
       width: 400px;
       height: 2px;
-      margin-top: -75px;
+      margin-top: -100px;
       margin-bottom: 100px;
       background-image: linear-gradient(to right, #0099FF, #0099FF 50%, #CCCCCC 50%, #CCCCCC);
       background-size: 200% 100%;
@@ -218,6 +221,7 @@ body {
       align-items: center;
       /* Step */ }
       .form_page .essay_form .stepper .step {
+        cursor: pointer;
         position: relative;
         width: 40px;
         height: 40px;
@@ -234,9 +238,16 @@ body {
         font-family: Work Sans;
         font-weight: bold;
         box-shadow: 0 0 0 10px #FFFFFF;
+        transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+        /* Hover */
         /* In Progress */
         /* Done */
         /* Label */ }
+        .form_page .essay_form .stepper .step:hover {
+          color: #FFFFFF !important;
+          background: #0099FF !important;
+          border: none;
+          transform: scale(1.1); }
         .form_page .essay_form .stepper .step.in_progress {
           color: #0099FF;
           border: 3px solid #0099FF; }
@@ -255,6 +266,7 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      transition: 0.5s ease-in-out;
       /* Title */
       /* Form */ }
       .form_page .essay_form .details .title {
@@ -367,6 +379,43 @@ body {
             font-size: 0.9rem;
             letter-spacing: 0.05rem;
             transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
+    .form_page .essay_form .controls {
+      width: 100%;
+      margin-top: 50px;
+      /* Back */
+      /* Continue */ }
+      .form_page .essay_form .controls .back {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        color: #AAAAAA;
+        background: #FFFFFF;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.25em;
+        transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        /* Hover */ }
+        .form_page .essay_form .controls .back:hover {
+          background: #EFEFEF;
+          color: #646464; }
+      .form_page .essay_form .controls .continue {
+        cursor: pointer;
+        width: 200px;
+        height: 50px;
+        float: right;
+        color: #FFFFFF;
+        background: #0099FF;
+        border: none;
+        border-radius: 25px;
+        font-family: Work Sans;
+        font-weight: bold;
+        font-size: 1em;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+        /* Hover */ }
+        .form_page .essay_form .controls .continue:hover {
+          background: #0085DD;
+          transform: scale(1.05); }
 
 /* Footer */
 .footer {
