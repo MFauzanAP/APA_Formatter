@@ -7,11 +7,28 @@ function on_submit_title () {
 	//	Get title from input
 	var title = $(`.essay_input input#title`).val();
 
+	//	If title is empty
+	if (!title) {
+
+		//	Shake title
+		shake(`.essay_input input#title`, 250);
+		
+		//	Exit function
+		return;
+
+	}
+
 	//	Hide previous page and show essay form
 	$(`.form_page`).addClass('details');
 
 	//	Add title to title input of form
 	$(`.essay_form input#title`).val(title)
+
+	//	Get date picker input
+	var date_picker = $(`.details .input.date input`);
+
+	//	Set initial date of essay if not already set
+	if (!date_picker.val()) date_picker[0].valueAsDate = new Date();
 
 	//	Change history state
 	history.pushState({}, '', window.location.pathname + '?stage=details');
