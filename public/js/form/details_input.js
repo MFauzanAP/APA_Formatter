@@ -1,29 +1,50 @@
 //	Subscribe functions to control buttons on click event
-$(`.details .controls .continue`).on('click', on_submit_details);
-$(`.details .controls .back`).on('click', on_exit_details);
+$(`.controls .continue`).on('click', on_click_forward);
+$(` .controls .back`).on('click', on_click_backward);
 
 //	Function called when the continue button is clicked.
-function on_submit_details () {
+function on_click_forward () {
+
+	//	Get current stage
+	var stage = new URL(window.location).searchParams.get('stage');
+
+	//	Declare array of stages
+	var stages = {
+		''			: 'details',
+		'details'		: 'vocabulary',
+		'vocabulary'		: 'essay',
+	}
 
 	//	Get details from form
-	var data = $(`.essay_form .details .form`).serializeArray();
+	var data = stage ? $(`.essay_form .${stage} .form`).serializeArray() : [];
 
-	//	Show next step
-	$(`.form_page`).removeClass('details');
-	$(`.form_page`).addClass('vocabulary');
+	//	Go to next stage
+	$(`.form_page`).removeClass(stage);
+	$(`.form_page`).addClass(stages[stage]);
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + '?stage=vocabulary');
+	history.pushState({}, '', window.location.pathname + `?stage=${stages[stage]}`);
 
 }
 
 //      Function called when the back button is clicked.
-function on_exit_details () {
+function on_click_backward () {
 
-        //      Go back to home page
-        $(`.form_page`).removeClass('details');
+	//	Get current stage
+	var stage = new URL(window.location).searchParams.get('stage');
 
-        //	Change history state
-	history.pushState({}, '', window.location.pathname);
+	//	Declare array of stages
+	var stages = {
+		'details'		: '',
+		'vocabulary'		: 'details',
+		'essay'			: 'vocabulary',
+	}
+
+	//	Go back to previous stage
+	$(`.form_page`).removeClass(stage);
+	$(`.form_page`).addClass(stages[stage]);
+
+	//	Change history state
+	history.pushState({}, '', window.location.pathname + (stages[stage] ? `?stage=${stages[stage]}` : ''));
 
 }
