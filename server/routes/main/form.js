@@ -11,8 +11,8 @@ const router = express.Router();
 //	Get home page
 router.get('/', (req, res) => {
 
-	//	Render home page
-	res.render('main', { layout: 'main' });
+	//	Render form page
+	res.render('form', { layout: 'form' });
 
 })
 

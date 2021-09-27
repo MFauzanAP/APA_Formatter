@@ -3,12 +3,12 @@
 /* ===================================================== Imports ==================================================== */
 const express = require('express');
 const router = express.Router();
-const home = require('./home');
+const form = require('./form');
 
 
 
 /* ====================================================== Setup ===================================================== */
-router.use('/', home);
+router.use('/', form);
 
 
 
