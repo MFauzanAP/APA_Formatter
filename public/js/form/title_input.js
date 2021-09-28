@@ -24,6 +24,10 @@ function on_submit_title () {
 	//	Add title to title input of form
 	$(`.essay_form input#title`).val(title)
 
+	//	Update stage ui
+	update_stage_ui('details');
+	update_steps_ui('details');
+
 	//	Get date picker input
 	var date_picker = $(`.details .input.date input`);
 

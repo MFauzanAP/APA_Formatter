@@ -2,6 +2,9 @@
 $(`.controls .continue`).on('click', on_click_forward);
 $(` .controls .back`).on('click', on_click_backward);
 
+//	Update stage ui once
+update_stage_ui(new URL(window.location).searchParams.get('stage'));
+
 //	Function called when the continue button is clicked.
 function on_click_forward () {
 
@@ -23,6 +26,10 @@ function on_click_forward () {
 		'essay'			: 'formatting',
 		'formatting'		: 'download',
 	}
+
+	//	Update stage ui
+	update_stage_ui(stages[stage]);
+	update_steps_ui(stages[stage]);
 
 	//	Go to next stage
 	$(`.form_page`).removeClass(stage);
@@ -47,6 +54,10 @@ function on_click_backward () {
 		'formatting'		: 'essay',
 		'download'		: 'formatting',
 	}
+
+	//	Update stage ui
+	update_stage_ui(stages[stage]);
+	update_steps_ui(stages[stage]);
 
 	//	Go back to previous stage
 	$(`.form_page`).removeClass(stage);

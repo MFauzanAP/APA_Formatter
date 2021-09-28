@@ -86,42 +86,8 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.details .essay_form {
-      pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s;
-      /* Stepper */
-      /* Details */
-      /* Vocabulary */
-      /* Essay */
-      /* Formatting */
-      /* Download */ }
-      .form_page.details .essay_form .stepper {
-        background-position: 90%;
-        /* First Step */ }
-        .form_page.details .essay_form .stepper .step:nth-of-type(1) {
-          color: #0099FF;
-          border: 3px solid #0099FF; }
-      .form_page.details .essay_form .details {
-        pointer-events: all;
-        position: relative;
-        transform: translateX(0);
-        opacity: 1; }
-      .form_page.details .essay_form .vocabulary {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.details .essay_form .essay {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.details .essay_form .formatting {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.details .essay_form .download {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page.vocabulary {
     /* Banner */
     /* Essay Input */
@@ -145,50 +111,8 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.vocabulary .essay_form {
-      pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s;
-      /* Stepper */
-      /* Details */
-      /* Vocabulary */
-      /* Essay */
-      /* Formatting */
-      /* Download */ }
-      .form_page.vocabulary .essay_form .stepper {
-        background-position: 66%;
-        /* First Step */
-        /* Second Step */ }
-        .form_page.vocabulary .essay_form .stepper .step:nth-of-type(1) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.vocabulary .essay_form .stepper .step:nth-of-type(1) .check {
-            transform: scale(1); }
-        .form_page.vocabulary .essay_form .stepper .step:nth-of-type(2) {
-          color: #0099FF;
-          border: 3px solid #0099FF; }
-      .form_page.vocabulary .essay_form .details {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.vocabulary .essay_form .vocabulary {
-        pointer-events: all;
-        position: relative;
-        transform: translateX(0);
-        opacity: 1; }
-      .form_page.vocabulary .essay_form .essay {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.vocabulary .essay_form .formatting {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.vocabulary .essay_form .download {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page.essay {
     /* Banner */
     /* Essay Input */
@@ -212,58 +136,8 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.essay .essay_form {
-      pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s;
-      /* Stepper */
-      /* Details */
-      /* Vocabulary */
-      /* Essay */
-      /* Formatting */
-      /* Download */ }
-      .form_page.essay .essay_form .stepper {
-        background-position: 42%;
-        /* First Step */
-        /* Second Step */
-        /* Third Step */ }
-        .form_page.essay .essay_form .stepper .step:nth-of-type(1) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.essay .essay_form .stepper .step:nth-of-type(1) .check {
-            transform: scale(1); }
-        .form_page.essay .essay_form .stepper .step:nth-of-type(2) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.essay .essay_form .stepper .step:nth-of-type(2) .check {
-            transform: scale(1); }
-        .form_page.essay .essay_form .stepper .step:nth-of-type(3) {
-          color: #0099FF;
-          border: 3px solid #0099FF; }
-      .form_page.essay .essay_form .details {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.essay .essay_form .vocabulary {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.essay .essay_form .essay {
-        pointer-events: all;
-        position: relative;
-        transform: translateX(0);
-        opacity: 1; }
-      .form_page.essay .essay_form .formatting {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
-      .form_page.essay .essay_form .download {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page.formatting {
     /* Banner */
     /* Essay Input */
@@ -287,66 +161,8 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.formatting .essay_form {
-      pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s;
-      /* Stepper */
-      /* Details */
-      /* Vocabulary */
-      /* Essay */
-      /* Formatting */
-      /* Download */ }
-      .form_page.formatting .essay_form .stepper {
-        background-position: 18%;
-        /* First Step */
-        /* Second Step */
-        /* Third Step */
-        /* Fourth Step */ }
-        .form_page.formatting .essay_form .stepper .step:nth-of-type(1) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.formatting .essay_form .stepper .step:nth-of-type(1) .check {
-            transform: scale(1); }
-        .form_page.formatting .essay_form .stepper .step:nth-of-type(2) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.formatting .essay_form .stepper .step:nth-of-type(2) .check {
-            transform: scale(1); }
-        .form_page.formatting .essay_form .stepper .step:nth-of-type(3) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.formatting .essay_form .stepper .step:nth-of-type(3) .check {
-            transform: scale(1); }
-        .form_page.formatting .essay_form .stepper .step:nth-of-type(4) {
-          color: #0099FF;
-          border: 3px solid #0099FF; }
-      .form_page.formatting .essay_form .details {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.formatting .essay_form .vocabulary {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.formatting .essay_form .essay {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.formatting .essay_form .formatting {
-        pointer-events: all;
-        position: relative;
-        transform: translateX(0);
-        opacity: 1; }
-      .form_page.formatting .essay_form .download {
-        pointer-events: none;
-        transform: translateX(50vw);
-        opacity: 0; }
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page.download {
     /* Banner */
     /* Essay Input */
@@ -370,78 +186,8 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.download .essay_form {
-      pointer-events: all !important;
       opacity: 1;
-      transition: 0.25s ease-in-out 0.5s;
-      /* Stepper */
-      /* Details */
-      /* Vocabulary */
-      /* Essay */
-      /* Formatting */
-      /* Download */ }
-      .form_page.download .essay_form .stepper {
-        background-position: 0%;
-        /* First Step */
-        /* Second Step */
-        /* Third Step */
-        /* Fourth Step */
-        /* Fifth Step */ }
-        .form_page.download .essay_form .stepper .step:nth-of-type(1) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.download .essay_form .stepper .step:nth-of-type(1) .check {
-            transform: scale(1); }
-        .form_page.download .essay_form .stepper .step:nth-of-type(2) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.download .essay_form .stepper .step:nth-of-type(2) .check {
-            transform: scale(1); }
-        .form_page.download .essay_form .stepper .step:nth-of-type(3) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.download .essay_form .stepper .step:nth-of-type(3) .check {
-            transform: scale(1); }
-        .form_page.download .essay_form .stepper .step:nth-of-type(4) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.download .essay_form .stepper .step:nth-of-type(4) .check {
-            transform: scale(1); }
-        .form_page.download .essay_form .stepper .step:nth-of-type(5) {
-          color: #0099FF !important;
-          background: #0099FF;
-          border: none;
-          /* Check */ }
-          .form_page.download .essay_form .stepper .step:nth-of-type(5) .check {
-            transform: scale(1); }
-      .form_page.download .essay_form .details {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.download .essay_form .vocabulary {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.download .essay_form .essay {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.download .essay_form .formatting {
-        pointer-events: none;
-        transform: translateX(-50vw);
-        opacity: 0; }
-      .form_page.download .essay_form .download {
-        pointer-events: all;
-        position: relative;
-        transform: translateX(0);
-        opacity: 1; }
+      transition: 0.25s ease-in-out 0.5s; }
   .form_page .banner {
     position: relative;
     width: 100%;
@@ -574,6 +320,7 @@ body {
     /* Stepper */
     /* Title */
     /* Meta */
+    /* Stage */
     /* Details */
     /* Vocabulary */
     /* Essay */
@@ -655,14 +402,34 @@ body {
       margin-bottom: 65px;
       color: #AAAAAA;
       text-align: center; }
-    .form_page .essay_form .details {
+    .form_page .essay_form .stage {
+      pointer-events: none;
       position: absolute;
       width: 100%;
+      margin-top: 50px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      transition: 0.5s ease-in-out;
+      opacity: 0;
+      transition: 0.5s ease-in-out, margin-top 0s linear;
+      /* Active */
+      /* Left */
+      /* Right */ }
+      .form_page .essay_form .stage.active {
+        pointer-events: all;
+        position: relative;
+        margin-top: 0;
+        opacity: 1; }
+      .form_page .essay_form .stage.left {
+        pointer-events: none;
+        transform: translate(-50vw);
+        opacity: 0; }
+      .form_page .essay_form .stage.right {
+        pointer-events: none;
+        transform: translateX(50vw);
+        opacity: 0; }
+    .form_page .essay_form .details {
       /* Form */ }
       .form_page .essay_form .details form {
         width: 100%;
@@ -739,15 +506,6 @@ body {
             letter-spacing: 0.05rem;
             transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
     .form_page .essay_form .vocabulary {
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      opacity: 0;
-      transition: 0.5s ease-in-out;
       /* Title */
       /* Input */ }
       .form_page .essay_form .vocabulary .title {
@@ -813,15 +571,6 @@ body {
           letter-spacing: 0.05rem;
           transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
     .form_page .essay_form .essay {
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      opacity: 0;
-      transition: 0.5s ease-in-out;
       /* Title */
       /* Input */ }
       .form_page .essay_form .essay .title {
@@ -882,17 +631,8 @@ body {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
             box-shadow: 0 0 0 30px white inset !important; }
     .form_page .essay_form .formatting {
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
       color: #646464;
       font-size: 1.5em;
-      opacity: 0;
-      transition: 0.5s ease-in-out;
       /* Animation */
       /* Text */ }
       .form_page .essay_form .formatting lottie-player {
@@ -901,16 +641,6 @@ body {
         margin-top: -50px; }
       .form_page .essay_form .formatting .text {
         margin-top: -50px; }
-    .form_page .essay_form .download {
-      pointer-events: none;
-      position: absolute;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      opacity: 0;
-      transition: 0.5s ease-in-out; }
     .form_page .essay_form .controls {
       width: 100%;
       margin-top: 50px;
