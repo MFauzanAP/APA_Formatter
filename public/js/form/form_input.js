@@ -8,6 +8,12 @@ function on_click_forward () {
 	//	Get current stage
 	var stage = new URL(window.location).searchParams.get('stage');
 
+	//	Call stage handler
+	if (stage == 'details') var res = handle_details();
+
+	//	Exit function if validations fail
+	if (!res) return;
+
 	//	Declare array of stages
 	var stages = {
 		''			: 'details',
@@ -16,9 +22,6 @@ function on_click_forward () {
 		'essay'			: 'formatting',
 		'formatting'		: 'download',
 	}
-
-	//	Get details from form
-	var data = stage ? $(`.essay_form .${stage} .form`).serializeArray() : [];
 
 	//	Go to next stage
 	$(`.form_page`).removeClass(stage);
@@ -29,7 +32,7 @@ function on_click_forward () {
 
 }
 
-//      Function called when the back button is clicked.
+//	Function called when the back button is clicked.
 function on_click_backward () {
 
 	//	Get current stage
