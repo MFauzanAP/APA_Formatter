@@ -67,6 +67,8 @@ body {
 	padding			: 0;
 	margin			: 0;
 
+	background		: $primary_background_color;
+
 	display			: flex;
 	flex-direction		: column;
 	justify-content		: flex-start;
@@ -1092,6 +1094,8 @@ body {
 
 			/* Form */
 			form {
+				width			: 100%;
+
 				display			: grid;
 				grid-template-columns	: repeat(6, 1fr);
 				grid-auto-flow		: row;
