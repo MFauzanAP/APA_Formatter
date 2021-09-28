@@ -30,6 +30,7 @@
 body {
   position: relative;
   height: 100%;
+  width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
   padding: 0;
@@ -830,61 +831,56 @@ body {
         width: 100%;
         margin-bottom: 20px;
         background: transparent;
-        /* Hover */
-        /* Text Area Element */
-        /* Label */ }
-        .form_page .essay_form .essay .input:hover {
-          /* Input Element */
-          /* Label */ }
-          .form_page .essay_form .essay .input:hover input {
+        border: 1px solid #AAAAAA;
+        border-radius: 10px;
+        /* Toolbar */
+        /* Text Area Element */ }
+        .form_page .essay_form .essay .input .toolbar {
+          width: 100%;
+          height: 75px;
+          padding: 0 25px;
+          color: #3D3D3D;
+          background: #F9F9F9;
+          border-bottom: 1px solid #AAAAAA;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          /* Fullscreen Button */ }
+          .form_page .essay_form .essay .input .toolbar .fullscreen_button {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            color: #3D3D3D;
+            background: #F9F9F9;
             border: none;
-            border-bottom: 1px solid #0099FF;
-            color: #3D3D3D; }
-          .form_page .essay_form .essay .input:hover label {
-            color: #0099FF;
-            top: -2.5rem;
-            font-size: 0.8rem;
-            font-weight: 500; }
+            border-radius: 25px;
+            font-size: 1.25em;
+            /* Hover */ }
+            .form_page .essay_form .essay .input .toolbar .fullscreen_button:hover {
+              background: #EFEFEF; }
         .form_page .essay_form .essay .input textarea {
           width: 100%;
-          height: 300px;
+          height: 600px;
           padding: 1rem 1.5rem;
+          padding-top: calc(1.5rem + 10px);
           background: transparent;
           color: #3D3D3D;
-          border: 1px solid #AAAAAA;
-          border-radius: 10px;
-          font-size: 1rem;
+          border: none;
+          border-radius: 0 0 10px 10px;
+          font-size: 1.1rem;
           font-family: Lato;
           letter-spacing: 0.03em;
+          line-height: 2;
           text-rendering: optimizeLegibility;
           outline: none;
           resize: none;
           transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
-          /* Hover */
-          /* Focus */
           /* Autofill */ }
-          .form_page .essay_form .essay .input textarea:hover {
-            border: 2px solid #0099FF; }
-          .form_page .essay_form .essay .input textarea:focus, .form_page .essay_form .essay .input textarea:not(:focus):valid {
-            /* Label */ }
-            .form_page .essay_form .essay .input textarea:focus ~ label, .form_page .essay_form .essay .input textarea:not(:focus):valid ~ label {
-              color: #3D3D3D;
-              top: -2.5rem;
-              font-size: 0.8rem;
-              font-weight: 500; }
           .form_page .essay_form .essay .input textarea:-webkit-autofill, .form_page .essay_form .essay .input textarea:-webkit-autofill:hover, .form_page .essay_form .essay .input textarea:-webkit-autofill:focus, .form_page .essay_form .essay .input textarea:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
             box-shadow: 0 0 0 30px white inset !important; }
-        .form_page .essay_form .essay .input label {
-          pointer-events: none;
-          position: absolute;
-          left: 0;
-          top: 0;
-          margin: 1rem 1.5rem;
-          color: #AAAAAA;
-          font-size: 0.9rem;
-          letter-spacing: 0.05rem;
-          transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
     .form_page .essay_form .formatting {
       pointer-events: none;
       position: absolute;

@@ -32,6 +32,7 @@ $primary_input_border_color	: #EFEFEF;
 
 /* Secondary Colors */
 $secondary_color		: #39d1ff;
+$secondary_background_color	: #F9F9F9;
 $secondary_text_color		: #FFFFFF;
 $secondary_input_border_color	: #AAAAAA;
 
@@ -60,6 +61,7 @@ $quaternary_text_color		: #AAAAAA;
 body {
 	position		: relative;
 	height			: 100%;
+	width			: 100vw;
 	min-height		: 100vh;
 
 	overflow-x		: hidden;
@@ -1362,44 +1364,64 @@ body {
 				margin-bottom		: 20px;
 
 				background		: transparent;
+				border			: 1px solid $secondary_input_border_color;
+				border-radius		: 10px;
 
-				/* Hover */
-				&:hover {
+				/* Toolbar */
+				.toolbar {
+					width			: 100%;
+					height			: 75px;
 
-					/* Input Element */
-					input {
-						border			: none;
-						border-bottom		: 1px solid $primary_color;
+					padding			: 0 25px;
+
+					color			: $primary_text_color;
+					background		: $secondary_background_color;
+					border-bottom		: 1px solid $secondary_input_border_color;
+					border-radius		: 10px;
+
+					display			: flex;
+					flex-direction		: row;
+					justify-content		: space-between;
+					align-items		: center;
+
+					/* Fullscreen Button */
+					.fullscreen_button {
+						cursor			: pointer;
+
+						width			: 50px;
+						height			: 50px;
 
 						color			: $primary_text_color;
-					}
+						background		: $secondary_background_color;
+						border			: none;
+						border-radius		: 25px;
 
-					/* Label */
-					label {
-						color			: $primary_color;
+						font-size		: 1.25em;
 
-						top			: -2.5rem;
-
-						font-size		: 0.8rem;
-						font-weight		: 500;
+						/* Hover */
+						&:hover {
+							background		: $primary_input_border_color;
+						}
 					}
 				}
 
 				/* Text Area Element */
 				textarea {
 					width			: 100%;
-					height			: 300px;
+					height			: 600px;
 
 					padding			: 1rem 1.5rem;
+					padding-top		: calc(1.5rem + 10px);
 
 					background		: transparent;
 					color			: $primary_text_color;
-					border			: 1px solid $secondary_input_border_color;
-					border-radius		: 10px;
+					border			: none;
+					border-radius		: 0 0 10px 10px;
 
-					font-size		: 1rem;
+					font-size		: 1.1rem;
 					font-family		: Lato;
 					letter-spacing		: 0.03em;
+					line-height		: 2;
 					text-rendering		: optimizeLegibility;
 
 					outline			: none;
@@ -1408,47 +1430,11 @@ body {
 
 					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 
-					/* Hover */
-					&:hover {
-						border			: 2px solid $primary_color;
-					}
-
-					/* Focus */
-					&:focus, &:not(:focus):valid {
-						/* Label */
-						~ label {
-							color			: $primary_text_color;
-
-							top			: -2.5rem;
-
-							font-size		: 0.8rem;
-							font-weight		: 500;
-						}
-					}
-
 					/* Autofill */
 					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
 						-webkit-box-shadow	: 0 0 0 30px white inset !important;
 						box-shadow		: 0 0 0 30px white inset !important;
 					}
-				}
-
-				/* Label */
-				label {
-					pointer-events		: none;
-
-					position		: absolute;
-					left			: 0;
-					top			: 0;
-
-					margin			: 1rem 1.5rem;
-
-					color			: #AAAAAA;
-
-					font-size		: 0.9rem;
-					letter-spacing		: 0.05rem;
-
-					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 				}
 			}
 		}

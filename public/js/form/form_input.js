@@ -9,6 +9,7 @@ function on_click_forward () {
 	var stage = new URL(window.location).searchParams.get('stage');
 
 	//	Call stage handler
+	var res = true;
 	if (stage == 'details') var res = handle_details();
 
 	//	Exit function if validations fail
