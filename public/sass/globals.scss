@@ -699,7 +699,7 @@ body {
 			&.right {
 				pointer-events		: none;
 
-				transform		: translateX(50vw);
+				transform		: translate(50vw);
 
 				opacity			: 0;
 			}
@@ -846,28 +846,6 @@ body {
 
 				background		: transparent;
 
-				/* Hover */
-				&:hover {
-
-					/* Input Element */
-					input {
-						border			: none;
-						border-bottom		: 1px solid $primary_color;
-
-						color			: $primary_text_color;
-					}
-
-					/* Label */
-					label {
-						color			: $primary_color;
-
-						top			: -2.5rem;
-
-						font-size		: 0.8rem;
-						font-weight		: 500;
-					}
-				}
-
 				/* Text Area Element */
 				textarea {
 					width			: 100%;
@@ -916,22 +894,11 @@ body {
 					}
 				}
 
-				/* Label */
-				label {
-					pointer-events		: none;
+				/* Length Indicator */
+				.length_indicator {
+					float			: right;
 
-					position		: absolute;
-					left			: 0;
-					top			: 0;
-
-					margin			: 1rem 1.5rem;
-
-					color			: #AAAAAA;
-
-					font-size		: 0.9rem;
-					letter-spacing		: 0.05rem;
-
-					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+					color			: $quaternary_text_color;
 				}
 			}
 		}

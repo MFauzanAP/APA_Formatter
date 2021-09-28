@@ -427,7 +427,7 @@ body {
         opacity: 0; }
       .form_page .essay_form .stage.right {
         pointer-events: none;
-        transform: translateX(50vw);
+        transform: translate(50vw);
         opacity: 0; }
     .form_page .essay_form .details {
       /* Form */ }
@@ -515,21 +515,8 @@ body {
         width: 100%;
         margin-bottom: 20px;
         background: transparent;
-        /* Hover */
         /* Text Area Element */
-        /* Label */ }
-        .form_page .essay_form .vocabulary .input:hover {
-          /* Input Element */
-          /* Label */ }
-          .form_page .essay_form .vocabulary .input:hover input {
-            border: none;
-            border-bottom: 1px solid #0099FF;
-            color: #3D3D3D; }
-          .form_page .essay_form .vocabulary .input:hover label {
-            color: #0099FF;
-            top: -2.5rem;
-            font-size: 0.8rem;
-            font-weight: 500; }
+        /* Length Indicator */ }
         .form_page .essay_form .vocabulary .input textarea {
           width: 100%;
           height: 300px;
@@ -560,16 +547,9 @@ body {
           .form_page .essay_form .vocabulary .input textarea:-webkit-autofill, .form_page .essay_form .vocabulary .input textarea:-webkit-autofill:hover, .form_page .essay_form .vocabulary .input textarea:-webkit-autofill:focus, .form_page .essay_form .vocabulary .input textarea:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
             box-shadow: 0 0 0 30px white inset !important; }
-        .form_page .essay_form .vocabulary .input label {
-          pointer-events: none;
-          position: absolute;
-          left: 0;
-          top: 0;
-          margin: 1rem 1.5rem;
-          color: #AAAAAA;
-          font-size: 0.9rem;
-          letter-spacing: 0.05rem;
-          transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
+        .form_page .essay_form .vocabulary .input .length_indicator {
+          float: right;
+          color: #AAAAAA; }
     .form_page .essay_form .essay {
       /* Title */
       /* Input */ }

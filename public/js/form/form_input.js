@@ -14,6 +14,8 @@ function on_click_forward () {
 	//	Call stage handler
 	var res = true;
 	if (stage == 'details') var res = handle_details();
+	if (stage == 'vocabulary') var res = handle_vocabulary();
+	if (stage == 'essay') var res = handle_essay();
 
 	//	Exit function if validations fail
 	if (!res) return;
