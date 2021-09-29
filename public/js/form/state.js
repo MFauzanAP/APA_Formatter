@@ -24,6 +24,9 @@ function update_state () {
 //	Function called to update stage ui
 function update_stage_ui (stage) {
 
+	//	Get current scroll position
+	var scroll_pos = window.scrollY;
+
 	//	Get all stage ui
 	var stages = $(`.stage`);
 
@@ -49,6 +52,9 @@ function update_stage_ui (stage) {
 		if (i == index) stage.classList.add('active');
 
 	})
+
+	//	Scroll back to original position
+	window.scrollTo(0, scroll_pos);
 
 }
 
