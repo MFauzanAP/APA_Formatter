@@ -138,6 +138,8 @@ body {
 	justify-content		: flex-start;
 	align-items		: center;
 
+	transition		: 0.25s ease-in-out;
+
 	/* Details Stage */
 	&.details {
 
@@ -701,7 +703,10 @@ body {
 			pointer-events		: none;
 
 			position		: absolute;
+			max-height		: 100%;
 			width			: 100%;
+
+			overflow		: hidden;
 
 			margin-top		: 50px;
 
@@ -713,13 +718,16 @@ body {
 			opacity			: 0;
 
 			transition		: 0.5s ease-in-out,
-						  margin-top 0s linear;
+						  margin-top 0s linear,
+						  max-height 0s linear 0.5s;
 
 			/* Active */
 			&.active {
 				pointer-events		: all;
 
 				position		: relative;
+
+				overflow		: visible;
 
 				margin-top		: 0;
 
@@ -730,6 +738,8 @@ body {
 			&.left {
 				pointer-events		: none;
 
+				max-height		: 0;
+
 				transform		: translate(-50vw);
 
 				opacity			: 0;
@@ -738,6 +748,8 @@ body {
 			/* Right */
 			&.right {
 				pointer-events		: none;
+
+				max-height		: 0;
 
 				transform		: translate(50vw);
 

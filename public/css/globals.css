@@ -43,6 +43,7 @@ body {
   align-items: center;
   scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: 0.25s ease-in-out;
   /* Buttons */
   /* Shake */ }
   body button {
@@ -427,28 +428,33 @@ body {
     .form_page .essay_form .stage {
       pointer-events: none;
       position: absolute;
+      max-height: 100%;
       width: 100%;
+      overflow: hidden;
       margin-top: 50px;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
       opacity: 0;
-      transition: 0.5s ease-in-out, margin-top 0s linear;
+      transition: 0.5s ease-in-out, margin-top 0s linear, max-height 0s linear 0.5s;
       /* Active */
       /* Left */
       /* Right */ }
       .form_page .essay_form .stage.active {
         pointer-events: all;
         position: relative;
+        overflow: visible;
         margin-top: 0;
         opacity: 1; }
       .form_page .essay_form .stage.left {
         pointer-events: none;
+        max-height: 0;
         transform: translate(-50vw);
         opacity: 0; }
       .form_page .essay_form .stage.right {
         pointer-events: none;
+        max-height: 0;
         transform: translate(50vw);
         opacity: 0; }
     .form_page .essay_form .details {

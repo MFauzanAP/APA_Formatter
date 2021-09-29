@@ -46,7 +46,21 @@ async function submit_essay () {
 		history.pushState({}, '', window.location.pathname + `?stage=download`);
 
 	}
-	else {
+	else if (response.status == 'fail') {
+
+		//	Update stage ui
+		update_stage_ui('essay');
+		update_steps_ui('essay');
+
+		//	Go to previous stage
+		$(`.form_page`).removeClass('formatting');
+		$(`.form_page`).addClass('essay');
+
+		//	Change history state
+		history.pushState({}, '', window.location.pathname + `?stage=essay`);
+
+		//	Show toast
+		show_toast('error', 'There was something wrong with your request. Please try again.');
 		
 	}
 
