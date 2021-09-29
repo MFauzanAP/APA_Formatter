@@ -3,7 +3,6 @@
 //	Imports
 const fs = require('fs');
 const { Packer } = require('docx');
-const { createReport } = require('docx-templates');
 const actions = require('./actions');
 
 /**	Submits an essay for formatting
@@ -14,11 +13,14 @@ async function submit_essay (data) {
 	//	Process essay data into paragraphs to be inserted into the document
 	var document = await actions.submit_essay(data);
 
+	//	Generate random file name
+	var file_name = new Date().getTime().toString();
+
 	//	Output to file stream
 	Packer.toBuffer(document).then((buffer) => {
 
 		//	Write to file
-		fs.writeFileSync('./public/word/Formatted Essay.docx', buffer);
+		fs.writeFileSync(`./public/word/${file_name}.docx`, buffer);
 
 	});
 
@@ -26,7 +28,7 @@ async function submit_essay (data) {
 	return {
 		status		: 'success', 
 		message		: 'Essay successfully formatted',
-		body		: {}
+		body		: file_name
 	}
 
 }

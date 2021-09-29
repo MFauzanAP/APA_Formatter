@@ -26,9 +26,13 @@ async function submit_essay () {
 
 	//	Extract response data
 	response = await response.json();
+	download_path = response.body;
 
 	//	If successful
 	if (response.status == 'success') {
+
+		//	Update download link
+		$(`.form_page .download.stage .download_link`).attr('href', `/static/word/${download_path}.docx`)
 
 		//	Update stage ui
 		update_stage_ui('download');
