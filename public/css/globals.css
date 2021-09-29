@@ -42,7 +42,28 @@ body {
   align-items: center;
   scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* Buttons */
   /* Shake */ }
+  body button {
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+    color: #FFFFFF;
+    background: #0099FF;
+    border: none;
+    border-radius: 25px;
+    font-family: Work Sans;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* Hover */
+    /* Icon */ }
+    body button:hover {
+      background: #0085DD;
+      transform: scale(1.05); }
+    body button i {
+      margin-right: 10px; }
   body .shake {
     animation: shake 0.5s infinite; }
 
@@ -586,6 +607,7 @@ body {
             border: none;
             border-radius: 25px;
             font-size: 1.25em;
+            box-shadow: none;
             /* Hover */ }
             .form_page .essay_form .essay .input .toolbar .fullscreen_button:hover {
               background: #EFEFEF; }
@@ -621,6 +643,25 @@ body {
         margin-top: -50px; }
       .form_page .essay_form .formatting .text {
         margin-top: -50px; }
+    .form_page .essay_form .download {
+      color: #3D3D3D;
+      font-size: 1.25em;
+      text-align: center;
+      /* Header */
+      /* Buttons */ }
+      .form_page .essay_form .download .header {
+        margin-bottom: 25px;
+        font-size: 1.5em;
+        font-weight: bold; }
+      .form_page .essay_form .download .buttons {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        /* Button Element */ }
+        .form_page .essay_form .download .buttons button {
+          margin: 0 10px; }
     .form_page .essay_form .controls {
       width: 100%;
       margin-top: 50px;
@@ -635,6 +676,7 @@ body {
         border: none;
         border-radius: 25px;
         font-size: 1.25em;
+        box-shadow: none;
         transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
         /* Hover */ }
         .form_page .essay_form .controls .back:hover {

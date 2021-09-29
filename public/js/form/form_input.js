@@ -1,6 +1,6 @@
 //	Subscribe functions to control buttons on click event
 $(`.controls .continue`).on('click', on_click_forward);
-$(` .controls .back`).on('click', on_click_backward);
+$(`.controls .back`).on('click', on_click_backward);
 
 //	Update stage ui once
 update_stage_ui(new URL(window.location).searchParams.get('stage'));

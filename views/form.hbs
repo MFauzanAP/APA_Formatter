@@ -207,7 +207,7 @@
 		<div class="formatting stage">
 
 			{{!-- Loader --}}
-			<lottie-player src="/static/animations/loader.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+			<lottie-player src="/static/animations/loader.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
 
 			{{!-- Text --}}
 			<div class="text">Formatting essay, hold on...</div>
@@ -218,7 +218,7 @@
 		<div class="download stage">
 
 			{{!-- Loader --}}
-			<lottie-player src="/static/animations/loader.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+			<lottie-player src="/static/animations/success.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
 
 			{{!-- Header --}}
 			<div class="header">Congratulations!</div>
@@ -226,11 +226,19 @@
 			{{!-- Text --}}
 			<div class="text">
 				Your essay has been successfully formatted.
-				Click the button below to download the word document.
+				Click the download button below to download the word document.
 			</div>
 
-			{{!-- Download Button --}}
-			<button type="button" class="download">Download</button>
+			{{!-- Buttons --}}
+			<div class="buttons">
+
+				{{!-- Restart Button --}}
+				<button class="restart_button"><i class="fa fa-undo"></i>Restart</button>
+
+				{{!-- Download Button --}}
+				<a href="/static/word/Formatted Essay.docx" download><button class="download_button"><i class="fa fa-download"></i>Download</button></a>
+
+			</div>
 
 		</div>
 

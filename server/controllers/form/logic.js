@@ -18,7 +18,7 @@ async function submit_essay (data) {
 	Packer.toBuffer(document).then((buffer) => {
 
 		//	Write to file
-		fs.writeFileSync('Formatted Essay.docx', buffer);
+		fs.writeFileSync('./public/word/Formatted Essay.docx', buffer);
 
 	});
 

@@ -32,6 +32,7 @@ $primary_input_border_color	: #EFEFEF;
 
 /* Secondary Colors */
 $secondary_color		: #39d1ff;
+$secondary_background_color	: #F9F9F9;
 $secondary_text_color		: #FFFFFF;
 $secondary_input_border_color	: #AAAAAA;
 
@@ -60,12 +61,15 @@ $quaternary_text_color		: #AAAAAA;
 body {
 	position		: relative;
 	height			: 100%;
+	width			: 100vw;
 	min-height		: 100vh;
 
 	overflow-x		: hidden;
 
 	padding			: 0;
 	margin			: 0;
+
+	background		: $primary_background_color;
 
 	display			: flex;
 	flex-direction		: column;
@@ -76,6 +80,38 @@ body {
 
 	font-family		: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     				  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+	/* Buttons */
+	button {
+		cursor			: pointer;
+
+		width			: 200px;
+		height			: 50px;
+		color			: $secondary_text_color;
+		background		: $primary_color;
+		border			: none;
+		border-radius		: 25px;
+
+		font-family		: Work Sans;
+		font-weight		: bold;
+		font-size		: 1em;
+
+		box-shadow		: 0 0 25px rgba(0, 0, 0, 0.15);
+
+		transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+		/* Hover */
+		&:hover {
+			background		: #0085DD;
+
+			transform		: scale(1.05);
+		}
+
+		/* Icon */
+		i {
+			margin-right		: 10px;
+		}
+	}
 				      
 	/* Shake */
 	.shake {
@@ -134,69 +170,9 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			pointer-events		: all !important;
-
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
-
-			/* Stepper */
-			.stepper {
-				background-position	: 90%;
-
-				/* First Step */
-				.step:nth-of-type(1) {
-					color			: $primary_color;
-					border			: 3px solid $primary_color;
-				}
-			}
-
-			/* Details */
-			.details {
-				pointer-events		: all;
-
-				position		: relative;
-
-				transform		: translateX(0);
-
-				opacity			: 1;
-			}
-
-			/* Vocabulary */
-			.vocabulary {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Essay */
-			.essay {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Formatting */
-			.formatting {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Download */
-			.download {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
 		}
 	}
 
@@ -240,81 +216,9 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			pointer-events		: all !important;
-
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
-
-			/* Stepper */
-			.stepper {
-				background-position	: 66%;
-
-				/* First Step */
-				.step:nth-of-type(1) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Second Step */
-				.step:nth-of-type(2) {
-					color			: $primary_color;
-					border			: 3px solid $primary_color;
-				}
-			}
-
-			/* Details */
-			.details {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Vocabulary */
-			.vocabulary {
-				pointer-events		: all;
-
-				position		: relative;
-
-				transform		: translateX(0);
-
-				opacity			: 1;
-			}
-
-			/* Essay */
-			.essay {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Formatting */
-			.formatting {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Download */
-			.download {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
 		}
 	}
 
@@ -358,93 +262,9 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			pointer-events		: all !important;
-
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
-
-			/* Stepper */
-			.stepper {
-				background-position	: 42%;
-
-				/* First Step */
-				.step:nth-of-type(1) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Second Step */
-				.step:nth-of-type(2) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Third Step */
-				.step:nth-of-type(3) {
-					color			: $primary_color;
-					border			: 3px solid $primary_color;
-				}
-			}
-
-			/* Details */
-			.details {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Vocabulary */
-			.vocabulary {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Essay */
-			.essay {
-				pointer-events		: all;
-
-				position		: relative;
-
-				transform		: translateX(0);
-
-				opacity			: 1;
-			}
-
-			/* Formatting */
-			.formatting {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
-
-			/* Download */
-			.download {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
 		}
 	}
 
@@ -488,105 +308,9 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			pointer-events		: all !important;
-
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
-
-			/* Stepper */
-			.stepper {
-				background-position	: 18%;
-
-				/* First Step */
-				.step:nth-of-type(1) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Second Step */
-				.step:nth-of-type(2) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Third Step */
-				.step:nth-of-type(3) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Fourth Step */
-				.step:nth-of-type(4) {
-					color			: $primary_color;
-					border			: 3px solid $primary_color;
-				}
-			}
-
-			/* Details */
-			.details {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Vocabulary */
-			.vocabulary {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Essay */
-			.essay {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Formatting */
-			.formatting {
-				pointer-events		: all;
-
-				position		: relative;
-
-				transform		: translateX(0);
-
-				opacity			: 1;
-			}
-
-			/* Download */
-			.download {
-				pointer-events		: none;
-
-				transform		: translateX(50vw);
-
-				opacity			: 0;
-			}
 		}
 	}
 
@@ -630,123 +354,9 @@ body {
 
 		/* Essay Form */
 		.essay_form {
-			pointer-events		: all !important;
-
 			opacity			: 1;
 
 			transition		: 0.25s ease-in-out 0.5s;
-
-			/* Stepper */
-			.stepper {
-				background-position	: 0%;
-
-				/* First Step */
-				.step:nth-of-type(1) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Second Step */
-				.step:nth-of-type(2) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Third Step */
-				.step:nth-of-type(3) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Fourth Step */
-				.step:nth-of-type(4) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-
-				/* Fifth Step */
-				.step:nth-of-type(5) {
-					color			: $primary_color !important;
-					background		: $primary_color;
-					border			: none;
-
-					/* Check */
-					.check {
-						transform		: scale(1);
-					}
-				}
-			}
-
-			/* Details */
-			.details {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Vocabulary */
-			.vocabulary {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Essay */
-			.essay {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Formatting */
-			.formatting {
-				pointer-events		: none;
-
-				transform		: translateX(-50vw);
-
-				opacity			: 0;
-			}
-
-			/* Download */
-			.download {
-				pointer-events		: all;
-
-				position		: relative;
-
-				transform		: translateX(0);
-
-				opacity			: 1;
-			}
 		}
 	}
 
@@ -1078,20 +688,62 @@ body {
 			text-align		: center;
 		}
 
-		/* Details */
-		.details {
+		/* Stage */
+		.stage {
+			pointer-events		: none;
+
 			position		: absolute;
 			width			: 100%;
+
+			margin-top		: 50px;
 
 			display			: flex;
 			flex-direction		: column;
 			justify-content		: flex-start;
 			align-items		: center;
 
-			transition		: 0.5s ease-in-out;
+			opacity			: 0;
+
+			transition		: 0.5s ease-in-out,
+						  margin-top 0s linear;
+
+			/* Active */
+			&.active {
+				pointer-events		: all;
+
+				position		: relative;
+
+				margin-top		: 0;
+
+				opacity			: 1;
+			}
+
+			/* Left */
+			&.left {
+				pointer-events		: none;
+
+				transform		: translate(-50vw);
+
+				opacity			: 0;
+			}
+
+			/* Right */
+			&.right {
+				pointer-events		: none;
+
+				transform		: translate(50vw);
+
+				opacity			: 0;
+			}
+		}
+
+		/* Details */
+		.details {
 
 			/* Form */
 			form {
+				width			: 100%;
+
 				display			: grid;
 				grid-template-columns	: repeat(6, 1fr);
 				grid-auto-flow		: row;
@@ -1211,19 +863,6 @@ body {
 
 		/* Vocabulary */
 		.vocabulary {
-			pointer-events		: none;
-
-			position		: absolute;
-			width			: 100%;
-
-			display			: flex;
-			flex-direction		: column;
-			justify-content		: flex-start;
-			align-items		: center;
-
-			opacity			: 0;
-
-			transition		: 0.5s ease-in-out;
 
 			/* Title */
 			.title {
@@ -1238,28 +877,6 @@ body {
 				margin-bottom		: 20px;
 
 				background		: transparent;
-
-				/* Hover */
-				&:hover {
-
-					/* Input Element */
-					input {
-						border			: none;
-						border-bottom		: 1px solid $primary_color;
-
-						color			: $primary_text_color;
-					}
-
-					/* Label */
-					label {
-						color			: $primary_color;
-
-						top			: -2.5rem;
-
-						font-size		: 0.8rem;
-						font-weight		: 500;
-					}
-				}
 
 				/* Text Area Element */
 				textarea {
@@ -1309,41 +926,17 @@ body {
 					}
 				}
 
-				/* Label */
-				label {
-					pointer-events		: none;
+				/* Length Indicator */
+				.length_indicator {
+					float			: right;
 
-					position		: absolute;
-					left			: 0;
-					top			: 0;
-
-					margin			: 1rem 1.5rem;
-
-					color			: #AAAAAA;
-
-					font-size		: 0.9rem;
-					letter-spacing		: 0.05rem;
-
-					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+					color			: $quaternary_text_color;
 				}
 			}
 		}
 
 		/* Essay */
 		.essay {
-			pointer-events		: none;
-
-			position		: absolute;
-			width			: 100%;
-
-			display			: flex;
-			flex-direction		: column;
-			justify-content		: flex-start;
-			align-items		: center;
-
-			opacity			: 0;
-
-			transition		: 0.5s ease-in-out;
 
 			/* Title */
 			.title {
@@ -1358,44 +951,66 @@ body {
 				margin-bottom		: 20px;
 
 				background		: transparent;
+				border			: 1px solid $secondary_input_border_color;
+				border-radius		: 10px;
 
-				/* Hover */
-				&:hover {
+				/* Toolbar */
+				.toolbar {
+					width			: 100%;
+					height			: 75px;
 
-					/* Input Element */
-					input {
-						border			: none;
-						border-bottom		: 1px solid $primary_color;
+					padding			: 0 25px;
+
+					color			: $primary_text_color;
+					background		: $secondary_background_color;
+					border-bottom		: 1px solid $secondary_input_border_color;
+					border-radius		: 10px;
+
+					display			: flex;
+					flex-direction		: row;
+					justify-content		: space-between;
+					align-items		: center;
+
+					/* Fullscreen Button */
+					.fullscreen_button {
+						cursor			: pointer;
+
+						width			: 50px;
+						height			: 50px;
 
 						color			: $primary_text_color;
-					}
+						background		: $secondary_background_color;
+						border			: none;
+						border-radius		: 25px;
 
-					/* Label */
-					label {
-						color			: $primary_color;
+						font-size		: 1.25em;
 
-						top			: -2.5rem;
+						box-shadow		: none;
 
-						font-size		: 0.8rem;
-						font-weight		: 500;
+						/* Hover */
+						&:hover {
+							background		: $primary_input_border_color;
+						}
 					}
 				}
 
 				/* Text Area Element */
 				textarea {
 					width			: 100%;
-					height			: 300px;
+					height			: 600px;
 
 					padding			: 1rem 1.5rem;
+					padding-top		: calc(1.5rem + 10px);
 
 					background		: transparent;
 					color			: $primary_text_color;
-					border			: 1px solid $secondary_input_border_color;
-					border-radius		: 10px;
+					border			: none;
+					border-radius		: 0 0 10px 10px;
 
-					font-size		: 1rem;
+					font-size		: 1.1rem;
 					font-family		: Lato;
 					letter-spacing		: 0.03em;
+					line-height		: 2;
 					text-rendering		: optimizeLegibility;
 
 					outline			: none;
@@ -1404,70 +1019,20 @@ body {
 
 					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 
-					/* Hover */
-					&:hover {
-						border			: 2px solid $primary_color;
-					}
-
-					/* Focus */
-					&:focus, &:not(:focus):valid {
-						/* Label */
-						~ label {
-							color			: $primary_text_color;
-
-							top			: -2.5rem;
-
-							font-size		: 0.8rem;
-							font-weight		: 500;
-						}
-					}
-
 					/* Autofill */
 					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
 						-webkit-box-shadow	: 0 0 0 30px white inset !important;
 						box-shadow		: 0 0 0 30px white inset !important;
 					}
 				}
-
-				/* Label */
-				label {
-					pointer-events		: none;
-
-					position		: absolute;
-					left			: 0;
-					top			: 0;
-
-					margin			: 1rem 1.5rem;
-
-					color			: #AAAAAA;
-
-					font-size		: 0.9rem;
-					letter-spacing		: 0.05rem;
-
-					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
-				}
 			}
 		}
 
 		/* Formatting */
 		.formatting {
-			pointer-events		: none;
-
-			position		: absolute;
-			width			: 100%;
-
-			display			: flex;
-			flex-direction		: column;
-			justify-content		: flex-start;
-			align-items		: center;
-
 			color			: $tertiary_text_color;
 
 			font-size		: 1.5em;
-
-			opacity			: 0;
-
-			transition		: 0.5s ease-in-out;
 
 			/* Animation */
 			lottie-player {
@@ -1485,19 +1050,33 @@ body {
 
 		/* Download */
 		.download {
-			pointer-events		: none;
+			color			: $primary_text_color;
 
-			position		: absolute;
-			width			: 100%;
+			font-size		: 1.25em;
+			text-align		: center;
 
-			display			: flex;
-			flex-direction		: column;
-			justify-content		: flex-start;
-			align-items		: center;
+			/* Header */
+			.header {
+				margin-bottom		: 25px;
 
-			opacity			: 0;
+				font-size		: 1.5em;
+				font-weight		: bold;
+			}
 
-			transition		: 0.5s ease-in-out;
+			/* Buttons */
+			.buttons {
+				margin-top		: 50px;
+
+				display			: flex;
+				flex-direction		: row;
+				justify-content		: center;
+				align-items		: center;
+
+				/* Button Element */
+				button {
+					margin			: 0 10px;
+				}
+			}
 		}
 
 		/* Controls */
@@ -1519,6 +1098,8 @@ body {
 				border-radius		: 25px;
 
 				font-size		: 1.25em;
+
+				box-shadow		: none;
 
 				transition		: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
