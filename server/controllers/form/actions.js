@@ -11,6 +11,7 @@ const {
 	AlignmentType, 
 	PageBreak
 } = require('docx');
+const converters = require('../utilities/converters');
 
 /**	Processes essay data into paragraphs to be inserted into the document
  *	@param {object} data The object containing data to be processed
@@ -61,9 +62,6 @@ async function submit_essay (data) {
 						before			: 0,
 						after			: 0,
 						line			: 480
-					},
-					indent			: {
-						left			: 720
 					}
 				}
 			}]
@@ -117,6 +115,16 @@ function create_cover_page (data) {
 		children		: [],
 	}
 
+	//	Add line breaks to center cover page
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+	cover_page.children.push(new TextRun({break: 1}));
+
 	//	Add title
 	cover_page.children.push(write_line(data.details.title, {bold: true, break: 0}));
 
@@ -138,6 +146,9 @@ function create_cover_page (data) {
 	//	Add lecturer name
 	cover_page.children.push(write_line(data.details.lecturer_name));
 
+	//	Reformat date
+	data.details.date = converters.convert_picker_to_date(data.details.date);
+
 	//	Add date
 	cover_page.children.push(write_line(data.details.date));
 
@@ -152,7 +163,7 @@ function create_cover_page (data) {
 /**	Creates the title
  * 	@param {object} data The object containing data to be processed
  */
- function create_title (data) {
+function create_title (data) {
 
 	//	Create title paragraph
 	var title = {
@@ -172,7 +183,7 @@ function create_cover_page (data) {
 /**	Creates the essay
  * 	@param {object} data The object containing data to be processed
  */
- function create_essay (data) {
+function create_essay (data) {
 
 	//	Extract data from essay
 	const { essay } = data;
@@ -214,7 +225,7 @@ function create_cover_page (data) {
 /**	Creates the word count indicator
  * 	@param {object} data The object containing data to be processed
  */
- function create_word_count (data) {
+function create_word_count (data) {
 
 	//	Extract data from essay
 	const { essay } = data;
@@ -244,7 +255,7 @@ function create_cover_page (data) {
  * 	@param {string} text The text to write in the line
  * 	@param {object} paragraph The paragraph to write to
  */
- function write_line (text, options = {}) {
+function write_line (text, options = {}) {
 
 	//	Declare settings
 	var settings = {
