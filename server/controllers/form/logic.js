@@ -11,9 +11,6 @@ const actions = require('./actions');
  */
 async function submit_essay (data) {
 
-	//	Extract data from essay
-	const { details, vocabulary, essay } = data;
-
 	//	Process essay data into paragraphs to be inserted into the document
 	var document = await actions.submit_essay(data);
 
@@ -24,15 +21,6 @@ async function submit_essay (data) {
 		fs.writeFileSync('Formatted Essay.docx', buffer);
 
 	});
-
-	// const template = fs.readFileSync('Template.docx');
-
-	// const buffer = await createReport({
-	// 	template,
-	// 	data
-	// })
-
-	// fs.writeFileSync('FormattedEssay.docx', buffer);
 
 	//	Return success
 	return {

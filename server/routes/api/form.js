@@ -11,13 +11,13 @@ router.post('/form/submit', async (req, res) => {
 	//	Try catch
 	try {
 
-		//	Call submit essay function and return the reult
-		return res.json(logic.submit_essay(req.body));
+		//	Call submit essay function
+		var result = await logic.submit_essay(req.body);
+
+		//	Return result
+		return res.json(result);
 
 	} catch (error) {
-
-		//	Output error
-		console.log(error);
 
 		//	Return error
 		return res.json({
