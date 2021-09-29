@@ -40,8 +40,11 @@ $secondary_input_border_color	: #AAAAAA;
 $tertiary_text_color		: #646464;
 $tertiary_input_border_color	: #CCCCCC;
 
-/* Quaternary Colors*/
+/* Quaternary Colors */
 $quaternary_text_color		: #AAAAAA;
+
+/* Toast Colors */
+$toast_error_color		: #FF3F3F;
 
 
 
@@ -57,7 +60,9 @@ $quaternary_text_color		: #AAAAAA;
 	font-family		: Oxygen;
 }
 
-/* Body */
+
+
+/* ====================================================== Body ====================================================== */
 body {
 	position		: relative;
 	height			: 100%;
@@ -119,7 +124,9 @@ body {
 	}
 }
 
-/* Form Page */
+
+
+/* ==================================================== Form Page =================================================== */
 .form_page {
 	flex			: 1 0 100%;
 	width			: 100%;
@@ -1142,7 +1149,68 @@ body {
 	}
 }
 
-/* Footer */
+
+
+/* ====================================================== Toast ===================================================== */
+.toast {
+	position		: fixed;
+	width			: auto;
+	height			: 75px;
+	bottom			: 50px;
+
+	padding			: 40px;
+
+	color			: $secondary_text_color;
+	background		: $primary_background_color;
+	border-radius		: 37.5px;
+
+	display			: flex;
+	flex-direction		: row;
+	justify-content		: flex-start;
+	align-items		: center;
+	
+	box-shadow		: 0 0 25px rgba(0, 0, 0, 0.15);
+
+	transform		: translateY(130px);
+
+	transition		: 0.25s ease-out;
+
+	z-index			: 20;
+
+	/* Active */
+	&.active {
+		transform		: translateY(0);
+	}
+
+	/* Error */
+	&.error {
+		background		: $toast_error_color;
+	}
+
+	/* Icon */
+	i {
+		font-size		: 2em;
+	}
+
+	/* Description */
+	.description {
+		margin-left		: 25px;
+
+		display			: flex;
+		flex-direction		: column;
+		justify-content		: center;
+		align-items		: flex-start;
+
+		/* Title */
+		.title {
+			font-weight		: bold;
+		}
+	}
+}
+
+
+
+/* ===================================================== Footer ===================================================== */
 .footer {
 	position		: absolute;
 	bottom			: 30px;

@@ -17,7 +17,8 @@
 /* Primary Colors */
 /* Secondary Colors */
 /* Tertiary Colors */
-/* Quaternary Colors*/
+/* Quaternary Colors */
+/* Toast Colors */
 /* ------------------------------------------------------------------------------------------------------------------ */
 /*                                                       Styles                                                       */
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -26,7 +27,7 @@
   box-sizing: border-box;
   font-family: Oxygen; }
 
-/* Body */
+/* ====================================================== Body ====================================================== */
 body {
   position: relative;
   height: 100%;
@@ -67,7 +68,7 @@ body {
   body .shake {
     animation: shake 0.5s infinite; }
 
-/* Form Page */
+/* ==================================================== Form Page =================================================== */
 .form_page {
   flex: 1 0 100%;
   width: 100%;
@@ -701,7 +702,45 @@ body {
           background: #0085DD;
           transform: scale(1.05); }
 
-/* Footer */
+/* ====================================================== Toast ===================================================== */
+.toast {
+  position: fixed;
+  width: auto;
+  height: 75px;
+  bottom: 50px;
+  padding: 40px;
+  color: #FFFFFF;
+  background: #FFFFFF;
+  border-radius: 37.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(130px);
+  transition: 0.25s ease-out;
+  z-index: 20;
+  /* Active */
+  /* Error */
+  /* Icon */
+  /* Description */ }
+  .toast.active {
+    transform: translateY(0); }
+  .toast.error {
+    background: #FF3F3F; }
+  .toast i {
+    font-size: 2em; }
+  .toast .description {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Title */ }
+    .toast .description .title {
+      font-weight: bold; }
+
+/* ===================================================== Footer ===================================================== */
 .footer {
   position: absolute;
   bottom: 30px;
