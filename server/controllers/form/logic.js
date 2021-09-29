@@ -3,6 +3,7 @@
 //	Imports
 const fs = require('fs');
 const { Packer } = require('docx');
+const { createReport } = require('docx-templates');
 const actions = require('./actions');
 
 /**	Submits an essay for formatting
@@ -24,11 +25,20 @@ async function submit_essay (data) {
 
 	});
 
+	// const template = fs.readFileSync('Template.docx');
+
+	// const buffer = await createReport({
+	// 	template,
+	// 	data
+	// })
+
+	// fs.writeFileSync('FormattedEssay.docx', buffer);
+
 	//	Return success
 	return {
 		status		: 'success', 
 		message		: 'Essay successfully formatted',
-		body		: document
+		body		: {}
 	}
 
 }

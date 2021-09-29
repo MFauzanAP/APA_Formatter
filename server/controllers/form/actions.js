@@ -1,8 +1,11 @@
 'use strict';
 
 //	Imports
+const _ = require('lodash');
 const { 
 	Document,
+	Header,
+	PageNumber,
 	Paragraph, 
 	TextRun, 
 	AlignmentType, 
@@ -11,15 +14,30 @@ const {
 
 /**	Processes essay data into paragraphs to be inserted into the document
  *	@param {object} data The object containing data to be processed
- *	@param {object} document The document to insert the paragraphs into
  */
 async function submit_essay (data) {
 
 	//	Extract data from essay
-	const { details, vocabulary, essay } = data;
+	const { details } = data;
+
+	//	Create headers
+	const header = setup_header();
 
 	//	Create cover page
 	const cover_page = create_cover_page(data);
+
+	//	Create title
+	const title = create_title(data);
+
+	//	Create essay
+	const essay = create_essay(data);
+
+	//	Create word count
+	const word_count = create_word_count(data);
+
+	//	Concatenate into one array
+	var children = [ cover_page, title, word_count ];
+	children.splice(2, 0, ...essay);
 
 	//	Setup document
 	var document = new Document({
@@ -52,10 +70,11 @@ async function submit_essay (data) {
 		},
 		sections		: [ 
 			{
-				properties		: {
-
+				properties		: {},
+				headers			: {
+					default			: header
 				},
-				children		: [ cover_page ]
+				children		: children
 			}
 		],
 	})
@@ -67,24 +86,27 @@ async function submit_essay (data) {
 
 /** 	Sets up the header by adding page numbers
  * 	@param {object} data The object containing data to be processed
- *	@param {object} document The document to insert the paragraphs into
  */
-function setup_header (data, document) {
+function setup_header (data) {
 
-	//	Add a header to the document
-	var header = document.getHeader().createP();
-
-	//	Add pages
-	header.addText('1');
+	//	Create a header text
+	var header = new Paragraph({
+		alignment		: AlignmentType.RIGHT,
+		style			: 'Default',
+		children		: [
+			new TextRun({children: [PageNumber.CURRENT]})
+		],
+	});
 
 	//	Return header
-	return header;
+	return new Header({
+		children		: [header]
+	});
 
 }
 
 /**	Creates the cover page
  * 	@param {object} data The object containing data to be processed
- *	@param {object} document The document to insert the paragraphs into
  */
 function create_cover_page (data) {
 
@@ -96,7 +118,7 @@ function create_cover_page (data) {
 	}
 
 	//	Add title
-	cover_page.children.push(write_line(data.details.title, {bold: true}));
+	cover_page.children.push(write_line(data.details.title, {bold: true, break: 0}));
 
 	//	Add line break
 	cover_page.children.push(new TextRun({break: 1}));
@@ -124,6 +146,97 @@ function create_cover_page (data) {
 
 	//	Return cover page
 	return new Paragraph(cover_page);
+
+}
+
+/**	Creates the title
+ * 	@param {object} data The object containing data to be processed
+ */
+ function create_title (data) {
+
+	//	Create title paragraph
+	var title = {
+		alignment		: AlignmentType.CENTER,
+		style			: 'Default',
+		children		: [],
+	}
+
+	//	Add title
+	title.children.push(write_line(data.details.title, {bold: true, break: 0}));
+
+	//	Return title
+	return new Paragraph(title);
+
+}
+
+/**	Creates the essay
+ * 	@param {object} data The object containing data to be processed
+ */
+ function create_essay (data) {
+
+	//	Extract data from essay
+	const { essay } = data;
+
+	//	Declare array of paragraphs
+	var paragraphs = [];
+
+	//	Split essay into paragraphs
+	var split = essay.split('\n');
+
+	//	Loop through each paragraph and add it to the essay
+	split.forEach(paragraph => {
+
+		//	If not empty
+		if (paragraph) {
+
+			//	Create starting essay text
+			var essay_text = {
+				alignment		: AlignmentType.LEFT,
+				style			: 'Default',
+				children		: [],
+			};
+
+			//	Add paragraph
+			essay_text.children.push(write_line('	' + paragraph, {break: 0}));
+
+			//	Add this to list of paragraphs
+			paragraphs.push(new Paragraph(essay_text));
+
+		}
+		
+	});
+
+	//	Return essay
+	return paragraphs;
+
+}
+
+/**	Creates the word count indicator
+ * 	@param {object} data The object containing data to be processed
+ */
+ function create_word_count (data) {
+
+	//	Extract data from essay
+	const { essay } = data;
+
+	//	Get a match of all non whitespace words
+	var matches = essay.match(/\S+/g);
+	
+	//	Calculate number of words
+	var num_words = matches ? matches.length : 0;
+
+	//	Create word count settings
+	var word_count = {
+		alignment		: AlignmentType.RIGHT,
+		style			: 'Default',
+		children		: [],
+	}
+
+	//	Add word count
+	word_count.children.push(write_line(`Word Count-${num_words}`, {break: 0}));
+
+	//	Return word count
+	return new Paragraph(word_count);
 
 }
 
