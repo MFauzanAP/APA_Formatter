@@ -45,6 +45,7 @@ $quaternary_text_color		: #AAAAAA;
 
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
+$toast_success_color		: #5DCE5D;
 
 
 
@@ -1185,6 +1186,11 @@ body {
 	/* Error */
 	&.error {
 		background		: $toast_error_color;
+	}
+
+	/* Success */
+	&.success {
+		background		: $toast_success_color;
 	}
 
 	/* Icon */

@@ -12,7 +12,10 @@ function on_submit_title () {
 
 		//	Shake title
 		shake(`.essay_input input#title`, 250);
-		
+
+		//	Show toast
+		show_toast('error', 'Please enter an essay title before continuing.', 3000);
+
 		//	Exit function
 		return;
 

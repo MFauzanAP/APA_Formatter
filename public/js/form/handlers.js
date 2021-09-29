@@ -15,6 +15,9 @@ function handle_details () {
 
 			//	Color this input field red
 			color_input(`.essay_form .details input#${input.name}`)
+
+			//	Show toast
+			show_toast('error', `Please fill in the ${capitalise_string(input.name.replace('_', ' '))} input field`, 3000);
 			
 			//	Return false
 			return false;
@@ -76,10 +79,13 @@ function handle_essay () {
 
 		//	Color this input field red
 		color_input(`.essay_form .essay .input`);
-		
+
+		//	Show toast
+		show_toast('error', 'Please write your essay before submitting.');
+
 		//	Return false
 		return false;
-	
+
 	}
 
 	//	Add essay text to essay object
@@ -97,6 +103,9 @@ function handle_essay () {
 
 	//	Exit function if essay is incomplete
 	if (!complete) {
+
+		//	Show toast
+		show_toast('error', 'Your essay is incomplete. Go back and try again.', 3000);
 
 		//	Exit
 		return false;

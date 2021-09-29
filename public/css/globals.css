@@ -722,12 +722,15 @@ body {
   z-index: 20;
   /* Active */
   /* Error */
+  /* Success */
   /* Icon */
   /* Description */ }
   .toast.active {
     transform: translateY(0); }
   .toast.error {
     background: #FF3F3F; }
+  .toast.success {
+    background: #5DCE5D; }
   .toast i {
     font-size: 2em; }
   .toast .description {

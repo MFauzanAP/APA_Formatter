@@ -37,6 +37,15 @@ function handle_download_file (e) {
 		//	Cancel download
 		e.preventDefault();
 
+		//	Show toast
+		show_toast('error', 'There is no formatted essay available. Please restart the process and try again.', 4000);
+
+		//	Exit
+		return;
+
 	}
+
+	//	Show toast
+	show_toast('success', 'Your essay has been successfully downloaded.');
 
 }
