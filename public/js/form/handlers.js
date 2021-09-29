@@ -85,6 +85,24 @@ function handle_essay () {
 	//	Add essay text to essay object
 	essay.essay = data;
 
+	//	Make sure essay data is complete before being sent to the server
+	var complete = true;
+	complete = (essay.details.title && complete) ? true : false;
+	complete = (essay.details.date && complete) ? true : false;
+	complete = (essay.details.student_name && complete) ? true : false;
+	complete = (essay.details.lecturer_name && complete) ? true : false;
+	complete = (essay.details.student_id && complete) ? true : false;
+	complete = (essay.details.course_number && complete) ? true : false;
+	complete = (essay.essay && complete) ? true : false;
+
+	//	Exit function if essay is incomplete
+	if (!complete) {
+
+		//	Exit
+		return false;
+
+	}
+
 	//	Submit essay
 	submit_essay();
 
