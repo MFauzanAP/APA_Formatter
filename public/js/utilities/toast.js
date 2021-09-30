@@ -12,7 +12,7 @@ function show_toast(type, message, duration = 2000) {
 	var toast = $(`.toast`);
 
 	//	Set type
-	toast.addClass(`${type} active`);
+	toast[0].className = `toast ${type} active`;
 
 	//	Set icon
 	$(`.icon`, toast).html(icons[type]);
