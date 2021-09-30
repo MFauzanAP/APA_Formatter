@@ -13,6 +13,9 @@ const {
 } = require('docx');
 const converters = require('../utilities/converters');
 
+//	Declare array to hold the highlighted words found in the essay
+var included_highlights = [];
+
 /**	Processes essay data into paragraphs to be inserted into the document
  *	@param {object} data The object containing data to be processed
  */
@@ -20,6 +23,9 @@ async function submit_essay (data) {
 
 	//	Extract data from essay
 	const { details } = data;
+
+	//	Reset included highlights
+	included_highlights = [];
 
 	//	Create headers
 	const header = setup_header();
@@ -186,7 +192,7 @@ function create_title (data) {
 function create_essay (data) {
 
 	//	Extract data from essay
-	const { essay } = data;
+	const { vocabulary, essay } = data;
 
 	//	Declare array of paragraphs
 	var paragraphs = [];
@@ -208,7 +214,7 @@ function create_essay (data) {
 			};
 
 			//	Add paragraph
-			essay_text.children.push(write_line('	' + paragraph, {break: 0}));
+			essay_text.children = write_essay_line('	' + paragraph, {break: 0}, vocabulary);
 
 			//	Add this to list of paragraphs
 			paragraphs.push(new Paragraph(essay_text));
@@ -255,7 +261,7 @@ function create_word_count (data) {
  * 	@param {string} text The text to write in the line
  * 	@param {object} paragraph The paragraph to write to
  */
-function write_line (text, options = {}) {
+ function write_line (text, options = {}) {
 
 	//	Declare settings
 	var settings = {
@@ -273,6 +279,74 @@ function write_line (text, options = {}) {
 
 	//	Return new line
 	return new TextRun(settings);
+
+}
+
+/**	Writes a line to the paragraph
+ * 	@param {string} text The text to write in the line
+ * 	@param {object} paragraph The paragraph to write to
+ * 	@param {array} highlights An array of the words to make bold
+ */
+function write_essay_line (text, options = {}, highlights = []) {
+
+	//	Declare list of text
+	var text_runs = [];
+
+	//	Declare list of indexes to split the text by
+	var indexes = [];
+
+	//	Loop through each highlighted word and check if it exists in the essay
+	if (included_highlights.length < 4) highlights.forEach(highlight => {
+
+		//	Create regex to test for word
+		var regex = `\\b${highlight.toLowerCase().replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")}\\b`;
+
+		//	Check if text contains this word
+		if (new RegExp(regex, "i").test(text)) {
+
+			console.log(highlight);
+
+			//	If this word is already included or if there can be no more highlights, skip this word
+			if (!(included_highlights.includes(highlight) && included_highlights.length == 4)) {
+
+				//	Add this word to the list of included highlights
+				included_highlights.push(highlight);
+
+				//	Get index of highlighted word
+				var index = text.toLowerCase().search(regex);
+				
+				//	Add index to list of indexes to split the text by
+				indexes.push({index, highlight});
+
+			}
+
+		}
+		
+	});
+
+	//	Declare variable to store the last index of the highlighted word
+	var last_index = 0;
+
+	//	Order index from first to last
+	indexes.sort((a, b) => a.index - b.index );
+
+	//	Loop through each index
+	indexes.forEach(elem => {
+
+		//	Create new text run object for this word as well as for the text before this word
+		text_runs.push(new TextRun({text: text.substring(last_index, elem.index), break: text_runs.length ? 0 : 1, ...options}));
+		text_runs.push(new TextRun({text: text.substring(elem.index, elem.index + elem.highlight.length), bold: true}));
+
+		//	Set last index
+		last_index = elem.index + elem.highlight.length;
+		
+	});
+
+	//	Add the rest of the text to the array
+	text_runs.push(new TextRun({text: text.substring(last_index, text.length), ...options }));
+
+	//	Return formatted text
+	return text_runs;
 
 }
 

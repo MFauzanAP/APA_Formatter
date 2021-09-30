@@ -58,13 +58,10 @@ body {
     font-size: 1em;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
-    /* Hover */
-    /* Icon */ }
+    /* Hover */ }
     body button:hover {
       background: #0085DD;
       transform: scale(1.05); }
-    body button i {
-      margin-right: 10px; }
   body .shake {
     animation: shake 0.5s infinite; }
 
@@ -226,7 +223,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.75s ease-in-out;
+    transition: transform 0.75s ease-in-out;
     /* Curved Footer */
     /* Title */
     /* Description */ }
@@ -673,7 +670,10 @@ body {
         align-items: center;
         /* Button Element */ }
         .form_page .essay_form .download .buttons button {
-          margin: 0 10px; }
+          margin: 0 10px;
+          /* Icon */ }
+          .form_page .essay_form .download .buttons button i {
+            margin-right: 10px; }
     .form_page .essay_form .controls {
       width: 100%;
       margin-top: 50px;

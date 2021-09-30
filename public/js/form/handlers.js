@@ -57,8 +57,8 @@ function handle_vocabulary () {
 
 	});
 
-	//	Clamp array length to 100 words
-	if (words.length > 100) words.splice(100, words.length - 100);
+	//	Clamp array length to 500 words
+	if (words.length > 500) words.splice(500, words.length - 500);
 
 	//	Add words to the essay object
 	essay.vocabulary = words;

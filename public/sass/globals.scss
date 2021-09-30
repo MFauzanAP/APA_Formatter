@@ -112,11 +112,6 @@ body {
 
 			transform		: scale(1.05);
 		}
-
-		/* Icon */
-		i {
-			margin-right		: 10px;
-		}
 	}
 				      
 	/* Shake */
@@ -395,7 +390,7 @@ body {
 		justify-content		: center;
 		align-items		: center;
 
-		transition		: 0.75s ease-in-out;
+		transition		: transform 0.75s ease-in-out;
 
 		/* Curved Footer */
 		svg {
@@ -1105,6 +1100,11 @@ body {
 				/* Button Element */
 				button {
 					margin			: 0 10px;
+
+					/* Icon */
+					i {
+						margin-right		: 10px;
+					}
 				}
 			}
 		}

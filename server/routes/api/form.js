@@ -19,6 +19,9 @@ router.post('/form/submit', async (req, res) => {
 
 	} catch (error) {
 
+		//	Log error
+		console.log(error);
+
 		//	Return error
 		return res.json({
 			status		: 'fail', 
