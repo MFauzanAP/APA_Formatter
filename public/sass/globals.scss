@@ -37,6 +37,7 @@ $secondary_text_color		: #FFFFFF;
 $secondary_input_border_color	: #AAAAAA;
 
 /* Tertiary Colors */
+$tertiary_background_color	: #F5F5F5;
 $tertiary_text_color		: #646464;
 $tertiary_input_border_color	: #CCCCCC;
 
@@ -46,7 +47,10 @@ $quaternary_text_color		: #AAAAAA;
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
 $toast_success_color		: #5DCE5D;
-$toast_success_color		: #5DCE5D;
+$toast_success_color		: #3b3b3b;
+
+/* Modal Colors */
+$modal_overlay_color		: rgba( 0, 0, 0, 0.5);
 
 
 
@@ -87,6 +91,11 @@ body {
 
 	font-family		: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     				  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+	/* Fixed */
+	&.fixed {
+		overflow-y		: hidden;
+	}
 
 	/* Buttons */
 	button {
@@ -1257,6 +1266,280 @@ body {
 		/* Title */
 		.title {
 			font-weight		: bold;
+		}
+	}
+}
+
+
+
+/* ====================================================== Modal ===================================================== */
+.modal {
+	pointer-events		: none;
+
+	position		: fixed;
+	width			: 100vw;
+	height			: 100vh;
+
+	background		: $modal_overlay_color;
+
+	opacity			: 0;
+
+	display			: flex;
+	flex-direction		: column;
+	justify-content		: center;
+	align-items		: center;
+
+	transition		: 0.5s ease-in-out;
+
+	/* Active */
+	&.active {
+		pointer-events		: all;
+
+		opacity			: 1;
+
+		/* Background */
+		.background {
+			opacity			: 1;
+			
+			transform		: scale(1);
+		}
+	}
+
+	/* Tiny */
+	&.tiny {
+
+		/* Background */
+		.background {
+			width			: 400px;
+			height			: 250px;
+		}
+	}
+
+	/* Small */
+	&.small {
+
+		/* Background */
+		.background {
+			width			: 500px;
+			height			: 300px;
+		}
+	}
+
+	/* Full Screen */
+	&.fullscreen {
+
+		/* Background */
+		.background {
+			width			: calc(100% - 50px);
+			height			: calc(100% - 50px);
+		}
+	}
+
+	/* Editor */
+	&.editor {
+
+		/* Message */
+		.message {
+			display			: none;
+		}
+
+		/* Text Area */
+		.input {
+			display			: block !important;
+		}
+	}
+
+	/* Confirm */
+	&.confirm {
+
+		/* Cancel */
+		.cancel {
+			display			: block !important;
+		}
+
+		/* Confirm */
+		.confirm {
+			display			: block !important;
+		}
+	}
+
+	/* Okay */
+	&.okay {
+
+		/* Okay */
+		.okay {
+			display			: block !important;
+		}
+	}
+
+	/* Background */
+	.background {
+		position		: relative;
+		width			: 700px;
+		height			: 450px;
+
+		background		: $primary_background_color;
+		border-radius		: 15px;
+
+		display			: flex;
+		flex-direction		: column;
+		justify-content		: center;
+		align-items		: center;
+
+		opacity			: 0;
+
+		box-shadow		: 0 0 25px 10px rgba(0, 0, 0, 0.15);
+
+		transform		: scale(0.5);
+
+		transition		: 0.25s ease-in-out 0.25s;
+
+		/* Header */
+		.header {
+			position		: relative;
+			width			: calc(100% - 40px);
+			flex			: 0 0 60px;
+
+			padding			: 20px 10px;
+
+			display			: flex;
+			flex-direction		: row;
+			justify-content		: space-between;
+			align-items		: center;
+
+			font-size		: 1.25em;
+			font-weight		: bold;
+			font-family		: Work Sans;
+
+			border-bottom		: 1px solid $tertiary_input_border_color;
+		}
+
+		/* Body */
+		.body {
+			width			: 100%;
+			flex			: 1 1 auto;
+
+			padding			: 20px;
+
+			/* Message */
+			.message {
+			}
+
+			/* Input */
+			.input {
+				position		: relative;
+				width			: 100%;
+				height			: 100%;
+
+				display			: none;
+
+				background		: transparent;
+				border			: 1px solid $secondary_input_border_color;
+				border-radius		: 10px;
+
+				/* Toolbar */
+				.toolbar {
+					width			: 100%;
+					height			: 75px;
+
+					padding			: 0 25px;
+
+					color			: $primary_text_color;
+					background		: $secondary_background_color;
+					border-bottom		: 1px solid $secondary_input_border_color;
+					border-radius		: 10px;
+
+					display			: flex;
+					flex-direction		: row;
+					justify-content		: space-between;
+					align-items		: center;
+				}
+
+				/* Text Area Element */
+				textarea {
+					width			: 100%;
+					height			: calc(100% - 75px);
+
+					padding			: 1rem 1.5rem;
+					padding-top		: calc(1.5rem + 10px);
+
+					background		: transparent;
+					color			: $primary_text_color;
+					border			: none;
+					border-radius		: 0 0 10px 10px;
+
+					font-size		: 1.1rem;
+					font-family		: Lato;
+					letter-spacing		: 0.03em;
+					line-height		: 2;
+					text-rendering		: optimizeLegibility;
+
+					outline			: none;
+
+					resize			: none;
+
+					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+					/* Autofill */
+					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+						-webkit-box-shadow	: 0 0 0 30px white inset !important;
+						box-shadow		: 0 0 0 30px white inset !important;
+					}
+				}
+			}
+		}
+
+		/* Buttons */
+		.buttons {
+			width			: 100%;
+			flex			: 0 0 80px;
+
+			padding			: 30px;
+
+			display			: flex;
+			flex-direction		: row;
+			justify-content		: flex-end;
+			align-items		: center;
+
+			/* Cancel */
+			.cancel {
+				display			: none;
+
+				margin-right		: 20px;
+
+				background		: $secondary_input_border_color;
+
+				/* Icon */
+				i {
+					margin-right		: 10px;
+
+					font-size		: 1.25em;
+				}
+			}
+
+			/* Confirm */
+			.confirm {
+				display			: none;
+
+				/* Icon */
+				i {
+					margin-right		: 10px;
+
+					font-size		: 1.25em;
+				}
+			}
+
+			/* Okay */
+			.okay {
+				display			: none;
+
+				/* Icon */
+				i {
+					margin-right		: 10px;
+
+					font-size		: 1.25em;
+				}
+			}
 		}
 	}
 }

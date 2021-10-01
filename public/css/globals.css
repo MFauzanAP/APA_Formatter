@@ -19,6 +19,7 @@
 /* Tertiary Colors */
 /* Quaternary Colors */
 /* Toast Colors */
+/* Modal Colors */
 /* ------------------------------------------------------------------------------------------------------------------ */
 /*                                                       Styles                                                       */
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -43,8 +44,11 @@ body {
   align-items: center;
   scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* Fixed */
   /* Buttons */
   /* Shake */ }
+  body.fixed {
+    overflow-y: hidden; }
   body button {
     cursor: pointer;
     width: 200px;
@@ -752,7 +756,7 @@ body {
   .toast.error {
     background: #FF3F3F; }
   .toast.success {
-    background: #5DCE5D; }
+    background: #3b3b3b; }
   .toast.info {
     color: #646464;
     background: #FFFFFF; }
@@ -767,6 +771,178 @@ body {
     /* Title */ }
     .toast .description .title {
       font-weight: bold; }
+
+/* ====================================================== Modal ===================================================== */
+.modal {
+  pointer-events: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  /* Active */
+  /* Tiny */
+  /* Small */
+  /* Full Screen */
+  /* Editor */
+  /* Confirm */
+  /* Okay */
+  /* Background */ }
+  .modal.active {
+    pointer-events: all;
+    opacity: 1;
+    /* Background */ }
+    .modal.active .background {
+      opacity: 1;
+      transform: scale(1); }
+  .modal.tiny {
+    /* Background */ }
+    .modal.tiny .background {
+      width: 400px;
+      height: 250px; }
+  .modal.small {
+    /* Background */ }
+    .modal.small .background {
+      width: 500px;
+      height: 300px; }
+  .modal.fullscreen {
+    /* Background */ }
+    .modal.fullscreen .background {
+      width: calc(100% - 50px);
+      height: calc(100% - 50px); }
+  .modal.editor {
+    /* Message */
+    /* Text Area */ }
+    .modal.editor .message {
+      display: none; }
+    .modal.editor .input {
+      display: block !important; }
+  .modal.confirm {
+    /* Cancel */
+    /* Confirm */ }
+    .modal.confirm .cancel {
+      display: block !important; }
+    .modal.confirm .confirm {
+      display: block !important; }
+  .modal.okay {
+    /* Okay */ }
+    .modal.okay .okay {
+      display: block !important; }
+  .modal .background {
+    position: relative;
+    width: 700px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(0.5);
+    transition: 0.25s ease-in-out 0.25s;
+    /* Header */
+    /* Body */
+    /* Buttons */ }
+    .modal .background .header {
+      position: relative;
+      width: calc(100% - 40px);
+      flex: 0 0 60px;
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.25em;
+      font-weight: bold;
+      font-family: Work Sans;
+      border-bottom: 1px solid #CCCCCC; }
+    .modal .background .body {
+      width: 100%;
+      flex: 1 1 auto;
+      padding: 20px;
+      /* Message */
+      /* Input */ }
+      .modal .background .body .input {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: transparent;
+        border: 1px solid #AAAAAA;
+        border-radius: 10px;
+        /* Toolbar */
+        /* Text Area Element */ }
+        .modal .background .body .input .toolbar {
+          width: 100%;
+          height: 75px;
+          padding: 0 25px;
+          color: #3D3D3D;
+          background: #F9F9F9;
+          border-bottom: 1px solid #AAAAAA;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center; }
+        .modal .background .body .input textarea {
+          width: 100%;
+          height: calc(100% - 75px);
+          padding: 1rem 1.5rem;
+          padding-top: calc(1.5rem + 10px);
+          background: transparent;
+          color: #3D3D3D;
+          border: none;
+          border-radius: 0 0 10px 10px;
+          font-size: 1.1rem;
+          font-family: Lato;
+          letter-spacing: 0.03em;
+          line-height: 2;
+          text-rendering: optimizeLegibility;
+          outline: none;
+          resize: none;
+          transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+          /* Autofill */ }
+          .modal .background .body .input textarea:-webkit-autofill, .modal .background .body .input textarea:-webkit-autofill:hover, .modal .background .body .input textarea:-webkit-autofill:focus, .modal .background .body .input textarea:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            box-shadow: 0 0 0 30px white inset !important; }
+    .modal .background .buttons {
+      width: 100%;
+      flex: 0 0 80px;
+      padding: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      /* Cancel */
+      /* Confirm */
+      /* Okay */ }
+      .modal .background .buttons .cancel {
+        display: none;
+        margin-right: 20px;
+        background: #AAAAAA;
+        /* Icon */ }
+        .modal .background .buttons .cancel i {
+          margin-right: 10px;
+          font-size: 1.25em; }
+      .modal .background .buttons .confirm {
+        display: none;
+        /* Icon */ }
+        .modal .background .buttons .confirm i {
+          margin-right: 10px;
+          font-size: 1.25em; }
+      .modal .background .buttons .okay {
+        display: none;
+        /* Icon */ }
+        .modal .background .buttons .okay i {
+          margin-right: 10px;
+          font-size: 1.25em; }
 
 /* ===================================================== Footer ===================================================== */
 .footer {
