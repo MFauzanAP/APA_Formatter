@@ -743,6 +743,7 @@ body {
         cursor: pointer;
         margin-top: 15px;
         color: #AAAAAA;
+        font-size: 0.9em;
         transition: 0.15s ease-in-out;
         /* Hover */ }
         .form_page .essay_form .download .more_info_button:hover {
@@ -935,7 +936,7 @@ body {
     .modal .background .header {
       position: relative;
       width: calc(100% - 40px);
-      flex: 0 0 60px;
+      flex: 0 0 80px;
       padding: 20px 10px;
       display: flex;
       flex-direction: row;

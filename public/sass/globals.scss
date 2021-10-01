@@ -1221,6 +1221,8 @@ body {
 
 				color			: $quaternary_text_color;
 
+				font-size		: 0.9em;
+
 				transition		: 0.15s ease-in-out;
 
 				/* Hover */
@@ -1530,7 +1532,7 @@ body {
 		.header {
 			position		: relative;
 			width			: calc(100% - 40px);
-			flex			: 0 0 60px;
+			flex			: 0 0 80px;
 
 			padding			: 20px 10px;
 

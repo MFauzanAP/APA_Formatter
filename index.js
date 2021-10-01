@@ -46,7 +46,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'bower_components')));
 
 //	Setup port
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 
 
