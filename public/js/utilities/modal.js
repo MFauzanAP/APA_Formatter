@@ -2,16 +2,16 @@
 var modal = $(`.modal`);
 
 //	Subscribe methods to modal elements
-$(`.modal`).on('click', (e) => { if (e.target !== e.currentTarget) return; hide_modal(e); });
-$(`.modal .buttons .cancel`).on('click', (e) => { close_callback = null; hide_modal(e); });
-$(`.modal .buttons .confirm`).on('click', hide_modal);
-$(`.modal .buttons .okay`).on('click', hide_modal);
+modal.on('click', (e) => { if (e.target !== e.currentTarget) return; hide_modal(e); });
+$(`.buttons .cancel`, modal).on('click', (e) => { close_callback = null; hide_modal(e); });
+$(`.buttons .confirm`, modal).on('click', hide_modal);
+$(`.buttons .okay`, modal).on('click', hide_modal);
 
 //	Variable to hold close callback function
 var close_callback = null;
 
 //	Function used to show modal
-function show_modal (type, callback = null, c_callback = null) {
+function show_modal (data = { type: '', title: '', message: '' }, callback = null, c_callback = null) {
 
 	//	Fix body page
 	$(`body`).addClass('fixed');
@@ -20,7 +20,13 @@ function show_modal (type, callback = null, c_callback = null) {
 	modal[0].className = `modal active`;
 
 	//	Add classes from type
-	modal.addClass(type);
+	modal.addClass(data.type);
+
+	//	Set modal title
+	$(`.header .title`, modal).html(data.title || 'Title');
+
+	//	Set modal message
+	$(`.body .message`, modal).html(data.message || 'Message');
 
 	//	Set close callback
 	close_callback = c_callback;

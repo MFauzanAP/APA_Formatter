@@ -10,7 +10,7 @@ editor.on('change keyup paste', handle_essay_text_change);
 fullscreen_editor.on('change keyup paste', handle_fullscreen_essay_text_change);
 
 //	Subscribe function to full screen button
-fullscreen_button.on('click', () => show_modal(`fullscreen editor confirm`, handle_editor_expand, handle_editor_collapse));
+fullscreen_button.on('click', () => show_modal({ type: `fullscreen editor confirm`, title: 'Fullscreen Editor' }, handle_editor_expand, handle_editor_collapse));
 
 //	Function called when essay is being edited
 function handle_essay_text_change () {

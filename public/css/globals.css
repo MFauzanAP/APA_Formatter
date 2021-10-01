@@ -756,7 +756,7 @@ body {
   .toast.error {
     background: #FF3F3F; }
   .toast.success {
-    background: #3b3b3b; }
+    background: #5DCE5D; }
   .toast.info {
     color: #646464;
     background: #FFFFFF; }
@@ -788,8 +788,10 @@ body {
   /* Active */
   /* Tiny */
   /* Small */
+  /* Big */
   /* Full Screen */
   /* Editor */
+  /* Center */
   /* Confirm */
   /* Okay */
   /* Background */ }
@@ -810,6 +812,11 @@ body {
     .modal.small .background {
       width: 500px;
       height: 300px; }
+  .modal.big {
+    /* Background */ }
+    .modal.big .background {
+      width: 750px;
+      height: 600px; }
   .modal.fullscreen {
     /* Background */ }
     .modal.fullscreen .background {
@@ -822,6 +829,21 @@ body {
       display: none; }
     .modal.editor .input {
       display: block !important; }
+  .modal.center {
+    /* Header */
+    /* Body */
+    /* Buttons */ }
+    .modal.center .header {
+      justify-content: center !important;
+      /* Title */ }
+      .modal.center .header .title {
+        text-align: center !important; }
+    .modal.center .body {
+      /* Message */ }
+      .modal.center .body .message {
+        text-align: center !important; }
+    .modal.center .buttons {
+      justify-content: center !important; }
   .modal.confirm {
     /* Cancel */
     /* Confirm */ }
@@ -835,8 +857,9 @@ body {
       display: block !important; }
   .modal .background {
     position: relative;
-    width: 700px;
+    width: 600px;
     height: 450px;
+    color: #3D3D3D;
     background: #FFFFFF;
     border-radius: 15px;
     display: flex;
@@ -857,7 +880,7 @@ body {
       padding: 20px 10px;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       font-size: 1.25em;
       font-weight: bold;
@@ -866,9 +889,11 @@ body {
     .modal .background .body {
       width: 100%;
       flex: 1 1 auto;
-      padding: 20px;
+      padding: 30px 10px;
       /* Message */
       /* Input */ }
+      .modal .background .body .message {
+        overflow-y: auto; }
       .modal .background .body .input {
         position: relative;
         width: 100%;

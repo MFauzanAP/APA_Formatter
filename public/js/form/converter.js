@@ -12,6 +12,9 @@ var essay = {
 	essay			: '',
 };
 
+//	Variable to hold highlighted words
+var highlights = [];
+
 //	Function used to submit the data to the server
 async function submit_essay () {
 
@@ -28,11 +31,12 @@ async function submit_essay () {
 	response = await response.json();
 	const { file_name, words } = response.body;
 
-	//	Set download path
+	//	Set download path and highlights
 	download_path = file_name;
+	highlights = words;
 	
 	//	Show a toast if there werent enough vocab words used
-	if (words.length < 4) show_toast('info', 'Your essay did not use enough words from the vocabulary.');
+	if (words.length < 4 && essay.vocabulary.length >= 4) show_toast('info', 'Your essay did not use enough words from the vocabulary.');
 
 	//	If successful
 	if (response.status == 'success') {

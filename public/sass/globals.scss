@@ -47,7 +47,6 @@ $quaternary_text_color		: #AAAAAA;
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
 $toast_success_color		: #5DCE5D;
-$toast_success_color		: #3b3b3b;
 
 /* Modal Colors */
 $modal_overlay_color		: rgba( 0, 0, 0, 0.5);
@@ -1300,7 +1299,7 @@ body {
 		/* Background */
 		.background {
 			opacity			: 1;
-			
+
 			transform		: scale(1);
 		}
 	}
@@ -1325,6 +1324,16 @@ body {
 		}
 	}
 
+	/* Big */
+	&.big {
+
+		/* Background */
+		.background {
+			width			: 750px;
+			height			: 600px;
+		}
+	}
+
 	/* Full Screen */
 	&.fullscreen {
 
@@ -1346,6 +1355,34 @@ body {
 		/* Text Area */
 		.input {
 			display			: block !important;
+		}
+	}
+
+	/* Center */
+	&.center {
+
+		/* Header */
+		.header {
+			justify-content		: center !important;
+
+			/* Title */
+			.title {
+				text-align		: center !important;
+			}
+		}
+
+		/* Body */
+		.body {
+
+			/* Message */
+			.message {
+				text-align		: center !important;
+			}
+		}
+
+		/* Buttons */
+		.buttons {
+			justify-content		: center !important;
 		}
 	}
 
@@ -1375,9 +1412,10 @@ body {
 	/* Background */
 	.background {
 		position		: relative;
-		width			: 700px;
+		width			: 600px;
 		height			: 450px;
 
+		color			: $primary_text_color;
 		background		: $primary_background_color;
 		border-radius		: 15px;
 
@@ -1404,7 +1442,7 @@ body {
 
 			display			: flex;
 			flex-direction		: row;
-			justify-content		: space-between;
+			justify-content		: flex-start;
 			align-items		: center;
 
 			font-size		: 1.25em;
@@ -1419,10 +1457,11 @@ body {
 			width			: 100%;
 			flex			: 1 1 auto;
 
-			padding			: 20px;
+			padding			: 30px 10px;
 
 			/* Message */
 			.message {
+				overflow-y		: auto;
 			}
 
 			/* Input */
