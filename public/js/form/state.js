@@ -2,6 +2,23 @@
 window.addEventListener('popstate', update_state);
 window.addEventListener('DOMContentLoaded', update_state);
 
+//	Subscribe to on leave event
+window.onbeforeunload = leave_prompt;
+
+//	Function called when user tries to leave the page
+function leave_prompt () {
+
+	//	Get current stage
+	var stage = new URL(window.location).searchParams.get('stage');
+
+	//	Declare array of stages to check for
+	var checks = ['details', 'vocabulary', 'essay'];
+
+	//	If on a stage that has user input then ask user if they want to leave
+	if (checks.includes(stage)) return 'You still have unsaved changes. Are you sure you want to leave?';
+
+}
+
 //	Function called to update state
 function update_state () {
 
