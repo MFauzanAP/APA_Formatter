@@ -4,11 +4,15 @@
 const fs = require('fs');
 const { Packer } = require('docx');
 const actions = require('./actions');
+const processor = require('./processor');
 
 /**	Submits an essay for formatting
  * 	@param {*} data Object containing information about the essay
  */
 async function submit_essay (data) {
+
+	//	Sanitize data
+	data = processor.submit_essay_processor(data);
 
 	//	Process essay data into paragraphs to be inserted into the document
 	const { document, words } = await actions.submit_essay(data);

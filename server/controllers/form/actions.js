@@ -307,8 +307,6 @@ function write_essay_line (text, options = {}, highlights = []) {
 			//	If this word is already included or if there can be no more highlights, skip this word
 			if (!included_highlights.includes(highlight) && included_highlights.length < 4) {
 
-				console.log(highlight);
-
 				//	Add this word to the list of included highlights
 				included_highlights.push(highlight);
 
