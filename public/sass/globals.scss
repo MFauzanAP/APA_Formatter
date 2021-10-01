@@ -131,6 +131,95 @@ body {
 
 
 
+/* ===================================================== Navbar ===================================================== */
+.navbar {
+	position		: absolute;
+	width			: 100%;
+	height			: 100px;
+	top			: 0;
+
+	z-index			: 10;
+
+	/* Logo Container */
+	.logo_container {
+		position		: absolute;
+		top			: 25px;
+		left			: 200px;
+
+		/* Logo */
+		.logo {
+			width			: 75px;
+			height			: 75px;
+
+			margin			: 25px;
+
+			background		: transparent;
+
+			box-shadow		: none;
+
+			/* Hover */
+			&:hover {
+
+				/* Image */
+				img {
+					filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+				}
+			}
+
+			/* Image */
+			img {
+				width			: 75px;
+				height			: 75px;
+
+				filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+			}
+		}
+	}
+
+	/* Buttons */
+	.buttons {
+		position		: absolute;
+		top			: 25px;
+		right			: 200px;
+
+		display			: flex;
+		flex-direction		: row;
+		justify-content		: flex-end;
+		align-items		: center;
+
+		font-size		: 2em;
+
+		/* Button Element */
+		button {
+			width			: 50px;
+			height			: 50px;
+
+			margin			: 25px;
+
+			background		: transparent;
+
+			box-shadow		: none;
+
+			/* Hover */
+			&:hover {
+				background		: transparent;
+
+				/* Icon */
+				i {
+					filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+				}
+			}
+
+			/* Icon */
+			i {
+				filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+			}
+		}
+	}
+}
+
+
+
 /* ==================================================== Form Page =================================================== */
 .form_page {
 	flex			: 1 0 100%;
@@ -959,6 +1048,11 @@ body {
 					&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
 						-webkit-box-shadow	: 0 0 0 30px white inset !important;
 						box-shadow		: 0 0 0 30px white inset !important;
+					}
+
+					/* Placeholder */
+					&::placeholder {
+						color			: $quaternary_text_color;
 					}
 				}
 
