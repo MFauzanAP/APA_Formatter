@@ -7,11 +7,21 @@ $(`.essay_form .download.stage .more_info_button`).on('click', handle_essay_info
 var download_path = '';
 
 //	Function called to restart the essay format process
-function restart_form_page () {
+async function restart_form_page () {
 
 	//	Reset all inputs
 	$(`input`).val('');
 	$(`textarea`).val('');
+
+	//	Delete the previously made word document
+	var response = await fetch('/api/form/delete', {
+		method			: 'POST',
+		body			: JSON.stringify({ path: download_path }),
+		headers			: {
+			'Content-Type'		: 'application/json'
+		}
+	});
+	console.log(await response.json());
 
 	//	Reset download path
 	download_path = '';

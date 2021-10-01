@@ -77,17 +77,32 @@ async function submit_essay (data) {
 
 }
 
+/**	Deletes an essay file from the server
+ *	@param {object} data The object containing path to the file
  */
+async function delete_essay (data) {
 
-
+	//	If the file doesnt exist then return an error
+	if (!fs.existsSync(`./public/word/${data.path}.docx`)) return {
+		status		: 'fail', 
+		message		: 'File not found',
+		body		: {}
 	}
 
+	//	Delete the file at the given path
+	fs.unlinkSync(`./public/word/${data.path}.docx`);
 
+	//	Return response
+	return {
+		status		: 'success', 
+		message		: 'Essay successfully deleted',
+		body		: {}
 	}
 
 }
 
 //	Export functions
 module.exports = {
-	submit_essay
+	submit_essay,
+	delete_essay
 }
