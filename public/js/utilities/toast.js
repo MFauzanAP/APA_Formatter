@@ -2,7 +2,7 @@
 var icons = {
 	'error'			: '<i class="fa fa-exclamation-circle"></i>',
 	'success'		: '<i class="fa fa-check-circle"></i>',
-	'info'			: '<i class="fa fa-question-circle"></i>',
+	'info'			: '<i class="fa fa-info-circle"></i>',
 }
 
 //	Function called to show the toast

@@ -11,7 +11,7 @@ const actions = require('./actions');
 async function submit_essay (data) {
 
 	//	Process essay data into paragraphs to be inserted into the document
-	var document = await actions.submit_essay(data);
+	const { document, words } = await actions.submit_essay(data);
 
 	//	Generate random file name
 	var file_name = new Date().getTime().toString();
@@ -28,7 +28,7 @@ async function submit_essay (data) {
 	return {
 		status		: 'success', 
 		message		: 'Essay successfully formatted',
-		body		: file_name
+		body		: { file_name, words }
 	}
 
 }

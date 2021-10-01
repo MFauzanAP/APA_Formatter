@@ -84,7 +84,7 @@ async function submit_essay (data) {
 	})
 
 	//	Return document
-	return document;
+	return { document, words: included_highlights };
 
 }
 
@@ -304,17 +304,17 @@ function write_essay_line (text, options = {}, highlights = []) {
 		//	Check if text contains this word
 		if (new RegExp(regex, "i").test(text)) {
 
-			console.log(highlight);
-
 			//	If this word is already included or if there can be no more highlights, skip this word
-			if (!(included_highlights.includes(highlight) && included_highlights.length == 4)) {
+			if (!included_highlights.includes(highlight) && included_highlights.length < 4) {
+
+				console.log(highlight);
 
 				//	Add this word to the list of included highlights
 				included_highlights.push(highlight);
 
 				//	Get index of highlighted word
 				var index = text.toLowerCase().search(regex);
-				
+
 				//	Add index to list of indexes to split the text by
 				indexes.push({index, highlight});
 

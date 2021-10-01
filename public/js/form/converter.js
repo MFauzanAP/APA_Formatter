@@ -26,7 +26,13 @@ async function submit_essay () {
 
 	//	Extract response data
 	response = await response.json();
-	download_path = response.body;
+	const { file_name, words } = response.body;
+
+	//	Set download path
+	download_path = file_name;
+	
+	//	Show a toast if there werent enough vocab words used
+	if (words.length < 4) show_toast('info', 'Your essay did not use enough words from the vocabulary.');
 
 	//	If successful
 	if (response.status == 'success') {

@@ -46,6 +46,7 @@ $quaternary_text_color		: #AAAAAA;
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
 $toast_success_color		: #5DCE5D;
+$toast_success_color		: #5DCE5D;
 
 
 
@@ -396,6 +397,8 @@ body {
 		svg {
 			position		: absolute;
 			top			: calc(100% - 1px);
+
+			transform		: scaleX(-1);
 
 			z-index			: -1;
 
@@ -1107,6 +1110,22 @@ body {
 					}
 				}
 			}
+
+			/* More Info */
+			.more_info_button {
+				cursor			: pointer;
+
+				margin-top		: 15px;
+
+				color			: $quaternary_text_color;
+
+				transition		: 0.15s ease-in-out;
+
+				/* Hover */
+				&:hover {
+					color			: $primary_color;
+				}
+			}
 		}
 
 		/* Controls */
@@ -1196,7 +1215,7 @@ body {
 
 	transform		: translateY(130px);
 
-	transition		: 0.25s ease-out;
+	transition		: transform 0.25s ease-out;
 
 	z-index			: 20;
 
@@ -1213,6 +1232,12 @@ body {
 	/* Success */
 	&.success {
 		background		: $toast_success_color;
+	}
+
+	/* Information */
+	&.info {
+		color			: $tertiary_text_color;
+		background		: $primary_background_color;
 	}
 
 	/* Icon */
