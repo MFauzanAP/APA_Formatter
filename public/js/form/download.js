@@ -3,8 +3,29 @@ $(`.essay_form .download.stage .restart_button`).on('click', restart_form_page);
 $(`.essay_form .download.stage .download_button`).on('click', handle_download_file);
 $(`.essay_form .download.stage .more_info_button`).on('click', handle_essay_info);
 
+//	Subscribe event to on before unload
+$(window).on('visibilitychange', reset_download);
+
 //	Variable holding path to the file
 var download_path = '';
+
+//	Function called to reset download path
+function reset_download () {
+
+	//	Delete the previously made word document
+	fetch('/api/form/delete', {
+		method			: 'POST',
+		keepalive		: true,
+		body			: JSON.stringify({ path: download_path }),
+		headers			: {
+			'Content-Type'		: 'application/json'
+		}
+	});
+
+	//	Reset download path
+	download_path = '';
+
+}
 
 //	Function called to restart the essay format process
 async function restart_form_page () {
@@ -13,18 +34,8 @@ async function restart_form_page () {
 	$(`input`).val('');
 	$(`textarea`).val('');
 
-	//	Delete the previously made word document
-	var response = await fetch('/api/form/delete', {
-		method			: 'POST',
-		body			: JSON.stringify({ path: download_path }),
-		headers			: {
-			'Content-Type'		: 'application/json'
-		}
-	});
-	console.log(await response.json());
-
 	//	Reset download path
-	download_path = '';
+	reset_download();
 
 	//	Update stage ui
 	update_stage_ui('');
