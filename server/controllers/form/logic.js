@@ -37,7 +37,18 @@ async function submit_essay (data) {
 
 }
 
+/**	Deletes a formatted essay from the database
+ * 	@param {*} data Object containing information about the essay file
+ */
+ async function delete_essay (data) {
+
+	//	Deletes the essay file from the database and return the response
+	return await actions.delete_essay(data);
+
+}
+
 //	Export functions
 module.exports = {
-	submit_essay
+	submit_essay,
+	delete_essay
 }
