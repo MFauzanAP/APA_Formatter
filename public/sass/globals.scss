@@ -37,6 +37,7 @@ $secondary_text_color		: #FFFFFF;
 $secondary_input_border_color	: #AAAAAA;
 
 /* Tertiary Colors */
+$tertiary_color			: #0085DD;
 $tertiary_background_color	: #F5F5F5;
 $tertiary_text_color		: #646464;
 $tertiary_input_border_color	: #CCCCCC;
@@ -189,8 +190,8 @@ body {
 
 		font-size		: 2em;
 
-		/* Button Element */
-		button {
+		/*Dropdown Button */
+		.dropdown.button {
 			width			: 50px;
 			height			: 50px;
 
@@ -213,6 +214,219 @@ body {
 			/* Icon */
 			i {
 				filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+			}
+		}
+
+		/* Menu */
+		.menu {
+			position		: absolute;
+			top			: 100px;
+			right			: -50px;
+			width			: 380px;
+			height			: 520px;
+
+			background		: $primary_background_color;
+			border-radius		: 25px;
+
+			font-size		: 0.5em;
+
+			box-shadow		: 0 5px 25px rgba(0, 0, 0, 0.15);
+
+			transform		: scaleY(0);
+			transform-origin	: top;
+
+			transition		: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+			/* Active */
+			&.active {
+				transform		: scaleY(1);
+
+				/* Arrow */
+				&::before {
+					transform		: scaleY(1);
+				}
+
+				/* Student Details */
+				.student_details {
+					opacity			: 1;
+
+					transition		: 0.25s ease-in-out 0.25s;
+				}
+
+				/* Links */
+				.links {
+
+					/* Link */
+					.link {
+						opacity			: 1;
+					}
+					@for $i from 1 through 4 {
+						.link:nth-of-type(#{$i}) {
+							transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1),
+										  opacity 0.5s ease-in-out ($i * 0.25s);
+						}
+					}
+				}
+
+				/* Footer */
+				.footer {
+					opacity			: 1;
+					
+					transition		: 0.5s ease-in-out 0.25s;
+				}
+			}
+
+			/* Arrow */
+			&::before {
+				position		: absolute;
+				top			: -10px;
+				right			: 85px;
+				width			: 0;
+				height			: 0;
+
+				border-style		: solid;
+				border-width		: 0 17.5px 20px 17.5px;
+				border-color		: transparent transparent $primary_background_color transparent;
+
+				transform		: scaleY(0);
+				transform-origin	: bottom;
+
+				transition		: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1) 0.25s;
+
+				content			: '';
+			}
+
+			/* Student Details */
+			.student_details {
+				margin			: 25px;
+				margin-bottom		: 10px;
+				padding			: 25px 10px;
+
+				border-bottom		: 1px solid $primary_input_border_color;
+
+				opacity			: 0;
+
+				/* ID */
+				.id {
+					color			: $tertiary_text_color;
+
+					font-size		: 1em;
+				}
+
+				/* Name */
+				.name {
+					color			: $primary_text_color;
+
+					font-family		: Work Sans;
+					font-style		: normal;
+					font-weight		: 600;
+					font-size		: 1.15em;
+				}
+
+				/* Institution */
+				.institution {
+					color			: $tertiary_text_color;
+
+					font-size		: 1em;
+				}
+			}
+
+			/* Links */
+			.links {
+				margin			: 0 25px;
+
+				display			: flex;
+				flex-direction		: column;
+				justify-content		: flex-start;
+				align-items		: flex-start;
+
+				/* Link */
+				.link {
+					cursor			: pointer;
+
+					width			: 100%;
+					height			: 50px;
+
+					margin			: 6.5px 0;
+					padding			: 15px 25px;
+
+					color			: $primary_text_color;
+					background		: $primary_background_color;
+					border-radius		: 25px;
+
+					font-family		: Work Sans;
+					font-weight		: 600;
+
+					opacity			: 0;
+
+					transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+					/* Hover */
+					&:hover {
+						background		: $tertiary_background_color;
+
+						transform		: scale(1.05);
+					}
+
+					/* Profile */
+					&.profile {
+						color			: $secondary_text_color;
+						background		: $primary_color;
+
+						/* Hover */
+						&:hover {
+							background		: $tertiary_color;
+						}
+					}
+
+					/* Icon */
+					i {
+						margin-right		: 10px;
+
+						font-size		: 1.25em;
+					}
+				}
+			}
+
+			/* Footer */
+			.footer {
+				position		: absolute;
+				bottom			: 0;
+				width			: 100%;
+				height			: 50px;
+
+				opacity			: 0;
+
+				background		: $tertiary_background_color;
+				border-radius		: 0 0 25px 25px;
+
+				/* Log Out */
+				.logout {
+					position		: absolute;
+					right			: 25px;
+					width			: 90px;
+					height			: 30px;
+
+					color			: $tertiary_text_color;
+					background		: transparent;
+
+					font-size		: 0.9em;
+					font-weight		: 600;
+
+					box-shadow		: none;
+
+					/* Hover */
+					&:hover {
+						background		: transparent;
+					}
+
+					/* Icon */
+					i {
+						margin-right		: 5px;
+
+						font-size		: 1.25em;
+					}
+				}
 			}
 		}
 	}

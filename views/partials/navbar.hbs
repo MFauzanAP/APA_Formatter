@@ -2,16 +2,60 @@
 <div class="navbar">
 
 	{{!-- Logo --}}
-	<div class="logo_container"><button class="logo"><img src="/static/images/logo.svg"/></button></div>
+	<div class="logo_container"><button class="logo dropdown button"><img src="/static/images/logo.svg"/></button></div>
 
 	{{!-- Buttons --}}
 	<div class="buttons">
 
 		{{!-- Settings --}}
-		<button class="settings"><i class="fa fa-cog"></i></button>
+		<button class="settings dropdown button"><i class="fa fa-cog"></i></button>
 
-		{{!-- Settings --}}
-		<button class="settings"><i class="fa fa-user-circle-o"></i></button>
+		{{!-- Profile --}}
+		<button class="profile dropdown button"><i class="fa fa-user-circle-o"></i></button>
+
+		{{!-- Menu --}}
+		<div class="menu">
+
+			{{!-- Student Details --}}
+			<div class="student_details">
+
+				{{!-- Student ID --}}
+				<div class="id">#2104747</div>
+
+				{{!-- Student Name --}}
+				<div class="name">Muhammad Fauzan Aristya Putra</div>
+
+				{{!-- Student Institution --}}
+				<div class="institution">Qatar University</div>
+
+			</div>
+
+			{{!-- Links --}}
+			<div class="links">
+
+				{{!-- Profile --}}
+				<a class="profile link">Profile</a>
+
+				{{!-- Courses --}}
+				<a class="link">Courses</a>
+
+				{{!-- Formats --}}
+				<a class="link">Formats</a>
+
+				{{!-- Settings --}}
+				<a class="link">Settings</a>
+
+			</div>
+
+			{{!-- Footer --}}
+			<div class="footer">
+
+				{{!-- Log Out Button --}}
+				<button class="logout"><i class="fa fa-sign-out"></i>Logout</button>
+
+			</div>
+
+		</div>
 
 	</div>
 
