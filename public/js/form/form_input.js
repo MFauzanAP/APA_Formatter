@@ -112,6 +112,9 @@ function on_click_step (event) {
 
 	}
 
+	//	If previous stage was download or formatting then reset download
+	if (stage == 'download' || stage == 'formatting') reset_download();
+
 	//	Update stage ui
 	update_stage_ui(stages[index]);
 	update_steps_ui(stages[index]);
