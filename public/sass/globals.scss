@@ -1606,6 +1606,10 @@ body {
 				flex-direction		: column;
 				justify-content		: center;
 				align-items		: center;
+
+				transform		: translateY(-120px);
+
+				transition		: 0.5s cubic-bezier(.47,1.64,.41,.8);
 				
 				z-index			: -1;
 
@@ -1653,6 +1657,11 @@ body {
 
 				text-align		: left;
 				font-weight		: 500;
+
+				/* Active */
+				&.active {
+					color			: $primary_text_color;
+				}
 			}
 		}
 	}
