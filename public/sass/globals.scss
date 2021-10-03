@@ -1581,6 +1581,8 @@ body {
 
 		/* Tabs */
 		.tabs {
+			position		: relative;
+
 			margin-top		: 50px;
 
 			display			: flex;
@@ -1590,10 +1592,48 @@ body {
 
 			/* Background */
 			.background {
+				position		: absolute;
+				width			: 100%;
+				height			: 100%;
+
+				background		: linear-gradient(to right, 
+									  $primary_color 0%, 
+									  $primary_color 50%,
+									  $primary_background_color 50%,
+									  $primary_background_color 100%);
+				
+				display			: flex;
+				flex-direction		: column;
+				justify-content		: center;
+				align-items		: center;
+				
+				z-index			: -1;
 
 				/* Top */
 				.top {
-					
+					flex			: 1 1 auto;
+					width			: 100%;
+
+					background		: $primary_color;
+					border-radius		: 0 0 25px 0;
+				}
+
+				/* Button */
+				.button {
+					flex			: 0 0 60px;
+					width			: 100%;
+
+					background		: $primary_background_color;
+					border-radius		: 25px 0 0 25px;
+				}
+
+				/* Bottom */
+				.bottom {
+					flex			: 1 1 auto;
+					width			: 100%;
+
+					background		: $primary_color;
+					border-radius		: 0 25px 0 0;
 				}
 			}
 
@@ -1606,20 +1646,13 @@ body {
 
 				padding-left		: 25px;
 
-				background		: $primary_color;
+				background		: transparent;
 				border-radius		: 0;
 
 				box-shadow		: none;
 
 				text-align		: left;
 				font-weight		: 500;
-
-				/* Active */
-				&.active {
-					color			: $tertiary_text_color;
-					background		: $primary_background_color;
-					border-radius		: 40px 0 0 40px;
-				}
 			}
 		}
 	}

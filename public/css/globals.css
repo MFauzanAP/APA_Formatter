@@ -1138,6 +1138,7 @@ body .shake {
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
 }
 .dashboard .menu_bar .tabs {
+  position: relative;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -1147,24 +1148,47 @@ body .shake {
   /* Tab */
 }
 .dashboard .menu_bar .tabs .background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #0099FF 0%, #0099FF 50%, #FFFFFF 50%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
   /* Top */
+  /* Button */
+  /* Bottom */
+}
+.dashboard .menu_bar .tabs .background .top {
+  flex: 1 1 auto;
+  width: 100%;
+  background: #0099FF;
+  border-radius: 0 0 25px 0;
+}
+.dashboard .menu_bar .tabs .background .button {
+  flex: 0 0 60px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 25px 0 0 25px;
+}
+.dashboard .menu_bar .tabs .background .bottom {
+  flex: 1 1 auto;
+  width: 100%;
+  background: #0099FF;
+  border-radius: 0 25px 0 0;
 }
 .dashboard .menu_bar .tabs .tab {
   cursor: pointer;
   width: 100%;
   height: 60px;
   padding-left: 25px;
-  background: #0099FF;
+  background: transparent;
   border-radius: 0;
   box-shadow: none;
   text-align: left;
   font-weight: 500;
-  /* Active */
-}
-.dashboard .menu_bar .tabs .tab.active {
-  color: #646464;
-  background: #FFFFFF;
-  border-radius: 40px 0 0 40px;
 }
 
 /* ====================================================== Toast ===================================================== */
