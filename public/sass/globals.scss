@@ -43,6 +43,7 @@ $tertiary_text_color		: #646464;
 $tertiary_input_border_color	: #CCCCCC;
 
 /* Quaternary Colors */
+$quaternary_background_color	: #383838;
 $quaternary_text_color		: #AAAAAA;
 
 /* Toast Colors */
@@ -64,6 +65,11 @@ $modal_overlay_color		: rgba( 0, 0, 0, 0.5);
 * {
 	box-sizing		: border-box;
 	font-family		: Oxygen;
+}
+
+/* Links */
+a {
+	text-decoration		: none;	
 }
 
 
@@ -263,7 +269,7 @@ body {
 					@for $i from 1 through 4 {
 						.link:nth-of-type(#{$i}) {
 							transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1),
-										  opacity 0.5s ease-in-out ($i * 0.25s);
+										  opacity 0.5s ease-in-out 0.25s + ($i * 0.1s);
 						}
 					}
 				}
@@ -1503,6 +1509,116 @@ body {
 					background		: #0085DD;
 
 					transform		: scale(1.05);
+				}
+			}
+		}
+	}
+}
+
+
+
+/* ==================================================== Dashboard =================================================== */
+.dashboard {
+	flex			: 1 0 100%;
+	width			: 100%;
+	height			: 100%;
+
+	padding			: 25px;
+
+	display			: flex;
+	flex-direction		: column;
+	justify-content		: flex-start;
+	align-items		: center;
+
+	transition		: 0.25s ease-in-out;
+
+	/* Menu Bar */
+	.menu_bar {
+		position		: fixed;
+		top			: 0;
+		left			: 0;
+		width			: 300px;
+		height			: 100vh;
+
+		padding			: 25px;
+		padding-right		: 0;
+
+		color			: $secondary_text_color;
+		background		: $primary_color;
+
+		/* Logo Container */
+		.logo_container {
+
+			/* Logo */
+			.logo {
+				width			: 75px;
+				height			: 75px;
+
+				margin			: 25px;
+
+				background		: transparent;
+
+				box-shadow		: none;
+
+				/* Hover */
+				&:hover {
+
+					/* Image */
+					img {
+						filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+					}
+				}
+
+				/* Image */
+				img {
+					width			: 75px;
+					height			: 75px;
+
+					filter			: drop-shadow(0 0 10px rgba(0, 0, 0, 0.15));
+				}
+			}
+		}
+
+		/* Tabs */
+		.tabs {
+			margin-top		: 50px;
+
+			display			: flex;
+			flex-direction		: column;
+			justify-content		: flex-start;
+			align-items		: flex-start;
+
+			/* Background */
+			.background {
+
+				/* Top */
+				.top {
+					
+				}
+			}
+
+			/* Tab */
+			.tab {
+				cursor			: pointer;
+
+				width			: 100%;
+				height			: 60px;
+
+				padding-left		: 25px;
+
+				background		: $primary_color;
+				border-radius		: 0;
+
+				box-shadow		: none;
+
+				text-align		: left;
+				font-weight		: 500;
+
+				/* Active */
+				&.active {
+					color			: $tertiary_text_color;
+					background		: $primary_background_color;
+					border-radius		: 40px 0 0 40px;
 				}
 			}
 		}
