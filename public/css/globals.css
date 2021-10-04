@@ -936,13 +936,14 @@ body {
   flex: 1 0 100%;
   width: 100%;
   height: 100%;
-  padding: 25px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   transition: 0.25s ease-in-out;
-  /* Menu Bar */ }
+  /* Menu Bar */
+  /* Windows */ }
   .dashboard .menu_bar {
     position: fixed;
     top: 0;
@@ -1025,6 +1026,99 @@ body {
         /* Active */ }
         .dashboard .menu_bar .tabs .tab.active {
           color: #3D3D3D; }
+  .dashboard .windows {
+    width: calc(100% - 300px);
+    height: 100vh;
+    margin-left: 300px;
+    transition: 0.75s ease-in-out;
+    /* Window */ }
+    .dashboard .windows .window {
+      min-height: 100vh;
+      padding: 100px 50px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      opacity: 0;
+      color: #3D3D3D;
+      transition: 1s ease-in-out;
+      /* Active */
+      /* Title */
+      /* Underline */
+      /* Header */
+      /* Input */ }
+      .dashboard .windows .window.active {
+        opacity: 1; }
+      .dashboard .windows .window .title {
+        margin-bottom: 25px;
+        font-family: Work Sans;
+        font-size: 1.75em;
+        font-weight: bold; }
+      .dashboard .windows .window .underline {
+        width: 500px;
+        height: 0;
+        margin-bottom: 25px;
+        border-top: 1px solid #EFEFEF; }
+      .dashboard .windows .window .header {
+        margin-bottom: 15px;
+        font-family: Work Sans;
+        font-size: 1.25em;
+        font-weight: 500; }
+      .dashboard .windows .window .input {
+        position: relative;
+        width: 500px;
+        margin: 40px 0;
+        background: transparent;
+        /* Hover */
+        /* Input Element */
+        /* Label */ }
+        .dashboard .windows .window .input:hover {
+          /* Input Element */
+          /* Label */ }
+          .dashboard .windows .window .input:hover input {
+            border: none;
+            border-bottom: 1px solid #0099FF;
+            color: #3D3D3D; }
+          .dashboard .windows .window .input:hover label {
+            color: #0099FF;
+            top: -2.5rem;
+            font-size: 0.8rem;
+            font-weight: 500; }
+        .dashboard .windows .window .input input {
+          width: 100%;
+          padding: 1rem 1.5rem;
+          background: transparent;
+          color: #3D3D3D;
+          border: none;
+          border-bottom: 1px solid #AAAAAA;
+          font-size: 1rem;
+          font-family: Lato;
+          letter-spacing: 0.03em;
+          text-rendering: optimizeLegibility;
+          outline: none;
+          transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+          /* Focus */
+          /* Autofill */ }
+          .dashboard .windows .window .input input:focus, .dashboard .windows .window .input input:not(:focus):valid {
+            border: none;
+            border-bottom: 1px solid #0099FF;
+            /* Label */ }
+            .dashboard .windows .window .input input:focus ~ label, .dashboard .windows .window .input input:not(:focus):valid ~ label {
+              color: #0099FF;
+              top: -2.5rem;
+              font-size: 0.8rem;
+              font-weight: 500; }
+          .dashboard .windows .window .input input:-webkit-autofill, .dashboard .windows .window .input input:-webkit-autofill:hover, .dashboard .windows .window .input input:-webkit-autofill:focus, .dashboard .windows .window .input input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px white inset !important;
+            box-shadow: 0 0 0 30px white inset !important; }
+        .dashboard .windows .window .input label {
+          pointer-events: none;
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 1rem 1.5rem;
+          color: #AAAAAA;
+          font-size: 0.9rem;
+          letter-spacing: 0.05rem;
+          transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
 
 /* ====================================================== Toast ===================================================== */
 .toast {
