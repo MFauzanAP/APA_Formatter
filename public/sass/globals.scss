@@ -231,8 +231,15 @@ body {
 			width			: 380px;
 			height			: 520px;
 
+			overflow		: hidden;
+
 			background		: $primary_background_color;
 			border-radius		: 25px;
+
+			display			: flex;
+			flex-direction		: row;
+			justify-content		: flex-start;
+			align-items		: flex-start;
 
 			font-size		: 0.5em;
 
@@ -252,33 +259,37 @@ body {
 					transform		: scaleY(1);
 				}
 
-				/* Student Details */
-				.student_details {
-					opacity			: 1;
+				/* Profile */
+				.profile_tab {
 
-					transition		: 0.25s ease-in-out 0.25s;
-				}
-
-				/* Links */
-				.links {
-
-					/* Link */
-					.link {
+					/* Student Details */
+					.student_details {
 						opacity			: 1;
+
+						transition		: 0.25s ease-in-out 0.25s;
 					}
-					@for $i from 1 through 4 {
-						.link:nth-of-type(#{$i}) {
-							transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1),
-										  opacity 0.5s ease-in-out 0.25s + ($i * 0.1s);
+
+					/* Links */
+					.links {
+
+						/* Link */
+						.link {
+							opacity			: 1;
+						}
+						@for $i from 1 through 4 {
+							.link:nth-of-type(#{$i}) {
+								transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1),
+											opacity 0.5s ease-in-out 0.25s + ($i * 0.1s);
+							}
 						}
 					}
-				}
 
-				/* Footer */
-				.footer {
-					opacity			: 1;
-					
-					transition		: 0.5s ease-in-out 0.25s;
+					/* Footer */
+					.footer {
+						opacity			: 1;
+						
+						transition		: 0.5s ease-in-out 0.25s;
+					}
 				}
 			}
 
@@ -302,135 +313,299 @@ body {
 				content			: '';
 			}
 
-			/* Student Details */
-			.student_details {
-				margin			: 25px;
-				margin-bottom		: 10px;
-				padding			: 25px 10px;
+			/* Tabs */
+			.tabs {
+				position		: relative;
+				width			: 100%;
+				height			: 100%;
+			}
 
-				border-bottom		: 1px solid $primary_input_border_color;
+			/* Profile */
+			.profile_tab {
+				position		: absolute;
+				width			: 100%;
+				height			: 100%;
 
-				opacity			: 0;
+				/* Student Details */
+				.student_details {
+					margin			: 25px;
+					margin-bottom		: 10px;
+					padding			: 25px 10px;
 
-				/* ID */
-				.id {
-					color			: $tertiary_text_color;
+					border-bottom		: 1px solid $primary_input_border_color;
 
-					font-size		: 1em;
+					opacity			: 0;
+
+					/* ID */
+					.id {
+						color			: $tertiary_text_color;
+
+						font-size		: 1em;
+					}
+
+					/* Name */
+					.name {
+						color			: $primary_text_color;
+
+						font-family		: Work Sans;
+						font-style		: normal;
+						font-weight		: 600;
+						font-size		: 1.15em;
+					}
+
+					/* Institution */
+					.institution {
+						color			: $tertiary_text_color;
+
+						font-size		: 1em;
+					}
 				}
 
-				/* Name */
-				.name {
-					color			: $primary_text_color;
+				/* Links */
+				.links {
+					position		: relative;
 
-					font-family		: Work Sans;
-					font-style		: normal;
-					font-weight		: 600;
-					font-size		: 1.15em;
+					margin			: 0 25px;
+
+					display			: flex;
+					flex-direction		: column;
+					justify-content		: flex-start;
+					align-items		: flex-start;
+
+					/* Link */
+					.link {
+						cursor			: pointer;
+
+						width			: 100%;
+						height			: 50px;
+
+						margin			: 6.5px 0;
+						padding			: 15px 25px;
+
+						color			: $primary_text_color;
+						background		: $primary_background_color;
+						border-radius		: 25px;
+
+						font-family		: Work Sans;
+						font-weight		: 600;
+
+						opacity			: 0;
+
+						transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+						/* Hover */
+						&:hover {
+							background		: $tertiary_background_color;
+
+							transform		: scale(1.05);
+						}
+
+						/* Profile */
+						&.profile {
+							color			: $secondary_text_color;
+							background		: $primary_color;
+
+							/* Hover */
+							&:hover {
+								background		: $tertiary_color;
+							}
+						}
+
+						/* Icon */
+						i {
+							margin-right		: 10px;
+
+							font-size		: 1.25em;
+						}
+					}
 				}
 
-				/* Institution */
-				.institution {
-					color			: $tertiary_text_color;
+				/* Footer */
+				.footer {
+					position		: absolute;
+					bottom			: 0;
+					width			: 100%;
+					height			: 50px;
 
-					font-size		: 1em;
+					opacity			: 0;
+
+					background		: $tertiary_background_color;
+
+					/* Log Out */
+					.logout {
+						position		: absolute;
+						right			: 25px;
+						width			: 90px;
+						height			: 30px;
+
+						color			: $tertiary_text_color;
+						background		: transparent;
+
+						font-size		: 0.9em;
+						font-weight		: 600;
+
+						box-shadow		: none;
+
+						/* Hover */
+						&:hover {
+							background		: transparent;
+						}
+
+						/* Icon */
+						i {
+							margin-right		: 5px;
+
+							font-size		: 1.25em;
+						}
+					}
 				}
 			}
 
-			/* Links */
-			.links {
-				margin			: 0 25px;
+			/* Sign Up */
+			.signup_tab {
+				position		: absolute;
+				width			: 100%;
+				height			: 100%;
+
+				padding			: 50px 40px;
 
 				display			: flex;
 				flex-direction		: column;
 				justify-content		: flex-start;
-				align-items		: flex-start;
+				align-items		: center;
 
-				/* Link */
-				.link {
-					cursor			: pointer;
+				transform		: translateX(100%);
 
-					width			: 100%;
-					height			: 50px;
+				/* Underline */
+				.underline {
+					width			: 80px;
+					height			: 0;
 
-					margin			: 6.5px 0;
-					padding			: 15px 25px;
+					margin-bottom		: 5px;
+
+					border-top		: 3px solid $tertiary_text_color;
+				}
+
+				/* Header */
+				.header {
+					margin-bottom		: 5px;
 
 					color			: $primary_text_color;
-					background		: $primary_background_color;
-					border-radius		: 25px;
 
 					font-family		: Work Sans;
+					font-size		: 1.25em;
 					font-weight		: 600;
+					text-align		: center;
+				}
 
-					opacity			: 0;
+				/* Meta */
+				.meta {
+					color			: $tertiary_text_color;
 
-					transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+					font-size		: 0.8em;
+					text-align		: center;
+					letter-spacing		: 0.025em;
+				}
 
-					/* Hover */
-					&:hover {
-						background		: $tertiary_background_color;
+				/* Form */
+				.form {
+					flex			: 1 1 auto;
+					width			: 100%;
 
-						transform		: scale(1.05);
-					}
+					margin			: 20px 0;
 
-					/* Profile */
-					&.profile {
-						color			: $secondary_text_color;
-						background		: $primary_color;
+					display			: flex;
+					flex-direction		: column;
+					justify-content		: flex-start;
+					align-items		: center;
+
+					/* Input */
+					.input {
+						position		: relative;
+						width			: 100%;
+
+						margin			: 15px 0;
 
 						/* Hover */
 						&:hover {
-							background		: $tertiary_color;
+							/* Input Element */
+							input {
+								border			: 2px solid $primary_color;
+							}
+
+							/* Label */
+							label {
+								top			: -2.5rem;
+
+								font-size		: 0.8rem;
+								font-weight		: 500;
+							}
+						}
+
+						/* Input Element */
+						input {
+							width			: 100%;
+							height			: 50px;
+
+							padding			: 1rem 1.25rem;
+
+							color			: $primary_text_color;
+							border			: 1px solid $secondary_input_border_color;
+							border-radius		: 1.5rem;
+
+							font-size		: 1rem;
+							font-family		: Lato;
+							letter-spacing		: 0.03em;
+							text-rendering		: optimizeLegibility;
+
+							outline			: none;
+
+							transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+							/* Focus */
+							&:focus, &:not(:focus):valid {
+								border			: 2px solid $primary_color;
+
+								/* Label */
+								~ label {
+									color			: $primary_text_color;
+
+									top			: -2.5rem;
+
+									font-size		: 0.8rem;
+									font-weight		: 500;
+								}
+							}
+
+							/* Autofill */
+							&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+								-webkit-box-shadow	: 0 0 0 30px white inset !important;
+								box-shadow		: 0 0 0 30px white inset !important;
+							}
+						}
+
+						/* Label */
+						label {
+							pointer-events		: none;
+
+							position		: absolute;
+							left			: 0;
+							top			: 0;
+
+							margin			: 1rem 1.25rem;
+
+							color			: $secondary_input_border_color;
+
+							font-size		: 0.9rem;
+							letter-spacing		: 0.05rem;
+
+							transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 						}
 					}
 
-					/* Icon */
-					i {
-						margin-right		: 10px;
-
-						font-size		: 1.25em;
-					}
-				}
-			}
-
-			/* Footer */
-			.footer {
-				position		: absolute;
-				bottom			: 0;
-				width			: 100%;
-				height			: 50px;
-
-				opacity			: 0;
-
-				background		: $tertiary_background_color;
-				border-radius		: 0 0 25px 25px;
-
-				/* Log Out */
-				.logout {
-					position		: absolute;
-					right			: 25px;
-					width			: 90px;
-					height			: 30px;
-
-					color			: $tertiary_text_color;
-					background		: transparent;
-
-					font-size		: 0.9em;
-					font-weight		: 600;
-
-					box-shadow		: none;
-
-					/* Hover */
-					&:hover {
-						background		: transparent;
-					}
-
-					/* Icon */
-					i {
-						margin-right		: 5px;
-
-						font-size		: 1.25em;
+					/* Submit Button */
+					.submit {
+						margin-top		: 50px;
 					}
 				}
 			}
@@ -1738,16 +1913,15 @@ body {
 					/* Input Element */
 					input {
 						border			: none;
-						border-bottom		: 1px solid $primary_color;
 
-						color			: $primary_text_color;
+						color			: $tertiary_text_color;
 					}
 
 					/* Label */
 					label {
-						color			: $primary_color;
+						color			: $primary_text_color;
 
-						top			: -2.5rem;
+						top			: -1.5rem;
 
 						font-size		: 0.8rem;
 						font-weight		: 500;
@@ -1758,12 +1932,9 @@ body {
 				input {
 					width			: 100%;
 
-					padding			: 1rem 1.5rem;
-
 					background		: transparent;
 					color			: $primary_text_color;
 					border			: none;
-					border-bottom		: 1px solid $secondary_input_border_color;
 
 					font-size		: 1rem;
 					font-family		: Lato;
@@ -1777,13 +1948,12 @@ body {
 					/* Focus */
 					&:focus, &:not(:focus):valid {
 						border			: none;
-						border-bottom		: 1px solid $primary_color;
 
 						/* Label */
 						~ label {
-							color			: $primary_color;
+							color			: $primary_text_color;
 
-							top			: -2.5rem;
+							top			: -1.5rem;
 
 							font-size		: 0.8rem;
 							font-weight		: 500;
@@ -1804,8 +1974,6 @@ body {
 					position		: absolute;
 					left			: 0;
 					top			: 0;
-
-					margin			: 1rem 1.5rem;
 
 					color			: #AAAAAA;
 

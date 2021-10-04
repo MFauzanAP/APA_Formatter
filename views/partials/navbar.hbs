@@ -16,42 +16,92 @@
 		{{!-- Menu --}}
 		<div class="menu">
 
-			{{!-- Student Details --}}
-			<div class="student_details">
-
-				{{!-- Student ID --}}
-				<div class="id">#2104747</div>
-
-				{{!-- Student Name --}}
-				<div class="name">Muhammad Fauzan Aristya Putra</div>
-
-				{{!-- Student Institution --}}
-				<div class="institution">Qatar University</div>
-
-			</div>
-
-			{{!-- Links --}}
-			<div class="links">
+			{{!-- Tabs --}}
+			<div class="tabs">
 
 				{{!-- Profile --}}
-				<a href="/dashboard?tab=profile" class="profile link">Profile</a>
+				<div class="profile_tab">
 
-				{{!-- Courses --}}
-				<a href="/dashboard?tab=courses" class="link">Courses</a>
+					{{!-- Student Details --}}
+					<div class="student_details">
 
-				{{!-- Formats --}}
-				<a href="/dashboard?tab=formats" class="link">Formats</a>
+						{{!-- Student ID --}}
+						<div class="id">#2104747</div>
 
-				{{!-- Settings --}}
-				<a href="/dashboard?tab=settings" class="link">Settings</a>
+						{{!-- Student Name --}}
+						<div class="name">Muhammad Fauzan Aristya Putra</div>
 
-			</div>
+						{{!-- Student Institution --}}
+						<div class="institution">Qatar University</div>
 
-			{{!-- Footer --}}
-			<div class="footer">
+					</div>
 
-				{{!-- Log Out Button --}}
-				<button class="logout"><i class="fa fa-sign-out"></i>Logout</button>
+					{{!-- Links --}}
+					<div class="links">
+
+						{{!-- Profile --}}
+						<a href="/dashboard?tab=profile" class="profile link">Profile</a>
+
+						{{!-- Courses --}}
+						<a href="/dashboard?tab=courses" class="link">Courses</a>
+
+						{{!-- Formats --}}
+						<a href="/dashboard?tab=formats" class="link">Formats</a>
+
+						{{!-- Settings --}}
+						<a href="/dashboard?tab=settings" class="link">Settings</a>
+
+					</div>
+
+					{{!-- Footer --}}
+					<div class="footer">
+
+						{{!-- Log Out Button --}}
+						<button class="logout"><i class="fa fa-sign-out"></i>Logout</button>
+
+					</div>
+
+				</div>
+
+				{{!-- Sign Up --}}
+				<div class="signup_tab">
+
+					{{!-- Underline --}}
+					<div class="underline"></div>
+
+					{{!-- Header --}}
+					<div class="header">Set Up Your Profile</div>
+
+					{{!-- Meta --}}
+					<div class="meta">This will be used to automatically fill in your details in essays</div>
+
+					{{!-- Form --}}
+					<form class="form">
+
+						{{!-- Name --}}
+						<div class="input">
+							<input type="text" id="name" name="name" spellcheck="false" required/>
+							<label htmlFor="name">Name</label>
+						</div>
+
+						{{!-- Student ID --}}
+						<div class="input">
+							<input type="text" id="student_id" name="student_id" spellcheck="false" required/>
+							<label htmlFor="student_id">Student ID</label>
+						</div>
+
+						{{!-- Institution --}}
+						<div class="input">
+							<input type="text" id="institution" name="institution" spellcheck="false" required/>
+							<label htmlFor="institution">Institution</label>
+						</div>
+
+						{{!-- Setup Button --}}
+						<button class="submit">Submit</button>
+
+					</form>
+
+				</div>
 
 			</div>
 

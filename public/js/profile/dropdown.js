@@ -17,4 +17,7 @@ function handle_profile_dropdown (e) {
 	//	Open or close dropdown menu depending on current state
 	menu.toggleClass('active');
 
+	//	Handle profile setup if not already setup
+	if (!window.localStorage.getItem('name')) handle_profile_setup();
+
 }
