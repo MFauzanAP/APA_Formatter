@@ -1,5 +1,6 @@
 //	Subscribe function to submit button on click event
 $(`div.button`).on('click', on_submit_title);
+$(`.essay_input input#title`).on('keyup', on_title_keyup);
 
 //	Function called when the submit essay title button is clicked.
 function on_submit_title () {
@@ -43,5 +44,13 @@ function on_submit_title () {
 
 	//	Change history state
 	history.pushState({}, '', window.location.pathname + '?stage=details');
+
+}
+
+//	Function called when a key is pressed while entering the title
+function on_title_keyup (event) {
+
+	//	If enter key is pressed then try submitting the title
+	if (event.key == 'Enter') on_submit_title();
 
 }

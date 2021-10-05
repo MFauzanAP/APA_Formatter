@@ -8,6 +8,9 @@ $(`.stepper .step:nth-of-type(2)`).on('click', { index: 1 }, on_click_step);
 $(`.stepper .step:nth-of-type(3)`).on('click', { index: 2 }, on_click_step);
 $(`.stepper .step:nth-of-type(5)`).on('click', { index: 4 }, on_click_step);
 
+//	Subscribe functions to form input on keup event
+$(`.essay_form .input input`).on('keyup', on_form_keyup);
+
 //	Update stage ui once
 update_stage_ui(new URL(window.location).searchParams.get('stage'));
 
@@ -125,5 +128,13 @@ function on_click_step (event) {
 
 	//	Change history state
 	history.pushState({}, '', window.location.pathname + `?stage=${stages[index]}`);
+
+}
+
+//	Function called when a key is pressed while editing form inputs
+function on_form_keyup (event) {
+
+	//	If enter key is pressed then try going forward
+	if (event.key == 'Enter') on_click_forward();
 
 }
