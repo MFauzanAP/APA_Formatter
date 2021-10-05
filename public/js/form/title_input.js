@@ -37,6 +37,10 @@ function on_submit_title () {
 	//	Set initial date of essay if not already set
 	if (!date_picker.val()) date_picker[0].valueAsDate = new Date();
 
+	//	Set initial value of id and name
+	$(`.details .input input#student_name`).val(window.localStorage.getItem('name'));
+	$(`.details .input input#student_id`).val(window.localStorage.getItem('id'));
+
 	//	Change history state
 	history.pushState({}, '', window.location.pathname + '?stage=details');
 

@@ -89,7 +89,7 @@ function create_cover_page (data) {
 	cover_page.children.push(write_line(data.details.student_id));
 
 	//	Add university name
-	cover_page.children.push(write_line('Qatar University'));
+	cover_page.children.push(write_line(data.details.institution || 'Qatar University'));
 
 	//	Add course name and number
 	cover_page.children.push(write_line(data.details.course_number));
