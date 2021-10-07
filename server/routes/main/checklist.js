@@ -3,16 +3,18 @@
 /* ===================================================== Imports ==================================================== */
 const express = require('express');
 const router = express.Router();
-const form = require('./form');
-const checklist = require('./checklist');
-const converter = require('./converter');
-const dashboard = require('./dashboard');
 
 
 
 /* ====================================================== Setup ===================================================== */
-router.use('/', form);
-router.use('/dashboard', dashboard);
+
+//	Get checklist page
+router.get('/', (req, res) => {
+
+	//	Render checklist page
+	res.render('checklist', { layout: 'checklist' });
+
+})
 
 
 

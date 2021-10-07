@@ -6,7 +6,8 @@ var essay = {
 		student_name		: '',
 		lecturer_name		: '',
 		student_id		: '',
-		course_number		: ''
+		course_number		: '',
+		institution		: ''
 	},
 	vocabulary		: [],
 	essay			: '',
@@ -17,6 +18,9 @@ var highlights = [];
 
 //	Function used to submit the data to the server
 async function submit_essay () {
+
+	//	Update institution value
+	essay.details.institution = window.localStorage.getItem('institution') || 'Qatar University';
 
 	//	Call api to submit essay to be processed
 	var response = await fetch('/api/form/submit', {

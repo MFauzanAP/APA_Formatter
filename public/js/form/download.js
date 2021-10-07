@@ -12,6 +12,9 @@ var download_path = '';
 //	Function called to reset download path
 function reset_download () {
 
+	//	If there is no download path then exit
+	if (!download_path) return;
+
 	//	Delete the previously made word document
 	fetch('/api/form/delete', {
 		method			: 'POST',

@@ -3,16 +3,18 @@
 /* ===================================================== Imports ==================================================== */
 const express = require('express');
 const router = express.Router();
-const form = require('./form');
-const checklist = require('./checklist');
-const converter = require('./converter');
-const dashboard = require('./dashboard');
 
 
 
 /* ====================================================== Setup ===================================================== */
-router.use('/', form);
-router.use('/dashboard', dashboard);
+
+//	Get dashboard page
+router.get('/', (req, res) => {
+
+	//	Render dashboard page
+	res.render('dashboard', { layout: 'dashboard' });
+
+})
 
 
 
