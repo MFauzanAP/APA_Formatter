@@ -445,16 +445,51 @@ body .shake {
 /* ===================================================== Sidebar ==================================================== */
 .sidebar {
   position: fixed;
-  top: calc(50% - 175px);
+  top: calc(50% - 137.5px);
   left: 0;
-  width: 75px;
-  height: 350px;
+  width: 60px;
+  height: 275px;
+  padding: 15px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background: #FFFFFF;
+  border-radius: 0 15px 15px 0;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* Hover */
+  /* Links */
+}
+.sidebar:hover {
+  width: 200px;
+}
+.sidebar .link {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: #3D3D3D;
+  font-weight: bold;
+  transform-origin: left;
+  transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+  /* Hover */
+  /* Icon */
+}
+.sidebar .link:hover {
+  color: #0099FF;
+  transform: scale(1.1);
+  /* Hover */
+}
+.sidebar .link:hover i {
+  color: #0099FF;
+}
+.sidebar .link i {
+  margin-right: 25px;
+  color: #3D3D3D;
+  font-size: 1.5em;
 }
 
 /* ==================================================== Form Page =================================================== */
