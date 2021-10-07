@@ -617,6 +617,26 @@ body {
 
 
 
+/* ===================================================== Sidebar ==================================================== */
+.sidebar {
+	position		: fixed;
+	top			: calc(50% - 175px);
+	left			: 0;
+	width			: 75px;
+	height			: 350px;
+
+	display			: flex;
+	flex-direction		: column;
+	justify-content		: center;
+	align-items		: center;
+
+	background		: $primary_background_color;
+
+	box-shadow		: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+
+
 /* ==================================================== Form Page =================================================== */
 .form_page {
 	flex			: 1 0 100%;
@@ -2020,6 +2040,8 @@ body {
 				padding-left		: 25px;
 				padding-right		: 15px;
 
+				opacity			: 0;
+
 				background		: $primary_background_color;
 				border-radius		: 10px;
 
@@ -2036,6 +2058,8 @@ body {
 
 				/* Active */
 				&.active {
+					opacity			: 1;
+
 					transform		: translateY(0);
 				}
 

@@ -442,6 +442,21 @@ body .shake {
   margin-top: 50px;
 }
 
+/* ===================================================== Sidebar ==================================================== */
+.sidebar {
+  position: fixed;
+  top: calc(50% - 175px);
+  left: 0;
+  width: 75px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FFFFFF;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
 /* ==================================================== Form Page =================================================== */
 .form_page {
   flex: 1 0 100%;
@@ -1457,6 +1472,7 @@ body .shake {
   bottom: 25px;
   padding-left: 25px;
   padding-right: 15px;
+  opacity: 0;
   background: #FFFFFF;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
@@ -1470,6 +1486,7 @@ body .shake {
   /* Buttons */
 }
 .dashboard .windows .window .overlay.active {
+  opacity: 1;
   transform: translateY(0);
 }
 .dashboard .windows .window .overlay .overlay_buttons {
