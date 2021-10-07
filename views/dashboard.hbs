@@ -47,7 +47,7 @@
 		<div class="active profile window">
 
 			{{!-- Title --}}
-			<div class="title">My Account</div>
+			<div class="title">My Account<button class="edit"><i class="fa fa-edit"></i></button></div>
 
 			{{!-- Underline --}}
 			<div class="underline"></div>
@@ -57,24 +57,64 @@
 
 			{{!-- Name --}}
 			<div class="input">
-				<input type="text" id="name" name="name" spellcheck="false" required/>
+				<input type="text" id="name" name="name" spellcheck="false" readonly required/>
 				<label htmlFor="name">Name</label>
 			</div>
 
 			{{!-- Student ID --}}
 			<div class="input">
-				<input type="text" id="student_id" name="student_id" spellcheck="false" required/>
+				<input type="text" id="student_id" name="student_id" spellcheck="false" readonly required/>
 				<label htmlFor="student_id">Student ID</label>
 			</div>
 
 			{{!-- Institution --}}
 			<div class="input">
-				<input type="text" id="institution" name="institution" spellcheck="false" required/>
+				<input type="text" id="institution" name="institution" spellcheck="false" readonly required/>
 				<label htmlFor="institution">Institution</label>
 			</div>
 
 			{{!-- Header --}}
 			<div class="header">Statistics</div>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
+				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
+				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
+				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
+				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
+				dictum et diam.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
+				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
+				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
+				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
+				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
+				dictum et diam.
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
+				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
+				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
+				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
+				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
+				dictum et diam.
+			</p>
+
+			{{!-- Overlay --}}
+			<div class="overlay">
+
+				{{!-- Header --}}
+				<div class="overlay_header">You have unsaved changes</div>
+
+				{{!-- Buttons --}}
+				<div class="overlay_buttons">
+
+					{{!-- Discard --}}
+					<button class="discard">Discard</button>
+
+					{{!-- Confirm --}}
+					<button class="confirm">Save Changes</button>
+
+				</div>
+
+			</div>
 
 		</div>
 

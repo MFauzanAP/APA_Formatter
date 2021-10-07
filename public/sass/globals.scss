@@ -1705,7 +1705,7 @@ body {
 	display			: flex;
 	flex-direction		: column;
 	justify-content		: flex-start;
-	align-items		: center;
+	align-items		: flex-start;
 
 	transition		: 0.25s ease-in-out;
 
@@ -1854,6 +1854,7 @@ body {
 
 		/* Window */
 		.window {
+			max-height		: 100vh;
 			min-height		: 100vh;
 
 			padding			: 100px 50px;
@@ -1874,16 +1875,41 @@ body {
 
 			/* Title */
 			.title {
+				max-width		: 750px;
+
 				margin-bottom		: 25px;
 
 				font-family		: Work Sans;
 				font-size		: 1.75em;
 				font-weight		: bold;
+
+				/* Edit Button */
+				.edit {
+					position		: relative;
+					width			: 35px;
+					height			: 35px;
+
+					float			: right;
+
+					color			: $quaternary_text_color;
+					background		: $primary_background_color;
+
+					box-shadow		: none;
+
+					font-size		: 0.75em;
+
+					/* Hover */
+					&:hover {
+						color			: $primary_text_color;
+						background		: $primary_input_border_color;
+					}
+				}
 			}
 
 			/* Underline */
 			.underline {
-				width			: 500px;
+				max-width		: 750px;
+				width			: 100%;
 				height			: 0;
 
 				margin-bottom		: 25px;
@@ -1905,7 +1931,10 @@ body {
 				position		: relative;
 				width			: 500px;
 
-				margin			: 40px 0;
+				margin			: 50px 0;
+
+				display			: flex;
+				flex-direction		: row;
 
 				background		: transparent;
 
@@ -1934,6 +1963,8 @@ body {
 				input {
 					width			: 100%;
 
+					padding			: 10px;
+
 					background		: transparent;
 					color			: $primary_text_color;
 					border			: none;
@@ -1947,19 +1978,9 @@ body {
 
 					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 
-					/* Focus */
-					&:focus, &:not(:focus):valid {
-						border			: none;
-
-						/* Label */
-						~ label {
-							color			: $primary_text_color;
-
-							top			: -1.5rem;
-
-							font-size		: 0.8rem;
-							font-weight		: 500;
-						}
+					/* Valid */
+					&:valid {
+						border-bottom		: 1px solid $primary_color;
 					}
 
 					/* Autofill */
@@ -1975,14 +1996,85 @@ body {
 
 					position		: absolute;
 					left			: 0;
-					top			: 0;
+					top			: -1.5rem;
 
-					color			: #AAAAAA;
+					color			: $primary_text_color;
 
-					font-size		: 0.9rem;
+
+					font-size		: 0.8rem;
+					font-weight		: 500;
 					letter-spacing		: 0.05rem;
 
 					transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+				}
+			}
+
+			/* Overlay */
+			.overlay {
+				position		: fixed;
+				width			: 500px;
+				height			: 60px;
+				left			: calc(50% - 250px);
+				bottom			: 25px;
+
+				padding-left		: 25px;
+				padding-right		: 15px;
+
+				background		: $primary_background_color;
+				border-radius		: 10px;
+
+				box-shadow		: 0 0 15px rgba(0, 0, 0, 0.15);
+
+				display			: flex;
+				flex-direction		: row;
+				justify-content		: space-between;
+				align-items		: center;
+
+				transition		: 0.25s ease-in-out;
+
+				transform		: translateY(100px);
+
+				/* Active */
+				&.active {
+					transform		: translateY(0);
+				}
+
+				/* Buttons */
+				.overlay_buttons {
+					display			: flex;
+					flex-direction		: row;
+					justify-content		: center;
+					align-items		: center;
+
+					/* Discard */
+					.discard {
+						width			: 75px;
+						height			: 40px;
+
+						margin			: 5px;
+
+						color			: $primary_text_color;
+						background		: $primary_background_color;
+						border-radius		: 5px;
+
+						box-shadow		: none;
+
+						font-size		: 0.8em;
+						font-weight		: normal;
+					}
+
+					/* Confirm */
+					.confirm {
+						width			: 125px;
+						height			: 40px;
+
+						margin			: 5px;
+
+						border-radius		: 5px;
+
+						font-size		: 0.8em;
+						font-weight		: normal;
+					}
 				}
 			}
 		}

@@ -1229,7 +1229,7 @@ body .shake {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   transition: 0.25s ease-in-out;
   /* Menu Bar */
   /* Windows */
@@ -1337,6 +1337,7 @@ body .shake {
   /* Window */
 }
 .dashboard .windows .window {
+  max-height: 100vh;
   min-height: 100vh;
   padding: 100px 50px;
   overflow-y: auto;
@@ -1349,18 +1350,37 @@ body .shake {
   /* Underline */
   /* Header */
   /* Input */
+  /* Overlay */
 }
 .dashboard .windows .window.active {
   opacity: 1;
 }
 .dashboard .windows .window .title {
+  max-width: 750px;
   margin-bottom: 25px;
   font-family: Work Sans;
   font-size: 1.75em;
   font-weight: bold;
+  /* Edit Button */
+}
+.dashboard .windows .window .title .edit {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  float: right;
+  color: #AAAAAA;
+  background: #FFFFFF;
+  box-shadow: none;
+  font-size: 0.75em;
+  /* Hover */
+}
+.dashboard .windows .window .title .edit:hover {
+  color: #3D3D3D;
+  background: #EFEFEF;
 }
 .dashboard .windows .window .underline {
-  width: 500px;
+  max-width: 750px;
+  width: 100%;
   height: 0;
   margin-bottom: 25px;
   border-top: 1px solid #EFEFEF;
@@ -1374,7 +1394,9 @@ body .shake {
 .dashboard .windows .window .input {
   position: relative;
   width: 500px;
-  margin: 40px 0;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: row;
   background: transparent;
   /* Hover */
   /* Input Element */
@@ -1396,6 +1418,7 @@ body .shake {
 }
 .dashboard .windows .window .input input {
   width: 100%;
+  padding: 10px;
   background: transparent;
   color: #3D3D3D;
   border: none;
@@ -1405,18 +1428,11 @@ body .shake {
   text-rendering: optimizeLegibility;
   outline: none;
   transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
-  /* Focus */
+  /* Valid */
   /* Autofill */
 }
-.dashboard .windows .window .input input:focus, .dashboard .windows .window .input input:not(:focus):valid {
-  border: none;
-  /* Label */
-}
-.dashboard .windows .window .input input:focus ~ label, .dashboard .windows .window .input input:not(:focus):valid ~ label {
-  color: #3D3D3D;
-  top: -1.5rem;
-  font-size: 0.8rem;
-  font-weight: 500;
+.dashboard .windows .window .input input:valid {
+  border-bottom: 1px solid #0099FF;
 }
 .dashboard .windows .window .input input:-webkit-autofill, .dashboard .windows .window .input input:-webkit-autofill:hover, .dashboard .windows .window .input input:-webkit-autofill:focus, .dashboard .windows .window .input input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
@@ -1426,11 +1442,62 @@ body .shake {
   pointer-events: none;
   position: absolute;
   left: 0;
-  top: 0;
-  color: #AAAAAA;
-  font-size: 0.9rem;
+  top: -1.5rem;
+  color: #3D3D3D;
+  font-size: 0.8rem;
+  font-weight: 500;
   letter-spacing: 0.05rem;
   transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+}
+.dashboard .windows .window .overlay {
+  position: fixed;
+  width: 500px;
+  height: 60px;
+  left: calc(50% - 250px);
+  bottom: 25px;
+  padding-left: 25px;
+  padding-right: 15px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s ease-in-out;
+  transform: translateY(100px);
+  /* Active */
+  /* Buttons */
+}
+.dashboard .windows .window .overlay.active {
+  transform: translateY(0);
+}
+.dashboard .windows .window .overlay .overlay_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* Discard */
+  /* Confirm */
+}
+.dashboard .windows .window .overlay .overlay_buttons .discard {
+  width: 75px;
+  height: 40px;
+  margin: 5px;
+  color: #3D3D3D;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+.dashboard .windows .window .overlay .overlay_buttons .confirm {
+  width: 125px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: normal;
 }
 
 /* ====================================================== Toast ===================================================== */
