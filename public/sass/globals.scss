@@ -322,11 +322,20 @@ body {
 				transition		: 0.25s ease-in-out;
 			}
 
+			/* Settings */
+			.settings_tab {
+				position		: absolute;
+				width			: 100%;
+				height			: 100%;
+			}
+
 			/* Profile */
 			.profile_tab {
 				position		: absolute;
 				width			: 100%;
 				height			: 100%;
+
+				transform		: translateX(100%);
 
 				/* Student Details */
 				.student_details {
@@ -476,7 +485,7 @@ body {
 				justify-content		: flex-start;
 				align-items		: center;
 
-				transform		: translateX(100%);
+				transform		: translateX(200%);
 
 				/* Underline */
 				.underline {
