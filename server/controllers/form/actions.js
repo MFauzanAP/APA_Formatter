@@ -1,7 +1,7 @@
 'use strict';
 
 //	Imports
-const { Document } = require('docx');
+const { Document, VerticalAlign } = require('docx');
 const fs = require('fs');
 const word = require('./word');
 
@@ -32,8 +32,8 @@ async function submit_essay (data) {
 	const word_count = word.create_word_count(data);
 
 	//	Concatenate into one array
-	var children = [ cover_page, title, word_count ];
-	children.splice(2, 0, ...essay);
+	var children = [ title, word_count ];
+	children.splice(1, 0, ...essay);
 
 	//	Setup document
 	var document = new Document({
@@ -62,6 +62,15 @@ async function submit_essay (data) {
 			}]
 		},
 		sections		: [ 
+			{
+				properties		: {
+					verticalAlign		: VerticalAlign.CENTER
+				},
+				headers			: {
+					default			: header
+				},
+				children		: [ cover_page ]
+			},
 			{
 				properties		: {},
 				headers			: {
