@@ -9,6 +9,7 @@ const {
 	TextRun, 
 	AlignmentType, 
 	PageBreak
+	
 } = require('docx');
 const converters = require('../utilities/converters');
 
@@ -66,16 +67,6 @@ function create_cover_page (data) {
 		children		: [],
 	}
 
-	//	Add line breaks to center cover page
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-
 	//	Add title
 	cover_page.children.push(write_line(data.details.title, {bold: true, break: 0}));
 
@@ -83,28 +74,25 @@ function create_cover_page (data) {
 	cover_page.children.push(new TextRun({break: 1}));
 
 	//	Add student name
-	cover_page.children.push(write_line(data.details.student_name));
+	if (data.details.student_name) cover_page.children.push(write_line(data.details.student_name));
 
 	//	Add student id
-	cover_page.children.push(write_line(data.details.student_id));
+	if (data.details.student_id) cover_page.children.push(write_line(data.details.student_id));
 
 	//	Add university name
-	cover_page.children.push(write_line(data.details.institution || 'Qatar University'));
+	if (data.details.institution) cover_page.children.push(write_line(data.details.institution || 'Qatar University'));
 
 	//	Add course name and number
-	cover_page.children.push(write_line(data.details.course_number));
+	if (data.details.course_number) cover_page.children.push(write_line(data.details.course_number));
 
 	//	Add lecturer name
-	cover_page.children.push(write_line(data.details.lecturer_name));
+	if (data.details.lecturer_name) cover_page.children.push(write_line(data.details.lecturer_name));
 
 	//	Reformat date
-	data.details.date = converters.convert_picker_to_date(data.details.date);
+	if (data.details.date) data.details.date = converters.convert_picker_to_date(data.details.date);
 
 	//	Add date
-	cover_page.children.push(write_line(data.details.date));
-
-	//	Add page break
-	cover_page.children.push(new PageBreak());
+	if (data.details.date) cover_page.children.push(write_line(data.details.date));
 
 	//	Return cover page
 	return new Paragraph(cover_page);
