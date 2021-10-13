@@ -45,6 +45,7 @@ $tertiary_input_border_color	: #CCCCCC;
 /* Quaternary Colors */
 $quaternary_background_color	: #383838;
 $quaternary_text_color		: #AAAAAA;
+$quaternary_input_border_color	: #F5F5F5;
 
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
@@ -328,42 +329,103 @@ body {
 				width			: 100%;
 				height			: 100%;
 
-				padding			: 50px 40px;
-
 				display			: flex;
 				flex-direction		: column;
 				justify-content		: flex-start;
 				align-items		: center;
 
-				/* Underline */
-				.underline {
-					width			: 60px;
-					height			: 0;
-
-					margin-bottom		: 5px;
-
-					border-top		: 3px solid $tertiary_text_color;
-				}
-
 				/* Header */
 				.header {
+					position		: relative;
+					width			: 100%;
+					height			: 80px;
+
+					padding			: 25px;
 					margin-bottom		: 5px;
 
-					color			: $primary_text_color;
+					/* Title */
+					.title {
+						color			: $primary_text_color;
 
-					font-family		: Work Sans;
-					font-size		: 1.25em;
-					font-weight		: 600;
-					text-align		: center;
+						font-family		: Work Sans;
+						font-size		: 1.4em;
+						font-weight		: bold;
+						text-align		: center;
+					}
+
+					/* Underline */
+					.underline {
+						position		: absolute;
+						width			: calc(100% - 50px);
+						height			: 0;
+						bottom			: 0;
+
+						margin-bottom		: 5px;
+
+						border-top		: 3px solid $quaternary_input_border_color;
+					}
 				}
 
-				/* Meta */
-				.meta {
-					color			: $tertiary_text_color;
+				/* Section */
+				.section {
+					position		: relative;
+					width			: 100%;
 
-					font-size		: 0.8em;
-					text-align		: center;
-					letter-spacing		: 0.025em;
+					padding			: 10px 25px;
+
+					display			: flex;
+					flex-direction		: column;
+					justify-content		: flex-start;
+					align-items		: flex-start;
+
+					/* Title */
+					.title {
+						margin-bottom		: 10px;
+
+						color			: $primary_text_color;
+
+						font-family		: Work Sans;
+						font-size		: 1.15em;
+						font-weight		: 600;
+					}
+
+					/* Input */
+					.input {
+						width			: 100%;
+
+						margin			: 7.5px 0;
+
+						display			: flex;
+						flex-direction		: row;
+						justify-content		: space-between;
+						align-items		: center;
+
+						/* Input Element */
+						input {
+							height			: 40px;
+
+							padding			: 0.75rem 1rem;
+
+							color			: $tertiary_text_color;
+							border			: 1px solid $secondary_input_border_color;
+							border-radius		: 1.5rem;
+
+							font-size		: 0.9rem;
+							font-family		: Lato;
+							letter-spacing		: 0.03em;
+							text-rendering		: optimizeLegibility;
+
+							outline			: none;
+
+							transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
+
+							/* Autofill */
+							&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+								-webkit-box-shadow	: 0 0 0 30px white inset !important;
+								box-shadow		: 0 0 0 30px white inset !important;
+							}
+						}
+					}
 				}
 			}
 
