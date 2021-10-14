@@ -49,7 +49,7 @@ function update_settings_value () {
 	$(`#essay_settings_margin_spacing`, menu).val(window.localStorage.getItem('essay_settings_margin_spacing') || '1');
 
 	//	Update highlight settings values
-	$(`#essay_settings_highlight_type`, menu).val(window.localStorage.getItem('essay_settings_highlight_type') || 'yellow highlight');
+	$(`#essay_settings_highlight_type`, menu).val(window.localStorage.getItem('essay_settings_highlight_type') || 'bold');
 
 }
 

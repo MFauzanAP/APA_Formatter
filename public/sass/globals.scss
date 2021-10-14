@@ -280,6 +280,13 @@ body {
 					transform		: scaleY(1);
 				}
 
+				/* Settings */
+				.settings_tab {
+					opacity			: 1;
+
+					transition		: 0.25s ease-in-out 0.25s;
+				}
+
 				/* Profile */
 				.profile_tab {
 
@@ -350,6 +357,8 @@ body {
 				height			: 100%;
 
 				overflow-y		: auto;
+
+				opacity			: 0;
 
 				display			: flex;
 				flex-direction		: column;
