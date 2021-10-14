@@ -232,7 +232,7 @@ function write_essay_line (data, text, options = {}, highlights = []) {
 	var indexes = [];
 
 	//	Loop through each highlighted word and check if it exists in the essay
-	if (included_highlights.length < 4) highlights.forEach(highlight => {
+	if (included_highlights.length < settings.vocab_word_limit) highlights.forEach(highlight => {
 
 		//	Create regex to test for word
 		var regex = `\\b${highlight.toLowerCase().replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")}\\b`;
@@ -241,7 +241,7 @@ function write_essay_line (data, text, options = {}, highlights = []) {
 		if (new RegExp(regex, "i").test(text)) {
 
 			//	If this word is already included or if there can be no more highlights, skip this word
-			if (!included_highlights.includes(highlight) && included_highlights.length < 4) {
+			if (!included_highlights.includes(highlight) && included_highlights.length < settings.vocab_word_limit) {
 
 				//	Add this word to the list of included highlights
 				included_highlights.push(highlight);
@@ -255,7 +255,7 @@ function write_essay_line (data, text, options = {}, highlights = []) {
 			}
 
 		}
-		
+
 	});
 
 	//	Declare variable to store the last index of the highlighted word
@@ -284,7 +284,7 @@ function write_essay_line (data, text, options = {}, highlights = []) {
 
 		//	Set last index
 		last_index = elem.index + elem.highlight.length;
-		
+
 	});
 
 	//	Add the rest of the text to the array
