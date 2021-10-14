@@ -61,9 +61,9 @@ async function submit_essay (data) {
 				},
 				paragraph		: {
 					spacing			: {
-						before			: 0,
-						after			: 0,
-						line			: 480
+						before			: Math.min(2, Math.max(0, settings.paragraph_spacing)) * 120 || 0,
+						after			: Math.min(2, Math.max(0, settings.paragraph_spacing)) * 120 || 0,
+						line			: Math.min(2, Math.max(0, settings.line_spacing)) * 240 || 480
 					}
 				}
 			}]
