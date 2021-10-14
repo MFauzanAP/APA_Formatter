@@ -31,6 +31,7 @@ async function submit_essay () {
 		new_line		: (window.localStorage.getItem('essay_settings_new_line') || 'true') === 'true',
 		font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
 		font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',
+		font_color		: window.localStorage.getItem('essay_settings_font_color') || '000000',
 		line_spacing		: window.localStorage.getItem('essay_settings_line_spacing') || '2',
 		paragraph_spacing	: window.localStorage.getItem('essay_settings_paragraph_spacing') || '0',
 		margin_spacing		: window.localStorage.getItem('essay_settings_margin_spacing') || '1',

@@ -40,6 +40,7 @@ function update_settings_value () {
 	//	Update font settings values
 	$(`#essay_settings_font_family`, menu).val(window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman');
 	$(`#essay_settings_font_size`, menu).val(window.localStorage.getItem('essay_settings_font_size') || '12');
+	$(`#essay_settings_font_color`, menu).val(`#${window.localStorage.getItem('essay_settings_font_color') || '000000'}`);
 
 	//	Update line settings values
 	$(`#essay_settings_line_spacing`, menu).val(window.localStorage.getItem('essay_settings_line_spacing') || '2');

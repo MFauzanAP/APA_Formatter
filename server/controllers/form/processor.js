@@ -40,6 +40,7 @@ function submit_essay_processor (data) {
 	//	Sanitize font settings
 	settings.font_family = sanitizeHtml(settings.font_family);
 	settings.font_size = sanitizeHtml(settings.font_size);
+	settings.font_color = sanitizeHtml(settings.font_color);
 
 	//	Sanitize line settings
 	settings.line_spacing = sanitizeHtml(settings.line_spacing);

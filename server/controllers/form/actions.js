@@ -41,7 +41,6 @@ async function submit_essay (data) {
 
 	//	Concatenate essay text into children
 	children.splice(title ? 1 : 0, 0, ...essay_text);
-	console.log(children);
 
 	//	Setup document
 	var document = {
@@ -56,9 +55,9 @@ async function submit_essay (data) {
 				next			: 'Normal',
 				quickFormat		: true,
 				run			: {
-					color			: '000000',
-					font			: 'Times New Roman',
-					size			: 24
+					color			: settings.font_color || '000000',
+					font			: settings.font_family || 'Times New Roman',
+					size			: settings.font_size * 2 || 24
 				},
 				paragraph		: {
 					spacing			: {
