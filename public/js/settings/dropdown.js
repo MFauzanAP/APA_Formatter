@@ -8,8 +8,6 @@ $(settings_button).on('click', handle_settings_dropdown);
 //	Function called to handle profile dropdown click
 function handle_settings_dropdown (e) {
 
-	console.log('settings');
-
 	//	Get dropdown menu tabs
 	var tabs = $(`.navbar .buttons .menu .tabs`);
 
@@ -62,8 +60,6 @@ function close_settings_menu (e) {
 
 	//	If targetting menu or button then dont close menu
 	if (settings_button[0].contains(e.target) || profile_button[0].contains(e.target) || menu[0].contains(e.target)) return;
-
-	console.log('closing settings');
 
 	//	Close menu
 	menu.removeClass('active');

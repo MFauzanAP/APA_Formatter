@@ -7,7 +7,8 @@ const {
 	PageNumber,
 	Paragraph, 
 	TextRun, 
-	AlignmentType
+	AlignmentType,
+	UnderlineType
 	
 } = require('docx');
 const converters = require('../utilities/converters');
@@ -36,7 +37,7 @@ function get_included_highlights () {
 /** 	Sets up the header by adding page numbers
  * 	@param {object} data The object containing data to be processed
  */
-function setup_header (data) {
+function setup_header () {
 
 	//	Create a header text
 	var header = new Paragraph({
@@ -124,7 +125,7 @@ function create_title (data) {
 function create_essay (data) {
 
 	//	Extract data from essay
-	const { vocabulary, essay } = data;
+	const { vocabulary, essay } = data.essay;
 
 	//	Declare array of paragraphs
 	var paragraphs = [];
@@ -146,7 +147,7 @@ function create_essay (data) {
 			};
 
 			//	Add paragraph
-			essay_text.children = write_essay_line('	' + paragraph, {break: 0}, vocabulary);
+			essay_text.children = write_essay_line(data, '	' + paragraph, {break: 0}, vocabulary);
 
 			//	Add this to list of paragraphs
 			paragraphs.push(new Paragraph(essay_text));
@@ -219,7 +220,10 @@ function write_line (text, options = {}) {
  * 	@param {object} paragraph The paragraph to write to
  * 	@param {array} highlights An array of the words to make bold
  */
-function write_essay_line (text, options = {}, highlights = []) {
+function write_essay_line (data, text, options = {}, highlights = []) {
+
+	//	Extract data from essay
+	const { essay, settings } = data;
 
 	//	Declare list of text
 	var text_runs = [];
@@ -263,9 +267,20 @@ function write_essay_line (text, options = {}, highlights = []) {
 	//	Loop through each index
 	indexes.forEach(elem => {
 
+		//	Declare highlight settings
+		var highlight = {
+			text		: text.substring(elem.index, elem.index + elem.highlight.length),
+			bold		: settings.highlight_type == 'bold',
+			italics		: settings.highlight_type == 'italic',
+			strike		: settings.highlight_type == 'strikethrough',
+			allCaps		: settings.highlight_type == 'capitalise',
+			highlight	: settings.highlight_type == 'yellow highlight' ? 'yellow' : '',
+			underline	: settings.highlight_type == 'underline' ? { type: UnderlineType.SINGLE, color: settings.font_color } : null,
+		}
+
 		//	Create new text run object for this word as well as for the text before this word
 		text_runs.push(new TextRun({text: text.substring(last_index, elem.index), break: text_runs.length ? 0 : 1, ...options}));
-		text_runs.push(new TextRun({text: text.substring(elem.index, elem.index + elem.highlight.length), bold: true}));
+		text_runs.push(new TextRun(highlight));
 
 		//	Set last index
 		last_index = elem.index + elem.highlight.length;

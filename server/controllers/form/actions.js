@@ -29,7 +29,7 @@ async function submit_essay (data) {
 	const title = settings.essay_title === 'true' ? word.create_title(essay) : '';
 
 	//	Create essay
-	const essay_text = word.create_essay(essay);
+	const essay_text = word.create_essay(data);
 
 	//	Create word count
 	const word_count = settings.word_count === 'true' ? word.create_word_count(essay) : '';
@@ -74,7 +74,15 @@ async function submit_essay (data) {
 	//	Add cover page to document
 	if (cover_page) document.sections.push({
 		properties		: {
-			verticalAlign		: VerticalAlign.CENTER
+			verticalAlign		: VerticalAlign.CENTER,
+			page			: {
+				margin			: {
+					top			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					bottom			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					left			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					right			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+				}
+			}
 		},
 		headers			: {
 			default			: header
@@ -84,7 +92,16 @@ async function submit_essay (data) {
 
 	//	Add the rest of the essay to the document
 	document.sections.push({
-		properties		: {},
+		properties		: {
+			page			: {
+				margin			: {
+					top			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					bottom			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					left			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					right			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+				}
+			}
+		},
 		headers			: {
 			default			: header
 		},
