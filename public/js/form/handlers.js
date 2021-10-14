@@ -75,7 +75,7 @@ function handle_essay () {
 	var data = $(`.essay_form .essay textarea`).val();
 
 	//	Make sure data is not empty
-	if (!data) {
+	if (!(data.replaceAll(' ', '').replaceAll('\n', ''))) {
 
 		//	Color this input field red
 		color_input(`.essay_form .essay .input`);
