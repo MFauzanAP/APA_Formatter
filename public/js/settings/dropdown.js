@@ -38,7 +38,7 @@ function update_settings_value () {
 	$(`#essay_settings_new_line`, menu).prop('checked', (window.localStorage.getItem('essay_settings_new_line') || 'false') === 'true');
 
 	//	Update font settings values
-	$(`#essay_settings_font_family`, menu).val(window.localStorage.getItem('essay_settings_font_family') || 'times new roman');
+	$(`#essay_settings_font_family`, menu).val(window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman');
 	$(`#essay_settings_font_size`, menu).val(window.localStorage.getItem('essay_settings_font_size') || '12');
 
 	//	Update line settings values

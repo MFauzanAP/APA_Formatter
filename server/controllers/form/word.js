@@ -7,8 +7,7 @@ const {
 	PageNumber,
 	Paragraph, 
 	TextRun, 
-	AlignmentType, 
-	PageBreak
+	AlignmentType
 	
 } = require('docx');
 const converters = require('../utilities/converters');

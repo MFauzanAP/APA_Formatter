@@ -10,33 +10,41 @@ const word = require('./word');
  */
 async function submit_essay (data) {
 
-	//	Extract data from essay
-	const { details } = data;
+	//	Extract essay n settings
+	const { essay, settings } = data;
+
+	//	Extract details from essay
+	const { details } = essay;
 
 	//	Reset included highlights
 	word.set_included_highlights([]);
 
 	//	Create headers
-	const header = word.setup_header();
+	const header = settings.page_numbers === 'true' ? word.setup_header() : '';
 
 	//	Create cover page
-	const cover_page = word.create_cover_page(data);
+	const cover_page = settings.cover_page === 'true' ? word.create_cover_page(essay) : '';
 
 	//	Create title
-	const title = word.create_title(data);
+	const title = settings.essay_title === 'true' ? word.create_title(essay) : '';
 
 	//	Create essay
-	const essay = word.create_essay(data);
+	const essay_text = word.create_essay(essay);
 
 	//	Create word count
-	const word_count = word.create_word_count(data);
+	const word_count = settings.word_count === 'true' ? word.create_word_count(essay) : '';
 
-	//	Concatenate into one array
-	var children = [ title, word_count ];
-	children.splice(1, 0, ...essay);
+	//	Add title and word count to children array
+	var children = [];
+	if (title) children.push(title);
+	if (word_count) children.push(word_count);
+
+	//	Concatenate essay text into children
+	children.splice(title ? 1 : 0, 0, ...essay_text);
+	console.log(children);
 
 	//	Setup document
-	var document = new Document({
+	var document = {
 		creator			: details.student_name,
 		subject			: details.title,
 		title			: details.title,
@@ -61,28 +69,31 @@ async function submit_essay (data) {
 				}
 			}]
 		},
-		sections		: [ 
-			{
-				properties		: {
-					verticalAlign		: VerticalAlign.CENTER
-				},
-				headers			: {
-					default			: header
-				},
-				children		: [ cover_page ]
-			},
-			{
-				properties		: {},
-				headers			: {
-					default			: header
-				},
-				children		: children
-			}
-		],
-	})
+		sections		: [ ],
+	}
+
+	//	Add cover page to document
+	if (cover_page) document.sections.push({
+		properties		: {
+			verticalAlign		: VerticalAlign.CENTER
+		},
+		headers			: {
+			default			: header
+		},
+		children		: [ cover_page ]
+	});
+
+	//	Add the rest of the essay to the document
+	document.sections.push({
+		properties		: {},
+		headers			: {
+			default			: header
+		},
+		children		: children
+	});
 
 	//	Return document
-	return { document, words: word.get_included_highlights() };
+	return { document: new Document(document), words: word.get_included_highlights() };
 
 }
 
