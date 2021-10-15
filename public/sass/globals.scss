@@ -1742,6 +1742,117 @@ body {
 						transition		: 0.15s cubic-bezier(0.34,-0.39, 0.68, 1.38) 0s;
 					}
 				}
+
+				/* Table Input */
+				.table_input {
+					border			: 2px solid $primary_input_border_color;
+					border-radius		: 15px;
+					border-spacing		: 0;
+
+					/* Header */
+					.header {
+						height			: 65px;
+
+						background		: $primary_color;
+
+						filter			: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
+
+						/* Table Header */
+						th {
+							padding			: 0 25px;	
+
+							color			: $secondary_text_color;
+
+							text-align		: left;
+
+							/* First */
+							&:first-child {
+								border-radius		: 15px 0 0 15px;
+							}
+
+							/* Last */
+							&:last-child {
+								border-radius		: 0 15px 15px 0;
+							}
+
+							/* Size */
+							&.size {
+								width			: 50px;
+
+								/* Input */
+								input {
+									width			: 50px;
+									height			: 40px;
+
+									outline			: none;
+									border			: none;
+									border-radius		: 10px;
+
+									font-size		: 1em;
+									font-family		: Work Sans;
+									text-align		: center;
+
+									-moz-appearance		: textfield;
+									
+									/* Arrows */
+									&::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+										-webkit-appearance	: none;
+										margin			: 0;
+									}
+								}
+							}
+						}
+					}
+
+					/* Table Row */
+					.row {
+
+						/* Input */
+						input {
+							width			: calc(100% - 25px);
+
+							margin			: 15px 25px;
+							padding			: 0.75rem 1rem;
+
+							outline			: none;
+							border			: 2px solid $primary_input_border_color;
+							border-radius		: 10px;
+
+							font-size		: 1rem;
+							font-family		: Lato;
+							letter-spacing		: 0.03em;
+							text-rendering		: optimizeLegibility;
+
+							/* Hover */
+							&:hover {
+								border			: 2px solid $tertiary_input_border_color;
+							}
+
+							/* Autofill */
+							&:-webkit-autofill, &:-webkit-autofill:hover, &:-webkit-autofill:focus, &:-webkit-autofill:active {
+								-webkit-box-shadow	: 0 0 0 30px white inset !important;
+								box-shadow		: 0 0 0 30px white inset !important;
+							}
+						}
+
+						/* Delete */
+						.delete {
+
+							/* Button */
+							button {
+								width			: 50px;
+
+								margin			: 0 22.5px;
+								padding			: 0;
+
+								color			: $primary_text_color;
+								background		: $primary_background_color;
+
+								box-shadow		: none;
+							}
+						}
+					}
+				}
 			}
 		}
 

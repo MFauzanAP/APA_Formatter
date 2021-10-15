@@ -90,29 +90,50 @@
 					<label htmlFor="date">Date</label>
 				</div>
 
-				{{!-- Student Name --}}
-				<div class="input" style="grid-column: span 3;">
-					<input type="text" id="student_name" name="student_name" required/>
-					<label htmlFor="student_name">Student Name</label>
-				</div>
-
 				{{!-- Lecturer Name --}}
-				<div class="input" style="grid-column: span 3;">
+				<div class="input" style="grid-column: span 4;">
 					<input type="text" id="lecturer_name" name="lecturer_name" required/>
 					<label htmlFor="lecturer_name">Lecturer Name</label>
 				</div>
 
-				{{!-- Student ID --}}
-				<div class="input" style="grid-column: span 3;">
-					<input type="text" id="student_id" name="student_id" required/>
-					<label htmlFor="student_id">Student ID</label>
-				</div>
-
 				{{!-- Course Number --}}
-				<div class="input" style="grid-column: span 3;">
+				<div class="input" style="grid-column: span 2;">
 					<input type="text" id="course_number" name="course_number" required/>
 					<label htmlFor="course_number">Course Number</label>
 				</div>
+
+				{{!-- Student Entry Table --}}
+				<table class="table_input" style="grid-column: span 6;">
+
+					{{!-- Header --}}
+					<tr class="header">
+
+						{{!-- Name --}}
+						<th>Student Name</th>
+
+						{{!-- ID --}}
+						<th>Student ID</th>
+
+						{{!-- Size Input --}}
+						<th class="size"><input type="number" value="1" min="1" max="10"/></th>
+
+					</tr>
+
+					{{!-- Row --}}
+					<tr class="row">
+
+						{{!-- Student Name --}}
+						<td><input type="text" id="student_name" name="student_name" required/></td>
+
+						{{!-- Student ID --}}
+						<td><input type="text" id="student_id" name="student_id" required/></td>
+
+						{{!-- Delete Button --}}
+						<td class="delete"><button><i class="fa fa-times"></i></button></td>
+
+					</tr>
+
+				</table>
 
 			</form>
 
