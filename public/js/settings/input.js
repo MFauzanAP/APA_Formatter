@@ -19,7 +19,10 @@ function handle_checkbox_setting () {
 function handle_numeric_setting () {
 
 	//	Get input value
-	var value = this.value;
+	var value = Math.min(parseFloat($(this).prop('max')), Math.max(parseFloat($(this).prop('min')), this.value));
+
+	//	Update value if outside range
+	if (parseFloat(this.value) < parseFloat($(this).prop('min')) || parseFloat(this.value) > parseFloat($(this).prop('max'))) this.value = value;
 
 	//	Update local storage
 	window.localStorage.setItem(this.id, value);
