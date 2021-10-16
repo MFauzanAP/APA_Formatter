@@ -52,17 +52,20 @@
 			{{!-- Details --}}
 			<div class="step">1<i class="fa fa-check check"></i><div class="label">Details</div></div>
 
+			{{!-- Authors --}}
+			<div class="step">2<i class="fa fa-check check"></i><div class="label">Authors</div></div>
+
 			{{!-- Vocabulary --}}
-			<div class="step">2<i class="fa fa-check check"></i><div class="label">Vocabulary</div></div>
+			<div class="step">3<i class="fa fa-check check"></i><div class="label">Vocabulary</div></div>
 
 			{{!-- Essay --}}
-			<div class="step">3<i class="fa fa-check check"></i><div class="label">Essay</div></div>
+			<div class="step">4<i class="fa fa-check check"></i><div class="label">Essay</div></div>
 
 			{{!-- Formatting --}}
-			<div class="step">4<i class="fa fa-check check"></i><div class="label">Formatting</div></div>
+			<div class="step">5<i class="fa fa-check check"></i><div class="label">Formatting</div></div>
 
 			{{!-- Download --}}
-			<div class="step">5<i class="fa fa-check check"></i><div class="label">Download</div></div>
+			<div class="step">6<i class="fa fa-check check"></i><div class="label">Download</div></div>
 
 		</div>
 
@@ -102,40 +105,70 @@
 					<label htmlFor="course_number">Course Number</label>
 				</div>
 
-				{{!-- Student Entry Table --}}
-				<table class="table_input" style="grid-column: span 6;">
-
-					{{!-- Header --}}
-					<tr class="header">
-
-						{{!-- Name --}}
-						<th>Student Name</th>
-
-						{{!-- ID --}}
-						<th>Student ID</th>
-
-						{{!-- Size Input --}}
-						<th class="size"><input type="number" value="1" min="1" max="10"/></th>
-
-					</tr>
-
-					{{!-- Row --}}
-					<tr class="row">
-
-						{{!-- Student Name --}}
-						<td><input type="text" id="student_name" name="student_name" required/></td>
-
-						{{!-- Student ID --}}
-						<td><input type="text" id="student_id" name="student_id" required/></td>
-
-						{{!-- Delete Button --}}
-						<td class="delete"><button><i class="fa fa-times"></i></button></td>
-
-					</tr>
-
-				</table>
-
 			</form>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+			</div>
+
+		</div>
+
+		{{!-- Authors --}}
+		<div class="authors stage">
+
+			{{!-- Title --}}
+			<div class="title">Add Your Essay's Authors</div>
+
+			{{!-- Meta --}}
+			<div class="meta">Fill in this table with the details of each author.</div>
+
+			{{!-- Student Entry Table --}}
+			<table class="table_input">
+
+				{{!-- Header --}}
+				<thead class="header"><tr>
+
+					{{!-- Name --}}
+					<th>Student Name</th>
+
+					{{!-- ID --}}
+					<th>Student ID</th>
+
+					{{!-- Size Input --}}
+					<th class="size"><input type="number" value="1" min="1" max="10"/></th>
+
+				</tr></thead>
+
+				{{!-- Row --}}
+				<tbody class="row"><tr>
+
+					{{!-- Student Name --}}
+					<td><input type="text" id="student_name" name="student_name" required/></td>
+
+					{{!-- Student ID --}}
+					<td><input type="text" id="student_id" name="student_id" required/></td>
+
+					{{!-- Delete Button --}}
+					<td class="delete"><button><i class="fa fa-times"></i></button></td>
+
+				</tr></tbody>
+
+				{{!-- Footer --}}
+				<tfoot><tr>
+
+					{{!-- Add Button --}}
+					<td>Test</td>
+
+				</tr></tfoot>
+
+			</table>
 
 			{{!-- Controls --}}
 			<div class="controls">

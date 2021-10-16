@@ -628,6 +628,7 @@ body {
   align-items: center;
   transition: 0.25s ease-in-out;
   /* Details Stage */
+  /* Authors Stage */
   /* Vocabulary Stage */
   /* Essay Stage */
   /* Formatting Stage */
@@ -658,6 +659,32 @@ body {
         padding: 0 !important;
         opacity: 0 !important; }
     .form_page.details .essay_form {
+      pointer-events: all;
+      opacity: 1;
+      transition: 0.25s ease-in-out 0.5s; }
+  .form_page.authors {
+    /* Banner */
+    /* Essay Input */
+    /* Essay Form */ }
+    .form_page.authors .banner {
+      transform: translateY(-35vh);
+      /* Title */
+      /* Description */ }
+      .form_page.authors .banner .title {
+        opacity: 0;
+        transform: translateY(-25vh); }
+      .form_page.authors .banner .description {
+        opacity: 0;
+        transform: translateY(-25vh); }
+    .form_page.authors .essay_input {
+      opacity: 0;
+      transform: translateY(-60vh);
+      /* Submit Button */ }
+      .form_page.authors .essay_input .button {
+        flex: 0 0 0 !important;
+        padding: 0 !important;
+        opacity: 0 !important; }
+    .form_page.authors .essay_form {
       pointer-events: all;
       opacity: 1;
       transition: 0.25s ease-in-out 0.5s; }
@@ -900,13 +927,14 @@ body {
     /* Meta */
     /* Stage */
     /* Details */
+    /* Authors */
     /* Vocabulary */
     /* Essay */
     /* Formatting */
     /* Download */
     /* Controls */ }
     .form_page .essay_form .stepper {
-      width: 750px;
+      width: 1000px;
       height: 2px;
       margin-top: -50px;
       margin-bottom: 100px;
@@ -1023,8 +1051,7 @@ body {
         grid-template-columns: repeat(6, 1fr);
         grid-auto-flow: row;
         gap: 30px;
-        /* Input */
-        /* Table Input */ }
+        /* Input */ }
         .form_page .essay_form .details form .input {
           position: relative;
           margin-bottom: 20px;
@@ -1092,75 +1119,81 @@ body {
             font-size: 0.9rem;
             letter-spacing: 0.05rem;
             transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s; }
-        .form_page .essay_form .details form .table_input {
-          border: 2px solid #EFEFEF;
-          border-radius: 15px;
-          border-spacing: 0;
-          /* Header */
-          /* Table Row */ }
-          .form_page .essay_form .details form .table_input .header {
-            height: 65px;
-            background: #0099FF;
-            filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
-            /* Table Header */ }
-            .form_page .essay_form .details form .table_input .header th {
-              padding: 0 25px;
-              color: #FFFFFF;
-              text-align: left;
-              /* First */
-              /* Last */
-              /* Size */ }
-              .form_page .essay_form .details form .table_input .header th:first-child {
-                border-radius: 15px 0 0 15px; }
-              .form_page .essay_form .details form .table_input .header th:last-child {
-                border-radius: 0 15px 15px 0; }
-              .form_page .essay_form .details form .table_input .header th.size {
+    .form_page .essay_form .authors {
+      /* Title */
+      /* Table Input */ }
+      .form_page .essay_form .authors .title {
+        margin-bottom: 10px; }
+      .form_page .essay_form .authors .table_input {
+        width: 100%;
+        border: 2px solid #EFEFEF;
+        border-radius: 15px;
+        border-spacing: 0;
+        /* Header */
+        /* Table Row */ }
+        .form_page .essay_form .authors .table_input .header {
+          height: 65px;
+          background: #0099FF;
+          filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
+          /* Table Header */ }
+          .form_page .essay_form .authors .table_input .header th {
+            padding: 0 25px;
+            color: #FFFFFF;
+            text-align: left;
+            /* First */
+            /* Last */
+            /* Size */ }
+            .form_page .essay_form .authors .table_input .header th:first-child {
+              border-radius: 15px 0 0 15px; }
+            .form_page .essay_form .authors .table_input .header th:last-child {
+              border-radius: 0 15px 15px 0; }
+            .form_page .essay_form .authors .table_input .header th.size {
+              width: 50px;
+              /* Input */ }
+              .form_page .essay_form .authors .table_input .header th.size input {
                 width: 50px;
-                /* Input */ }
-                .form_page .essay_form .details form .table_input .header th.size input {
-                  width: 50px;
-                  height: 40px;
-                  outline: none;
-                  border: none;
-                  border-radius: 10px;
-                  font-size: 1em;
-                  font-family: Work Sans;
-                  text-align: center;
-                  -moz-appearance: textfield;
-                  /* Arrows */ }
-                  .form_page .essay_form .details form .table_input .header th.size input::-webkit-inner-spin-button, .form_page .essay_form .details form .table_input .header th.size input::-webkit-outer-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0; }
-          .form_page .essay_form .details form .table_input .row {
-            /* Input */
-            /* Delete */ }
-            .form_page .essay_form .details form .table_input .row input {
-              width: calc(100% - 25px);
-              margin: 15px 25px;
-              padding: 0.75rem 1rem;
-              outline: none;
-              border: 2px solid #EFEFEF;
-              border-radius: 10px;
-              font-size: 1rem;
-              font-family: Lato;
-              letter-spacing: 0.03em;
-              text-rendering: optimizeLegibility;
-              /* Hover */
-              /* Autofill */ }
-              .form_page .essay_form .details form .table_input .row input:hover {
-                border: 2px solid #CCCCCC; }
-              .form_page .essay_form .details form .table_input .row input:-webkit-autofill, .form_page .essay_form .details form .table_input .row input:-webkit-autofill:hover, .form_page .essay_form .details form .table_input .row input:-webkit-autofill:focus, .form_page .essay_form .details form .table_input .row input:-webkit-autofill:active {
-                -webkit-box-shadow: 0 0 0 30px white inset !important;
-                box-shadow: 0 0 0 30px white inset !important; }
-            .form_page .essay_form .details form .table_input .row .delete {
-              /* Button */ }
-              .form_page .essay_form .details form .table_input .row .delete button {
-                width: 50px;
-                margin: 0 22.5px;
-                padding: 0;
-                color: #3D3D3D;
-                background: #FFFFFF;
-                box-shadow: none; }
+                height: 40px;
+                outline: none;
+                border: none;
+                border-radius: 10px;
+                font-size: 1em;
+                font-family: Work Sans;
+                text-align: center;
+                -moz-appearance: textfield;
+                /* Arrows */ }
+                .form_page .essay_form .authors .table_input .header th.size input::-webkit-inner-spin-button, .form_page .essay_form .authors .table_input .header th.size input::-webkit-outer-spin-button {
+                  -webkit-appearance: none;
+                  margin: 0; }
+        .form_page .essay_form .authors .table_input .row {
+          /* Input */
+          /* Delete */ }
+          .form_page .essay_form .authors .table_input .row input {
+            width: calc(100% - 25px);
+            margin: 15px 25px;
+            padding: 0.75rem 1rem;
+            outline: none;
+            border: 2px solid #EFEFEF;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: Lato;
+            letter-spacing: 0.03em;
+            text-rendering: optimizeLegibility;
+            /* Hover */
+            /* Autofill */ }
+            .form_page .essay_form .authors .table_input .row input:hover {
+              border: 2px solid #CCCCCC; }
+            .form_page .essay_form .authors .table_input .row input:-webkit-autofill, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:hover, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:focus, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:active {
+              -webkit-box-shadow: 0 0 0 30px white inset !important;
+              box-shadow: 0 0 0 30px white inset !important; }
+          .form_page .essay_form .authors .table_input .row .delete {
+            /* Button */ }
+            .form_page .essay_form .authors .table_input .row .delete button {
+              width: 50px;
+              margin: 0 22.5px;
+              padding: 0;
+              color: #3D3D3D;
+              background: #FFFFFF;
+              box-shadow: none; }
     .form_page .essay_form .vocabulary {
       /* Title */
       /* Input */
