@@ -2932,7 +2932,7 @@ body {
 	.background {
 		position		: relative;
 		width			: 600px;
-		height			: 450px;
+		height			: 500px;
 
 		color			: $primary_text_color;
 		background		: $primary_background_color;
@@ -2976,7 +2976,7 @@ body {
 			width			: 100%;
 			flex			: 1 1 auto;
 
-			padding			: 30px 10px;
+			padding			: 30px;
 
 			/* Message */
 			.message {
