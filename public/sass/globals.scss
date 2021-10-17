@@ -1819,6 +1819,8 @@ body {
 
 					/* Table Header */
 					th {
+						width			: 409.5px;
+
 						padding-right		: 25px;
 
 						color			: $secondary_text_color;
@@ -1827,6 +1829,8 @@ body {
 
 						/* First */
 						&:first-child {
+							width			: 70px;
+
 							padding			: 0;
 
 							border-radius		: 15px 0 0 15px;
@@ -1834,6 +1838,8 @@ body {
 
 						/* Last */
 						&:last-child {
+							width			: 66px;
+
 							border-radius		: 0 15px 15px 0;
 						}
 
