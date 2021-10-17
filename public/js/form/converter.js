@@ -21,7 +21,7 @@ async function submit_essay () {
 
 	//	Update institution value
 	essay.details.institution = window.localStorage.getItem('institution') || 'Qatar University';
-	console.log(parseInt($(`#vocab_word_limit`).val()) || 999999)
+
 	//	Extract settings from local storage
 	settings = {
 		page_numbers		: (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true',

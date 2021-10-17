@@ -1130,29 +1130,31 @@ body {
         border-radius: 15px;
         border-spacing: 0;
         /* Header */
-        /* Table Row */ }
-        .form_page .essay_form .authors .table_input .header {
+        /* Table Row */
+        /* Footer */ }
+        .form_page .essay_form .authors .table_input thead {
           height: 65px;
           background: #0099FF;
           filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
           /* Table Header */ }
-          .form_page .essay_form .authors .table_input .header th {
+          .form_page .essay_form .authors .table_input thead th {
             padding: 0 25px;
             color: #FFFFFF;
             text-align: left;
             /* First */
             /* Last */
             /* Size */ }
-            .form_page .essay_form .authors .table_input .header th:first-child {
+            .form_page .essay_form .authors .table_input thead th:first-child {
               border-radius: 15px 0 0 15px; }
-            .form_page .essay_form .authors .table_input .header th:last-child {
+            .form_page .essay_form .authors .table_input thead th:last-child {
+              padding: 0 10px;
               border-radius: 0 15px 15px 0; }
-            .form_page .essay_form .authors .table_input .header th.size {
+            .form_page .essay_form .authors .table_input thead th.size {
               width: 50px;
               /* Input */ }
-              .form_page .essay_form .authors .table_input .header th.size input {
-                width: 50px;
-                height: 40px;
+              .form_page .essay_form .authors .table_input thead th.size input {
+                width: 40px;
+                height: 35px;
                 outline: none;
                 border: none;
                 border-radius: 10px;
@@ -1161,13 +1163,13 @@ body {
                 text-align: center;
                 -moz-appearance: textfield;
                 /* Arrows */ }
-                .form_page .essay_form .authors .table_input .header th.size input::-webkit-inner-spin-button, .form_page .essay_form .authors .table_input .header th.size input::-webkit-outer-spin-button {
+                .form_page .essay_form .authors .table_input thead th.size input::-webkit-inner-spin-button, .form_page .essay_form .authors .table_input thead th.size input::-webkit-outer-spin-button {
                   -webkit-appearance: none;
                   margin: 0; }
-        .form_page .essay_form .authors .table_input .row {
+        .form_page .essay_form .authors .table_input tbody {
           /* Input */
           /* Delete */ }
-          .form_page .essay_form .authors .table_input .row input {
+          .form_page .essay_form .authors .table_input tbody input {
             width: calc(100% - 25px);
             margin: 15px 25px;
             padding: 0.75rem 1rem;
@@ -1180,20 +1182,38 @@ body {
             text-rendering: optimizeLegibility;
             /* Hover */
             /* Autofill */ }
-            .form_page .essay_form .authors .table_input .row input:hover {
+            .form_page .essay_form .authors .table_input tbody input:hover {
               border: 2px solid #CCCCCC; }
-            .form_page .essay_form .authors .table_input .row input:-webkit-autofill, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:hover, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:focus, .form_page .essay_form .authors .table_input .row input:-webkit-autofill:active {
+            .form_page .essay_form .authors .table_input tbody input:-webkit-autofill, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:hover, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:focus, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:active {
               -webkit-box-shadow: 0 0 0 30px white inset !important;
               box-shadow: 0 0 0 30px white inset !important; }
-          .form_page .essay_form .authors .table_input .row .delete {
+          .form_page .essay_form .authors .table_input tbody .delete {
             /* Button */ }
-            .form_page .essay_form .authors .table_input .row .delete button {
+            .form_page .essay_form .authors .table_input tbody .delete button {
               width: 50px;
-              margin: 0 22.5px;
+              margin: 0 5px;
               padding: 0;
               color: #3D3D3D;
-              background: #FFFFFF;
-              box-shadow: none; }
+              background: transparent;
+              box-shadow: none;
+              /* Hover */ }
+              .form_page .essay_form .authors .table_input tbody .delete button:hover {
+                background: transparent; }
+        .form_page .essay_form .authors .table_input tfoot {
+          text-align: center;
+          /* Add Button */ }
+          .form_page .essay_form .authors .table_input tfoot .add {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+            background: #DDDDDD;
+            font-size: 0.9em;
+            box-shadow: none;
+            /* Hover */ }
+            .form_page .essay_form .authors .table_input tfoot .add:hover {
+              color: #FFFFFF;
+              background: #AAAAAA; }
     .form_page .essay_form .vocabulary {
       /* Title */
       /* Input */

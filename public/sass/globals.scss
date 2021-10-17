@@ -1810,7 +1810,7 @@ body {
 				border-spacing		: 0;
 
 				/* Header */
-				.header {
+				thead {
 					height			: 65px;
 
 					background		: $primary_color;
@@ -1819,7 +1819,7 @@ body {
 
 					/* Table Header */
 					th {
-						padding			: 0 25px;	
+						padding			: 0 25px;
 
 						color			: $secondary_text_color;
 
@@ -1832,6 +1832,8 @@ body {
 
 						/* Last */
 						&:last-child {
+							padding			: 0 10px;
+
 							border-radius		: 0 15px 15px 0;
 						}
 
@@ -1841,8 +1843,8 @@ body {
 
 							/* Input */
 							input {
-								width			: 50px;
-								height			: 40px;
+								width			: 40px;
+								height			: 35px;
 
 								outline			: none;
 								border			: none;
@@ -1865,7 +1867,7 @@ body {
 				}
 
 				/* Table Row */
-				.row {
+				tbody {
 
 					/* Input */
 					input {
@@ -1902,13 +1904,44 @@ body {
 						button {
 							width			: 50px;
 
-							margin			: 0 22.5px;
+							margin			: 0 5px;
 							padding			: 0;
 
 							color			: $primary_text_color;
-							background		: $primary_background_color;
+							background		: transparent;
 
 							box-shadow		: none;
+
+							/* Hover */
+							&:hover {
+								background		: transparent;
+							}
+						}
+					}
+				}
+
+				/* Footer */
+				tfoot {
+					text-align		: center;
+
+					/* Add Button */
+					.add {
+						width			: 30px;
+						height			: 30px;
+
+						margin-bottom		: 10px;
+
+						color			: $secondary_text_color;
+						background		: $quaternary_input_border_color;
+
+						font-size		: 0.9em;
+
+						box-shadow		: none;
+
+						/* Hover */
+						&:hover {
+							color			: $secondary_text_color;
+							background		: $secondary_input_border_color;
 						}
 					}
 				}
