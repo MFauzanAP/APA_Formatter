@@ -1138,17 +1138,20 @@ body {
           filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
           /* Table Header */ }
           .form_page .essay_form .authors .table_input thead th {
-            padding: 0 25px;
+            padding-right: 25px;
             color: #FFFFFF;
             text-align: left;
             /* First */
             /* Last */
+            /* Grip */
             /* Size */ }
             .form_page .essay_form .authors .table_input thead th:first-child {
+              padding: 0;
               border-radius: 15px 0 0 15px; }
             .form_page .essay_form .authors .table_input thead th:last-child {
-              padding: 0 10px;
               border-radius: 0 15px 15px 0; }
+            .form_page .essay_form .authors .table_input thead th.grip {
+              text-align: center; }
             .form_page .essay_form .authors .table_input thead th.size {
               width: 50px;
               /* Input */ }
@@ -1167,11 +1170,20 @@ body {
                   -webkit-appearance: none;
                   margin: 0; }
         .form_page .essay_form .authors .table_input tbody {
+          /* Even Rows */
+          /* Grip */
           /* Input */
           /* Delete */ }
+          .form_page .essay_form .authors .table_input tbody tr:nth-child(even) {
+            background: #F9F9F9; }
+          .form_page .essay_form .authors .table_input tbody .grip {
+            margin: 0;
+            margin-left: 25px;
+            text-align: center; }
           .form_page .essay_form .authors .table_input tbody input {
             width: calc(100% - 25px);
             margin: 15px 25px;
+            margin-left: 0;
             padding: 0.75rem 1rem;
             outline: none;
             border: 2px solid #EFEFEF;
@@ -1188,24 +1200,22 @@ body {
               -webkit-box-shadow: 0 0 0 30px white inset !important;
               box-shadow: 0 0 0 30px white inset !important; }
           .form_page .essay_form .authors .table_input tbody .delete {
-            /* Button */ }
-            .form_page .essay_form .authors .table_input tbody .delete button {
-              width: 50px;
-              margin: 0 5px;
-              padding: 0;
-              color: #3D3D3D;
-              background: transparent;
-              box-shadow: none;
-              /* Hover */ }
-              .form_page .essay_form .authors .table_input tbody .delete button:hover {
-                background: transparent; }
+            width: 40px;
+            margin: 0;
+            padding: 0;
+            color: #3D3D3D;
+            background: transparent;
+            box-shadow: none;
+            /* Hover */ }
+            .form_page .essay_form .authors .table_input tbody .delete:hover {
+              background: transparent; }
         .form_page .essay_form .authors .table_input tfoot {
           text-align: center;
           /* Add Button */ }
           .form_page .essay_form .authors .table_input tfoot .add {
             width: 30px;
             height: 30px;
-            margin-bottom: 10px;
+            margin: 10px 0;
             color: #FFFFFF;
             background: #DDDDDD;
             font-size: 0.9em;

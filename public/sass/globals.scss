@@ -1819,7 +1819,7 @@ body {
 
 					/* Table Header */
 					th {
-						padding			: 0 25px;
+						padding-right		: 25px;
 
 						color			: $secondary_text_color;
 
@@ -1827,14 +1827,19 @@ body {
 
 						/* First */
 						&:first-child {
+							padding			: 0;
+
 							border-radius		: 15px 0 0 15px;
 						}
 
 						/* Last */
 						&:last-child {
-							padding			: 0 10px;
-
 							border-radius		: 0 15px 15px 0;
+						}
+
+						/* Grip */
+						&.grip {
+							text-align		: center;
 						}
 
 						/* Size */
@@ -1869,11 +1874,25 @@ body {
 				/* Table Row */
 				tbody {
 
+					/* Even Rows */
+					tr:nth-child(even) {
+						background		: $secondary_background_color;
+					}
+
+					/* Grip */
+					.grip {
+						margin			: 0;
+						margin-left		: 25px;
+
+						text-align		: center;
+					}
+
 					/* Input */
 					input {
 						width			: calc(100% - 25px);
 
 						margin			: 15px 25px;
+						margin-left		: 0;
 						padding			: 0.75rem 1rem;
 
 						outline			: none;
@@ -1899,23 +1918,19 @@ body {
 
 					/* Delete */
 					.delete {
+						width			: 40px;
 
-						/* Button */
-						button {
-							width			: 50px;
+						margin			: 0;
+						padding			: 0;
 
-							margin			: 0 5px;
-							padding			: 0;
+						color			: $primary_text_color;
+						background		: transparent;
 
-							color			: $primary_text_color;
+						box-shadow		: none;
+
+						/* Hover */
+						&:hover {
 							background		: transparent;
-
-							box-shadow		: none;
-
-							/* Hover */
-							&:hover {
-								background		: transparent;
-							}
 						}
 					}
 				}
@@ -1929,7 +1944,7 @@ body {
 						width			: 30px;
 						height			: 30px;
 
-						margin-bottom		: 10px;
+						margin			: 10px 0;
 
 						color			: $secondary_text_color;
 						background		: $quaternary_input_border_color;
