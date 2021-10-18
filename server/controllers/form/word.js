@@ -73,11 +73,16 @@ function create_cover_page (data) {
 	//	Add line break
 	cover_page.children.push(new TextRun({break: 1}));
 
-	//	Add student name
-	if (data.details.student_name) cover_page.children.push(write_line(data.details.student_name));
+	//	For each student
+	if (data.details.students.length) data.details.students.forEach(student => {
 
-	//	Add student id
-	if (data.details.student_id) cover_page.children.push(write_line(data.details.student_id));
+		//	Add student name
+		cover_page.children.push(write_line(student.name));
+
+		//	Add student id
+		cover_page.children.push(write_line(student.id));
+		
+	});
 
 	//	Add university name
 	if (data.details.institution) cover_page.children.push(write_line(data.details.institution || 'Qatar University'));

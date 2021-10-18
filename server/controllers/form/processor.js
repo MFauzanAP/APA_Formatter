@@ -14,10 +14,16 @@ function submit_essay_processor (data) {
 	//	Sanitize essay details
 	essay.details.title = sanitizeHtml(essay.details.title);
 	essay.details.date = sanitizeHtml(essay.details.date);
-	essay.details.student_name = sanitizeHtml(essay.details.student_name);
 	essay.details.lecture_name = sanitizeHtml(essay.details.lecture_name);
-	essay.details.student_id = sanitizeHtml(essay.details.student_id);
 	essay.details.course_number = sanitizeHtml(essay.details.course_number);
+
+	//	For each student
+	essay.details.students = essay.details.students.map((student) => {
+
+		//	Return clean string
+		return { name: sanitizeHtml(student.name), id: sanitizeHtml(student.id) };
+
+	})
 
 	//	For each vocab word
 	essay.vocabulary = essay.vocabulary.map((word) => {

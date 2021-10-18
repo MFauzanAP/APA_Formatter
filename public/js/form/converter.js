@@ -3,11 +3,10 @@ var essay = {
 	details			: {
 		title			: '',
 		date			: '',
-		student_name		: '',
 		lecturer_name		: '',
-		student_id		: '',
 		course_number		: '',
-		institution		: ''
+		institution		: '',
+		students		: []
 	},
 	vocabulary		: [],
 	essay			: '',

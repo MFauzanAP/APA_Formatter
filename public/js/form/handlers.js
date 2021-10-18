@@ -81,6 +81,9 @@ function handle_authors () {
 
 	}
 
+	//	Add authors to essay object
+	essay.details.students = data;
+
 	//	Return successful
 	return true;
 

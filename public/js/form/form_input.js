@@ -11,6 +11,7 @@ $(`.stepper .step:nth-of-type(6)`).on('click', { index: 5 }, on_click_step);
 
 //	Subscribe functions to form input on keup event
 $(`.essay_form .input input`).on('keyup', on_form_keyup);
+$(`.essay_form .table_input tbody input`).on('keyup', on_form_keyup);
 
 //	Update stage ui once
 update_stage_ui(new URL(window.location).searchParams.get('stage'));

@@ -94,7 +94,7 @@ function get_table_data () {
 	var rows = $(`tbody tr`, table_input);
 
 	//	Loop through each row and extract data
-	rows.each((row, index) => {
+	rows.each((index, row) => {
 
 		//	Add data to output array
 		output.push({name: $(`input#student_name`, row).val(), id: $(`input#student_id`, row).val()});
