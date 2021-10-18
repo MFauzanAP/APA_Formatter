@@ -83,3 +83,25 @@ function handle_update_table_size () {
 	}
 
 }
+
+//	Function called to get the table data
+function get_table_data () {
+
+	//	Prepare output
+	var output = [];
+
+	//	Get rows from table
+	var rows = $(`tbody tr`, table_input);
+
+	//	Loop through each row and extract data
+	rows.each((row, index) => {
+
+		//	Add data to output array
+		output.push({name: $(`input#student_name`, row).val(), id: $(`input#student_id`, row).val()});
+
+	})
+
+	//	Return output
+	return output;
+
+}

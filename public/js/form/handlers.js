@@ -39,6 +39,53 @@ function handle_details () {
 
 }
 
+//	Function called to handle authors stage, returns true when successful
+function handle_authors () {
+
+	//	Get table data
+	var data = get_table_data();
+
+	//	Loop through each row and check for empty fields
+	for (let index = 0; index < data.length; index++) {
+
+		//	Get row
+		const row = data[index];
+
+		//	If name or id is empty then return false
+		if (row.name == '') {
+			
+			//	Color this input field red
+			color_input(`.essay_form .authors .table_input tbody tr:nth-child(${index + 1}) input#student_name`);
+
+			//	Show toast
+			show_toast('error', `Please fill in the name field at row ${index + 1}.`);
+
+			//	Return false
+			return false;
+
+		}
+		
+		//	If name or id is empty then return false
+		if (row.id == '') {
+			
+			//	Color this input field red
+			color_input(`.essay_form .authors .table_input tbody tr:nth-child(${index + 1}) input#student_id`);
+
+			//	Show toast
+			show_toast('error', `Please fill in the ID field at row ${index + 1}.`);
+
+			//	Return false
+			return false;
+
+		}
+
+	}
+
+	//	Return successful
+	return true;
+
+}
+
 //	Function called to handle vocabulary stage, returns true when successful
 function handle_vocabulary () {
 

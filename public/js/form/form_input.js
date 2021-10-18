@@ -24,6 +24,7 @@ function on_click_forward () {
 	//	Call stage handler
 	var res = true;
 	if (stage == 'details') var res = handle_details();
+	if (stage == 'authors') var res = handle_authors();
 	if (stage == 'vocabulary') var res = handle_vocabulary();
 	if (stage == 'essay') var res = handle_essay();
 
@@ -108,6 +109,7 @@ function on_click_step (event) {
 
 			//	Call event handler
 			if (stg == 'details') var res = handle_details();
+			if (stg == 'authors') var res = handle_authors();
 			if (stg == 'vocabulary') var res = handle_vocabulary();
 			if (stg == 'essay') var res = handle_essay();
 
