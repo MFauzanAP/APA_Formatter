@@ -27,6 +27,7 @@ async function submit_essay () {
 		cover_page		: (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true',
 		essay_title		: (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true',
 		word_count		: (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true',
+		inline_details		: (window.localStorage.getItem('essay_settings_inline_details') || 'true') === 'true',
 		new_line		: (window.localStorage.getItem('essay_settings_new_line') || 'true') === 'true',
 		font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
 		font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',

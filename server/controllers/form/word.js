@@ -60,6 +60,9 @@ function setup_header () {
  */
 function create_cover_page (data) {
 
+	//	Extract essay n settings
+	const { essay, settings } = data;
+
 	//	Create cover page paragraph
 	var cover_page = {
 		alignment		: AlignmentType.CENTER,
@@ -68,36 +71,47 @@ function create_cover_page (data) {
 	}
 
 	//	Add title
-	cover_page.children.push(write_line(data.details.title, {bold: true, break: 0}));
+	cover_page.children.push(write_line(essay.details.title, {bold: true, break: 0}));
 
 	//	Add line break
 	cover_page.children.push(new TextRun({break: 1}));
 
 	//	For each student
-	if (data.details.students.length) data.details.students.forEach(student => {
+	if (essay.details.students.length) essay.details.students.forEach(student => {
 
-		//	Add student name
-		cover_page.children.push(write_line(student.name));
+		//	If details are inline
+		if (settings.inline_details) {
 
-		//	Add student id
-		cover_page.children.push(write_line(student.id));
+			//	Add student details
+			cover_page.children.push(write_line(`${student.name} - ${student.id}`));
+
+		}
+		else {
+
+			//	Add student name
+			cover_page.children.push(write_line(student.name));
+
+			//	Add student id
+			cover_page.children.push(write_line(student.id));
+
+		}
 		
 	});
 
 	//	Add university name
-	if (data.details.institution) cover_page.children.push(write_line(data.details.institution || 'Qatar University'));
+	if (essay.details.institution) cover_page.children.push(write_line(essay.details.institution || 'Qatar University'));
 
 	//	Add course name and number
-	if (data.details.course_number) cover_page.children.push(write_line(data.details.course_number));
+	if (essay.details.course_number) cover_page.children.push(write_line(essay.details.course_number));
 
 	//	Add lecturer name
-	if (data.details.lecturer_name) cover_page.children.push(write_line(data.details.lecturer_name));
+	if (essay.details.lecturer_name) cover_page.children.push(write_line(essay.details.lecturer_name));
 
 	//	Reformat date
-	if (data.details.date) data.details.date = converters.convert_picker_to_date(data.details.date);
+	if (essay.details.date) essay.details.date = converters.convert_picker_to_date(essay.details.date);
 
 	//	Add date
-	if (data.details.date) cover_page.children.push(write_line(data.details.date));
+	if (essay.details.date) cover_page.children.push(write_line(essay.details.date));
 
 	//	Return cover page
 	return new Paragraph(cover_page);

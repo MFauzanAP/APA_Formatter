@@ -23,7 +23,7 @@ async function submit_essay (data) {
 	const header = settings.page_numbers === 'true' ? word.setup_header() : '';
 
 	//	Create cover page
-	const cover_page = settings.cover_page === 'true' ? word.create_cover_page(essay) : '';
+	const cover_page = settings.cover_page === 'true' ? word.create_cover_page(data) : '';
 
 	//	Create title
 	const title = settings.essay_title === 'true' ? word.create_title(essay) : '';

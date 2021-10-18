@@ -41,6 +41,7 @@ function submit_essay_processor (data) {
 	settings.cover_page = sanitizeHtml(settings.cover_page);
 	settings.essay_title = sanitizeHtml(settings.essay_title);
 	settings.word_count = sanitizeHtml(settings.word_count);
+	settings.inline_details = sanitizeHtml(settings.inline_details);
 	settings.new_line = sanitizeHtml(settings.new_line);
 
 	//	Sanitize font settings
