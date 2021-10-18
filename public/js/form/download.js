@@ -37,6 +37,11 @@ async function restart_form_page () {
 	$(`input`).val('');
 	$(`textarea`).val('');
 
+	//	Reset table
+	num_entries = 0;
+	$(`.essay_form .authors .table_input tbody tr`).remove();
+	handle_add_table_entry();
+
 	//	Reset download path
 	reset_download();
 
