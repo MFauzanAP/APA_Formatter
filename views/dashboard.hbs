@@ -121,11 +121,14 @@
 			<div class="essay section">
 
 				{{!-- Title --}}
-				<div class="title">Essay Settings</div>
+				<div class="header">Essay Settings</div>
 
 				{{!-- Page Numbers --}}
 				<div class="row">
-					<label for="essay_settings_page_numbers">Page Numbers</label>
+					<div class="description">
+						<label>Page Numbers</label>
+						<label class="meta">Should page numbers be included in the final document?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_page_numbers" id="essay_settings_page_numbers" checked/>
 						<label for="essay_settings_page_numbers"></label>
@@ -134,7 +137,10 @@
 
 				{{!-- Cover Page --}}
 				<div class="row">
-					<label for="essay_settings_cover_page">Cover Page</label>
+					<div class="description">
+						<label>Cover Page</label>
+						<label class="meta">Should the cover page be included in the final document?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_cover_page" id="essay_settings_cover_page" checked/>
 						<label for="essay_settings_cover_page"></label>
@@ -143,7 +149,10 @@
 
 				{{!-- Essay Title --}}
 				<div class="row">
-					<label for="essay_settings_essay_title">Essay Title</label>
+					<div class="description">
+						<label>Essay Title</label>
+						<label class="meta">Should the essay title be included in the final document?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_essay_title" id="essay_settings_essay_title" checked/>
 						<label for="essay_settings_essay_title"></label>
@@ -152,7 +161,10 @@
 
 				{{!-- Word Count --}}
 				<div class="row">
-					<label for="essay_settings_word_count">Word Count</label>
+					<div class="description">
+						<label>Word Count</label>
+						<label class="meta">Should the word count be included in the final document?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_word_count" id="essay_settings_word_count" checked/>
 						<label for="essay_settings_word_count"></label>
@@ -161,7 +173,10 @@
 
 				{{!-- Inline Details --}}
 				<div class="row">
-					<label for="essay_settings_inline_details">Inline Student Details</label>
+					<div class="description">
+						<label>Inline Student Details</label>
+						<label class="meta">Should student details be printed in one line?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_inline_details" id="essay_settings_inline_details"/>
 						<label for="essay_settings_inline_details"></label>
@@ -170,7 +185,10 @@
 
 				{{!-- Essay Title --}}
 				<div class="row">
-					<label for="essay_settings_new_line">New Line After Paragraph?</label>
+					<div class="description">
+						<label>New Line After Paragraph</label>
+						<label class="meta">Should there be new lines after each paragraph?</label>
+					</div>
 					<div class="checkbox">
 						<input type="checkbox" name="essay_settings_new_line" id="essay_settings_new_line"/>
 						<label for="essay_settings_new_line"></label>
@@ -186,11 +204,14 @@
 			<div class="font section">
 
 				{{!-- Title --}}
-				<div class="title">Font Settings</div>
+				<div class="header">Font Settings</div>
 
 				{{!-- Font Family --}}
 				<div class="row">
-					<label for="essay_settings_font_family">Font Family</label>
+					<div class="description">
+						<label>Font Family</label>
+						<label class="meta">Which font family to use</label>
+					</div>
 					<div class="dropdown">
 						<select name="essay_settings_font_family" id="essay_settings_font_family">
 							<option value="Times New Roman">Times New Roman</option>
@@ -202,7 +223,10 @@
 
 				{{!-- Font Size --}}
 				<div class="row">
-					<label for="essay_settings_font_size">Font Size</label>
+					<div class="description">
+						<label>Font Size</label>
+						<label class="meta">Which font size to use</label>
+					</div>
 					<div class="input">
 						<input type="number" name="essay_settings_font_size" id="essay_settings_font_size" value='12' step="1" min='8' max='32'/>
 						<label class="unit">px</label>
@@ -211,7 +235,10 @@
 
 				{{!-- Font Color --}}
 				<div class="row">
-					<label for="essay_settings_font_color">Font Color</label>
+					<div class="description">
+						<label>Font Color</label>
+						<label class="meta">Which font color to use</label>
+					</div>
 					<div class="input">
 						<input type="color" name="essay_settings_font_color" id="essay_settings_font_color"/>
 					</div>
@@ -226,20 +253,26 @@
 			<div class="line section">
 
 				{{!-- Title --}}
-				<div class="title">Line Settings</div>
+				<div class="header">Line Settings</div>
 
 				{{!-- Line Spacing --}}
 				<div class="row">
-					<label for="essay_settings_line_spacing">Line Spacing</label>
+					<div class="description">
+						<label>Line Spacing</label>
+						<label class="meta">How many spaces to add after each line</label>
+					</div>
 					<div class="input">
 						<input type="number" name="essay_settings_line_spacing" id="essay_settings_line_spacing" value='2' min='1' max='2'/>
 						<label class="unit">lines</label>
 					</div>
 				</div>
 
-				{{!-- Line Spacing --}}
+				{{!-- Parapgraph Spacing --}}
 				<div class="row">
-					<label for="essay_settings_paragraph_spacing">Paragraph Spacing</label>
+					<div class="description">
+						<label>Paragraph Spacing</label>
+						<label class="meta">How many spaces to add before and after each paragraph</label>
+					</div>
 					<div class="input">
 						<input type="number" name="essay_settings_paragraph_spacing" id="essay_settings_paragraph_spacing" value='0' min='0' max='2'/>
 						<label class="unit">lines</label>
@@ -255,11 +288,14 @@
 			<div class="margin section">
 
 				{{!-- Title --}}
-				<div class="title">Margin Settings</div>
+				<div class="header">Margin Settings</div>
 
 				{{!-- Line Spacing --}}
 				<div class="row">
-					<label for="essay_settings_margin_spacing">Margin Spacing</label>
+					<div class="description">
+						<label>Margin Spacing</label>
+						<label class="meta">How big the margins on each side should be</label>
+					</div>
 					<div class="input">
 						<input type="number" name="essay_settings_margin_spacing" id="essay_settings_margin_spacing" value='1' min='0' max='3'/>
 						<label class="unit">inch</label>
@@ -275,11 +311,14 @@
 			<div class="highlight section">
 
 				{{!-- Title --}}
-				<div class="title">Highlight Settings</div>
+				<div class="header">Highlight Settings</div>
 
 				{{!-- Line Spacing --}}
 				<div class="row">
-					<label for="essay_settings_highlight_type">Highlight Type</label>
+					<div class="description">
+						<label>Highlight Type</label>
+						<label class="meta">Determines how to highlight each vocabulary found</label>
+					</div>
 					<div class="dropdown">
 						<select name="essay_settings_highlight_type" id="essay_settings_highlight_type">
 							<option value="none">None</option>
