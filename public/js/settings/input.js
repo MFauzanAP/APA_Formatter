@@ -3,6 +3,10 @@ $(`.navbar .buttons .menu .settings_tab .row input[type="checkbox"]`).on('change
 $(`.navbar .buttons .menu .settings_tab .row input[type="number"]`).on('input', handle_numeric_setting);
 $(`.navbar .buttons .menu .settings_tab .row input[type="color"]`).on('input', handle_color_setting);
 $(`.navbar .buttons .menu .settings_tab .row select`).on('change', handle_dropdown_setting);
+$(`.dashboard .windows .settings .row input[type="checkbox"]`).on('change', handle_checkbox_setting);
+$(`.dashboard .windows .settings .row input[type="number"]`).on('input', handle_numeric_setting);
+$(`.dashboard .windows .settings .row input[type="color"]`).on('input', handle_color_setting);
+$(`.dashboard .windows .settings .row select`).on('change', handle_dropdown_setting);
 
 //	Function called when a checkbox setting is clicked
 function handle_checkbox_setting () {

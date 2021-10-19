@@ -1,32 +1,8 @@
-//	Store reference to related elements
-var settings_button = $(`.navbar .buttons .settings.dropdown.button`);
+//	Function called to update settings ui
+function update_settings_ui () {
 
-//	Subscribe on click event to settings button
-$(window).on('click', close_settings_menu);
-$(settings_button).on('click', handle_settings_dropdown);
-
-//	Function called to handle profile dropdown click
-function handle_settings_dropdown (e) {
-
-	//	Get dropdown menu tabs
-	var tabs = $(`.navbar .buttons .menu .tabs`);
-
-	//	Show set up slide
-	tabs.css({transform: 'translateX(0)'});
-
-	//	Open or close dropdown menu depending on current state
-	menu.addClass('active');
-
-	//	Update settings
-	update_settings_value();
-
-}
-
-//	Function called to update settings
-function update_settings_value () {
-
-	//	Get dropdown menu
-	var menu = $(`.navbar .buttons .menu .settings_tab`);
+	//	Get settings
+	var menu = $(`.dashboard .windows .settings`);
 
 	//	Update essay settings values
 	$(`#essay_settings_page_numbers`, menu).prop('checked', (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true');
@@ -50,19 +26,5 @@ function update_settings_value () {
 
 	//	Update highlight settings values
 	$(`#essay_settings_highlight_type`, menu).val(window.localStorage.getItem('essay_settings_highlight_type') || 'bold');
-
-}
-
-//	Function called to close menu
-function close_settings_menu (e) {
-
-	//	If menu is not open then dont do anything
-	if (!menu.hasClass('active')) return
-
-	//	If targetting menu or button then dont close menu
-	if (settings_button[0].contains(e.target) || profile_button[0].contains(e.target) || menu[0].contains(e.target)) return;
-
-	//	Close menu
-	menu.removeClass('active');
 
 }

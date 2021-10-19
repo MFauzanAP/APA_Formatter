@@ -1,5 +1,6 @@
 //	Subscribe functions to window on load
 $(window).on('load', update_profile_ui);
+$(window).on('load', update_settings_ui);
 
 //	Subscribe functions to tab on click event
 $(`.tabs .tab:nth-of-type(1)`).on('click', { index: 0 }, on_click_tab);
