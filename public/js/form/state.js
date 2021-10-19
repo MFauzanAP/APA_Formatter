@@ -94,7 +94,7 @@ function update_steps_ui (stage) {
 	var index = stages.index($(`.${stage}.stage`)[0]);
 
 	//	Update slider
-	$(`.stepper`).css('background-position-x', `${90 - (index * 24)}%`)
+	$(`.stepper`).css('background-position-x', `${93 - (index * 20)}%`)
 
 	//	Update steps
 	steps.each((i, step) => {

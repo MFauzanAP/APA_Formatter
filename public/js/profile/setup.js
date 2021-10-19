@@ -8,7 +8,7 @@ function handle_profile_setup () {
 	var tabs = $(`.navbar .buttons .menu .tabs`);
 
 	//	Show set up slide
-	tabs.css({transform: 'translateX(-100%)'});
+	tabs.css({transform: 'translateX(-200%)'});
 
 }
 
@@ -35,7 +35,7 @@ function handle_profile_submit (e) {
 	var tabs = $(`.navbar .buttons .menu .tabs`);
 
 	//	Show profile slide
-	tabs.css({transform: 'translateX(0)'});
+	tabs.css({transform: 'translateX(-100%)'});
 
 	//	Get student details
 	details = $(`.navbar .buttons .menu .student_details`);

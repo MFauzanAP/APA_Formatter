@@ -6,10 +6,12 @@ $(`.controls .back`).on('click', on_click_backward);
 $(`.stepper .step:nth-of-type(1)`).on('click', { index: 0 }, on_click_step);
 $(`.stepper .step:nth-of-type(2)`).on('click', { index: 1 }, on_click_step);
 $(`.stepper .step:nth-of-type(3)`).on('click', { index: 2 }, on_click_step);
-$(`.stepper .step:nth-of-type(5)`).on('click', { index: 4 }, on_click_step);
+$(`.stepper .step:nth-of-type(4)`).on('click', { index: 3 }, on_click_step);
+$(`.stepper .step:nth-of-type(6)`).on('click', { index: 5 }, on_click_step);
 
 //	Subscribe functions to form input on keup event
 $(`.essay_form .input input`).on('keyup', on_form_keyup);
+$(`.essay_form .table_input tbody input`).on('keyup', on_form_keyup);
 
 //	Update stage ui once
 update_stage_ui(new URL(window.location).searchParams.get('stage'));
@@ -23,6 +25,7 @@ function on_click_forward () {
 	//	Call stage handler
 	var res = true;
 	if (stage == 'details') var res = handle_details();
+	if (stage == 'authors') var res = handle_authors();
 	if (stage == 'vocabulary') var res = handle_vocabulary();
 	if (stage == 'essay') var res = handle_essay();
 
@@ -32,7 +35,8 @@ function on_click_forward () {
 	//	Declare array of stages
 	var stages = {
 		''			: 'details',
-		'details'		: 'vocabulary',
+		'details'		: 'authors',
+		'authors'		: 'vocabulary',
 		'vocabulary'		: 'essay',
 		'essay'			: 'formatting',
 		'formatting'		: 'download',
@@ -60,7 +64,8 @@ function on_click_backward () {
 	//	Declare array of stages
 	var stages = {
 		'details'		: '',
-		'vocabulary'		: 'details',
+		'authors'		: 'details',
+		'vocabulary'		: 'authors',
 		'essay'			: 'vocabulary',
 		'formatting'		: 'essay',
 		'download'		: 'formatting',
@@ -89,7 +94,7 @@ function on_click_step (event) {
 	var stage = new URL(window.location).searchParams.get('stage');
 
 	//	Declare array of stages
-	var stages = [ 'details', 'vocabulary', 'essay', 'formatting', 'download' ];
+	var stages = [ 'details', 'authors', 'vocabulary', 'essay', 'formatting', 'download' ];
 
 	//	If going forward
 	if (index > stages.indexOf(stage)) {
@@ -105,6 +110,7 @@ function on_click_step (event) {
 
 			//	Call event handler
 			if (stg == 'details') var res = handle_details();
+			if (stg == 'authors') var res = handle_authors();
 			if (stg == 'vocabulary') var res = handle_vocabulary();
 			if (stg == 'essay') var res = handle_essay();
 

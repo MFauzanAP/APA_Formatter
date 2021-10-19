@@ -1,7 +1,7 @@
 'use strict';
 
 //	Imports
-const { Document } = require('docx');
+const { Document, VerticalAlign } = require('docx');
 const fs = require('fs');
 const word = require('./word');
 
@@ -10,33 +10,40 @@ const word = require('./word');
  */
 async function submit_essay (data) {
 
-	//	Extract data from essay
-	const { details } = data;
+	//	Extract essay n settings
+	const { essay, settings } = data;
+
+	//	Extract details from essay
+	const { details } = essay;
 
 	//	Reset included highlights
 	word.set_included_highlights([]);
 
 	//	Create headers
-	const header = word.setup_header();
+	const header = settings.page_numbers === 'true' ? word.setup_header() : '';
 
 	//	Create cover page
-	const cover_page = word.create_cover_page(data);
+	const cover_page = settings.cover_page === 'true' ? word.create_cover_page(data) : '';
 
 	//	Create title
-	const title = word.create_title(data);
+	const title = settings.essay_title === 'true' ? word.create_title(essay) : '';
 
 	//	Create essay
-	const essay = word.create_essay(data);
+	const essay_text = word.create_essay(data);
 
 	//	Create word count
-	const word_count = word.create_word_count(data);
+	const word_count = settings.word_count === 'true' ? word.create_word_count(essay) : '';
 
-	//	Concatenate into one array
-	var children = [ cover_page, title, word_count ];
-	children.splice(2, 0, ...essay);
+	//	Add title and word count to children array
+	var children = [];
+	if (title) children.push(title);
+	if (word_count) children.push(word_count);
+
+	//	Concatenate essay text into children
+	children.splice(title ? 1 : 0, 0, ...essay_text);
 
 	//	Setup document
-	var document = new Document({
+	var document = {
 		creator			: details.student_name,
 		subject			: details.title,
 		title			: details.title,
@@ -48,32 +55,61 @@ async function submit_essay (data) {
 				next			: 'Normal',
 				quickFormat		: true,
 				run			: {
-					color			: '000000',
-					font			: 'Times New Roman',
-					size			: 24
+					color			: settings.font_color || '000000',
+					font			: settings.font_family || 'Times New Roman',
+					size			: settings.font_size * 2 || 24
 				},
 				paragraph		: {
 					spacing			: {
-						before			: 0,
-						after			: 0,
-						line			: 480
+						before			: Math.min(2, Math.max(0, settings.paragraph_spacing)) * 120 || 0,
+						after			: Math.min(2, Math.max(0, settings.paragraph_spacing)) * 120 || 0,
+						line			: Math.min(2, Math.max(0, settings.line_spacing)) * 240 || 480
 					}
 				}
 			}]
 		},
-		sections		: [ 
-			{
-				properties		: {},
-				headers			: {
-					default			: header
-				},
-				children		: children
+		sections		: [ ],
+	}
+
+	//	Add cover page to document
+	if (cover_page) document.sections.push({
+		properties		: {
+			verticalAlign		: VerticalAlign.CENTER,
+			page			: {
+				margin			: {
+					top			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					bottom			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					left			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					right			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+				}
 			}
-		],
-	})
+		},
+		headers			: {
+			default			: header
+		},
+		children		: [ cover_page ]
+	});
+
+	//	Add the rest of the essay to the document
+	document.sections.push({
+		properties		: {
+			page			: {
+				margin			: {
+					top			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					bottom			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					left			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+					right			: Math.min(3, Math.max(0, settings.margin_spacing)) * 1440 || 1440, 
+				}
+			}
+		},
+		headers			: {
+			default			: header
+		},
+		children		: children
+	});
 
 	//	Return document
-	return { document, words: word.get_included_highlights() };
+	return { document: new Document(document), words: word.get_included_highlights() };
 
 }
 

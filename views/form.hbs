@@ -39,7 +39,7 @@
 		</div>
 
 		{{!-- Meta --}}
-		<div class="meta">or click on one of the links above to switch modes</div>
+		<div class="meta">or click on one of the links on the left to switch modes</div>
 
 	</div>
 
@@ -52,17 +52,20 @@
 			{{!-- Details --}}
 			<div class="step">1<i class="fa fa-check check"></i><div class="label">Details</div></div>
 
+			{{!-- Authors --}}
+			<div class="step">2<i class="fa fa-check check"></i><div class="label">Authors</div></div>
+
 			{{!-- Vocabulary --}}
-			<div class="step">2<i class="fa fa-check check"></i><div class="label">Vocabulary</div></div>
+			<div class="step">3<i class="fa fa-check check"></i><div class="label">Vocabulary</div></div>
 
 			{{!-- Essay --}}
-			<div class="step">3<i class="fa fa-check check"></i><div class="label">Essay</div></div>
+			<div class="step">4<i class="fa fa-check check"></i><div class="label">Essay</div></div>
 
 			{{!-- Formatting --}}
-			<div class="step">4<i class="fa fa-check check"></i><div class="label">Formatting</div></div>
+			<div class="step">5<i class="fa fa-check check"></i><div class="label">Formatting</div></div>
 
 			{{!-- Download --}}
-			<div class="step">5<i class="fa fa-check check"></i><div class="label">Download</div></div>
+			<div class="step">6<i class="fa fa-check check"></i><div class="label">Download</div></div>
 
 		</div>
 
@@ -71,6 +74,9 @@
 
 			{{!-- Title --}}
 			<div class="title">Fill In Your Essay Details</div>
+
+			{{!-- Meta --}}
+			<div class="meta">Some fields may be left out if not needed.</div>
 
 			{{!-- Form --}}
 			<form class="form">
@@ -84,34 +90,91 @@
 				{{!-- Date --}}
 				<div class="input date" style="grid-column: span 2;">
 					<input type="date" id="date" name="date" required/>
-					<label htmlFor="date">Date*</label>
-				</div>
-
-				{{!-- Student Name --}}
-				<div class="input" style="grid-column: span 3;">
-					<input type="text" id="student_name" name="student_name" required/>
-					<label htmlFor="student_name">Student Name*</label>
+					<label htmlFor="date">Date</label>
 				</div>
 
 				{{!-- Lecturer Name --}}
-				<div class="input" style="grid-column: span 3;">
+				<div class="input" style="grid-column: span 4;">
 					<input type="text" id="lecturer_name" name="lecturer_name" required/>
-					<label htmlFor="lecturer_name">Lecturer Name*</label>
-				</div>
-
-				{{!-- Student ID --}}
-				<div class="input" style="grid-column: span 3;">
-					<input type="text" id="student_id" name="student_id" required/>
-					<label htmlFor="student_id">Student ID*</label>
+					<label htmlFor="lecturer_name">Lecturer Name</label>
 				</div>
 
 				{{!-- Course Number --}}
-				<div class="input" style="grid-column: span 3;">
+				<div class="input" style="grid-column: span 2;">
 					<input type="text" id="course_number" name="course_number" required/>
-					<label htmlFor="course_number">Course Number*</label>
+					<label htmlFor="course_number">Course Number</label>
 				</div>
 
 			</form>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+			</div>
+
+		</div>
+
+		{{!-- Authors --}}
+		<div class="authors stage">
+
+			{{!-- Title --}}
+			<div class="title">Add Your Essay's Authors</div>
+
+			{{!-- Meta --}}
+			<div class="meta">Fill in this table with the details of each author.</div>
+
+			{{!-- Student Entry Table --}}
+			<table class="table_input">
+
+				{{!-- Header --}}
+				<thead><tr>
+
+					{{!-- Grip --}}
+					<th class="grip"></th>
+
+					{{!-- Name --}}
+					<th>Student Name</th>
+
+					{{!-- ID --}}
+					<th>Student ID</th>
+
+					{{!-- Size Input --}}
+					<th class="size"><input type="number" value="1" min="1" max="10"/></th>
+
+				</tr></thead>
+
+				{{!-- Row --}}
+				<tbody><tr>
+
+					{{!-- Grip --}}
+					<td><i class="fa fa-bars grip"></i></td>
+
+					{{!-- Student Name --}}
+					<td><input type="text" id="student_name" name="student_name" required/></td>
+
+					{{!-- Student ID --}}
+					<td><input type="text" id="student_id" name="student_id" required/></td>
+
+					{{!-- Delete Button --}}
+					<td><button class="delete"><i class="fa fa-times"></i></button></td>
+
+				</tr></tbody>
+
+				{{!-- Footer --}}
+				<tfoot><tr>
+
+					{{!-- Add Button --}}
+					<td colspan="4"><button class="add"><i class="fa fa-plus"></i></button></td>
+
+				</tr></tfoot>
+
+			</table>
 
 			{{!-- Controls --}}
 			<div class="controls">
@@ -134,6 +197,18 @@
 
 			{{!-- Meta --}}
 			<div class="meta">This step may be unnecessary for you, feel free to skip it.</div>
+
+			{{!-- Word Limit --}}
+			<div class="row">
+				<div class="description">
+					<label for="vocab_word_limit">Word Limit (0 for no limit)</label>
+					<label class="meta" for="vocab_word_limit">How many words from this list should be highlighted</label>
+				</div>
+				<div class="input">
+					<input type="number" name="vocab_word_limit" id="vocab_word_limit" value='4' step="1" min='0' max='32'/>
+					<label class="unit">words</label>
+				</div>
+			</div>
 
 			{{!-- Text Area --}}
 			<div class="input">

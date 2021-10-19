@@ -8,16 +8,25 @@ const sanitizeHtml = require('sanitize-html');
  */
 function submit_essay_processor (data) {
 
+	//	Extract data from parameter
+	var { essay, settings } = data;
+
 	//	Sanitize essay details
-	data.details.title = sanitizeHtml(data.details.title);
-	data.details.date = sanitizeHtml(data.details.date);
-	data.details.student_name = sanitizeHtml(data.details.student_name);
-	data.details.lecture_name = sanitizeHtml(data.details.lecture_name);
-	data.details.student_id = sanitizeHtml(data.details.student_id);
-	data.details.course_number = sanitizeHtml(data.details.course_number);
+	essay.details.title = sanitizeHtml(essay.details.title);
+	essay.details.date = sanitizeHtml(essay.details.date);
+	essay.details.lecture_name = sanitizeHtml(essay.details.lecture_name);
+	essay.details.course_number = sanitizeHtml(essay.details.course_number);
+
+	//	For each student
+	essay.details.students = essay.details.students.map((student) => {
+
+		//	Return clean string
+		return { name: sanitizeHtml(student.name), id: sanitizeHtml(student.id) };
+
+	})
 
 	//	For each vocab word
-	data.vocabulary = data.vocabulary.map((word) => {
+	essay.vocabulary = essay.vocabulary.map((word) => {
 
 		//	Return clean string
 		return sanitizeHtml(word);
@@ -25,10 +34,33 @@ function submit_essay_processor (data) {
 	})
 
 	//	Sanitize essay text
-	data.essay = sanitizeHtml(data.essay);
+	essay.essay = sanitizeHtml(essay.essay);
+
+	//	Sanitize essay settings
+	settings.page_numbers = sanitizeHtml(settings.page_numbers);
+	settings.cover_page = sanitizeHtml(settings.cover_page);
+	settings.essay_title = sanitizeHtml(settings.essay_title);
+	settings.word_count = sanitizeHtml(settings.word_count);
+	settings.inline_details = sanitizeHtml(settings.inline_details);
+	settings.new_line = sanitizeHtml(settings.new_line);
+
+	//	Sanitize font settings
+	settings.font_family = sanitizeHtml(settings.font_family);
+	settings.font_size = sanitizeHtml(settings.font_size);
+	settings.font_color = sanitizeHtml(settings.font_color);
+
+	//	Sanitize line settings
+	settings.line_spacing = sanitizeHtml(settings.line_spacing);
+	settings.paragraph_spacing = sanitizeHtml(settings.paragraph_spacing);
+
+	//	Sanitize margin settings
+	settings.margin_spacing = sanitizeHtml(settings.margin_spacing);
+
+	//	Sanitize highlight settings
+	settings.highlight_type = sanitizeHtml(settings.highlight_type);
 
 	//	Return clean data
-	return data;
+	return { essay, settings };
 
 }
 

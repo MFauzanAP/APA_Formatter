@@ -9,19 +9,19 @@ function handle_details () {
 
 		//	Get input value
 		const input = data[i];
-		
-		//	If we find an empty field then tell the user and return false
-		if (!input.value) {
+
+		//	If this field is title and its empty then return false
+		if (input.name == 'title' && input.value == '') {
 
 			//	Color this input field red
 			color_input(`.essay_form .details input#${input.name}`)
 
 			//	Show toast
 			show_toast('error', `Please fill in the ${capitalise_string(input.name.replace('_', ' '))} input field`, 3000);
-			
+
 			//	Return false
 			return false;
-		
+
 		}
 
 	};
@@ -33,6 +33,56 @@ function handle_details () {
 		essay.details[elem.name] = elem.value;
 
 	});
+
+	//	Return successful
+	return true;
+
+}
+
+//	Function called to handle authors stage, returns true when successful
+function handle_authors () {
+
+	//	Get table data
+	var data = get_table_data();
+
+	//	Loop through each row and check for empty fields
+	for (let index = 0; index < data.length; index++) {
+
+		//	Get row
+		const row = data[index];
+
+		//	If name or id is empty then return false
+		if (row.name == '') {
+			
+			//	Color this input field red
+			color_input(`.essay_form .authors .table_input tbody tr:nth-child(${index + 1}) input#student_name`);
+
+			//	Show toast
+			show_toast('error', `Please fill in the name field at row ${index + 1}.`);
+
+			//	Return false
+			return false;
+
+		}
+		
+		//	If name or id is empty then return false
+		if (row.id == '') {
+			
+			//	Color this input field red
+			color_input(`.essay_form .authors .table_input tbody tr:nth-child(${index + 1}) input#student_id`);
+
+			//	Show toast
+			show_toast('error', `Please fill in the ID field at row ${index + 1}.`);
+
+			//	Return false
+			return false;
+
+		}
+
+	}
+
+	//	Add authors to essay object
+	essay.details.students = data;
 
 	//	Return successful
 	return true;
@@ -75,7 +125,7 @@ function handle_essay () {
 	var data = $(`.essay_form .essay textarea`).val();
 
 	//	Make sure data is not empty
-	if (!data) {
+	if (!(data.replaceAll(' ', '').replaceAll('\n', ''))) {
 
 		//	Color this input field red
 		color_input(`.essay_form .essay .input`);
@@ -94,11 +144,6 @@ function handle_essay () {
 	//	Make sure essay data is complete before being sent to the server
 	var complete = true;
 	complete = (essay.details.title && complete) ? true : false;
-	complete = (essay.details.date && complete) ? true : false;
-	complete = (essay.details.student_name && complete) ? true : false;
-	complete = (essay.details.lecturer_name && complete) ? true : false;
-	complete = (essay.details.student_id && complete) ? true : false;
-	complete = (essay.details.course_number && complete) ? true : false;
 	complete = (essay.essay && complete) ? true : false;
 
 	//	Exit function if essay is incomplete

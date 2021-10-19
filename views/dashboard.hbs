@@ -58,7 +58,7 @@
 			{{!-- Name --}}
 			<div class="input">
 				<input type="text" id="name" name="name" spellcheck="false" readonly required/>
-				<label htmlFor="name">Name</label>
+				<label htmlFor="name">Full Name</label>
 			</div>
 
 			{{!-- Student ID --}}
@@ -75,27 +75,6 @@
 
 			{{!-- Header --}}
 			<div class="header">Statistics</div>
-
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
-				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
-				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
-				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
-				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
-				dictum et diam.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
-				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
-				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
-				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
-				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
-				dictum et diam.
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed nisi finibus, 
-				blandit ligula a, tempus sapien. Donec consequat dignissim purus, nec dictum libero pulvinar nec. 
-				Sed luctus turpis eu libero vulputate, quis sodales quam consequat. Nam id est odio. 
-				Nam ut purus sit amet orci malesuada placerat. Suspendisse potenti. Donec erat tortor, 
-				lobortis vitae scelerisque eget, luctus in lorem. Integer est justo, tempus non tempus vitae,
-				dictum et diam.
-			</p>
 
 			{{!-- Overlay --}}
 			<div class="overlay">
@@ -130,7 +109,232 @@
 		<div class="formats window"></div>
 
 		{{!-- Settings Window --}}
-		<div class="settings window"></div>
+		<div class="settings window">
+
+			{{!-- Title --}}
+			<div class="title">Settings</div>
+
+			{{!-- Underline --}}
+			<div class="underline"></div>
+
+			{{!-- Section --}}
+			<div class="essay section">
+
+				{{!-- Title --}}
+				<div class="header">Essay Settings</div>
+
+				{{!-- Page Numbers --}}
+				<div class="row">
+					<div class="description">
+						<label>Page Numbers</label>
+						<label class="meta">Should page numbers be included in the final document?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_page_numbers" id="essay_settings_page_numbers" checked/>
+						<label for="essay_settings_page_numbers"></label>
+					</div>
+				</div>
+
+				{{!-- Cover Page --}}
+				<div class="row">
+					<div class="description">
+						<label>Cover Page</label>
+						<label class="meta">Should the cover page be included in the final document?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_cover_page" id="essay_settings_cover_page" checked/>
+						<label for="essay_settings_cover_page"></label>
+					</div>
+				</div>
+
+				{{!-- Essay Title --}}
+				<div class="row">
+					<div class="description">
+						<label>Essay Title</label>
+						<label class="meta">Should the essay title be included in the final document?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_essay_title" id="essay_settings_essay_title" checked/>
+						<label for="essay_settings_essay_title"></label>
+					</div>
+				</div>
+
+				{{!-- Word Count --}}
+				<div class="row">
+					<div class="description">
+						<label>Word Count</label>
+						<label class="meta">Should the word count be included in the final document?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_word_count" id="essay_settings_word_count" checked/>
+						<label for="essay_settings_word_count"></label>
+					</div>
+				</div>
+
+				{{!-- Inline Details --}}
+				<div class="row">
+					<div class="description">
+						<label>Inline Student Details</label>
+						<label class="meta">Should student details be printed in one line?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_inline_details" id="essay_settings_inline_details"/>
+						<label for="essay_settings_inline_details"></label>
+					</div>
+				</div>
+
+				{{!-- Essay Title --}}
+				<div class="row">
+					<div class="description">
+						<label>New Line After Paragraph</label>
+						<label class="meta">Should there be new lines after each paragraph?</label>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" name="essay_settings_new_line" id="essay_settings_new_line"/>
+						<label for="essay_settings_new_line"></label>
+					</div>
+				</div>
+
+				{{!-- Underline --}}
+				<div class="underline"></div>
+
+			</div>
+
+			{{!-- Section --}}
+			<div class="font section">
+
+				{{!-- Title --}}
+				<div class="header">Font Settings</div>
+
+				{{!-- Font Family --}}
+				<div class="row">
+					<div class="description">
+						<label>Font Family</label>
+						<label class="meta">Which font family to use</label>
+					</div>
+					<div class="dropdown">
+						<select name="essay_settings_font_family" id="essay_settings_font_family">
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="Arial">Arial</option>
+							<option value="Calibri">Calibri</option>
+						</select>
+					</div>
+				</div>
+
+				{{!-- Font Size --}}
+				<div class="row">
+					<div class="description">
+						<label>Font Size</label>
+						<label class="meta">Which font size to use</label>
+					</div>
+					<div class="input">
+						<input type="number" name="essay_settings_font_size" id="essay_settings_font_size" value='12' step="1" min='8' max='32'/>
+						<label class="unit">px</label>
+					</div>
+				</div>
+
+				{{!-- Font Color --}}
+				<div class="row">
+					<div class="description">
+						<label>Font Color</label>
+						<label class="meta">Which font color to use</label>
+					</div>
+					<div class="input">
+						<input type="color" name="essay_settings_font_color" id="essay_settings_font_color"/>
+					</div>
+				</div>
+
+				{{!-- Underline --}}
+				<div class="underline"></div>
+
+			</div>
+
+			{{!-- Section --}}
+			<div class="line section">
+
+				{{!-- Title --}}
+				<div class="header">Line Settings</div>
+
+				{{!-- Line Spacing --}}
+				<div class="row">
+					<div class="description">
+						<label>Line Spacing</label>
+						<label class="meta">How many spaces to add after each line</label>
+					</div>
+					<div class="input">
+						<input type="number" name="essay_settings_line_spacing" id="essay_settings_line_spacing" value='2' min='1' max='2'/>
+						<label class="unit">lines</label>
+					</div>
+				</div>
+
+				{{!-- Parapgraph Spacing --}}
+				<div class="row">
+					<div class="description">
+						<label>Paragraph Spacing</label>
+						<label class="meta">How many spaces to add before and after each paragraph</label>
+					</div>
+					<div class="input">
+						<input type="number" name="essay_settings_paragraph_spacing" id="essay_settings_paragraph_spacing" value='0' min='0' max='2'/>
+						<label class="unit">lines</label>
+					</div>
+				</div>
+
+				{{!-- Underline --}}
+				<div class="underline"></div>
+
+			</div>
+
+			{{!-- Section --}}
+			<div class="margin section">
+
+				{{!-- Title --}}
+				<div class="header">Margin Settings</div>
+
+				{{!-- Line Spacing --}}
+				<div class="row">
+					<div class="description">
+						<label>Margin Spacing</label>
+						<label class="meta">How big the margins on each side should be</label>
+					</div>
+					<div class="input">
+						<input type="number" name="essay_settings_margin_spacing" id="essay_settings_margin_spacing" value='1' min='0' max='3'/>
+						<label class="unit">inch</label>
+					</div>
+				</div>
+
+				{{!-- Underline --}}
+				<div class="underline"></div>
+
+			</div>
+
+			{{!-- Section --}}
+			<div class="highlight section">
+
+				{{!-- Title --}}
+				<div class="header">Highlight Settings</div>
+
+				{{!-- Line Spacing --}}
+				<div class="row">
+					<div class="description">
+						<label>Highlight Type</label>
+						<label class="meta">Determines how to highlight each vocabulary found</label>
+					</div>
+					<div class="dropdown">
+						<select name="essay_settings_highlight_type" id="essay_settings_highlight_type">
+							<option value="none">None</option>
+							<option value="yellow highlight">Yellow Highlight</option>
+							<option value="bold">Bold</option>
+							<option value="italic">Italic</option>
+							<option value="underline">Underline</option>
+							<option value="strikethrough">Strikethrough</option>
+							<option value="capitalise">Capitalise</option>
+						</select>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
 
 	</div>
 

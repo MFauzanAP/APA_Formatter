@@ -26,6 +26,23 @@
   font-family: Oxygen;
 }
 
+/* Divs */
+div {
+  /* Total Scrollbar */
+  /* Scrollbar Thumb */
+}
+div ::-webkit-scrollbar {
+  width: 10px;
+}
+div ::-webkit-scrollbar-thumb {
+  background-color: #BBBBBB;
+  border-radius: 5px;
+  /* Hover */
+}
+div ::-webkit-scrollbar-thumb:hover {
+  background: #AAAAAA;
+}
+
 /* Links */
 a {
   text-decoration: none;
@@ -165,16 +182,22 @@ body .shake {
   /* Active */
   /* Arrow */
   /* Tabs */
+  /* Settings */
   /* Profile */
   /* Sign Up */
 }
 .navbar .buttons .menu.active {
   transform: scaleY(1);
   /* Arrow */
+  /* Settings */
   /* Profile */
 }
 .navbar .buttons .menu.active::before {
   transform: scaleY(1);
+}
+.navbar .buttons .menu.active .settings_tab {
+  opacity: 1;
+  transition: 0.25s ease-in-out 0.25s;
 }
 .navbar .buttons .menu.active .profile_tab {
   /* Student Details */
@@ -227,10 +250,205 @@ body .shake {
   height: 100%;
   transition: 0.25s ease-in-out;
 }
+.navbar .buttons .menu .settings_tab {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* Header */
+  /* Section */
+}
+.navbar .buttons .menu .settings_tab .header {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  padding: 25px;
+  margin-bottom: 5px;
+  /* Title */
+  /* Underline */
+}
+.navbar .buttons .menu .settings_tab .header .title {
+  color: #3D3D3D;
+  font-family: Work Sans;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+}
+.navbar .buttons .menu .settings_tab .header .underline {
+  position: absolute;
+  width: calc(100% - 50px);
+  height: 0;
+  bottom: 0;
+  margin-bottom: 5px;
+  border-top: 1px solid #F5F5F5;
+}
+.navbar .buttons .menu .settings_tab .section {
+  position: relative;
+  width: 100%;
+  padding: 10px 25px;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Title */
+  /* Underline */
+  /* Row */
+}
+.navbar .buttons .menu .settings_tab .section .title {
+  margin-bottom: 10px;
+  color: #3D3D3D;
+  font-family: Work Sans;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+.navbar .buttons .menu .settings_tab .section .underline {
+  width: 100%;
+  height: 0;
+  margin-top: 25px;
+  border-top: 1px solid #DDDDDD;
+}
+.navbar .buttons .menu .settings_tab .section .row {
+  width: 100%;
+  margin: 7.5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* Input */
+  /* Dropdown */
+  /* Checkbox */
+}
+.navbar .buttons .menu .settings_tab .section .row .input {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* Input Element */
+  /* Unit */
+}
+.navbar .buttons .menu .settings_tab .section .row .input input {
+  flex: 1 1 auto;
+  width: 0;
+  height: 40px;
+  padding: 0.75rem 1rem;
+  color: #646464;
+  border: 1px solid #AAAAAA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Autofill */
+}
+.navbar .buttons .menu .settings_tab .section .row .input input:-webkit-autofill, .navbar .buttons .menu .settings_tab .section .row .input input:-webkit-autofill:hover, .navbar .buttons .menu .settings_tab .section .row .input input:-webkit-autofill:focus, .navbar .buttons .menu .settings_tab .section .row .input input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.navbar .buttons .menu .settings_tab .section .row .input .unit {
+  margin-left: 10px;
+}
+.navbar .buttons .menu .settings_tab .section .row .dropdown {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* Select Element */
+  /* Unit */
+}
+.navbar .buttons .menu .settings_tab .section .row .dropdown select {
+  flex: 1 1 auto;
+  width: 0;
+  height: 40px;
+  padding: 0rem 0.5rem;
+  color: #646464;
+  border: 1px solid #AAAAAA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Autofill */
+}
+.navbar .buttons .menu .settings_tab .section .row .dropdown select:-webkit-autofill, .navbar .buttons .menu .settings_tab .section .row .dropdown select:-webkit-autofill:hover, .navbar .buttons .menu .settings_tab .section .row .dropdown select:-webkit-autofill:focus, .navbar .buttons .menu .settings_tab .section .row .dropdown select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.navbar .buttons .menu .settings_tab .section .row .dropdown .unit {
+  margin-left: 10px;
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Input Element */
+  /* Label */
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  /* Checked */
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox input:checked ~ label:after {
+  background-color: #0099FF;
+  transform: translateX(35px);
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox label {
+  cursor: pointer;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  overflow: visible;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: #3D3D3D;
+  border: 1px solid #AAAAAA;
+  border-radius: 25px;
+  text-indent: 350px;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Hover */
+  /* Thumb */
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox label:hover {
+  /* Thumb */
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox label:hover::after {
+  transform: translateX(2.5px) scale(1.05);
+  background-color: #AAAAAA;
+}
+.navbar .buttons .menu .settings_tab .section .row .checkbox label::after {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  background-color: #DDDDDD;
+  border-radius: 100%;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  content: "";
+}
 .navbar .buttons .menu .profile_tab {
   position: absolute;
   width: 100%;
   height: 100%;
+  transform: translateX(100%);
   /* Student Details */
   /* Links */
   /* Footer */
@@ -340,7 +558,7 @@ body .shake {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  transform: translateX(100%);
+  transform: translateX(200%);
   /* Underline */
   /* Header */
   /* Meta */
@@ -503,6 +721,7 @@ body .shake {
   align-items: center;
   transition: 0.25s ease-in-out;
   /* Details Stage */
+  /* Authors Stage */
   /* Vocabulary Stage */
   /* Essay Stage */
   /* Formatting Stage */
@@ -540,6 +759,39 @@ body .shake {
   opacity: 0 !important;
 }
 .form_page.details .essay_form {
+  pointer-events: all;
+  opacity: 1;
+  transition: 0.25s ease-in-out 0.5s;
+}
+.form_page.authors {
+  /* Banner */
+  /* Essay Input */
+  /* Essay Form */
+}
+.form_page.authors .banner {
+  transform: translateY(-35vh);
+  /* Title */
+  /* Description */
+}
+.form_page.authors .banner .title {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.authors .banner .description {
+  opacity: 0;
+  transform: translateY(-25vh);
+}
+.form_page.authors .essay_input {
+  opacity: 0;
+  transform: translateY(-60vh);
+  /* Submit Button */
+}
+.form_page.authors .essay_input .button {
+  flex: 0 0 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+.form_page.authors .essay_form {
   pointer-events: all;
   opacity: 1;
   transition: 0.25s ease-in-out 0.5s;
@@ -829,6 +1081,7 @@ body .shake {
   /* Meta */
   /* Stage */
   /* Details */
+  /* Authors */
   /* Vocabulary */
   /* Essay */
   /* Formatting */
@@ -836,7 +1089,7 @@ body .shake {
   /* Controls */
 }
 .form_page .essay_form .stepper {
-  width: 750px;
+  width: 1000px;
   height: 2px;
   margin-top: -50px;
   margin-bottom: 100px;
@@ -957,7 +1210,11 @@ body .shake {
   opacity: 0;
 }
 .form_page .essay_form .details {
+  /* Title */
   /* Form */
+}
+.form_page .essay_form .details .title {
+  margin-bottom: 10px;
 }
 .form_page .essay_form .details form {
   width: 100%;
@@ -1046,9 +1303,140 @@ body .shake {
   letter-spacing: 0.05rem;
   transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
 }
+.form_page .essay_form .authors {
+  /* Title */
+  /* Table Input */
+}
+.form_page .essay_form .authors .title {
+  margin-bottom: 10px;
+}
+.form_page .essay_form .authors .table_input {
+  width: 100%;
+  border: 2px solid #EFEFEF;
+  border-radius: 15px;
+  border-spacing: 0;
+  /* Header */
+  /* Table Row */
+  /* Footer */
+}
+.form_page .essay_form .authors .table_input thead {
+  height: 65px;
+  background: #0099FF;
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.25));
+  /* Table Header */
+}
+.form_page .essay_form .authors .table_input thead th {
+  width: 409.5px;
+  padding-right: 25px;
+  color: #FFFFFF;
+  text-align: left;
+  /* First */
+  /* Last */
+  /* Grip */
+  /* Size */
+}
+.form_page .essay_form .authors .table_input thead th:first-child {
+  width: 70px;
+  padding: 0;
+  border-radius: 15px 0 0 15px;
+}
+.form_page .essay_form .authors .table_input thead th:last-child {
+  width: 66px;
+  border-radius: 0 15px 15px 0;
+}
+.form_page .essay_form .authors .table_input thead th.grip {
+  text-align: center;
+}
+.form_page .essay_form .authors .table_input thead th.size {
+  width: 50px;
+  /* Input */
+}
+.form_page .essay_form .authors .table_input thead th.size input {
+  width: 40px;
+  height: 35px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: Work Sans;
+  text-align: center;
+  -moz-appearance: textfield;
+  /* Arrows */
+}
+.form_page .essay_form .authors .table_input thead th.size input::-webkit-inner-spin-button, .form_page .essay_form .authors .table_input thead th.size input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.form_page .essay_form .authors .table_input tbody {
+  /* Even Rows */
+  /* Grip */
+  /* Input */
+  /* Delete */
+}
+.form_page .essay_form .authors .table_input tbody tr:nth-child(even) {
+  background: #F9F9F9;
+}
+.form_page .essay_form .authors .table_input tbody .grip {
+  margin: 0;
+  margin-left: 25px;
+  text-align: center;
+}
+.form_page .essay_form .authors .table_input tbody input {
+  width: calc(100% - 25px);
+  margin: 15px 25px;
+  margin-left: 0;
+  padding: 0.75rem 1rem;
+  outline: none;
+  border: 2px solid #EFEFEF;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  /* Hover */
+  /* Autofill */
+}
+.form_page .essay_form .authors .table_input tbody input:hover {
+  border: 2px solid #CCCCCC;
+}
+.form_page .essay_form .authors .table_input tbody input:-webkit-autofill, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:hover, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:focus, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.form_page .essay_form .authors .table_input tbody .delete {
+  width: 40px;
+  margin: 0;
+  padding: 0;
+  color: #3D3D3D;
+  background: transparent;
+  box-shadow: none;
+  /* Hover */
+}
+.form_page .essay_form .authors .table_input tbody .delete:hover {
+  background: transparent;
+}
+.form_page .essay_form .authors .table_input tfoot {
+  text-align: center;
+  /* Add Button */
+}
+.form_page .essay_form .authors .table_input tfoot .add {
+  width: 30px;
+  height: 30px;
+  margin: 10px 0;
+  color: #FFFFFF;
+  background: #DDDDDD;
+  font-size: 0.9em;
+  box-shadow: none;
+  /* Hover */
+}
+.form_page .essay_form .authors .table_input tfoot .add:hover {
+  color: #FFFFFF;
+  background: #AAAAAA;
+}
 .form_page .essay_form .vocabulary {
   /* Title */
   /* Input */
+  /* Row */
 }
 .form_page .essay_form .vocabulary .title {
   margin-bottom: 10px;
@@ -1056,7 +1444,7 @@ body .shake {
 .form_page .essay_form .vocabulary .input {
   position: relative;
   width: 100%;
-  margin-bottom: 20px;
+  margin: 20px 0;
   background: transparent;
   /* Text Area Element */
   /* Length Indicator */
@@ -1103,6 +1491,58 @@ body .shake {
 .form_page .essay_form .vocabulary .input .length_indicator {
   float: right;
   color: #AAAAAA;
+}
+.form_page .essay_form .vocabulary .row {
+  width: 100%;
+  margin: 7.5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* Description */
+  /* Input */
+}
+.form_page .essay_form .vocabulary .row .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* Meta */
+}
+.form_page .essay_form .vocabulary .row .description .meta {
+  margin: 0;
+}
+.form_page .essay_form .vocabulary .row .input {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* Input Element */
+  /* Unit */
+}
+.form_page .essay_form .vocabulary .row .input input {
+  flex: 1 1 auto;
+  width: 0;
+  height: 40px;
+  padding: 0.75rem 1rem;
+  color: #646464;
+  border: 1px solid #AAAAAA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Autofill */
+}
+.form_page .essay_form .vocabulary .row .input input:-webkit-autofill, .form_page .essay_form .vocabulary .row .input input:-webkit-autofill:hover, .form_page .essay_form .vocabulary .row .input input:-webkit-autofill:focus, .form_page .essay_form .vocabulary .row .input input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.form_page .essay_form .vocabulary .row .input .unit {
+  margin-left: 10px;
 }
 .form_page .essay_form .essay {
   /* Title */
@@ -1396,14 +1836,285 @@ body .shake {
   color: #3D3D3D;
   transition: 1s ease-in-out;
   /* Active */
+  /* Profile */
+  /* Settings */
   /* Title */
   /* Underline */
   /* Header */
-  /* Input */
-  /* Overlay */
 }
 .dashboard .windows .window.active {
   opacity: 1;
+}
+.dashboard .windows .window.profile {
+  /* Input */
+  /* Overlay */
+}
+.dashboard .windows .window.profile .input {
+  position: relative;
+  width: 500px;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: row;
+  background: transparent;
+  /* Hover */
+  /* Input Element */
+  /* Label */
+}
+.dashboard .windows .window.profile .input:hover {
+  /* Input Element */
+  /* Label */
+}
+.dashboard .windows .window.profile .input:hover input {
+  border: none;
+  color: #646464;
+}
+.dashboard .windows .window.profile .input:hover label {
+  color: #3D3D3D;
+  top: -1.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.dashboard .windows .window.profile .input input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  color: #3D3D3D;
+  border: none;
+  font-size: 1rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Valid */
+  /* Autofill */
+}
+.dashboard .windows .window.profile .input input:valid {
+  border-bottom: 1px solid #0099FF;
+}
+.dashboard .windows .window.profile .input input:-webkit-autofill, .dashboard .windows .window.profile .input input:-webkit-autofill:hover, .dashboard .windows .window.profile .input input:-webkit-autofill:focus, .dashboard .windows .window.profile .input input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.dashboard .windows .window.profile .input label {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: -1.5rem;
+  color: #3D3D3D;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+}
+.dashboard .windows .window.profile .overlay {
+  position: fixed;
+  width: 500px;
+  height: 60px;
+  left: calc(50% - 250px);
+  bottom: 25px;
+  padding-left: 25px;
+  padding-right: 15px;
+  opacity: 0;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.25s ease-in-out;
+  transform: translateY(100px);
+  /* Active */
+  /* Buttons */
+}
+.dashboard .windows .window.profile .overlay.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.dashboard .windows .window.profile .overlay .overlay_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* Discard */
+  /* Confirm */
+}
+.dashboard .windows .window.profile .overlay .overlay_buttons .discard {
+  width: 75px;
+  height: 40px;
+  margin: 5px;
+  color: #3D3D3D;
+  background: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: none;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+.dashboard .windows .window.profile .overlay .overlay_buttons .confirm {
+  width: 125px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+.dashboard .windows .window.settings {
+  /* Section */
+}
+.dashboard .windows .window.settings .section {
+  position: relative;
+  max-width: 750px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Row */
+}
+.dashboard .windows .window.settings .section .row {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* Description */
+  /* Input */
+  /* Dropdown */
+  /* Checkbox */
+}
+.dashboard .windows .window.settings .section .row .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* Meta */
+}
+.dashboard .windows .window.settings .section .row .description .meta {
+  margin: 0;
+  color: #AAAAAA;
+}
+.dashboard .windows .window.settings .section .row .input {
+  width: 150px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* Input Element */
+  /* Unit */
+}
+.dashboard .windows .window.settings .section .row .input input {
+  flex: 1 1 auto;
+  width: 0;
+  height: 40px;
+  padding: 0.75rem 1rem;
+  color: #646464;
+  border: 1px solid #AAAAAA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Autofill */
+}
+.dashboard .windows .window.settings .section .row .input input:-webkit-autofill, .dashboard .windows .window.settings .section .row .input input:-webkit-autofill:hover, .dashboard .windows .window.settings .section .row .input input:-webkit-autofill:focus, .dashboard .windows .window.settings .section .row .input input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.dashboard .windows .window.settings .section .row .input .unit {
+  margin-left: 10px;
+}
+.dashboard .windows .window.settings .section .row .dropdown {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* Select Element */
+  /* Unit */
+}
+.dashboard .windows .window.settings .section .row .dropdown select {
+  flex: 1 1 auto;
+  width: 0;
+  height: 40px;
+  padding: 0rem 0.5rem;
+  color: #646464;
+  border: 1px solid #AAAAAA;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Lato;
+  letter-spacing: 0.03em;
+  text-rendering: optimizeLegibility;
+  outline: none;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Autofill */
+}
+.dashboard .windows .window.settings .section .row .dropdown select:-webkit-autofill, .dashboard .windows .window.settings .section .row .dropdown select:-webkit-autofill:hover, .dashboard .windows .window.settings .section .row .dropdown select:-webkit-autofill:focus, .dashboard .windows .window.settings .section .row .dropdown select:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  box-shadow: 0 0 0 30px white inset !important;
+}
+.dashboard .windows .window.settings .section .row .dropdown .unit {
+  margin-left: 10px;
+}
+.dashboard .windows .window.settings .section .row .checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* Input Element */
+  /* Label */
+}
+.dashboard .windows .window.settings .section .row .checkbox input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  /* Checked */
+}
+.dashboard .windows .window.settings .section .row .checkbox input:checked ~ label:after {
+  background-color: #0099FF;
+  transform: translateX(35px);
+}
+.dashboard .windows .window.settings .section .row .checkbox label {
+  cursor: pointer;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  overflow: visible;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: #3D3D3D;
+  border: 1px solid #AAAAAA;
+  border-radius: 25px;
+  text-indent: 350px;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  /* Hover */
+  /* Thumb */
+}
+.dashboard .windows .window.settings .section .row .checkbox label:hover {
+  /* Thumb */
+}
+.dashboard .windows .window.settings .section .row .checkbox label:hover::after {
+  transform: translateX(2.5px) scale(1.05);
+  background-color: #AAAAAA;
+}
+.dashboard .windows .window.settings .section .row .checkbox label::after {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 5px;
+  background-color: #DDDDDD;
+  border-radius: 100%;
+  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+  content: "";
 }
 .dashboard .windows .window .title {
   max-width: 750px;
@@ -1432,124 +2143,15 @@ body .shake {
   max-width: 750px;
   width: 100%;
   height: 0;
-  margin-bottom: 25px;
+  margin: 25px 0;
   border-top: 1px solid #EFEFEF;
 }
 .dashboard .windows .window .header {
-  margin-bottom: 15px;
+  margin-bottom: 25px;
+  color: #3D3D3D;
   font-family: Work Sans;
   font-size: 1.25em;
-  font-weight: 500;
-}
-.dashboard .windows .window .input {
-  position: relative;
-  width: 500px;
-  margin: 50px 0;
-  display: flex;
-  flex-direction: row;
-  background: transparent;
-  /* Hover */
-  /* Input Element */
-  /* Label */
-}
-.dashboard .windows .window .input:hover {
-  /* Input Element */
-  /* Label */
-}
-.dashboard .windows .window .input:hover input {
-  border: none;
-  color: #646464;
-}
-.dashboard .windows .window .input:hover label {
-  color: #3D3D3D;
-  top: -1.5rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-.dashboard .windows .window .input input {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  color: #3D3D3D;
-  border: none;
-  font-size: 1rem;
-  font-family: Lato;
-  letter-spacing: 0.03em;
-  text-rendering: optimizeLegibility;
-  outline: none;
-  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
-  /* Valid */
-  /* Autofill */
-}
-.dashboard .windows .window .input input:valid {
-  border-bottom: 1px solid #0099FF;
-}
-.dashboard .windows .window .input input:-webkit-autofill, .dashboard .windows .window .input input:-webkit-autofill:hover, .dashboard .windows .window .input input:-webkit-autofill:focus, .dashboard .windows .window .input input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
-  box-shadow: 0 0 0 30px white inset !important;
-}
-.dashboard .windows .window .input label {
-  pointer-events: none;
-  position: absolute;
-  left: 0;
-  top: -1.5rem;
-  color: #3D3D3D;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05rem;
-  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
-}
-.dashboard .windows .window .overlay {
-  position: fixed;
-  width: 500px;
-  height: 60px;
-  left: calc(50% - 250px);
-  bottom: 25px;
-  padding-left: 25px;
-  padding-right: 15px;
-  opacity: 0;
-  background: #FFFFFF;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.25s ease-in-out;
-  transform: translateY(100px);
-  /* Active */
-  /* Buttons */
-}
-.dashboard .windows .window .overlay.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.dashboard .windows .window .overlay .overlay_buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  /* Discard */
-  /* Confirm */
-}
-.dashboard .windows .window .overlay .overlay_buttons .discard {
-  width: 75px;
-  height: 40px;
-  margin: 5px;
-  color: #3D3D3D;
-  background: #FFFFFF;
-  border-radius: 5px;
-  box-shadow: none;
-  font-size: 0.8em;
-  font-weight: normal;
-}
-.dashboard .windows .window .overlay .overlay_buttons .confirm {
-  width: 125px;
-  height: 40px;
-  margin: 5px;
-  border-radius: 5px;
-  font-size: 0.8em;
-  font-weight: normal;
+  font-weight: 600;
 }
 
 /* ====================================================== Toast ===================================================== */
@@ -1716,7 +2318,7 @@ body .shake {
 .modal .background {
   position: relative;
   width: 600px;
-  height: 450px;
+  height: 500px;
   color: #3D3D3D;
   background: #FFFFFF;
   border-radius: 15px;
@@ -1749,7 +2351,7 @@ body .shake {
 .modal .background .body {
   width: 100%;
   flex: 1 1 auto;
-  padding: 30px 10px;
+  padding: 30px;
   /* Message */
   /* Input */
 }

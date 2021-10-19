@@ -3,11 +3,10 @@ var essay = {
 	details			: {
 		title			: '',
 		date			: '',
-		student_name		: '',
 		lecturer_name		: '',
-		student_id		: '',
 		course_number		: '',
-		institution		: ''
+		institution		: '',
+		students		: []
 	},
 	vocabulary		: [],
 	essay			: '',
@@ -22,10 +21,28 @@ async function submit_essay () {
 	//	Update institution value
 	essay.details.institution = window.localStorage.getItem('institution') || 'Qatar University';
 
+	//	Extract settings from local storage
+	settings = {
+		page_numbers		: (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true',
+		cover_page		: (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true',
+		essay_title		: (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true',
+		word_count		: (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true',
+		inline_details		: (window.localStorage.getItem('essay_settings_inline_details') || 'true') === 'true',
+		new_line		: (window.localStorage.getItem('essay_settings_new_line') || 'true') === 'true',
+		font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
+		font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',
+		font_color		: window.localStorage.getItem('essay_settings_font_color') || '000000',
+		line_spacing		: window.localStorage.getItem('essay_settings_line_spacing') || '2',
+		paragraph_spacing	: window.localStorage.getItem('essay_settings_paragraph_spacing') || '0',
+		margin_spacing		: window.localStorage.getItem('essay_settings_margin_spacing') || '1',
+		highlight_type		: window.localStorage.getItem('essay_settings_highlight_type') || 'bold',
+		vocab_word_limit	: parseInt($(`#vocab_word_limit`).val()) || 999999,
+	}
+
 	//	Call api to submit essay to be processed
 	var response = await fetch('/api/form/submit', {
 		method			: 'POST',
-		body			: JSON.stringify(essay),
+		body			: JSON.stringify({essay, settings}),
 		headers			: {
 			'Content-Type'		: 'application/json'
 		}
@@ -38,9 +55,9 @@ async function submit_essay () {
 	//	Set download path and highlights
 	download_path = file_name;
 	highlights = words;
-	
+
 	//	Show a toast if there werent enough vocab words used
-	if (words.length < 4 && essay.vocabulary.length >= 4) show_toast('info', 'Your essay did not use enough words from the vocabulary.');
+	if (words.length < settings.vocab_word_limit && essay.vocabulary.length >= settings.vocab_word_limit) show_toast('info', 'Your essay did not use enough words from the vocabulary.');
 
 	//	If successful
 	if (response.status == 'success') {
@@ -75,7 +92,7 @@ async function submit_essay () {
 
 		//	Show toast
 		show_toast('error', 'There was something wrong with your request. Please try again.');
-		
+
 	}
 
 }

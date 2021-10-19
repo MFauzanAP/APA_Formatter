@@ -7,8 +7,9 @@ const {
 	PageNumber,
 	Paragraph, 
 	TextRun, 
-	AlignmentType, 
-	PageBreak
+	AlignmentType,
+	UnderlineType
+	
 } = require('docx');
 const converters = require('../utilities/converters');
 
@@ -36,7 +37,7 @@ function get_included_highlights () {
 /** 	Sets up the header by adding page numbers
  * 	@param {object} data The object containing data to be processed
  */
-function setup_header (data) {
+function setup_header () {
 
 	//	Create a header text
 	var header = new Paragraph({
@@ -59,6 +60,9 @@ function setup_header (data) {
  */
 function create_cover_page (data) {
 
+	//	Extract essay n settings
+	const { essay, settings } = data;
+
 	//	Create cover page paragraph
 	var cover_page = {
 		alignment		: AlignmentType.CENTER,
@@ -66,45 +70,48 @@ function create_cover_page (data) {
 		children		: [],
 	}
 
-	//	Add line breaks to center cover page
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-	cover_page.children.push(new TextRun({break: 1}));
-
 	//	Add title
-	cover_page.children.push(write_line(data.details.title, {bold: true, break: 0}));
+	cover_page.children.push(write_line(essay.details.title, {bold: true, break: 0}));
 
 	//	Add line break
 	cover_page.children.push(new TextRun({break: 1}));
 
-	//	Add student name
-	cover_page.children.push(write_line(data.details.student_name));
+	//	For each student
+	if (essay.details.students.length) essay.details.students.forEach(student => {
 
-	//	Add student id
-	cover_page.children.push(write_line(data.details.student_id));
+		//	If details are inline
+		if (settings.inline_details) {
+
+			//	Add student details
+			cover_page.children.push(write_line(`${student.name} - ${student.id}`));
+
+		}
+		else {
+
+			//	Add student name
+			cover_page.children.push(write_line(student.name));
+
+			//	Add student id
+			cover_page.children.push(write_line(student.id));
+
+		}
+		
+	});
 
 	//	Add university name
-	cover_page.children.push(write_line(data.details.institution || 'Qatar University'));
+	if (essay.details.institution) cover_page.children.push(write_line(essay.details.institution || 'Qatar University'));
 
 	//	Add course name and number
-	cover_page.children.push(write_line(data.details.course_number));
+	if (essay.details.course_number) cover_page.children.push(write_line(essay.details.course_number));
 
 	//	Add lecturer name
-	cover_page.children.push(write_line(data.details.lecturer_name));
+	if (essay.details.lecturer_name) cover_page.children.push(write_line(essay.details.lecturer_name));
 
 	//	Reformat date
-	data.details.date = converters.convert_picker_to_date(data.details.date);
+	if (essay.details.date) essay.details.date = converters.convert_picker_to_date(essay.details.date);
 
 	//	Add date
-	cover_page.children.push(write_line(data.details.date));
-
-	//	Add page break
-	cover_page.children.push(new PageBreak());
+	if (essay.details.date) cover_page.children.push(write_line(essay.details.date));
 
 	//	Return cover page
 	return new Paragraph(cover_page);
@@ -137,7 +144,7 @@ function create_title (data) {
 function create_essay (data) {
 
 	//	Extract data from essay
-	const { vocabulary, essay } = data;
+	const { vocabulary, essay } = data.essay;
 
 	//	Declare array of paragraphs
 	var paragraphs = [];
@@ -159,7 +166,7 @@ function create_essay (data) {
 			};
 
 			//	Add paragraph
-			essay_text.children = write_essay_line('	' + paragraph, {break: 0}, vocabulary);
+			essay_text.children = write_essay_line(data, '	' + paragraph, {break: 0}, vocabulary);
 
 			//	Add this to list of paragraphs
 			paragraphs.push(new Paragraph(essay_text));
@@ -232,7 +239,10 @@ function write_line (text, options = {}) {
  * 	@param {object} paragraph The paragraph to write to
  * 	@param {array} highlights An array of the words to make bold
  */
-function write_essay_line (text, options = {}, highlights = []) {
+function write_essay_line (data, text, options = {}, highlights = []) {
+
+	//	Extract data from essay
+	const { essay, settings } = data;
 
 	//	Declare list of text
 	var text_runs = [];
@@ -241,7 +251,7 @@ function write_essay_line (text, options = {}, highlights = []) {
 	var indexes = [];
 
 	//	Loop through each highlighted word and check if it exists in the essay
-	if (included_highlights.length < 4) highlights.forEach(highlight => {
+	if (included_highlights.length < settings.vocab_word_limit) highlights.forEach(highlight => {
 
 		//	Create regex to test for word
 		var regex = `\\b${highlight.toLowerCase().replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")}\\b`;
@@ -250,7 +260,7 @@ function write_essay_line (text, options = {}, highlights = []) {
 		if (new RegExp(regex, "i").test(text)) {
 
 			//	If this word is already included or if there can be no more highlights, skip this word
-			if (!included_highlights.includes(highlight) && included_highlights.length < 4) {
+			if (!included_highlights.includes(highlight) && included_highlights.length < settings.vocab_word_limit) {
 
 				//	Add this word to the list of included highlights
 				included_highlights.push(highlight);
@@ -264,7 +274,7 @@ function write_essay_line (text, options = {}, highlights = []) {
 			}
 
 		}
-		
+
 	});
 
 	//	Declare variable to store the last index of the highlighted word
@@ -276,13 +286,24 @@ function write_essay_line (text, options = {}, highlights = []) {
 	//	Loop through each index
 	indexes.forEach(elem => {
 
+		//	Declare highlight settings
+		var highlight = {
+			text		: text.substring(elem.index, elem.index + elem.highlight.length),
+			bold		: settings.highlight_type == 'bold',
+			italics		: settings.highlight_type == 'italic',
+			strike		: settings.highlight_type == 'strikethrough',
+			allCaps		: settings.highlight_type == 'capitalise',
+			highlight	: settings.highlight_type == 'yellow highlight' ? 'yellow' : '',
+			underline	: settings.highlight_type == 'underline' ? { type: UnderlineType.SINGLE, color: settings.font_color } : null,
+		}
+
 		//	Create new text run object for this word as well as for the text before this word
 		text_runs.push(new TextRun({text: text.substring(last_index, elem.index), break: text_runs.length ? 0 : 1, ...options}));
-		text_runs.push(new TextRun({text: text.substring(elem.index, elem.index + elem.highlight.length), bold: true}));
+		text_runs.push(new TextRun(highlight));
 
 		//	Set last index
 		last_index = elem.index + elem.highlight.length;
-		
+
 	});
 
 	//	Add the rest of the text to the array
