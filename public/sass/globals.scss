@@ -2530,6 +2530,28 @@ body {
 			/* Profile */
 			&.profile {
 
+				/* Edit Button */
+				.edit {
+					position		: relative;
+					width			: 35px;
+					height			: 35px;
+
+					float			: right;
+
+					color			: $quaternary_text_color;
+					background		: $primary_background_color;
+
+					box-shadow		: none;
+
+					font-size		: 0.75em;
+
+					/* Hover */
+					&:hover {
+						color			: $primary_text_color;
+						background		: $primary_input_border_color;
+					}
+				}
+
 				/* Input */
 				.input {
 					position		: relative;
@@ -2689,6 +2711,31 @@ body {
 
 			/* Settings */
 			&.settings {
+
+				/* Reset Button */
+				.reset {
+					position		: relative;
+					width			: 70px;
+					height			: 35px;
+
+					float			: right;
+
+					color			: $tertiary_text_color;
+					background		: $primary_background_color;
+					border-radius		: 5px;
+
+					font-family		: Lato;
+					font-weight		: 600;
+					font-size		: 0.6em;
+
+					box-shadow		: none;
+
+					/* Hover */
+					&:hover {
+						color			: $primary_text_color;
+						background		: $primary_input_border_color;
+					}
+				}
 
 				/* Section */
 				.section {
@@ -2902,28 +2949,6 @@ body {
 				font-family		: Work Sans;
 				font-size		: 1.75em;
 				font-weight		: bold;
-
-				/* Edit Button */
-				.edit {
-					position		: relative;
-					width			: 35px;
-					height			: 35px;
-
-					float			: right;
-
-					color			: $quaternary_text_color;
-					background		: $primary_background_color;
-
-					box-shadow		: none;
-
-					font-size		: 0.75em;
-
-					/* Hover */
-					&:hover {
-						color			: $primary_text_color;
-						background		: $primary_input_border_color;
-					}
-				}
 			}
 
 			/* Underline */

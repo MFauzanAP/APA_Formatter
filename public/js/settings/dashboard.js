@@ -1,3 +1,37 @@
+//	Subscribe function to reset button
+$(`.dashboard .windows .settings .reset`).on('click', reset_settings);
+
+//	Function called to reset the settings
+function reset_settings () {
+
+	//	Reset essay settings
+	window.localStorage.removeItem('essay_settings_page_numbers');
+	window.localStorage.removeItem('essay_settings_cover_page');
+	window.localStorage.removeItem('essay_settings_essay_title');
+	window.localStorage.removeItem('essay_settings_word_count');
+	window.localStorage.removeItem('essay_settings_inline_details');
+	window.localStorage.removeItem('essay_settings_new_line');
+
+	//	Reset font settings
+	window.localStorage.removeItem('essay_settings_font_family');
+	window.localStorage.removeItem('essay_settings_font_size');
+	window.localStorage.removeItem('essay_settings_font_color');
+
+	//	Reset line settings
+	window.localStorage.removeItem('essay_settings_line_spacing');
+	window.localStorage.removeItem('essay_settings_paragraph_spacing');
+
+	//	Reset margin settings
+	window.localStorage.removeItem('essay_settings_margin_spacing');
+
+	//	Reset highlighting settings
+	window.localStorage.removeItem('essay_settings_highlight_type');
+
+	//	Update ui
+	update_settings_ui();
+
+}
+
 //	Function called to update settings ui
 function update_settings_ui () {
 
