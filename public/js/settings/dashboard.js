@@ -1,5 +1,5 @@
 //	Subscribe function to reset button
-$(`.dashboard .windows .settings .reset`).on('click', reset_settings);
+$(`.dashboard .windows .settings .reset`).on('click', () => show_modal({type: `confirm tiny center`, title: 'Reset Settings', message: 'Are you sure you want to reset the settings?'}, null, reset_settings));
 
 //	Function called to reset the settings
 function reset_settings () {
@@ -26,6 +26,9 @@ function reset_settings () {
 
 	//	Reset highlighting settings
 	window.localStorage.removeItem('essay_settings_highlight_type');
+
+	//	Show toast
+	show_toast('success', 'Settings successfully reset.');
 
 	//	Update ui
 	update_settings_ui();
