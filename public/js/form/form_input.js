@@ -7,7 +7,7 @@ $(`.stepper .step:nth-of-type(1)`).on('click', { index: 0 }, on_click_step);
 $(`.stepper .step:nth-of-type(2)`).on('click', { index: 1 }, on_click_step);
 $(`.stepper .step:nth-of-type(3)`).on('click', { index: 2 }, on_click_step);
 $(`.stepper .step:nth-of-type(4)`).on('click', { index: 3 }, on_click_step);
-$(`.stepper .step:nth-of-type(6)`).on('click', { index: 5 }, on_click_step);
+$(`.stepper .step:nth-of-type(5)`).on('click', { index: 5 }, on_click_step);
 
 //	Subscribe functions to form input on keup event
 $(`.essay_form .input input`).on('keyup', on_form_keyup);
