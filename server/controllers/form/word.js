@@ -80,7 +80,7 @@ function create_cover_page (data) {
 	if (essay.details.students.length) essay.details.students.forEach(student => {
 
 		//	If details are inline
-		if (settings.inline_details) {
+		if (settings.inline_details === 'true') {
 
 			//	Add student details
 			cover_page.children.push(write_line(`${student.name} - ${student.id}`));
