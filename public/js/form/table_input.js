@@ -21,9 +21,9 @@ function handle_add_table_entry () {
 
 		<td><i class="fa fa-bars grip"></i></td>
 
-		<td><input type="text" id="student_name" name="student_name" required=""></td>
+		<td><input type="text" id="student_name" name="student_name" placeholder="Student Name" required/></td>
 
-		<td><input type="text" id="student_id" name="student_id" required=""></td>
+		<td><input type="text" id="student_id" name="student_id" placeholder="Student ID" required/></td>
 
 		<td><button class="delete"><i class="fa fa-times"></i></button></td>
 

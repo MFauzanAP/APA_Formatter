@@ -1394,10 +1394,14 @@ body .shake {
   letter-spacing: 0.03em;
   text-rendering: optimizeLegibility;
   /* Hover */
+  /* Placeholder */
   /* Autofill */
 }
 .form_page .essay_form .authors .table_input tbody input:hover {
   border: 2px solid #CCCCCC;
+}
+.form_page .essay_form .authors .table_input tbody input::placeholder {
+  color: #AAAAAA;
 }
 .form_page .essay_form .authors .table_input tbody input:-webkit-autofill, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:hover, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:focus, .form_page .essay_form .authors .table_input tbody input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
