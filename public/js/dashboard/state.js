@@ -15,6 +15,9 @@ function update_state () {
 	//	Add class to dashboard
 	dashboard.classList.add(tab);
 
+	//	Discard any profile changes
+	discard_edit_profile();
+
 	//	Update tab and step ui
 	update_tab_ui(tab);
 
