@@ -1361,7 +1361,7 @@ body {
 				flex			: 0 1 100%;
 				height			: 100%;
 
-				margin-right		: 10px;
+				margin-right		: 5px;
 				padding			: 20px;
 
 				background		: $primary_background_color;
@@ -1395,17 +1395,55 @@ body {
 
 			}
 
-			/* Button */
-			.button {
+			/* Settings */
+			.settings {
 				cursor			: pointer;
 
 				flex			: 0 0 60px;
 				height			: 60px;
 
+				margin			: 5px;
+				padding			: 18px;
+
+				background		: $tertiary_input_border_color;
+				color			: $secondary_text_color;
+				border			: none;
+				border-radius		: 30px;
+
+				overflow		: hidden;
+
+				display			: flex;
+				flex-direction		: row;
+				justify-content		: flex-start;
+				align-items		: center;
+
+				font-size		: 1em;
+
+				-webkit-box-shadow	: 0 0 25px rgba(0, 0, 0, 0.25);
+				box-shadow		: 0 0 25px rgba(0, 0, 0, 0.25);
+
+				transition		: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				/* Hover */
+				&:hover {
+					background		: $secondary_input_border_color;
+
+					transform		: scale(1.05);
+				}
+			}
+
+			/* Confirm */
+			.confirm {
+				cursor			: pointer;
+
+				flex			: 0 0 60px;
+				height			: 60px;
+
+				margin			: 5px;
 				padding			: 16px;
 
 				background		: $secondary_color;
-				color			: #FFFFFF;
+				color			: $secondary_text_color;
 				border			: none;
 				border-radius		: 30px;
 
