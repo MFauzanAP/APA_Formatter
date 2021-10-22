@@ -2844,6 +2844,8 @@ body {
 
 							overflow		: hidden;
 
+							display			: -webkit-box;
+
 							color			: $tertiary_text_color;
 
 							font-family		: Work Sans;
@@ -2851,8 +2853,8 @@ body {
 							font-size		: 1.1em;
 							line-height		: 1.25;
 							letter-spacing		: 0.01em;
-							text-overflow		: ellipsis;
-							white-space		: nowrap;
+							-webkit-line-clamp	: 3;
+							-webkit-box-orient	: vertical;
 						}
 
 						/* Controls */

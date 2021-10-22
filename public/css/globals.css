@@ -1783,14 +1783,15 @@ body {
               height: 3.45em;
               z-index: 1;
               overflow: hidden;
+              display: -webkit-box;
               color: #646464;
               font-family: Work Sans;
               font-weight: normal;
               font-size: 1.1em;
               line-height: 1.25;
               letter-spacing: 0.01em;
-              text-overflow: ellipsis;
-              white-space: nowrap; }
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical; }
             .dashboard .windows .window.submissions .container .entry .controls {
               margin-top: 20px;
               display: flex;
