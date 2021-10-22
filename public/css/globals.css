@@ -2093,7 +2093,12 @@ body {
       width: 500px;
       height: 300px; }
   .modal.big {
+    /* Long */
     /* Background */ }
+    .modal.big.long {
+      /* Background */ }
+      .modal.big.long .background {
+        height: 800px; }
     .modal.big .background {
       width: 750px;
       height: 600px; }
@@ -2139,6 +2144,7 @@ body {
     position: relative;
     width: 600px;
     height: 500px;
+    overflow: hidden;
     color: #3D3D3D;
     background: #FFFFFF;
     border-radius: 15px;
@@ -2173,7 +2179,152 @@ body {
       /* Message */
       /* Input */ }
       .modal .background .body .message {
-        overflow-y: auto; }
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        /* Settings */ }
+        .modal .background .body .message .settings {
+          max-height: 500px;
+          /* Sections */ }
+          .modal .background .body .message .settings .section {
+            position: relative;
+            width: 100%;
+            padding: 10px 25px;
+            padding-right: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            /* Title */
+            /* Underline */
+            /* Row */ }
+            .modal .background .body .message .settings .section .title {
+              margin-bottom: 10px;
+              color: #3D3D3D;
+              font-family: Work Sans;
+              font-size: 1.15em;
+              font-weight: 600; }
+            .modal .background .body .message .settings .section .underline {
+              width: 100%;
+              height: 0;
+              margin-top: 25px;
+              border-top: 1px solid #DDDDDD; }
+            .modal .background .body .message .settings .section .row {
+              width: 100%;
+              margin: 7.5px 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              /* Input */
+              /* Dropdown */
+              /* Checkbox */ }
+              .modal .background .body .message .settings .section .row .input {
+                width: 150px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                border: none;
+                /* Input Element */
+                /* Unit */ }
+                .modal .background .body .message .settings .section .row .input input {
+                  flex: 1 1 auto;
+                  width: 0;
+                  height: 40px;
+                  padding: 0.75rem 1rem;
+                  color: #646464;
+                  border: 1px solid #AAAAAA;
+                  border-radius: 1.5rem;
+                  font-size: 0.9rem;
+                  font-family: Lato;
+                  letter-spacing: 0.03em;
+                  text-rendering: optimizeLegibility;
+                  outline: none;
+                  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+                  /* Autofill */ }
+                  .modal .background .body .message .settings .section .row .input input:-webkit-autofill, .modal .background .body .message .settings .section .row .input input:-webkit-autofill:hover, .modal .background .body .message .settings .section .row .input input:-webkit-autofill:focus, .modal .background .body .message .settings .section .row .input input:-webkit-autofill:active {
+                    -webkit-box-shadow: 0 0 0 30px white inset !important;
+                    box-shadow: 0 0 0 30px white inset !important; }
+                .modal .background .body .message .settings .section .row .input .unit {
+                  margin-left: 10px; }
+              .modal .background .body .message .settings .section .row .dropdown {
+                width: 150px;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                /* Select Element */
+                /* Unit */ }
+                .modal .background .body .message .settings .section .row .dropdown select {
+                  flex: 1 1 auto;
+                  width: 0;
+                  height: 40px;
+                  padding: 0rem 0.5rem;
+                  color: #646464;
+                  border: 1px solid #AAAAAA;
+                  border-radius: 1.5rem;
+                  font-size: 0.9rem;
+                  font-family: Lato;
+                  letter-spacing: 0.03em;
+                  text-rendering: optimizeLegibility;
+                  outline: none;
+                  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+                  /* Autofill */ }
+                  .modal .background .body .message .settings .section .row .dropdown select:-webkit-autofill, .modal .background .body .message .settings .section .row .dropdown select:-webkit-autofill:hover, .modal .background .body .message .settings .section .row .dropdown select:-webkit-autofill:focus, .modal .background .body .message .settings .section .row .dropdown select:-webkit-autofill:active {
+                    -webkit-box-shadow: 0 0 0 30px white inset !important;
+                    box-shadow: 0 0 0 30px white inset !important; }
+                .modal .background .body .message .settings .section .row .dropdown .unit {
+                  margin-left: 10px; }
+              .modal .background .body .message .settings .section .row .checkbox {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: flex-start;
+                /* Input Element */
+                /* Label */ }
+                .modal .background .body .message .settings .section .row .checkbox input {
+                  width: 0;
+                  height: 0;
+                  visibility: hidden;
+                  /* Checked */ }
+                  .modal .background .body .message .settings .section .row .checkbox input:checked ~ label:after {
+                    background-color: #0099FF;
+                    transform: translateX(35px); }
+                .modal .background .body .message .settings .section .row .checkbox label {
+                  cursor: pointer;
+                  position: relative;
+                  width: 80px;
+                  height: 40px;
+                  overflow: visible;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+                  background: transparent;
+                  color: #3D3D3D;
+                  border: 1px solid #AAAAAA;
+                  border-radius: 25px;
+                  text-indent: 350px;
+                  font-size: 1rem;
+                  white-space: nowrap;
+                  transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+                  /* Hover */
+                  /* Thumb */ }
+                  .modal .background .body .message .settings .section .row .checkbox label:hover {
+                    /* Thumb */ }
+                    .modal .background .body .message .settings .section .row .checkbox label:hover::after {
+                      transform: translateX(2.5px) scale(1.05);
+                      background-color: #AAAAAA; }
+                  .modal .background .body .message .settings .section .row .checkbox label::after {
+                    position: absolute;
+                    width: 30px;
+                    height: 30px;
+                    left: 5px;
+                    background-color: #DDDDDD;
+                    border-radius: 100%;
+                    transition: 0.15s cubic-bezier(0.34, -0.39, 0.68, 1.38) 0s;
+                    content: ''; }
       .modal .background .body .input {
         position: relative;
         width: 100%;
