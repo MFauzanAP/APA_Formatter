@@ -15,7 +15,7 @@ function on_click_tab (event) {
 	var index = event.data.index;
 
 	//	Declare array of tabs
-	var tabs = [ 'profile', 'courses', 'formats', 'settings' ];
+	var tabs = [ 'profile', 'courses', 'submissions', 'settings' ];
 
 	//	Change history state
 	history.pushState({}, '', window.location.pathname + `?tab=${tabs[index]}`);
