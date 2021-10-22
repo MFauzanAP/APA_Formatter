@@ -1579,6 +1579,7 @@ body {
       transition: 1s ease-in-out;
       /* Active */
       /* Profile */
+      /* Submissions */
       /* Settings */
       /* Title */
       /* Underline */
@@ -1699,6 +1700,113 @@ body {
               border-radius: 5px;
               font-size: 0.8em;
               font-weight: normal; }
+      .dashboard .windows .window.submissions {
+        /* Add Button */
+        /* Container */ }
+        .dashboard .windows .window.submissions .add {
+          position: relative;
+          width: 35px;
+          height: 35px;
+          float: right;
+          color: #AAAAAA;
+          background: #FFFFFF;
+          box-shadow: none;
+          font-size: 0.75em;
+          /* Hover */ }
+          .dashboard .windows .window.submissions .add:hover {
+            color: #3D3D3D;
+            background: #EFEFEF; }
+        .dashboard .windows .window.submissions .container {
+          max-width: 750px;
+          width: 100%;
+          padding: 30px 0;
+          /* Entry */ }
+          .dashboard .windows .window.submissions .container .entry {
+            width: 100%;
+            height: 220px;
+            padding: 25px;
+            background: #F9F9F9;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+            transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+            /* Hover */
+            /* Watermark */
+            /* Header */
+            /* Underline */
+            /* Snippet */
+            /* Controls */ }
+            .dashboard .windows .window.submissions .container .entry:hover {
+              transform: scale(1.05); }
+            .dashboard .windows .window.submissions .container .entry .watermark {
+              pointer-events: none;
+              position: absolute;
+              display: flex;
+              align-items: center;
+              z-index: 0;
+              color: #F5F5F5;
+              font-family: Work Sans;
+              font-weight: 800;
+              font-size: 8em; }
+            .dashboard .windows .window.submissions .container .entry .header {
+              position: relative;
+              height: 1.15em;
+              z-index: 1;
+              margin: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              font-size: 1em;
+              /* Title */
+              /* Date */ }
+              .dashboard .windows .window.submissions .container .entry .header .title {
+                height: 1.15em;
+                margin: 0;
+                overflow: hidden;
+                color: #3D3D3D;
+                font-family: Work Sans;
+                font-weight: 600;
+                font-size: 1.25em;
+                text-overflow: ellipsis;
+                white-space: nowrap; }
+              .dashboard .windows .window.submissions .container .entry .header .date {
+                margin-left: 25px;
+                color: #3D3D3D; }
+            .dashboard .windows .window.submissions .container .entry .underline {
+              position: relative;
+              width: 75px;
+              height: 0;
+              z-index: 1;
+              margin: 10px 5px;
+              border: 2px solid #646464; }
+            .dashboard .windows .window.submissions .container .entry .snippet {
+              position: relative;
+              height: 3.45em;
+              z-index: 1;
+              overflow: hidden;
+              color: #646464;
+              font-family: Work Sans;
+              font-weight: normal;
+              font-size: 1.1em;
+              line-height: 1.25;
+              letter-spacing: 0.01em;
+              text-overflow: ellipsis;
+              white-space: nowrap; }
+            .dashboard .windows .window.submissions .container .entry .controls {
+              margin-top: 20px;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              /* Delete */
+              /* View */ }
+              .dashboard .windows .window.submissions .container .entry .controls .delete {
+                width: 50px;
+                margin-right: 10px;
+                background: #CCCCCC;
+                /* Hover */ }
+                .dashboard .windows .window.submissions .container .entry .controls .delete:hover {
+                  background: #AAAAAA; }
+              .dashboard .windows .window.submissions .container .entry .controls .view {
+                width: 120px; }
       .dashboard .windows .window.settings {
         /* Reset Button */
         /* Section */ }

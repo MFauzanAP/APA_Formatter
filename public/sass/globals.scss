@@ -2714,6 +2714,178 @@ body {
 				}
 			}
 
+			/* Submissions */
+			&.submissions {
+
+				/* Add Button */
+				.add {
+					position		: relative;
+					width			: 35px;
+					height			: 35px;
+
+					float			: right;
+
+					color			: $quaternary_text_color;
+					background		: $primary_background_color;
+
+					box-shadow		: none;
+
+					font-size		: 0.75em;
+
+					/* Hover */
+					&:hover {
+						color			: $primary_text_color;
+						background		: $primary_input_border_color;
+					}
+				}
+
+				/* Container */
+				.container {
+					max-width		: 750px;
+					width			: 100%;
+
+					padding			: 30px 0;
+
+					/* Entry */
+					.entry {
+						width			: 100%;
+						height			: 220px;
+
+						padding			: 25px;
+
+						background		: $secondary_background_color;
+						border-radius		: 25px;
+
+						box-shadow		: 0 0 15px rgba(0, 0, 0, 0.15);
+
+						transition		: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+						/* Hover */
+						&:hover {
+							transform		: scale(1.05);
+						}
+
+						/* Watermark */
+						.watermark {
+							pointer-events		: none;
+							position		: absolute;
+
+							display			: flex;
+							align-items		: center;
+
+							z-index			: 0;
+
+							color			: $tertiary_background_color;
+
+							font-family		: Work Sans;
+							font-weight		: 800;
+							font-size		: 8em;
+						}
+
+						/* Header */
+						.header {
+							position		: relative;
+							height			: 1.15em;
+
+							z-index			: 1;
+
+							margin			: 0;
+
+							display			: flex;
+							flex-direction		: row;
+							justify-content		: space-between;
+
+							font-size		: 1em;
+
+							/* Title */
+							.title {
+								height			: 1.15em;
+
+								margin			: 0;
+
+								overflow		: hidden;
+
+								color			: $primary_text_color;
+
+								font-family		: Work Sans;
+								font-weight		: 600;
+								font-size		: 1.25em;
+								text-overflow		: ellipsis;
+								white-space		: nowrap;
+							}
+
+							/* Date */
+							.date {
+								margin-left		: 25px;
+
+								color			: $primary_text_color;
+							}
+						}
+
+						/* Underline */
+						.underline {
+							position		: relative;
+							width			: 75px;
+							height			: 0;
+
+							z-index			: 1;
+
+							margin			: 10px 5px;
+
+							border			: 2px solid $tertiary_text_color;
+						}
+
+						/* Snippet */
+						.snippet {
+							position		: relative;
+							height			: 3.45em;
+
+							z-index			: 1;
+
+							overflow		: hidden;
+
+							color			: $tertiary_text_color;
+
+							font-family		: Work Sans;
+							font-weight		: normal;
+							font-size		: 1.1em;
+							line-height		: 1.25;
+							letter-spacing		: 0.01em;
+							text-overflow		: ellipsis;
+							white-space		: nowrap;
+						}
+
+						/* Controls */
+						.controls {
+							margin-top		: 20px;
+
+							display			: flex;
+							flex-direction		: row;
+							justify-content		: flex-end;
+
+							/* Delete */
+							.delete {
+								width			: 50px;
+
+								margin-right		: 10px;
+
+								background		: $tertiary_input_border_color;
+
+								/* Hover */
+								&:hover {
+									background		: $secondary_input_border_color;
+								}
+							}
+
+							/* View */
+							.view {
+								width			: 120px;
+							}
+						}
+					}
+				}
+			}
+
 			/* Settings */
 			&.settings {
 
