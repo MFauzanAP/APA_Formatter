@@ -4,6 +4,11 @@ $(`.dashboard .windows .settings .reset`).on('click', () => show_modal({type: `c
 //	Function called to reset the settings
 function reset_settings () {
 
+	//	Reset site settings
+	window.localStorage.removeItem('settings_alerts');
+	window.localStorage.removeItem('settings_autofill_details');
+	window.localStorage.removeItem('settings_dark_theme');
+
 	//	Reset essay settings
 	window.localStorage.removeItem('essay_settings_page_numbers');
 	window.localStorage.removeItem('essay_settings_cover_page');
@@ -40,6 +45,11 @@ function update_settings_ui () {
 
 	//	Get settings
 	var menu = $(`.dashboard .windows .settings`);
+
+	//	Update site settings
+	$(`#settings_alerts`, menu).prop('checked', (window.localStorage.getItem('settings_alerts') || 'true') === 'true');
+	$(`#settings_autofill_details`, menu).prop('checked', (window.localStorage.getItem('settings_autofill_details') || 'true') === 'true');
+	$(`#settings_dark_theme`, menu).prop('checked', (window.localStorage.getItem('settings_dark_theme') || 'false') === 'true');
 
 	//	Update essay settings values
 	$(`#essay_settings_page_numbers`, menu).prop('checked', (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true');
