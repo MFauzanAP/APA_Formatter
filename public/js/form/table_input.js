@@ -44,6 +44,49 @@ function handle_add_table_entry () {
 
 }
 
+//	Function called to set the table entries
+function set_table_entries (data) {
+
+	//	Remove all entries
+	$(`tbody`, table_input).html('');
+
+	//	Reset number of entries
+	num_entries = 0;
+
+	//	For each piece of data
+	data.forEach(val => {
+
+		//	If there are no more than 10 spaced
+		if (num_entries < 10) {
+
+			//	Declare row element html
+			var html = `
+				<tr>
+					<td><i class="fa fa-bars grip"></i></td>
+					<td><input type="text" id="student_name" name="student_name" placeholder="Student Name" value="${val.name}" required/></td>
+					<td><input type="text" id="student_id" name="student_id" placeholder="Student ID" value="${val.id}" required/></td>
+					<td><button class="delete"><i class="fa fa-times"></i></button></td>
+				</tr>`;
+
+			//	Add new row
+			$(`tbody`, table_input).append(html);
+
+			//	Subscribe function to delete button
+			$(`.delete`, table_input).off('click');
+			$(`.delete`, table_input).on('click', handle_remove_table_entry);
+
+			//	Increment num entries
+			num_entries++;
+
+			//	Update size input
+			$(`.size input`, table_input).val(num_entries);
+			
+		}
+
+	})
+
+}
+
 //	Function called when the remove entry button is clicked
 function handle_remove_table_entry (i = 0) {
 

@@ -22,6 +22,9 @@ function on_click_forward () {
 	//	Get current stage
 	var stage = new URL(window.location).searchParams.get('stage');
 
+	//	Get current id
+	var id = new URL(window.location).searchParams.get('id');
+
 	//	Call stage handler
 	var res = true;
 	if (stage == 'details') var res = handle_details();
@@ -51,7 +54,7 @@ function on_click_forward () {
 	$(`.form_page`).addClass(stages[stage]);
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + `?stage=${stages[stage]}`);
+	history.pushState({}, '', window.location.pathname + `?stage=${stages[stage]}${id ? `&id=${id}` : ``}`);
 
 }
 
@@ -60,6 +63,9 @@ function on_click_backward () {
 
 	//	Get current stage
 	var stage = new URL(window.location).searchParams.get('stage');
+
+	//	Get current id
+	var id = new URL(window.location).searchParams.get('id');
 
 	//	Declare array of stages
 	var stages = {
@@ -80,7 +86,7 @@ function on_click_backward () {
 	$(`.form_page`).addClass(stages[stage]);
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + (stages[stage] ? `?stage=${stages[stage]}` : ''));
+	history.pushState({}, '', window.location.pathname + (stages[stage] ? `?stage=${stages[stage]}` : '') + (id ? `&id=${id}` : ``));
 
 }
 
@@ -92,6 +98,9 @@ function on_click_step (event) {
 
 	//	Get current stage
 	var stage = new URL(window.location).searchParams.get('stage');
+
+	//	Get current id
+	var id = new URL(window.location).searchParams.get('id');
 
 	//	Declare array of stages
 	var stages = [ 'details', 'authors', 'vocabulary', 'essay', 'formatting', 'download' ];
@@ -133,7 +142,7 @@ function on_click_step (event) {
 	$(`.form_page`).addClass(stages[index]);
 
 	//	Change history state
-	history.pushState({}, '', window.location.pathname + `?stage=${stages[index]}`);
+	history.pushState({}, '', window.location.pathname + `?stage=${stages[index]}${id ? `&id=${id}` : ``}`);
 
 }
 

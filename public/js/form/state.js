@@ -25,9 +25,15 @@ function update_state () {
 	//	Get current stage
 	var stage = new URL(window.location).searchParams.get('stage');
 
+	//	Get current id
+	var id = new URL(window.location).searchParams.get('id');
+
 	//	Get form page and reset class
 	var form = document.querySelector('.form_page');
 	form.className = 'form_page';
+
+	//	If there is id then update form values
+	if (id) update_form_values(id);
 
 	//	Add class to form depending on stage
 	if (stage) form.classList.add(stage);

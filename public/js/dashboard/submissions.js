@@ -4,6 +4,9 @@ $(window).on('load', update_submissions_ui);
 //	Function called to update the submission list
 function update_submissions_ui () {
 
+	//	Get container
+	var container = $(`.dashboard .windows .submissions .container`);
+
 	//	Get all submissions
 	var submissions = JSON.parse(window.localStorage.getItem('submissions')) || [];
 
@@ -25,7 +28,7 @@ function update_submissions_ui () {
 				<div class="snippet">${submission.essay || 'N/A'}</div>
 				<div class="controls">
 					<button class="delete" id="${submission.id}"><i class="far fa-trash-alt"></i></button>
-					<button class="view" id="${submission.id}">View</button>
+					<a href="/?stage=details&id=${submission.id}"><button class="view">View</button></a>
 				</div>
 			</div>
 			`;
@@ -36,6 +39,15 @@ function update_submissions_ui () {
 	})
 
 	//	Set submission html
-	$(`.dashboard .windows .submissions .container`).html(html);
+	$(container).html(html);
+
+	//	Subscribe functions to buttons
+	$(`.view`, container).on('click', on_view_submission);
+	$(`.delete`, container).on('click', on_view_submission);
+
+}
+
+//	Function called when view button is clicked
+function on_view_submission () {
 
 }

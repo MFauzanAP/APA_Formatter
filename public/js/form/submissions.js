@@ -71,3 +71,46 @@ function save_current_submission () {
 	window.localStorage.setItem('submissions', JSON.stringify(submissions));
 
 }
+
+//	Function called to update form values
+function update_form_values (id) {
+
+	//	Get all submissions
+	var submissions = JSON.parse(window.localStorage.getItem('submissions')) || [];
+
+	//	Variable to hold whether there was a submission saved already
+	var index = -1;
+
+	//	Loop through each submission and check if it matches
+	submissions.forEach((submission, i) => {
+
+		//	If id matches then set index
+		if (submission.id == id) index = i;
+
+	})
+
+	//	If there is a match found
+	if (index != -1) {
+
+		//	Update essay object
+		essay = submissions[index];
+
+		//	Update form input values
+		$(`.essay_form .details.stage input#title`).val(essay.details.title);
+		$(`.essay_form .details.stage input#date`).val(essay.details.date);
+		$(`.essay_form .details.stage input#lecturer_name`).val(essay.details.lecturer_name);
+		$(`.essay_form .details.stage input#course_number`).val(essay.details.course_number);
+
+		//	Set students table
+		set_table_entries(essay.details.students);
+
+		//	Update vocabulary values
+		$(`.essay_form .vocabulary.stage input#vocab_word_limit`).val(essay.settings.vocab_word_limit);
+		$(`.essay_form .vocabulary.stage textarea#vocab_list`).val(essay.vocabulary.join('\n'));
+
+		//	Update essay values
+		$(`.essay_form .essay.stage textarea#essay_text`).val(essay.essay);
+
+	}
+
+}
