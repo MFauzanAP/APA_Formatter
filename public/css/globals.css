@@ -1864,9 +1864,12 @@ body {
                 width: 50px;
                 margin-right: 10px;
                 background: #CCCCCC;
-                /* Hover */ }
+                /* Hover */
+                /* Icon */ }
                 .dashboard .windows .window.submissions .container .entry .controls .delete:hover {
                   background: #AAAAAA; }
+                .dashboard .windows .window.submissions .container .entry .controls .delete i {
+                  pointer-events: none; }
               .dashboard .windows .window.submissions .container .entry .controls .view {
                 width: 120px; }
       .dashboard .windows .window.settings {

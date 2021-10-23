@@ -2,7 +2,7 @@
 var modal = $(`.modal`);
 
 //	Subscribe methods to modal elements
-modal.on('click', (e) => { if (e.target !== e.currentTarget) return; hide_modal(e); });
+modal.on('click', (e) => { if (e.target !== e.currentTarget) return; close_callback = null; hide_modal(e); });
 $(`.buttons .cancel`, modal).on('click', (e) => { close_callback = null; hide_modal(e); });
 $(`.buttons .confirm`, modal).on('click', hide_modal);
 $(`.buttons .okay`, modal).on('click', hide_modal);

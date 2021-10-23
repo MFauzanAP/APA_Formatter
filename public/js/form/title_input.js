@@ -28,6 +28,12 @@ function on_submit_title () {
 	//	Add title to title input of form
 	$(`.essay_form input#title`).val(title);
 
+	//	Change essay saved state
+	essay.saved = false;
+
+	//	Update save status
+	$(`.save_status`).addClass('active');
+
 	//	Create new submission
 	create_new_submission();
 

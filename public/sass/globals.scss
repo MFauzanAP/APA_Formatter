@@ -2973,6 +2973,11 @@ body {
 								&:hover {
 									background		: $secondary_input_border_color;
 								}
+
+								/* Icon */
+								i {
+									pointer-events		: none;
+								}
 							}
 
 							/* View */
