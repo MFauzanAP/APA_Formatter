@@ -1495,7 +1495,7 @@ body {
         float: right;
         margin: 0 15px;
         padding: 0.75em;
-        background: #CCCCCC;
+        background: #BBBBBB;
         color: #FFFFFF;
         font-size: 0.9em;
         -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
@@ -1851,7 +1851,6 @@ body {
               font-weight: normal;
               font-size: 1em;
               line-height: 1.25;
-              letter-spacing: 0.01em;
               -webkit-line-clamp: 3;
               -webkit-box-orient: vertical; }
             .dashboard .windows .window.submissions .container .entry .controls {

@@ -1,8 +1,16 @@
 //	Subscribe function to control s
 $(window).on('keydown', handle_save_command)
 
+//	Generate unique id
+create_new_submission();
+
 //	Function called to create a new submission
 function create_new_submission () {
+
+	//	Generate unique id
+	id = new Uint32Array(5);
+	window.crypto.getRandomValues(id);
+	id = id.join('');
 
 	//	Reset essay object
 	essay = {

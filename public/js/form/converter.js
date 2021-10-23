@@ -1,8 +1,3 @@
-//	Generate unique id
-var id = new Uint32Array(5);
-window.crypto.getRandomValues(id);
-id = id.join('');
-
 //	Variable to hold the data for the essay
 var essay = {
 	id			: id,
