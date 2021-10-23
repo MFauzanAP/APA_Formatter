@@ -220,7 +220,7 @@ function update_essay_settings_value (initial) {
 function handle_essay_checkbox_setting () {
 
 	//	Get checkbox state
-	var state = this.checked;
+	var state = this.checked ? 'true' : 'false';
 
 	//	Update essay settings
 	essay.settings[this.id.replace('local_essay_settings_', '')] = state;
