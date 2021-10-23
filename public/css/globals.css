@@ -1762,11 +1762,15 @@ body {
         .dashboard .windows .window.submissions .container {
           max-width: 750px;
           width: 100%;
-          padding: 30px 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
           /* Entry */ }
           .dashboard .windows .window.submissions .container .entry {
+            position: relative;
             width: 100%;
             height: 220px;
+            margin: 15px 0;
             padding: 25px;
             background: #F9F9F9;
             border-radius: 25px;
@@ -1779,7 +1783,7 @@ body {
             /* Snippet */
             /* Controls */ }
             .dashboard .windows .window.submissions .container .entry:hover {
-              transform: scale(1.05); }
+              transform: scale(1.025); }
             .dashboard .windows .window.submissions .container .entry .watermark {
               pointer-events: none;
               position: absolute;
@@ -1816,7 +1820,7 @@ body {
                 color: #3D3D3D; }
             .dashboard .windows .window.submissions .container .entry .underline {
               position: relative;
-              width: 75px;
+              width: 50px;
               height: 0;
               z-index: 1;
               margin: 10px 5px;
