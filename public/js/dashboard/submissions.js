@@ -67,7 +67,6 @@ function on_delete_submission (id) {
 	submissions.forEach((submission, i) => {
 
 		//	If id matches then set index
-		console.log(submission.id, id);
 		if (submission.id == id) index = i;
 
 	})
