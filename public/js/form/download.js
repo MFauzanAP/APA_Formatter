@@ -37,6 +37,26 @@ async function restart_form_page () {
 	$(`input`).val('');
 	$(`textarea`).val('');
 
+	//	Generate unique id
+	var id = new Uint32Array(5);
+	window.crypto.getRandomValues(id);
+	id = id.join('');
+
+	//	Reset essay object
+	essay = {
+		id			: id,
+		details			: {
+			title			: '',
+			date			: '',
+			lecturer_name		: '',
+			course_number		: '',
+			institution		: window.localStorage.getItem('institution') || 'Qatar University',
+			students		: []
+		},
+		vocabulary		: [],
+		essay			: '',
+	};
+
 	//	Reset table
 	num_entries = 0;
 	$(`.essay_form .authors .table_input tbody tr`).remove();

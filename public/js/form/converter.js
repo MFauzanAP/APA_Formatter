@@ -1,11 +1,17 @@
+//	Generate unique id
+var id = new Uint32Array(5);
+window.crypto.getRandomValues(id);
+id = id.join('');
+
 //	Variable to hold the data for the essay
 var essay = {
+	id			: id,
 	details			: {
 		title			: '',
 		date			: '',
 		lecturer_name		: '',
 		course_number		: '',
-		institution		: '',
+		institution		: window.localStorage.getItem('institution') || 'Qatar University',
 		students		: []
 	},
 	vocabulary		: [],
@@ -17,9 +23,6 @@ var highlights = [];
 
 //	Function used to submit the data to the server
 async function submit_essay () {
-
-	//	Update institution value
-	essay.details.institution = window.localStorage.getItem('institution') || 'Qatar University';
 
 	//	Extract settings from local storage
 	settings = {

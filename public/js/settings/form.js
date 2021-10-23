@@ -3,45 +3,45 @@ var settings_html = `
 	<div class="settings"><div class="essay section">
 		<div class="title">Essay Settings</div>
 		<div class="row">
-			<label for="essay_settings_page_numbers">Page Numbers</label>
+			<label for="local_essay_settings_page_numbers">Page Numbers</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_page_numbers" id="essay_settings_page_numbers" checked="">
-				<label for="essay_settings_page_numbers"></label>
+				<input type="checkbox" name="local_essay_settings_page_numbers" id="local_essay_settings_page_numbers" checked="">
+				<label for="local_essay_settings_page_numbers"></label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_cover_page">Cover Page</label>
+			<label for="local_essay_settings_cover_page">Cover Page</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_cover_page" id="essay_settings_cover_page" checked="">
-				<label for="essay_settings_cover_page"></label>
+				<input type="checkbox" name="local_essay_settings_cover_page" id="local_essay_settings_cover_page" checked="">
+				<label for="local_essay_settings_cover_page"></label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_essay_title">Essay Title</label>
+			<label for="local_essay_settings_essay_title">Essay Title</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_essay_title" id="essay_settings_essay_title" checked="">
-				<label for="essay_settings_essay_title"></label>
+				<input type="checkbox" name="local_essay_settings_essay_title" id="local_essay_settings_essay_title" checked="">
+				<label for="local_essay_settings_essay_title"></label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_word_count">Word Count</label>
+			<label for="local_essay_settings_word_count">Word Count</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_word_count" id="essay_settings_word_count" checked="">
-				<label for="essay_settings_word_count"></label>
+				<input type="checkbox" name="local_essay_settings_word_count" id="local_essay_settings_word_count" checked="">
+				<label for="local_essay_settings_word_count"></label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_inline_details">Inline Student Details</label>
+			<label for="local_essay_settings_inline_details">Inline Student Details</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_inline_details" id="essay_settings_inline_details">
-				<label for="essay_settings_inline_details"></label>
+				<input type="checkbox" name="local_essay_settings_inline_details" id="local_essay_settings_inline_details">
+				<label for="local_essay_settings_inline_details"></label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_new_line">New Line After Paragraph?</label>
+			<label for="local_essay_settings_new_line">New Line After Paragraph?</label>
 			<div class="checkbox">
-				<input type="checkbox" name="essay_settings_new_line" id="essay_settings_new_line">
-				<label for="essay_settings_new_line"></label>
+				<input type="checkbox" name="local_essay_settings_new_line" id="local_essay_settings_new_line">
+				<label for="local_essay_settings_new_line"></label>
 			</div>
 		</div>
 		<div class="underline"></div>
@@ -49,9 +49,9 @@ var settings_html = `
 	<div class="font section">
 		<div class="title">Font Settings</div>
 		<div class="row">
-			<label for="essay_settings_font_family">Font Family</label>
+			<label for="local_essay_settings_font_family">Font Family</label>
 			<div class="dropdown">
-				<select name="essay_settings_font_family" id="essay_settings_font_family">
+				<select name="local_essay_settings_font_family" id="local_essay_settings_font_family">
 					<option value="Times New Roman">Times New Roman</option>
 					<option value="Arial">Arial</option>
 					<option value="Calibri">Calibri</option>
@@ -59,16 +59,16 @@ var settings_html = `
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_font_size">Font Size</label>
+			<label for="local_essay_settings_font_size">Font Size</label>
 			<div class="input">
-				<input type="number" name="essay_settings_font_size" id="essay_settings_font_size" value="12" step="1" min="8" max="32">
+				<input type="number" name="local_essay_settings_font_size" id="local_essay_settings_font_size" value="12" step="1" min="8" max="32">
 				<label class="unit">px</label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_font_color">Font Color</label>
+			<label for="local_essay_settings_font_color">Font Color</label>
 			<div class="input">
-				<input type="color" name="essay_settings_font_color" id="essay_settings_font_color">
+				<input type="color" name="local_essay_settings_font_color" id="local_essay_settings_font_color">
 			</div>
 		</div>
 		<div class="underline"></div>
@@ -76,16 +76,16 @@ var settings_html = `
 	<div class="line section">
 		<div class="title">Line Settings</div>
 		<div class="row">
-			<label for="essay_settings_line_spacing">Line Spacing</label>
+			<label for="local_essay_settings_line_spacing">Line Spacing</label>
 			<div class="input">
-				<input type="number" name="essay_settings_line_spacing" id="essay_settings_line_spacing" value="2" min="1" max="2">
+				<input type="number" name="local_essay_settings_line_spacing" id="local_essay_settings_line_spacing" value="2" min="1" max="2">
 				<label class="unit">lines</label>
 			</div>
 		</div>
 		<div class="row">
-			<label for="essay_settings_paragraph_spacing">Paragraph Spacing</label>
+			<label for="local_essay_settings_paragraph_spacing">Paragraph Spacing</label>
 			<div class="input">
-				<input type="number" name="essay_settings_paragraph_spacing" id="essay_settings_paragraph_spacing" value="0" min="0" max="2">
+				<input type="number" name="local_essay_settings_paragraph_spacing" id="local_essay_settings_paragraph_spacing" value="0" min="0" max="2">
 				<label class="unit">lines</label>
 			</div>
 		</div>
@@ -94,9 +94,9 @@ var settings_html = `
 	<div class="margin section">
 		<div class="title">Margin Settings</div>
 		<div class="row">
-			<label for="essay_settings_margin_spacing">Margin Spacing</label>
+			<label for="local_essay_settings_margin_spacing">Margin Spacing</label>
 			<div class="input">
-				<input type="number" name="essay_settings_margin_spacing" id="essay_settings_margin_spacing" value="1" min="0" max="3">
+				<input type="number" name="local_essay_settings_margin_spacing" id="local_essay_settings_margin_spacing" value="1" min="0" max="3">
 				<label class="unit">inch</label>
 			</div>
 		</div>
@@ -105,9 +105,9 @@ var settings_html = `
 	<div class="highlight section">
 		<div class="title">Highlight Settings</div>
 		<div class="row">
-			<label for="essay_settings_highlight_type">Highlight Type</label>
+			<label for="local_essay_settings_highlight_type">Highlight Type</label>
 			<div class="dropdown">
-				<select name="essay_settings_highlight_type" id="essay_settings_highlight_type">
+				<select name="local_essay_settings_highlight_type" id="local_essay_settings_highlight_type">
 					<option value="none">None</option>
 					<option value="yellow highlight">Yellow Highlight</option>
 					<option value="bold">Bold</option>
@@ -140,6 +140,34 @@ function setup_settings_modal () {
 
 }
 
+//	Function called to reset local settings
+function reset_local_settings () {
+
+	//	Reset essay settings
+	window.localStorage.removeItem('local_essay_settings_page_numbers');
+	window.localStorage.removeItem('local_essay_settings_cover_page');
+	window.localStorage.removeItem('local_essay_settings_essay_title');
+	window.localStorage.removeItem('local_essay_settings_word_count');
+	window.localStorage.removeItem('local_essay_settings_inline_details');
+	window.localStorage.removeItem('local_essay_settings_new_line');
+
+	//	Reset font settings
+	window.localStorage.removeItem('local_essay_settings_font_family');
+	window.localStorage.removeItem('local_essay_settings_font_size');
+	window.localStorage.removeItem('local_essay_settings_font_color');
+
+	//	Reset line settings
+	window.localStorage.removeItem('local_essay_settings_line_spacing');
+	window.localStorage.removeItem('local_essay_settings_paragraph_spacing');
+
+	//	Reset margin settings
+	window.localStorage.removeItem('local_essay_settings_margin_spacing');
+
+	//	Reset highlighting settings
+	window.localStorage.removeItem('local_essay_settings_highlight_type');
+
+}
+
 //	Function called to update settings
 function update_essay_settings_value () {
 
@@ -147,26 +175,26 @@ function update_essay_settings_value () {
 	var modal = $(`.modal .message .settings`);
 
 	//	Update essay settings values
-	$(`#essay_settings_page_numbers`, modal).prop('checked', (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true');
-	$(`#essay_settings_cover_page`, modal).prop('checked', (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true');
-	$(`#essay_settings_essay_title`, modal).prop('checked', (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true');
-	$(`#essay_settings_word_count`, modal).prop('checked', (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true');
-	$(`#essay_settings_inline_details`, modal).prop('checked', (window.localStorage.getItem('essay_settings_inline_details') || 'false') === 'true');
-	$(`#essay_settings_new_line`, modal).prop('checked', (window.localStorage.getItem('essay_settings_new_line') || 'false') === 'true');
+	$(`#local_essay_settings_page_numbers`, modal).prop('checked', (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true');
+	$(`#local_essay_settings_cover_page`, modal).prop('checked', (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true');
+	$(`#local_essay_settings_essay_title`, modal).prop('checked', (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true');
+	$(`#local_essay_settings_word_count`, modal).prop('checked', (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true');
+	$(`#local_essay_settings_inline_details`, modal).prop('checked', (window.localStorage.getItem('essay_settings_inline_details') || 'false') === 'true');
+	$(`#local_essay_settings_new_line`, modal).prop('checked', (window.localStorage.getItem('essay_settings_new_line') || 'false') === 'true');
 
 	//	Update font settings values
-	$(`#essay_settings_font_family`, modal).val(window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman');
-	$(`#essay_settings_font_size`, modal).val(window.localStorage.getItem('essay_settings_font_size') || '12');
-	$(`#essay_settings_font_color`, modal).val(`#${window.localStorage.getItem('essay_settings_font_color') || '000000'}`);
+	$(`#local_essay_settings_font_family`, modal).val(window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman');
+	$(`#local_essay_settings_font_size`, modal).val(window.localStorage.getItem('essay_settings_font_size') || '12');
+	$(`#local_essay_settings_font_color`, modal).val(`#${window.localStorage.getItem('essay_settings_font_color') || '000000'}`);
 
 	//	Update line settings values
-	$(`#essay_settings_line_spacing`, modal).val(window.localStorage.getItem('essay_settings_line_spacing') || '2');
-	$(`#essay_settings_paragraph_spacing`, modal).val(window.localStorage.getItem('essay_settings_paragraph_spacing') || '0');
+	$(`#local_essay_settings_line_spacing`, modal).val(window.localStorage.getItem('essay_settings_line_spacing') || '2');
+	$(`#local_essay_settings_paragraph_spacing`, modal).val(window.localStorage.getItem('essay_settings_paragraph_spacing') || '0');
 
 	//	Update margin settings values
-	$(`#essay_settings_margin_spacing`, modal).val(window.localStorage.getItem('essay_settings_margin_spacing') || '1');
+	$(`#local_essay_settings_margin_spacing`, modal).val(window.localStorage.getItem('essay_settings_margin_spacing') || '1');
 
 	//	Update highlight settings values
-	$(`#essay_settings_highlight_type`, modal).val(window.localStorage.getItem('essay_settings_highlight_type') || 'bold');
+	$(`#local_essay_settings_highlight_type`, modal).val(window.localStorage.getItem('essay_settings_highlight_type') || 'bold');
 
 }

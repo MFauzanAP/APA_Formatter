@@ -26,7 +26,10 @@ function on_submit_title () {
 	$(`.form_page`).addClass('details');
 
 	//	Add title to title input of form
-	$(`.essay_form input#title`).val(title)
+	$(`.essay_form input#title`).val(title);
+
+	//	Create new submission
+	create_new_submission();
 
 	//	Update stage ui
 	update_stage_ui('details');

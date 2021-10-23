@@ -34,6 +34,9 @@ function handle_details () {
 
 	});
 
+	//	Save essay
+	save_current_submission();
+
 	//	Return successful
 	return true;
 
@@ -84,6 +87,9 @@ function handle_authors () {
 	//	Add authors to essay object
 	essay.details.students = data;
 
+	//	Save essay
+	save_current_submission();
+
 	//	Return successful
 	return true;
 
@@ -113,6 +119,9 @@ function handle_vocabulary () {
 	//	Add words to the essay object
 	essay.vocabulary = words;
 
+	//	Save essay
+	save_current_submission();
+
 	//	Return successful
 	return true;
 
@@ -140,6 +149,9 @@ function handle_essay () {
 
 	//	Add essay text to essay object
 	essay.essay = data;
+
+	//	Save essay
+	save_current_submission();
 
 	//	Make sure essay data is complete before being sent to the server
 	var complete = true;
