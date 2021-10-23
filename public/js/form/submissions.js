@@ -105,7 +105,7 @@ function update_form_values (id) {
 		set_table_entries(essay.details.students);
 
 		//	Update vocabulary values
-		$(`.essay_form .vocabulary.stage input#vocab_word_limit`).val(essay.settings.vocab_word_limit);
+		$(`.essay_form .vocabulary.stage input#vocab_word_limit`).val(essay.settings.vocab_word_limit == 999999 ? 0 : essay.settings.vocab_word_limit);
 		$(`.essay_form .vocabulary.stage textarea#vocab_list`).val(essay.vocabulary.join('\n'));
 
 		//	Update essay values

@@ -118,6 +118,7 @@ function handle_vocabulary () {
 
 	//	Add words to the essay object
 	essay.vocabulary = words;
+	essay.settings.vocab_word_limit = parseInt($(`#vocab_word_limit`).val()) || 999999;
 
 	//	Save essay
 	save_current_submission();
