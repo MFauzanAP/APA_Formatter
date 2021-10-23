@@ -1457,6 +1457,7 @@ body {
       width: 100%;
       margin-top: 50px;
       /* Back */
+      /* Settings */
       /* Continue */ }
       .form_page .essay_form .controls .back {
         cursor: pointer;
@@ -1473,6 +1474,23 @@ body {
         .form_page .essay_form .controls .back:hover {
           background: #EFEFEF;
           color: #646464; }
+      .form_page .essay_form .controls .settings {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin: 0 15px;
+        padding: 0.75em;
+        background: #CCCCCC;
+        color: #FFFFFF;
+        font-size: 0.9em;
+        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+        /* Hover */ }
+        .form_page .essay_form .controls .settings:hover {
+          background: #AAAAAA;
+          transform: scale(1.05); }
       .form_page .essay_form .controls .continue {
         cursor: pointer;
         width: 200px;
