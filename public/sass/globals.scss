@@ -47,6 +47,9 @@ $quaternary_background_color	: #383838;
 $quaternary_text_color		: #AAAAAA;
 $quaternary_input_border_color	: #DDDDDD;
 
+/* Quinary Colors */
+$quinary_input_border_color	: #BBBBBB;
+
 /* Toast Colors */
 $toast_error_color		: #FF3F3F;
 $toast_success_color		: #5DCE5D;
@@ -1405,7 +1408,7 @@ body {
 				margin			: 5px;
 				padding			: 18px;
 
-				background		: $tertiary_input_border_color;
+				background		: $quinary_input_border_color;
 				color			: $secondary_text_color;
 				border			: none;
 				border-radius		: 30px;
@@ -2391,7 +2394,7 @@ body {
 				margin			: 0 15px;
 				padding			: 0.75em;
 
-				background		: $tertiary_input_border_color;
+				background		: $quinary_input_border_color;
 				color			: $secondary_text_color;
 
 				font-size		: 0.9em;
