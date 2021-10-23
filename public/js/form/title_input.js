@@ -123,9 +123,54 @@ var settings_html = `
 	`;
 
 //	Subscribe function to submit button on click event
-$(`.essay_input .settings.button`).on('click', () => show_modal({ type: `long big center confirm`, title: 'Essay Settings', message: settings_html }, null, null));
+$(`.essay_input .settings.button`).on('click', () => show_modal({ type: `long big center okay`, title: 'Essay Settings', message: settings_html }, setup_settings_modal));
 $(`.essay_input .confirm.button`).on('click', on_submit_title);
 $(`.essay_input input#title`).on('keyup', on_title_keyup);
+
+//	Function called to setup settings modal
+function setup_settings_modal () {
+
+	//	Update settings values
+	update_essay_settings_value();
+
+	//	Subscribe on click functions to settings elements
+	$(`.modal .message .settings .row input[type="checkbox"]`).on('change', handle_checkbox_setting);
+	$(`.modal .message .settings .row input[type="number"]`).on('input', handle_numeric_setting);
+	$(`.modal .message .settings .row input[type="color"]`).on('input', handle_color_setting);
+	$(`.modal .message .settings .row select`).on('change', handle_dropdown_setting);
+
+}
+
+//	Function called to update settings
+function update_essay_settings_value () {
+
+	//	Get modal
+	var modal = $(`.modal .message .settings`);
+
+	//	Update essay settings values
+	$(`#essay_settings_page_numbers`, modal).prop('checked', (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true');
+	$(`#essay_settings_cover_page`, modal).prop('checked', (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true');
+	$(`#essay_settings_essay_title`, modal).prop('checked', (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true');
+	$(`#essay_settings_word_count`, modal).prop('checked', (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true');
+	$(`#essay_settings_inline_details`, modal).prop('checked', (window.localStorage.getItem('essay_settings_inline_details') || 'false') === 'true');
+	$(`#essay_settings_new_line`, modal).prop('checked', (window.localStorage.getItem('essay_settings_new_line') || 'false') === 'true');
+
+	//	Update font settings values
+	$(`#essay_settings_font_family`, modal).val(window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman');
+	$(`#essay_settings_font_size`, modal).val(window.localStorage.getItem('essay_settings_font_size') || '12');
+	$(`#essay_settings_font_color`, modal).val(`#${window.localStorage.getItem('essay_settings_font_color') || '000000'}`);
+
+	//	Update line settings values
+	$(`#essay_settings_line_spacing`, modal).val(window.localStorage.getItem('essay_settings_line_spacing') || '2');
+	$(`#essay_settings_paragraph_spacing`, modal).val(window.localStorage.getItem('essay_settings_paragraph_spacing') || '0');
+
+	//	Update margin settings values
+	$(`#essay_settings_margin_spacing`, modal).val(window.localStorage.getItem('essay_settings_margin_spacing') || '1');
+
+	//	Update highlight settings values
+	$(`#essay_settings_highlight_type`, modal).val(window.localStorage.getItem('essay_settings_highlight_type') || 'bold');
+
+}
 
 //	Function called when the submit essay title button is clicked.
 function on_submit_title () {
