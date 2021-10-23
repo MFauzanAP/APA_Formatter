@@ -16,6 +16,22 @@ var essay = {
 	},
 	vocabulary		: [],
 	essay			: '',
+	settings		: {
+		page_numbers		: window.localStorage.getItem('essay_settings_page_numbers') || 'true',
+		cover_page		: window.localStorage.getItem('essay_settings_cover_page') || 'true',
+		essay_title		: window.localStorage.getItem('essay_settings_essay_title') || 'true',
+		word_count		: window.localStorage.getItem('essay_settings_word_count') || 'true',
+		inline_details		: window.localStorage.getItem('essay_settings_inline_details') || 'false',
+		new_line		: window.localStorage.getItem('essay_settings_new_line') || 'false',
+		font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
+		font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',
+		font_color		: window.localStorage.getItem('essay_settings_font_color') || '000000',
+		line_spacing		: window.localStorage.getItem('essay_settings_line_spacing') || '2',
+		paragraph_spacing	: window.localStorage.getItem('essay_settings_paragraph_spacing') || '0',
+		margin_spacing		: window.localStorage.getItem('essay_settings_margin_spacing') || '1',
+		highlight_type		: window.localStorage.getItem('essay_settings_highlight_type') || 'bold',
+		vocab_word_limit	: parseInt($(`#vocab_word_limit`).val()) || 999999,
+	}
 };
 
 //	Variable to hold highlighted words
@@ -26,21 +42,21 @@ async function submit_essay () {
 
 	//	Extract settings from local storage
 	settings = {
-		page_numbers		: (window.localStorage.getItem('essay_settings_page_numbers') || 'true') === 'true',
-		cover_page		: (window.localStorage.getItem('essay_settings_cover_page') || 'true') === 'true',
-		essay_title		: (window.localStorage.getItem('essay_settings_essay_title') || 'true') === 'true',
-		word_count		: (window.localStorage.getItem('essay_settings_word_count') || 'true') === 'true',
-		inline_details		: (window.localStorage.getItem('essay_settings_inline_details') || 'false') === 'true',
-		new_line		: (window.localStorage.getItem('essay_settings_new_line') || 'false') === 'true',
-		font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
-		font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',
-		font_color		: window.localStorage.getItem('essay_settings_font_color') || '000000',
-		line_spacing		: window.localStorage.getItem('essay_settings_line_spacing') || '2',
-		paragraph_spacing	: window.localStorage.getItem('essay_settings_paragraph_spacing') || '0',
-		margin_spacing		: window.localStorage.getItem('essay_settings_margin_spacing') || '1',
-		highlight_type		: window.localStorage.getItem('essay_settings_highlight_type') || 'bold',
+		page_numbers		: essay.settings.page_numbers === 'true',
+		cover_page		: essay.settings.cover_page === 'true',
+		essay_title		: essay.settings.essay_title === 'true',
+		word_count		: essay.settings.word_count === 'true',
+		inline_details		: essay.settings.inline_details === 'true',
+		new_line		: essay.settings.new_line === 'true',
+		font_family		: essay.settings.font_family,
+		font_size		: essay.settings.font_size,
+		font_color		: essay.settings.font_color,
+		line_spacing		: essay.settings.line_spacing,
+		paragraph_spacing	: essay.settings.paragraph_spacing,
+		margin_spacing		: essay.settings.margin_spacing,
+		highlight_type		: essay.settings.highlight_type,
 		vocab_word_limit	: parseInt($(`#vocab_word_limit`).val()) || 999999,
-	}
+	};
 
 	//	Call api to submit essay to be processed
 	var response = await fetch('/api/form/submit', {

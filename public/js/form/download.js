@@ -55,6 +55,22 @@ async function restart_form_page () {
 		},
 		vocabulary		: [],
 		essay			: '',
+		settings		: {
+			page_numbers		: window.localStorage.getItem('essay_settings_page_numbers') || 'true',
+			cover_page		: window.localStorage.getItem('essay_settings_cover_page') || 'true',
+			essay_title		: window.localStorage.getItem('essay_settings_essay_title') || 'true',
+			word_count		: window.localStorage.getItem('essay_settings_word_count') || 'true',
+			inline_details		: window.localStorage.getItem('essay_settings_inline_details') || 'false',
+			new_line		: window.localStorage.getItem('essay_settings_new_line') || 'false',
+			font_family		: window.localStorage.getItem('essay_settings_font_family') || 'Times New Roman',
+			font_size		: window.localStorage.getItem('essay_settings_font_size') || '12',
+			font_color		: window.localStorage.getItem('essay_settings_font_color') || '000000',
+			line_spacing		: window.localStorage.getItem('essay_settings_line_spacing') || '2',
+			paragraph_spacing	: window.localStorage.getItem('essay_settings_paragraph_spacing') || '0',
+			margin_spacing		: window.localStorage.getItem('essay_settings_margin_spacing') || '1',
+			highlight_type		: window.localStorage.getItem('essay_settings_highlight_type') || 'bold',
+			vocab_word_limit	: parseInt($(`#vocab_word_limit`).val()) || 999999,
+		}
 	};
 
 	//	Reset table
