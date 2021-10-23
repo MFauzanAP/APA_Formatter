@@ -45,6 +45,7 @@ async function restart_form_page () {
 	//	Reset essay object
 	essay = {
 		id			: id,
+		saved			: true,
 		details			: {
 			title			: '',
 			date			: '',

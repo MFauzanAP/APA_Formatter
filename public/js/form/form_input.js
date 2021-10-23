@@ -149,6 +149,9 @@ function on_click_step (event) {
 //	Function called when a key is pressed while editing form inputs
 function on_form_keyup (event) {
 
+	//	Change essay saved state
+	essay.saved = false;
+
 	//	If enter key is pressed then try going forward
 	if (event.key == 'Enter') on_click_forward();
 

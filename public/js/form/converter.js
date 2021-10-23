@@ -6,6 +6,7 @@ id = id.join('');
 //	Variable to hold the data for the essay
 var essay = {
 	id			: id,
+	saved			: true,
 	details			: {
 		title			: '',
 		date			: '',

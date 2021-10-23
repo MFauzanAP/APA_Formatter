@@ -12,10 +12,10 @@ function leave_prompt () {
 	var stage = new URL(window.location).searchParams.get('stage');
 
 	//	Declare array of stages to check for
-	var checks = ['details', 'vocabulary', 'essay'];
+	var checks = ['details', 'authors', 'vocabulary', 'essay'];
 
-	//	If on a stage that has user input then ask user if they want to leave
-	if (checks.includes(stage)) return 'You still have unsaved changes. Are you sure you want to leave?';
+	//	If on a stage that has user input and essay hasnt been saved then ask user if they want to leave
+	if (checks.includes(stage) && !essay.saved) return 'You still have unsaved changes. Are you sure you want to leave?';
 
 }
 

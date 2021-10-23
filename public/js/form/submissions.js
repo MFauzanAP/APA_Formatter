@@ -1,12 +1,13 @@
+//	Subscribe function to control s
+$(window).on('keydown', handle_save_command)
+
 //	Function called to create a new submission
 function create_new_submission () {
-
-	//	Get all submissions
-	var submissions = JSON.parse(window.localStorage.getItem('submissions')) || [];
 
 	//	Reset essay object
 	essay = {
 		id			: id,
+		saved			: true,
 		details			: {
 			title			: '',
 			date			: '',
@@ -35,12 +36,6 @@ function create_new_submission () {
 		}
 	};
 
-	//	Create entry
-	submissions.push(essay);
-
-	//	Save to local storage
-	window.localStorage.setItem('submissions', JSON.stringify(submissions));
-
 	//	Reset local essay settings
 	reset_local_settings();
 
@@ -51,6 +46,12 @@ function save_current_submission () {
 
 	//	Get all submissions
 	var submissions = JSON.parse(window.localStorage.getItem('submissions')) || [];
+
+	//	Update essay object
+	update_essay_object();
+
+	//	Set essay saved state
+	essay.saved = true;
 
 	//	Variable to hold whether there was a submission saved already
 	var index = -1;
@@ -111,6 +112,74 @@ function update_form_values (id) {
 		//	Update essay values
 		$(`.essay_form .essay.stage textarea#essay_text`).val(essay.essay);
 
+	}
+
+}
+
+//	Function called to update the essay object with form data
+function update_essay_object () {
+
+	//	Get details from form
+	var data = $(`.essay_form .details .form`).serializeArray();
+
+	//	Loop through each value inside the form and process into the proper format
+	data.forEach(elem => {
+
+		//	Update essay object with the new values
+		essay.details[elem.name] = elem.value;
+
+	});
+	//	Add authors to essay object
+	essay.details.students = get_table_data();
+
+	//	Get vocabulary from text area
+	var data = $(`.essay_form .vocabulary textarea`).val();
+
+	//	Replace all multiple spaces with single spaces
+	data = data.replace(/\s+/g, ' ');
+
+	//	Split the data by spaces and loop through the words and delete any duplicates
+	var words = [];
+	data.split(' ').map((word, i) => {
+
+		//	Add to words if its not already there and if not an empty word
+		if (!words.includes(word) && word != '') words.push(word);
+
+	});
+
+	//	Clamp array length to 500 words
+	if (words.length > 500) words.splice(500, words.length - 500);
+
+	//	Add words to the essay object
+	essay.vocabulary = words;
+	essay.settings.vocab_word_limit = parseInt($(`#vocab_word_limit`).val()) || 999999;
+
+	//	Add essay text to essay object
+	essay.essay = $(`.essay_form .essay textarea`).val();
+	
+}
+
+//	Function called to handle control save button
+function handle_save_command (e) {
+
+	//	Get current stage
+	var stage = new URL(window.location).searchParams.get('stage');
+
+	//	Exit if not currently in any stage
+	if (!stage) return
+
+	//	If control and s key is pressed
+	if (e.ctrlKey && String.fromCharCode(e.which).toLowerCase() == 's') {
+		
+		//	Stop browser from opening save dialog
+		e.preventDefault(); 
+		
+		//	Save current submission
+		save_current_submission();
+
+		//	Show toast
+		show_toast('success', 'Submission successfully saved');
+	
 	}
 
 }
