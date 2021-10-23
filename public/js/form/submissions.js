@@ -53,6 +53,9 @@ function save_current_submission () {
 	//	Set essay saved state
 	essay.saved = true;
 
+	//	Update save status
+	$(`.save_status`).removeClass('active');
+
 	//	Variable to hold whether there was a submission saved already
 	var index = -1;
 

@@ -11,6 +11,7 @@ $(`.stepper .step:nth-of-type(5)`).on('click', { index: 5 }, on_click_step);
 
 //	Subscribe functions to form input on keup event
 $(`.essay_form .input input`).on('keyup', on_form_keyup);
+$(`.essay_form .input textarea`).on('keyup', on_textarea_keyup);
 $(`.essay_form .table_input tbody input`).on('keyup', on_form_keyup);
 
 //	Update stage ui once
@@ -152,7 +153,21 @@ function on_form_keyup (event) {
 	//	Change essay saved state
 	essay.saved = false;
 
+	//	Update save status
+	$(`.save_status`).addClass('active');
+
 	//	If enter key is pressed then try going forward
 	if (event.key == 'Enter') on_click_forward();
+
+}
+
+//	Function called when a key is pressed while editing form text areas
+function on_textarea_keyup () {
+
+	//	Change essay saved state
+	essay.saved = false;
+
+	//	Update save status
+	$(`.save_status`).addClass('active');
 
 }

@@ -42,6 +42,12 @@ function handle_add_table_entry () {
 	//	Update size input
 	$(`.size input`, table_input).val(num_entries);
 
+	//	Change essay saved state
+	essay.saved = false;
+
+	//	Update save status
+	$(`.save_status`).addClass('active');
+
 }
 
 //	Function called to set the table entries
@@ -105,6 +111,12 @@ function handle_remove_table_entry (i = 0) {
 
 	//	Update size input
 	$(`.size input`, table_input).val(num_entries);
+
+	//	Change essay saved state
+	essay.saved = false;
+
+	//	Update save status
+	$(`.save_status`).addClass('active');
 
 }
 

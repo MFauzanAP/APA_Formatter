@@ -947,6 +947,7 @@ body {
     opacity: 0;
     transform: translateY(-20vh);
     transition: 0.25s ease-in-out;
+    /* Save Status */
     /* Stepper */
     /* Title */
     /* Meta */
@@ -958,10 +959,22 @@ body {
     /* Formatting */
     /* Download */
     /* Controls */ }
+    .form_page .essay_form .save_status {
+      margin-top: -125px;
+      color: #646464;
+      opacity: 0;
+      transition: 0.25s ease-in-out;
+      /* Active */
+      /* Icon */ }
+      .form_page .essay_form .save_status.active {
+        opacity: 0.75; }
+      .form_page .essay_form .save_status i {
+        margin-right: 10px;
+        font-size: 1.25em; }
     .form_page .essay_form .stepper {
       width: 800px;
       height: 2px;
-      margin-top: -50px;
+      margin-top: 50px;
       margin-bottom: 100px;
       background-image: linear-gradient(to right, #0099FF, #0099FF 50%, #CCCCCC 50%, #CCCCCC);
       background-size: 200% 100%;
@@ -1798,7 +1811,7 @@ body {
               position: relative;
               height: 1.15em;
               z-index: 1;
-              margin: 0;
+              margin-bottom: 15px;
               display: flex;
               flex-direction: row;
               justify-content: space-between;
@@ -1824,6 +1837,7 @@ body {
               height: 0;
               z-index: 1;
               margin: 10px 5px;
+              margin-top: 0;
               border: 2px solid #646464; }
             .dashboard .windows .window.submissions .container .entry .snippet {
               position: relative;

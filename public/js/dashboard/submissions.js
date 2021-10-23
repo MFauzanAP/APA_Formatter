@@ -20,11 +20,11 @@ function update_submissions_ui () {
 		var entry_html = `
 			<div class="entry">
 				<div class="watermark">ESSAY</div>
+				<div class="underline"></div>
 				<div class="header">
 					<div class="title">${submission.details.title || 'N/A'}</div>
 					<div class="date">${submission.details.date.replaceAll('-', '/') || 'N/A'}</div>
 				</div>
-				<div class="underline"></div>
 				<div class="snippet">${submission.essay || 'N/A'}</div>
 				<div class="controls">
 					<button class="delete" id="${submission.id}"><i class="far fa-trash-alt"></i></button>

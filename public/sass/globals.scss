@@ -1524,12 +1524,35 @@ body {
 
 		transition		: 0.25s ease-in-out;
 
+		/* Save Status */
+		.save_status {
+			margin-top		: -125px;
+
+			color			: $tertiary_text_color;
+
+			opacity			: 0;
+
+			transition		: 0.25s ease-in-out;
+
+			/* Active */
+			&.active {
+				opacity			: 0.75;
+			}
+
+			/* Icon */
+			i {
+				margin-right		: 10px;
+
+				font-size		: 1.25em;
+			}
+		}
+
 		/* Stepper */
 		.stepper {
 			width			: 800px;
 			height			: 2px;
 
-			margin-top		: -50px;
+			margin-top		: 50px;
 			margin-bottom		: 100px;
 
 			background-image	: linear-gradient(to right, $primary_color, $primary_color 50%, $tertiary_input_border_color 50%, $tertiary_input_border_color);
@@ -2861,7 +2884,7 @@ body {
 
 							z-index			: 1;
 
-							margin			: 0;
+							margin-bottom		: 15px;
 
 							display			: flex;
 							flex-direction		: row;
@@ -2903,6 +2926,7 @@ body {
 							z-index			: 1;
 
 							margin			: 10px 5px;
+							margin-top		: 0;
 
 							border			: 2px solid $tertiary_text_color;
 						}
