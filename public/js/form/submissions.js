@@ -122,6 +122,15 @@ function update_form_values (id) {
 
 		//	Update essay values
 		$(`.essay_form .essay.stage textarea#essay_text`).val(essay.essay);
+		
+		//	Get a match of all non whitespace words
+		var matches = essay.essay.match(/\S+/g)
+		
+		//	Calculate number of words
+		var num_words = matches ? matches.length : 0;
+
+		//	Update word count
+		$(`.essay_form .essay.stage .word_count`).html(`${num_words} words`);
 
 	}
 
