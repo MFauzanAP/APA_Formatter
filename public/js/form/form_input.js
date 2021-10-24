@@ -150,11 +150,16 @@ function on_click_step (event) {
 //	Function called when a key is pressed while editing form inputs
 function on_form_keyup (event) {
 
-	//	Change essay saved state
-	essay.saved = false;
+	//	If control and s key isnt pressed
+	if (!(e.ctrlKey && String.fromCharCode(e.which).toLowerCase() == 's')) {
 
-	//	Update save status
-	$(`.save_status`).addClass('active');
+		//	Change essay saved state
+		essay.saved = false;
+
+		//	Update save status
+		$(`.save_status`).addClass('active');
+
+	}
 
 	//	If enter key is pressed then try going forward
 	if (event.key == 'Enter') on_click_forward();
@@ -164,10 +169,15 @@ function on_form_keyup (event) {
 //	Function called when a key is pressed while editing form text areas
 function on_textarea_keyup () {
 
-	//	Change essay saved state
-	essay.saved = false;
+	//	If control and s key isnt pressed
+	if (!(e.ctrlKey && String.fromCharCode(e.which).toLowerCase() == 's')) {
 
-	//	Update save status
-	$(`.save_status`).addClass('active');
+		//	Change essay saved state
+		essay.saved = false;
+
+		//	Update save status
+		$(`.save_status`).addClass('active');
+
+	}
 
 }
