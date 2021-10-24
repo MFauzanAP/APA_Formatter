@@ -17,20 +17,18 @@ function handle_add_table_entry () {
 
 	//	Declare row element html
 	var html = `
-	<tr>
-
-		<td><i class="fa fa-bars grip"></i></td>
-
-		<td><input type="text" id="student_name" name="student_name" placeholder="Student Name" required/></td>
-
-		<td><input type="text" id="student_id" name="student_id" placeholder="Student ID" required/></td>
-
-		<td><button class="delete"><i class="fa fa-times"></i></button></td>
-
-	</tr>`;
+		<tr>
+			<td><i class="fa fa-bars grip"></i></td>
+			<td><input type="text" id="student_name" name="student_name" placeholder="Student Name" required/></td>
+			<td><input type="text" id="student_id" name="student_id" placeholder="Student ID" required/></td>
+			<td><button class="delete"><i class="fa fa-times"></i></button></td>
+		</tr>`;
 
 	//	Add new row
 	$(`tbody`, table_input).append(html);
+
+	//	Show row
+	$(`tbody tr:last-child`, table_input).addClass('active');
 
 	//	Subscribe function to delete button
 	$(`.delete`, table_input).off('click');
@@ -77,6 +75,9 @@ function set_table_entries (data) {
 			//	Add new row
 			$(`tbody`, table_input).append(html);
 
+			//	Show row
+			$(`tbody tr:last-child`, table_input).addClass('active');
+
 			//	Subscribe function to delete button
 			$(`.delete`, table_input).off('click');
 			$(`.delete`, table_input).on('click', handle_remove_table_entry);
@@ -103,8 +104,11 @@ function handle_remove_table_entry (i = 0) {
 	var index = $(`.delete`, table_input).index(this);
 	index = index >= 0 ? index : i;
 
-	//	Delete element at this index
-	$(`tbody tr:nth-child(${index + 1})`, table_input).remove();
+	//	Hide element at this index
+	$(`tbody tr:nth-child(${index + 1})`, table_input).removeClass('active');
+
+	//	Delete element at this index after delay
+	setTimeout(() => $(`tbody tr:nth-child(${index + 1})`, table_input).remove(), 500);
 
 	//	Decrement num entries
 	num_entries--;
