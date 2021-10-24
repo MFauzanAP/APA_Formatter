@@ -21,12 +21,10 @@ async function submit_essay (data) {
 	var file_name = new Date().getTime().toString();
 
 	//	Output to file stream
-	Packer.toBuffer(document).then((buffer) => {
+	var buffer = await Packer.toBuffer(document);
 
-		//	Write to file
-		fs.writeFileSync(`./public/word/${file_name}.docx`, buffer);
-
-	});
+	//	Write to file
+	await fs.writeFileSync(`./public/word/${file_name}.docx`, buffer);
 
 	//	Return success
 	return {

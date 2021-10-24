@@ -2999,6 +2999,25 @@ body {
 								}
 							}
 
+							/* Download */
+							.download {
+								width			: 50px;
+
+								margin-right		: 10px;
+
+								background		: $tertiary_input_border_color;
+
+								/* Hover */
+								&:hover {
+									background		: $secondary_input_border_color;
+								}
+
+								/* Icon */
+								i {
+									pointer-events		: none;
+								}
+							}
+
 							/* View */
 							.view {
 								width			: 120px;

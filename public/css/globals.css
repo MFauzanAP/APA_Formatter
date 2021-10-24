@@ -2171,6 +2171,7 @@ body .shake {
   flex-direction: row;
   justify-content: flex-end;
   /* Delete */
+  /* Download */
   /* View */
 }
 .dashboard .windows .window.submissions .container .entry .controls .delete {
@@ -2184,6 +2185,19 @@ body .shake {
   background: #AAAAAA;
 }
 .dashboard .windows .window.submissions .container .entry .controls .delete i {
+  pointer-events: none;
+}
+.dashboard .windows .window.submissions .container .entry .controls .download {
+  width: 50px;
+  margin-right: 10px;
+  background: #CCCCCC;
+  /* Hover */
+  /* Icon */
+}
+.dashboard .windows .window.submissions .container .entry .controls .download:hover {
+  background: #AAAAAA;
+}
+.dashboard .windows .window.submissions .container .entry .controls .download i {
   pointer-events: none;
 }
 .dashboard .windows .window.submissions .container .entry .controls .view {
