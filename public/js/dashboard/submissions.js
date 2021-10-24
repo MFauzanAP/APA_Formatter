@@ -109,6 +109,10 @@ function on_delete_submission (id) {
 //	Function called when download button is clicked
 async function on_download_submission (id) {
 
+	//	Add loading indicator
+	$(`.dashboard .windows .submissions .container .download`).html(`<i class="fa fa-spin fa-spinner"></i>`)
+	$(`.dashboard .windows .submissions .container .download`).css('pointer-events', 'none');
+
 	//	Get all submissions
 	var submissions = JSON.parse(window.localStorage.getItem('submissions')) || [];
 
@@ -198,5 +202,9 @@ async function on_download_submission (id) {
 		show_toast('error', 'Submission not found');
 
 	}
+
+	//	Remove loading indicator
+	$(`.dashboard .windows .submissions .container .download`).html(`<i class="fa fa-download"></i>`)
+	$(`.dashboard .windows .submissions .container .download`).css('pointer-events', 'all');
 
 }
