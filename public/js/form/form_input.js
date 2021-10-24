@@ -78,6 +78,9 @@ function on_click_backward () {
 		'download'		: 'formatting',
 	}
 
+	//	If going back to title page
+	if (stage == 'details') id = ''
+
 	//	Update stage ui
 	update_stage_ui(stages[stage]);
 	update_steps_ui(stages[stage]);
