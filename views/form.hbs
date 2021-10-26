@@ -207,7 +207,10 @@
 			<div class="title">Add Vocabulary List</div>
 
 			{{!-- Meta --}}
-			<div class="meta">This step may be unnecessary for you, feel free to skip it.</div>
+			<div class="meta">
+				If you need highlighted words in your essay, add them here. 
+				Each word must be seperated by 1 or more spaces.
+			</div>
 
 			{{!-- Word Limit --}}
 			<div class="row">
@@ -216,7 +219,7 @@
 					<label class="meta" for="vocab_word_limit">How many words from this list should be highlighted</label>
 				</div>
 				<div class="input">
-					<input type="number" name="vocab_word_limit" id="vocab_word_limit" value='4' step="1" min='0' max='32'/>
+					<input type="number" name="vocab_word_limit" id="vocab_word_limit" value="4" step="1" min="0" max="32"/>
 					<label class="unit">words</label>
 				</div>
 			</div>
