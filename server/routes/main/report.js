@@ -8,11 +8,11 @@ const router = express.Router();
 
 /* ====================================================== Setup ===================================================== */
 
-//	Get converter page
+//	Get report page
 router.get('/', (req, res) => {
 
 	//	Render converter page
-	res.render('converter', { layout: 'converter' });
+	res.render('report', { layout: 'report' });
 
 })
 

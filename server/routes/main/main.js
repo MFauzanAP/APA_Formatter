@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 const form = require('./form');
 const checklist = require('./checklist');
-const converter = require('./converter');
+const report = require('./report');
 const dashboard = require('./dashboard');
 
 
@@ -13,6 +13,7 @@ const dashboard = require('./dashboard');
 /* ====================================================== Setup ===================================================== */
 router.use('/', form);
 router.use('/dashboard', dashboard);
+router.use('/report', report);
 
 
 
