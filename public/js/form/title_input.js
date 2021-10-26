@@ -23,7 +23,7 @@ function on_submit_title () {
 	}
 
 	//	Reset all inputs
-	$(`input`).val('');
+	$(`input:not(#vocab_word_limit)`).val('');
 	$(`textarea`).val('');
 
 	//	Reset table

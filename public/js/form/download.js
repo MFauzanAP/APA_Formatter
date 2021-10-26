@@ -34,7 +34,7 @@ function reset_download () {
 async function restart_form_page () {
 
 	//	Reset all inputs
-	$(`input`).val('');
+	$(`input:not(#vocab_word_limit)`).val('');
 	$(`textarea`).val('');
 
 	//	Generate unique id

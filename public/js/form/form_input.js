@@ -170,7 +170,7 @@ function on_form_keyup (event) {
 }
 
 //	Function called when a key is pressed while editing form text areas
-function on_textarea_keyup () {
+function on_textarea_keyup (e) {
 
 	//	If control and s key isnt pressed
 	if (!(e.ctrlKey && String.fromCharCode(e.which).toLowerCase() == 's')) {
