@@ -54,4 +54,297 @@
 
 	</div>
 
+	{{!-- Report Form --}}
+	<div class="report_form">
+
+		{{!-- Save Status --}}
+		<div class="active save_status"><i class="fa fa-save"></i>You Have Unsaved Changes</div>
+
+		{{!-- Stepper --}}
+		<div class="stepper">
+
+			{{!-- Details --}}
+			<div class="step">1<i class="fa fa-check check"></i><div class="label">Details</div></div>
+
+			{{!-- Authors --}}
+			<div class="step">2<i class="fa fa-check check"></i><div class="label">Authors</div></div>
+
+			{{!-- Sections --}}
+			<div class="step">3<i class="fa fa-check check"></i><div class="label">Sections</div></div>
+
+			{{!-- References --}}
+			<div class="step">4<i class="fa fa-check check"></i><div class="label">References</div></div>
+
+			{{!-- Download --}}
+			<div class="step">5<i class="fa fa-check check"></i><div class="label">Download</div></div>
+
+		</div>
+
+		{{!-- Details --}}
+		<div class="details stage">
+
+			{{!-- Title --}}
+			<div class="title">Fill In Your Report Details</div>
+
+			{{!-- Meta --}}
+			<div class="meta">Some fields may be left out if not needed.</div>
+
+			{{!-- Form --}}
+			<form class="form">
+
+				{{!-- Title Input --}}
+				<div class="input" style="grid-column: span 4;">
+					<input type="text" id="title" name="title" required/>
+					<label htmlFor="title">Title*</label>
+				</div>
+
+				{{!-- Date --}}
+				<div class="input date" style="grid-column: span 2;">
+					<input type="date" id="date" name="date" required/>
+					<label htmlFor="date">Date</label>
+				</div>
+
+				{{!-- Lecturer Name --}}
+				<div class="input" style="grid-column: span 4;">
+					<input type="text" id="lecturer_name" name="lecturer_name" required/>
+					<label htmlFor="lecturer_name">Lecturer Name</label>
+				</div>
+
+				{{!-- Course Number --}}
+				<div class="input" style="grid-column: span 2;">
+					<input type="text" id="course_number" name="course_number" required/>
+					<label htmlFor="course_number">Course Number</label>
+				</div>
+
+			</form>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+				{{!-- Settings Button --}}
+				<button class="settings"><i class="fa fa-cog" style="font-size: 1.5em"></i></button>
+
+			</div>
+
+		</div>
+
+		{{!-- Authors --}}
+		<div class="authors stage">
+
+			{{!-- Title --}}
+			<div class="title">Add Your Essay's Authors</div>
+
+			{{!-- Meta --}}
+			<div class="meta">Fill in this table with the details of each author.</div>
+
+			{{!-- Student Entry Table --}}
+			<table class="table_input">
+
+				{{!-- Header --}}
+				<thead><tr>
+
+					{{!-- Grip --}}
+					<th class="grip"></th>
+
+					{{!-- Name --}}
+					<th>Student Name</th>
+
+					{{!-- ID --}}
+					<th>Student ID</th>
+
+					{{!-- Size Input --}}
+					<th class="size"><input type="number" value="1" min="1" max="10"/></th>
+
+				</tr></thead>
+
+				{{!-- Row --}}
+				<tbody><tr>
+
+					{{!-- Grip --}}
+					<td><i class="fa fa-bars grip"></i></td>
+
+					{{!-- Student Name --}}
+					<td><input type="text" id="student_name" name="student_name" placeholder="Student Name" required/></td>
+
+					{{!-- Student ID --}}
+					<td><input type="text" id="student_id" name="student_id" placeholder="Student ID" required/></td>
+
+					{{!-- Delete Button --}}
+					<td><button class="delete"><i class="fa fa-times"></i></button></td>
+
+				</tr></tbody>
+
+				{{!-- Footer --}}
+				<tfoot><tr>
+
+					{{!-- Add Button --}}
+					<td colspan="4"><button class="add"><i class="fa fa-plus"></i></button></td>
+
+				</tr></tfoot>
+
+			</table>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+				{{!-- Settings Button --}}
+				<button class="settings"><i class="fa fa-cog" style="font-size: 1.5em"></i></button>
+
+			</div>
+
+		</div>
+
+		{{!-- Sections --}}
+		<div class="sections stage">
+
+			{{!-- Title --}}
+			<div class="title">Add Your Report Sections</div>
+
+			{{!-- Meta --}}
+			<div class="meta">
+				Here you can add things like an abstract, introduction, or any other section
+				that requires a header. These sections will be automatically added to the
+				table of contents if enabled.
+			</div>
+
+			{{!-- Word Limit --}}
+			<div class="row">
+				<div class="description">
+					<label for="vocab_word_limit">Word Limit (0 for no limit)</label>
+					<label class="meta" for="vocab_word_limit">How many words from this list should be highlighted</label>
+				</div>
+				<div class="input">
+					<input type="number" name="vocab_word_limit" id="vocab_word_limit" value=4 step="1" min="0" max="32"/>
+					<label class="unit">words</label>
+				</div>
+			</div>
+
+			{{!-- Text Area --}}
+			<div class="input">
+
+				{{!-- Text Area --}}
+				<textarea id="vocab_list" name="vocab_list" maxlength="10000" placeholder="eg. one two three"></textarea>
+
+				{{!-- Max Length Indicator --}}
+				<div class="length_indicator">Max 10,000 Chars.</div>
+
+			</div>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+				{{!-- Settings Button --}}
+				<button class="settings"><i class="fa fa-cog" style="font-size: 1.5em"></i></button>
+
+			</div>
+
+		</div>
+
+		{{!-- References --}}
+		<div class="references stage">
+
+			{{!-- Title --}}
+			<div class="title">Add References</div>
+
+			{{!-- Meta --}}
+			<div class="meta">
+				Add any references used here and they will be added automatically to
+				the references page if enabled.
+			</div>
+
+			{{!-- Text Area --}}
+			<div class="input">
+
+				{{!-- Toolbar --}}
+				<div class="toolbar">
+
+					{{!-- Word Count --}}
+					<div class="word_count">0 words</div>
+
+					{{!-- Full Screen Button --}}
+					<button class="fullscreen_button"><i class="fa fa-expand"></i></button>
+
+				</div>
+
+				{{!-- Text Area --}}
+				<textarea id="essay_text" name="essay_text"></textarea>
+
+			</div>
+
+			{{!-- Controls --}}
+			<div class="controls">
+
+				{{!-- Back Button --}}
+				<button class="back"><i class="fa fa-arrow-left"></i></button>
+
+				{{!-- Continue Button --}}
+				<button class="continue">Continue</button>
+
+				{{!-- Settings Button --}}
+				<button class="settings"><i class="fa fa-cog" style="font-size: 1.5em"></i></button>
+
+			</div>
+
+		</div>
+
+		{{!-- Formatting --}}
+		<div class="formatting stage">
+
+			{{!-- Loader --}}
+			<lottie-player src="/static/animations/loader.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></lottie-player>
+
+			{{!-- Text --}}
+			<div class="text">Formatting report, hold on...</div>
+
+		</div>
+
+		{{!-- Download --}}
+		<div class="download stage">
+
+			{{!-- Loader --}}
+			<lottie-player src="/static/animations/success.json" background="transparent" speed="1" style="width: 300px; height: 300px;" autoplay></lottie-player>
+
+			{{!-- Header --}}
+			<div class="header">Congratulations!</div>
+
+			{{!-- Text --}}
+			<div class="text">
+				Your report has been successfully formatted.
+				Click the download button below to download the word document.
+				If you'd like to change any part of the report, feel free to go back and edit it.
+			</div>
+
+			{{!-- Buttons --}}
+			<div class="buttons">
+
+				{{!-- Restart Button --}}
+				<button class="restart_button"><i class="fa fa-undo"></i>Restart</button>
+
+				{{!-- Download Button --}}
+				<a href="/static/word/Formatted Report.docx" download="Formatted Report.docx" class="download_link"><button class="download_button"><i class="fa fa-download"></i>Download</button></a>
+
+			</div>
+
+		</div>
+
+	</div>
+
 </div>
