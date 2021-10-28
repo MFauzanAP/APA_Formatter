@@ -695,6 +695,7 @@ body .shake {
   transform-origin: left;
   transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
   /* Hover */
+  /* Active */
   /* Icon */
 }
 .sidebar .link:hover {
@@ -703,6 +704,13 @@ body .shake {
   /* Hover */
 }
 .sidebar .link:hover i {
+  color: #0099FF;
+}
+.sidebar .link.active {
+  color: #0099FF;
+  /* Hover */
+}
+.sidebar .link.active i {
   color: #0099FF;
 }
 .sidebar .link i {

@@ -964,6 +964,16 @@ body {
 			}
 		}
 
+		/* Active */
+		&.active {
+			color			: $primary_color;
+
+			/* Hover */
+			i {
+				color			: $primary_color;
+			}
+		}
+
 		/* Icon */
 		i {
 			margin-right		: 25px;

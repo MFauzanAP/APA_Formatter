@@ -2,15 +2,15 @@
 <div class="sidebar">
 
 	{{!-- Submissions Link --}}
-	<a class="link" href='/dashboard?tab=submissions'><i class="far fa-hdd"></i>Submissions</a>
+	<a class="{{is_active page 0}}link" href='/dashboard?tab=submissions'><i class="far fa-hdd"></i>Submissions</a>
 
 	{{!-- Form Link --}}
-	<a class="link" href='/'><i class="far fa-file-alt" style="margin-left: 5px; margin-right: 28px;"></i>Essay</a>
+	<a class="{{is_active page 1}}link" href='/'><i class="far fa-file-alt" style="margin-left: 5px; margin-right: 28px;"></i>Essay</a>
 
 	{{!-- Report Link --}}
-	<a class="link" href='/report'><i class="fa fa-exchange-alt" style="margin-left: 1.5px;"></i>Report</a>
+	<a class="{{is_active page 2}}link" href='/report'><i class="fa fa-exchange-alt" style="margin-left: 1.5px;"></i>Report</a>
 
 	{{!-- Checklist Link --}}
-	<a class="link" href='/checklist'><i class="far fa-check-circle" style="margin-left: 2.5px;"></i>Checklist</a>
+	<a class="{{is_active page 3}}link" href='/checklist'><i class="far fa-check-circle" style="margin-left: 2.5px;"></i>Checklist</a>
 
 </div>
